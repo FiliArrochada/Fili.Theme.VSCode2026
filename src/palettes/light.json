@@ -1,6 +1,6 @@
 {
-  "$comment": "Fili.Vs2026 Light. Every role is [value, provenance]. Provenance names the Visual Studio 2026 (18.x) theme token the value comes from (Category.Token, decoded from Theme.Light.pkgdef, or 'VS default' where the Light theme inherits the editor's built-in colour), 'sampled' for a pixel read off a live VS 2026 Light window, 'composite' for a translucent Fluent token flattened onto the surface it sits on, or 'inferred' where VS has no equivalent. Designed from the Light references, not inverted from dark.json, but role names must match it exactly.",
-  "name": "Fili.Vs2026 Light",
+  "$comment": "Fili.VSCode2026 Light. Every role is [value, provenance]. Provenance names the Visual Studio 2026 (18.x) theme token the value comes from (Category.Token, decoded from Theme.Light.pkgdef, or 'VS default' where the Light theme inherits the editor's built-in colour), 'sampled' for a pixel read off a live VS 2026 Light window, 'composite' for a translucent Fluent token flattened onto the surface it sits on, or 'inferred' where VS has no equivalent. Designed from the Light references, not inverted from dark.json, but role names must match it exactly.",
+  "name": "Fili.VSCode2026 Light",
   "type": "light",
   "roles": {
     "chrome":                ["#EEEEEE", "ShellInternal.EnvironmentBackground (frame, title bar, menu bar, toolbar; sampled identical)"],

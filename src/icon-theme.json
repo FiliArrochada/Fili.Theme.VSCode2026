@@ -1,5 +1,5 @@
 {
-  "$comment": "Shared by both modes of the Fili.Vs2026 Icons file icon theme. Maps files and folders to the icon templates in src/icons/ — never to a colour. The build renders every template once per palette (icons/dark, icons/light) and wires the light set in as the theme's 'light' variant. Templates are original drawings in the outline style of Visual Studio 2026's Solution Explorer, not copies of Visual Studio's icons.",
+  "$comment": "Shared by both modes of the Fili.VSCode2026 Icons file icon theme. Maps files and folders to the icon templates in src/icons/ — never to a colour. The build renders every template once per palette (icons/dark, icons/light) and wires the light set in as the theme's 'light' variant. Templates are original drawings in the outline style of Visual Studio 2026's Solution Explorer, not copies of Visual Studio's icons.",
 
   "file": "file",
   "folder": "folder",

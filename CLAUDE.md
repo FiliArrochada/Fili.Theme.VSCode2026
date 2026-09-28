@@ -6,8 +6,8 @@ directory up still applies — in particular **never commit anything**.
 ## What this is
 
 A VS Code colour-theme extension reconstructing Visual Studio 2026's Fluent appearance: the two base
-themes **Fili.Vs2026 Dark** and **Fili.Vs2026 Light**, the thirteen variants VS 2026 ships (eleven
-tinted themes and two Extra Contrast editors), plus a file icon theme, **Fili.Vs2026 Icons**,
+themes **Fili.VSCode2026 Dark** and **Fili.VSCode2026 Light**, the thirteen variants VS 2026 ships (eleven
+tinted themes and two Extra Contrast editors), plus a file icon theme, **Fili.VSCode2026 Icons**,
 for Solution Explorer's look. There is no runtime code; the deliverables are `themes/` and
 `icons/`, and both are generated.
 
@@ -93,12 +93,12 @@ deleting a key that a newer VS Code added.
 
 ## Identity
 
-The icon theme id `fili-vs2026-icons` is what users put in `workbench.iconTheme`, so it is as
+The icon theme id `fili-vscode2026-icons` is what users put in `workbench.iconTheme`, so it is as
 fixed as the extension id once released.
 
-The extension id is **`FiliArrochada.fili-vs2026`** (`publisher` + `name` in `package.json`). It is
+The extension id is **`FiliArrochada.fili-vscode2026`** (`publisher` + `name` in `package.json`). It is
 permanent once published to a marketplace — do not rename either field after a release. Display
-name and theme labels (`Fili.Vs2026 Dark` / `Light`) are user-facing and can change, but a
+name and theme labels (`Fili.VSCode2026 Dark` / `Light`) are user-facing and can change, but a
 changed theme label un-selects the theme for everyone using it.
 
 `package.json` has no `repository` field because the GitHub owner is not decided. `npm run package`

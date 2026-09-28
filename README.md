@@ -1,4 +1,4 @@
-# Fili.Vs2026
+# Fili.VSCode2026
 
 Visual Studio 2026's Dark and Light themes, rebuilt for VS Code from Visual Studio's own theme files.
 
@@ -7,17 +7,17 @@ ship with Visual Studio 2026 (18.x), the same Fluent tokens the IDE draws itself
 was then checked against pixels sampled from a running Visual Studio 2026 window. Every colour in
 the source records which Visual Studio token it came from.
 
-## Fili.Vs2026 Dark
+## Fili.VSCode2026 Dark
 
 Visual Studio 2026-inspired Fluent dark appearance for VS Code.
 
-![Fili.Vs2026 Dark](docs/dark.png)
+![Fili.VSCode2026 Dark](docs/dark.png)
 
-## Fili.Vs2026 Light
+## Fili.VSCode2026 Light
 
 Visual Studio 2026-inspired Fluent light appearance for VS Code.
 
-![Fili.Vs2026 Light](docs/light.png)
+![Fili.VSCode2026 Light](docs/light.png)
 
 ## Every Visual Studio 2026 theme
 
@@ -25,13 +25,13 @@ Besides Dark and Light, the extension carries every other theme Visual Studio 20
 
 | Built on Dark | Built on Light |
 |---|---|
-| Fili.Vs2026 Cool Slate | Fili.Vs2026 Bubblegum |
-| Fili.Vs2026 Juicy Plum | Fili.Vs2026 Cool Breeze |
-| Fili.Vs2026 Moonlight Glow | Fili.Vs2026 Icy Mint |
-| Fili.Vs2026 Mystical Forest | Fili.Vs2026 Mango Paradise |
-| Fili.Vs2026 Spicy Red | Fili.Vs2026 Silky Pink |
-| Fili.Vs2026 Dark (Extra Contrast) | Fili.Vs2026 Sunny Day |
-| | Fili.Vs2026 Light (Extra Contrast) |
+| Fili.VSCode2026 Cool Slate | Fili.VSCode2026 Bubblegum |
+| Fili.VSCode2026 Juicy Plum | Fili.VSCode2026 Cool Breeze |
+| Fili.VSCode2026 Moonlight Glow | Fili.VSCode2026 Icy Mint |
+| Fili.VSCode2026 Mystical Forest | Fili.VSCode2026 Mango Paradise |
+| Fili.VSCode2026 Spicy Red | Fili.VSCode2026 Silky Pink |
+| Fili.VSCode2026 Dark (Extra Contrast) | Fili.VSCode2026 Sunny Day |
+| | Fili.VSCode2026 Light (Extra Contrast) |
 
 ![All fifteen themes](docs/themes.png)
 
@@ -57,7 +57,7 @@ Windows' contrast mode is on.
 From a packaged `.vsix`:
 
 ```text
-code --install-extension fili-vs2026-0.1.0.vsix
+code --install-extension fili-vscode2026-0.1.0.vsix
 ```
 
 Or open **Extensions** (`Ctrl+Shift+X`), choose **…** › **Install from VSIX…**, and pick the file.
@@ -71,13 +71,13 @@ Ctrl+K Ctrl+T
 and choose either:
 
 ```text
-Fili.Vs2026 Dark
+Fili.VSCode2026 Dark
 ```
 
 or:
 
 ```text
-Fili.Vs2026 Light
+Fili.VSCode2026 Light
 ```
 
 or any of the variants above.
@@ -86,7 +86,7 @@ For Solution Explorer's icons, also pick the file icon theme. Run **Preferences:
 from the Command Palette (`Ctrl+Shift+P`) and choose:
 
 ```text
-Fili.Vs2026 Icons
+Fili.VSCode2026 Icons
 ```
 
 It follows whichever of the two colour themes is active.
@@ -151,12 +151,12 @@ Code's yellow one.
 The Explorer was matched against Visual Studio 2026's Solution Explorer, sampled from a live
 window with a two-project solution open:
 
-| | Visual Studio 2026 | Fili.Vs2026 |
+| | Visual Studio 2026 | Fili.VSCode2026 |
 |---|---|---|
 | Selected row, focused or not | `#353535` Dark, `#EAEAEA` Light | the same |
 | Indent per level | 12px | 12px (`workbench.tree.indent`) |
 | Indent guides | none | none (`workbench.tree.renderIndentGuides`) |
-| Folders | amber outline, the same when expanded | the same, via **Fili.Vs2026 Icons** |
+| Folders | amber outline, the same when expanded | the same, via **Fili.VSCode2026 Icons** |
 | C# files | green `C#` glyph | the same |
 | Other files | monochrome outline glyphs | the same |
 | `bin`, `obj`, `.vs` | not shown | hidden with `files.exclude` |
@@ -195,7 +195,7 @@ you want to your user `settings.json`:
   "editor.inlayHints.enabled": "offUnlessPressed",
 
   // Solution Explorer: VS's icons, 12px indent, no indent guides, folders never merged.
-  "workbench.iconTheme": "fili-vs2026-icons",
+  "workbench.iconTheme": "fili-vscode2026-icons",
   "workbench.tree.indent": 12,
   "workbench.tree.renderIndentGuides": "none",
   "explorer.compactFolders": false,
@@ -234,9 +234,9 @@ These are limits of what a VS Code colour theme can express, not choices:
 - **Icons and fonts are not part of a colour theme.** Visual Studio's icon set and UI font are
   outside what a theme can change.
 
-![Debugging in Fili.Vs2026 Dark](docs/dark-debug.png)
+![Debugging in Fili.VSCode2026 Dark](docs/dark-debug.png)
 
-![Diagnostics in Fili.Vs2026 Light](docs/light-problems.png)
+![Diagnostics in Fili.VSCode2026 Light](docs/light-problems.png)
 
 ## Development
 

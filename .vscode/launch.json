@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run Fili.Vs2026",
+      "name": "Run Fili.VSCode2026",
       "type": "extensionHost",
       "request": "launch",
       "args": [
