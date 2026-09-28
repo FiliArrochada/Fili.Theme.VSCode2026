@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1
+
+- Each variant's name now says whether it is dark or light, so the theme picker reads
+  "Fili.VSCode2026 Dark (Cool Slate)", "Fili.VSCode2026 Light (Bubblegum)" and so on.
+
 ## 0.3.0
 
 - The activity bar moves to the top of the side bar by default, as a small row of icons: Visual

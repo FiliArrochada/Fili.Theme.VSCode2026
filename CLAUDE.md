@@ -74,6 +74,12 @@ decoration colours were left out on purpose — the first would force Dark on ev
 picked a theme, the others change behaviour for users of any theme — so they stay optional in the
 README.
 
+**Theme labels are what users' settings store.** A variant is labelled with its base first
+("Fili.VSCode2026 Dark (Cool Slate)"); `variants.mjs` generates it. VS Code saves a chosen theme by
+its `id`, or by its `label` when there is none, so relabelling a theme un-selects it for everyone
+using it. That was acceptable in 0.3.1 because the extension had no users yet. Once it does, rename
+a label only together with an `id` that keeps the old name.
+
 **`package.json` lists every theme, and the build checks it.** Adding or removing a variant means
 updating `contributes.themes`; the build fails and prints the exact list it expects.
 

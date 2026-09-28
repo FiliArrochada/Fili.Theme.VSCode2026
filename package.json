@@ -2,7 +2,7 @@
   "name": "fili-vscode2026",
   "displayName": "Fili.VSCode2026",
   "description": "Visual Studio 2026's themes for VS Code — Dark, Light, the eleven tinted themes and both Extra Contrast editors — rebuilt from Visual Studio's own Fluent theme tokens, with Roslyn-accurate C# and a Solution Explorer icon theme.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "FiliArrochada",
   "author": "FiliArrochada",
   "license": "MIT",
@@ -47,17 +47,17 @@
         "path": "./themes/fili-vscode2026-light-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Bubblegum",
+        "label": "Fili.VSCode2026 Light (Bubblegum)",
         "uiTheme": "vs",
         "path": "./themes/fili-vscode2026-bubblegum-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Cool Breeze",
+        "label": "Fili.VSCode2026 Light (Cool Breeze)",
         "uiTheme": "vs",
         "path": "./themes/fili-vscode2026-cool-breeze-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Cool Slate",
+        "label": "Fili.VSCode2026 Dark (Cool Slate)",
         "uiTheme": "vs-dark",
         "path": "./themes/fili-vscode2026-cool-slate-color-theme.json"
       },
@@ -67,12 +67,12 @@
         "path": "./themes/fili-vscode2026-dark-extra-contrast-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Icy Mint",
+        "label": "Fili.VSCode2026 Light (Icy Mint)",
         "uiTheme": "vs",
         "path": "./themes/fili-vscode2026-icy-mint-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Juicy Plum",
+        "label": "Fili.VSCode2026 Dark (Juicy Plum)",
         "uiTheme": "vs-dark",
         "path": "./themes/fili-vscode2026-juicy-plum-color-theme.json"
       },
@@ -82,32 +82,32 @@
         "path": "./themes/fili-vscode2026-light-extra-contrast-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Mango Paradise",
+        "label": "Fili.VSCode2026 Light (Mango Paradise)",
         "uiTheme": "vs",
         "path": "./themes/fili-vscode2026-mango-paradise-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Moonlight Glow",
+        "label": "Fili.VSCode2026 Dark (Moonlight Glow)",
         "uiTheme": "vs-dark",
         "path": "./themes/fili-vscode2026-moonlight-glow-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Mystical Forest",
+        "label": "Fili.VSCode2026 Dark (Mystical Forest)",
         "uiTheme": "vs-dark",
         "path": "./themes/fili-vscode2026-mystical-forest-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Silky Pink",
+        "label": "Fili.VSCode2026 Light (Silky Pink)",
         "uiTheme": "vs",
         "path": "./themes/fili-vscode2026-silky-pink-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Spicy Red",
+        "label": "Fili.VSCode2026 Dark (Spicy Red)",
         "uiTheme": "vs-dark",
         "path": "./themes/fili-vscode2026-spicy-red-color-theme.json"
       },
       {
-        "label": "Fili.VSCode2026 Sunny Day",
+        "label": "Fili.VSCode2026 Light (Sunny Day)",
         "uiTheme": "vs",
         "path": "./themes/fili-vscode2026-sunny-day-color-theme.json"
       }

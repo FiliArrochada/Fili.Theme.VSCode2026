@@ -25,12 +25,12 @@ Besides Dark and Light, the extension carries every other theme Visual Studio 20
 
 | Built on Dark | Built on Light |
 |---|---|
-| Fili.VSCode2026 Cool Slate | Fili.VSCode2026 Bubblegum |
-| Fili.VSCode2026 Juicy Plum | Fili.VSCode2026 Cool Breeze |
-| Fili.VSCode2026 Moonlight Glow | Fili.VSCode2026 Icy Mint |
-| Fili.VSCode2026 Mystical Forest | Fili.VSCode2026 Mango Paradise |
-| Fili.VSCode2026 Spicy Red | Fili.VSCode2026 Silky Pink |
-| Fili.VSCode2026 Dark (Extra Contrast) | Fili.VSCode2026 Sunny Day |
+| Fili.VSCode2026 Dark (Cool Slate) | Fili.VSCode2026 Light (Bubblegum) |
+| Fili.VSCode2026 Dark (Juicy Plum) | Fili.VSCode2026 Light (Cool Breeze) |
+| Fili.VSCode2026 Dark (Moonlight Glow) | Fili.VSCode2026 Light (Icy Mint) |
+| Fili.VSCode2026 Dark (Mystical Forest) | Fili.VSCode2026 Light (Mango Paradise) |
+| Fili.VSCode2026 Dark (Spicy Red) | Fili.VSCode2026 Light (Silky Pink) |
+| Fili.VSCode2026 Dark (Extra Contrast) | Fili.VSCode2026 Light (Sunny Day) |
 | | Fili.VSCode2026 Light (Extra Contrast) |
 
 ![All fifteen themes](docs/themes.png)

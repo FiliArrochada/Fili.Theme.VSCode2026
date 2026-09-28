@@ -1,6 +1,8 @@
 # --- Fili.VSCode2026 ---
 # Packaged extensions are build output.
 *.vsix
+# Visual Studio's per-user working data, created when the folder is opened in VS.
+.vs/
 
 # --- generated: gitignore.io templates node,visualstudiocode ---
 # Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
