@@ -87,14 +87,11 @@ Fili.VSCode2026 Light
 
 or any of the variants above.
 
-For Solution Explorer's icons, also pick the file icon theme. Run **Preferences: File Icon Theme**
-from the Command Palette (`Ctrl+Shift+P`) and choose:
-
-```text
-Fili.VSCode2026 Icons
-```
-
-It follows whichever of the two colour themes is active.
+Installing the extension also gives the Explorer Solution Explorer's look, with no setup: it
+makes **Fili.VSCode2026 Icons** the default file icon theme, and sets a 12px tree indent, no
+indent guides and no compacted folders. These are defaults, not changes to your settings: anything
+you have set yourself still wins, and uninstalling the extension puts VS Code's own defaults back.
+To use another icon theme, pick it with **Preferences: File Icon Theme** as usual.
 
 For C# to be coloured the way Visual Studio colours it, install Microsoft's **C#** extension
 (`ms-dotnettools.csharp`). Its Roslyn language server supplies the semantic information (class
@@ -159,9 +156,9 @@ window with a two-project solution open:
 | | Visual Studio 2026 | Fili.VSCode2026 |
 |---|---|---|
 | Selected row, focused or not | `#353535` Dark, `#EAEAEA` Light | the same |
-| Indent per level | 12px | 12px (`workbench.tree.indent`) |
-| Indent guides | none | none (`workbench.tree.renderIndentGuides`) |
-| Folders | amber outline, the same when expanded | the same, via **Fili.VSCode2026 Icons** |
+| Indent per level | 12px | 12px, set on install |
+| Indent guides | none | none, set on install |
+| Folders | amber outline, the same when expanded | the same, via **Fili.VSCode2026 Icons** (default on install) |
 | C# files | green `C#` glyph | the same |
 | Other files | monochrome outline glyphs | the same |
 | `bin`, `obj`, `.vs` | not shown | hidden with `files.exclude` |
@@ -172,8 +169,9 @@ Studio's own icons.
 
 ## Making the layout look like Visual Studio 2026 too
 
-A colour theme cannot move things around. These settings get the rest of the way. Add the ones
-you want to your user `settings.json`:
+A colour theme cannot move things around. The Explorer's icons and tree layout are applied
+automatically (see above); these optional settings get the rest of the way. Add the ones you want
+to your user `settings.json`:
 
 ```jsonc
 {
@@ -199,11 +197,6 @@ you want to your user `settings.json`:
   // Inline parameter and type hints only while a shortcut is held (Ctrl+Alt here, Alt+F1 in VS).
   "editor.inlayHints.enabled": "offUnlessPressed",
 
-  // Solution Explorer: VS's icons, 12px indent, no indent guides, folders never merged.
-  "workbench.iconTheme": "fili-vscode2026-icons",
-  "workbench.tree.indent": 12,
-  "workbench.tree.renderIndentGuides": "none",
-  "explorer.compactFolders": false,
   // Solution Explorer shows project items, not build output. This also hides them from search.
   "files.exclude": { "**/bin": true, "**/obj": true, "**/.vs": true },
   // Optional: Visual Studio marks Git state with glyphs and never tints file names, in Solution

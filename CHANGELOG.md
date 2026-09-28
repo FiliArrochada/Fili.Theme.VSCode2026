@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Installing the extension now gives the Explorer Solution Explorer's look without any setup:
+  **Fili.VSCode2026 Icons** becomes the default file icon theme, with a 12px tree indent, no
+  indent guides and no compacted folders. These are defaults only; settings you have made yourself
+  still win, and uninstalling restores VS Code's defaults.
+
 ## 0.1.0
 
 First release.

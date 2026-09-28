@@ -64,6 +64,15 @@ original drawings in Solution Explorer's outline style — keep them that way; d
 Visual Studio's image catalog. VS 2026 keeps the closed-folder glyph when a folder is expanded, so
 there is deliberately no open-folder icon.
 
+**`configurationDefaults` sets the Explorer's look on install.** `package.json` overrides the
+defaults of `workbench.iconTheme`, `workbench.tree.indent`, `workbench.tree.renderIndentGuides` and
+`explorer.compactFolders`. VS Code accepts a default override for any setting that is not
+application- or machine-scoped (verified on 1.139 in a fresh profile); a user's own settings still
+win and nothing is written to their settings file. The colour theme, `files.exclude` and the Git
+decoration colours were left out on purpose — the first would force Dark on everyone who never
+picked a theme, the others change behaviour for users of any theme — so they stay optional in the
+README.
+
 **`package.json` lists every theme, and the build checks it.** Adding or removing a variant means
 updating `contributes.themes`; the build fails and prints the exact list it expects.
 
