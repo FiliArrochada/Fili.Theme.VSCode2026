@@ -1,0 +1,141 @@
+{
+  "$comment": "Shared by both themes. TextMate scopes and semantic token selectors mapped to syntax roles — never to a hex value. C# follows Visual Studio's Roslyn classifications: types are coloured, methods are coloured, locals and parameters are coloured, and fields, properties, events, constants, enum members and namespaces stay plain identifiers exactly as they do in Visual Studio. Scope names were taken from the csharp.tmLanguage grammar that ships with VS Code; semantic selectors are the token types the C# extension's Roslyn server emits (Roslyn ClassificationTypeNames in camelCase).",
+
+  "tokenColors": [
+    { "name": "Plain text", "scope": ["source", "variable.other.readwrite", "variable.other.object", "variable.other.constant", "entity.name.variable.field", "entity.name.variable.property", "entity.name.variable.event", "entity.name.variable.enum-member", "entity.name.variable.tuple-element", "entity.name.type.namespace", "entity.name.label", "variable.language.discard", "meta.interpolation"], "role": "synIdentifier" },
+    { "name": "Punctuation", "scope": ["punctuation", "punctuation.definition.interpolation", "meta.brace", "punctuation.section"], "role": "synPunctuation" },
+
+    { "name": "Comment", "scope": ["comment", "punctuation.definition.comment"], "role": "synComment" },
+    { "name": "XML doc comment text", "scope": ["comment.block.documentation"], "role": "synDocText" },
+    { "name": "XML doc comment delimiters", "scope": ["comment.block.documentation punctuation.definition.comment", "comment.block.documentation punctuation.definition.tag", "comment.block.documentation punctuation.separator"], "role": "synDocTag" },
+    { "name": "XML doc comment tag names", "scope": ["comment.block.documentation entity.name.tag", "comment.block.documentation entity.name.tag.localname"], "role": "synDocName" },
+    { "name": "XML doc comment attributes", "scope": ["comment.block.documentation entity.other.attribute-name", "comment.block.documentation entity.other.attribute-name.localname", "comment.block.documentation string", "comment.block.documentation punctuation.definition.string", "comment.block.documentation punctuation.separator.equals"], "role": "synDocAttribute" },
+    { "name": "JSDoc / other doc tags", "scope": ["comment.block.documentation storage.type.class", "comment.block.documentation entity.name.type", "comment.block.documentation variable.other"], "role": "synDocTag" },
+
+    { "name": "Keyword", "scope": ["keyword", "keyword.other", "keyword.type", "storage", "storage.type", "storage.modifier", "constant.language", "variable.language", "variable.language.this", "keyword.operator.expression", "keyword.operator.new", "keyword.operator.expression.new", "keyword.operator.expression.pattern", "keyword.operator.expression.query", "keyword.operator.sizeof", "keyword.operator.typeof", "keyword.operator.instanceof", "keyword.operator.delete", "keyword.operator.logical.python", "keyword.other.using", "keyword.other.directive", "keyword.control.context", "keyword.control.conditional.when", "keyword.control.exception.when", "support.type.primitive", "support.type.builtin"], "role": "synKeyword" },
+    { "name": "Control keyword", "scope": ["keyword.control", "keyword.control.flow", "keyword.control.loop", "keyword.control.conditional", "keyword.control.exception", "keyword.control.switch", "keyword.control.trycatch", "keyword.control.import", "keyword.control.export", "keyword.control.from", "keyword.operator.expression.await", "keyword.control.flow.await", "keyword.control.flow.yield"], "role": "synControl" },
+    { "name": "Keyword that TextMate files under control but VS does not", "scope": ["keyword.control.context", "keyword.control.conditional.when", "keyword.control.exception.when", "keyword.control.directive"], "role": "synKeyword" },
+    { "name": "Operator", "scope": ["keyword.operator", "keyword.operator.arithmetic", "keyword.operator.assignment", "keyword.operator.comparison", "keyword.operator.relational", "keyword.operator.logical", "keyword.operator.bitwise", "keyword.operator.arrow", "keyword.operator.null-coalescing", "keyword.operator.null-conditional", "keyword.operator.range", "keyword.operator.increment", "keyword.operator.decrement", "keyword.operator.conditional", "keyword.operator.spread", "keyword.operator.type.annotation", "storage.type.function.arrow"], "role": "synOperator" },
+
+    { "name": "String", "scope": ["string", "string.quoted", "string.template", "string.unquoted.cdata", "punctuation.definition.string", "string.regexp", "string.unquoted.preprocessor.message"], "role": "synString" },
+    { "name": "Escape sequence", "scope": ["constant.character.escape", "constant.character.escape.cs", "string constant.other.placeholder", "constant.other.placeholder"], "role": "synStringEscape" },
+    { "name": "Interpolation punctuation", "scope": ["punctuation.definition.template-expression", "punctuation.section.embedded", "punctuation.definition.interpolation.begin", "punctuation.definition.interpolation.end"], "role": "synPunctuation" },
+    { "name": "Number", "scope": ["constant.numeric", "constant.numeric.decimal", "constant.numeric.hex", "constant.numeric.binary", "constant.numeric.other", "keyword.other.unit"], "role": "synNumber" },
+    { "name": "Character constant", "scope": ["constant.character", "constant.other.character-class"], "role": "synString" },
+
+    { "name": "Preprocessor", "scope": ["keyword.preprocessor", "punctuation.separator.hash", "meta.preprocessor keyword", "keyword.control.directive", "punctuation.definition.directive", "meta.preprocessor punctuation.definition", "keyword.other.region"], "role": "synPreprocessor" },
+    { "name": "Preprocessor symbol", "scope": ["entity.name.variable.preprocessor.symbol", "entity.name.function.preprocessor", "meta.preprocessor.macro entity.name"], "role": "synPreprocessorText" },
+
+    { "name": "Class, delegate, record, attribute", "scope": ["entity.name.type", "entity.name.type.class", "entity.name.type.delegate", "entity.name.type.alias", "entity.name.type.union", "entity.name.class", "entity.other.inherited-class", "support.class", "support.type", "entity.name.type.module", "entity.name.scope-resolution", "meta.decorator entity.name", "entity.name.function.decorator", "punctuation.decorator", "storage.type.annotation", "storage.type.java", "storage.type.generic"], "role": "synType" },
+    { "name": "Struct", "scope": ["entity.name.type.struct", "entity.name.struct", "storage.type.struct entity.name"], "role": "synStruct" },
+    { "name": "Interface, enum", "scope": ["entity.name.type.interface", "entity.name.type.enum", "entity.name.interface", "entity.name.enum"], "role": "synInterface" },
+    { "name": "Type parameter", "scope": ["entity.name.type.type-parameter", "entity.name.type.parameter", "entity.name.type.typeparameter", "storage.type.type-parameter"], "role": "synTypeParameter" },
+    { "name": "Namespace stays plain", "scope": ["entity.name.type.namespace", "entity.name.namespace", "entity.name.module", "support.module", "entity.name.package"], "role": "synIdentifier" },
+    { "name": "Method, function", "scope": ["entity.name.function", "entity.name.function.cs", "entity.name.method", "support.function", "meta.function-call entity.name.function", "meta.method-call entity.name.function", "entity.name.operator", "variable.function"], "role": "synMethod" },
+    { "name": "Local, parameter", "scope": ["entity.name.variable.local", "entity.name.variable.parameter", "entity.name.variable.range-variable", "variable.parameter", "variable.other.local", "meta.parameter variable"], "role": "synVariable" },
+
+    { "name": "Markup tag", "scope": ["entity.name.tag", "entity.name.tag.xml", "entity.name.tag.localname", "entity.name.tag.namespace", "meta.tag entity.name.tag"], "role": "synMarkupTag" },
+    { "name": "Markup attribute", "scope": ["entity.other.attribute-name", "entity.other.attribute-name.localname", "entity.other.attribute-name.namespace", "meta.attribute entity.other.attribute-name"], "role": "synMarkupAttribute" },
+    { "name": "Markup attribute value", "scope": ["meta.tag string", "meta.tag string.quoted", "string.quoted.double.xml", "string.quoted.single.xml", "string.quoted.double.html", "string.quoted.single.html", "meta.attribute string", "meta.tag punctuation.definition.string"], "role": "synMarkupAttributeValue" },
+    { "name": "Markup delimiter", "scope": ["punctuation.definition.tag", "punctuation.definition.tag.xml", "punctuation.definition.tag.html", "punctuation.separator.key-value.html", "punctuation.separator.namespace.xml", "meta.tag punctuation.separator.equals"], "role": "synMarkupDelimiter" },
+    { "name": "Markup entity", "scope": ["constant.character.entity", "constant.character.entity.xml", "constant.character.entity.html"], "role": "synMarkupEntity" },
+    { "name": "XML processing instruction / CDATA", "scope": ["meta.tag.preprocessor.xml", "string.unquoted.cdata.xml"], "role": "synMarkupDelimiter" },
+
+    { "name": "CSS selector", "scope": ["entity.name.tag.css", "entity.name.tag.scss", "entity.name.tag.less", "entity.other.attribute-name.class.css", "entity.other.attribute-name.id.css", "entity.other.attribute-name.pseudo-class.css", "entity.other.attribute-name.pseudo-element.css", "entity.other.attribute-name.class", "entity.other.attribute-name.id", "meta.selector"], "role": "synCssSelector" },
+    { "name": "CSS property", "scope": ["support.type.property-name.css", "support.type.property-name.scss", "support.type.property-name.less", "support.type.vendored.property-name", "meta.property-name"], "role": "synCssProperty" },
+    { "name": "CSS value", "scope": ["support.constant.property-value", "support.constant.font-name", "support.constant.color", "constant.other.color", "meta.property-value", "support.function.misc.css", "keyword.other.unit.css"], "role": "synCssValue" },
+
+    { "name": "JSON / YAML key", "scope": ["support.type.property-name.json", "support.type.property-name.jsonc", "support.type.property-name", "entity.name.tag.yaml", "meta.object-literal.key", "meta.object-literal.key string", "string.json support.type.property-name"], "role": "synJsonKey" },
+
+    { "name": "Markdown heading", "scope": ["markup.heading", "markup.heading entity.name", "punctuation.definition.heading", "entity.name.section"], "role": "synHeading", "fontStyle": "bold" },
+    { "name": "Markdown bold", "scope": ["markup.bold"], "role": "synText", "fontStyle": "bold" },
+    { "name": "Markdown italic", "scope": ["markup.italic"], "role": "synText", "fontStyle": "italic" },
+    { "name": "Markdown strikethrough", "scope": ["markup.strikethrough"], "role": "synText", "fontStyle": "strikethrough" },
+    { "name": "Markdown code", "scope": ["markup.inline.raw", "markup.fenced_code.block", "markup.raw"], "role": "synString" },
+    { "name": "Markdown quote", "scope": ["markup.quote"], "role": "synComment" },
+    { "name": "Markdown list bullet", "scope": ["punctuation.definition.list.begin", "beginning.punctuation.definition.list"], "role": "synKeyword" },
+    { "name": "Markdown link", "scope": ["markup.underline.link", "string.other.link", "constant.other.reference.link"], "role": "link" },
+
+    { "name": "Diff inserted", "scope": ["markup.inserted", "punctuation.definition.inserted"], "role": "gitAdded" },
+    { "name": "Diff deleted", "scope": ["markup.deleted", "punctuation.definition.deleted"], "role": "gitDeleted" },
+    { "name": "Diff changed", "scope": ["markup.changed", "punctuation.definition.changed"], "role": "gitModified" },
+    { "name": "Diff header", "scope": ["meta.diff.header", "meta.diff.range", "meta.diff.index"], "role": "synKeyword" },
+
+    { "name": "Invalid", "scope": ["invalid", "invalid.illegal"], "role": "synInvalid" },
+    { "name": "Deprecated", "scope": ["invalid.deprecated"], "role": "synInvalid", "fontStyle": "strikethrough" }
+  ],
+
+  "semanticTokenColors": {
+    "namespace": "synIdentifier",
+    "class": "synType",
+    "recordClass": "synType",
+    "delegate": "synType",
+    "module": "synType",
+    "type": "synType",
+    "decorator": "synType",
+    "struct": "synStruct",
+    "recordStruct": "synStruct",
+    "interface": "synInterface",
+    "enum": "synInterface",
+    "typeParameter": "synTypeParameter",
+
+    "method": "synMethod",
+    "function": "synMethod",
+    "extensionMethod": "synMethod",
+    "operatorOverloaded": "synMethod",
+
+    "parameter": "synVariable",
+    "variable": "synVariable",
+    "local": "synVariable",
+
+    "property": "synIdentifier",
+    "field": "synIdentifier",
+    "event": "synIdentifier",
+    "enumMember": "synIdentifier",
+    "constant": "synIdentifier",
+    "label": "synIdentifier",
+
+    "keyword": "synKeyword",
+    "modifier": "synKeyword",
+    "controlKeyword": "synControl",
+    "operator": "synOperator",
+    "punctuation": "synPunctuation",
+    "string": "synString",
+    "stringVerbatim": "synStringVerbatim",
+    "stringEscapeCharacter": "synStringEscape",
+    "number": "synNumber",
+    "regexp": "synString",
+    "comment": "synComment",
+    "macro": "synPreprocessor",
+    "preprocessorKeyword": "synPreprocessor",
+    "preprocessorText": "synPreprocessorText",
+    "excludedCode": "synExcluded",
+
+    "xmlDocCommentText": "synDocText",
+    "xmlDocCommentComment": "synDocText",
+    "xmlDocCommentCDataSection": "synDocText",
+    "xmlDocCommentDelimiter": "synDocTag",
+    "xmlDocCommentName": "synDocName",
+    "xmlDocCommentEntityReference": "synDocTag",
+    "xmlDocCommentProcessingInstruction": "synDocTag",
+    "xmlDocCommentAttributeName": "synDocAttribute",
+    "xmlDocCommentAttributeQuotes": "synDocAttribute",
+    "xmlDocCommentAttributeValue": "synDocAttribute",
+
+    "regexComment": "synComment",
+    "regexText": "synString",
+    "regexSelfEscapedCharacter": "synString",
+    "regexCharacterClass": "synRegexClass",
+    "regexAnchor": "synRegexAnchor",
+    "regexQuantifier": "synRegexAnchor",
+    "regexGrouping": "synRegexGroup",
+    "regexAlternation": "synRegexGroup",
+    "regexOtherEscape": "synRegexEscape",
+
+    "jsonPropertyName": "synJsonKey",
+    "jsonString": "synString",
+    "jsonNumber": "synNumber",
+    "jsonKeyword": "synKeyword",
+    "jsonComment": "synComment"
+  }
+}
