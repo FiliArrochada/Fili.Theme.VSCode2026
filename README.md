@@ -201,8 +201,11 @@ you want to your user `settings.json`:
   "explorer.compactFolders": false,
   // Solution Explorer shows project items, not build output. This also hides them from search.
   "files.exclude": { "**/bin": true, "**/obj": true, "**/.vs": true },
-  // Optional: Solution Explorer marks Git state with glyphs, not by tinting file names.
-  "explorer.decorations.colors": false
+  // Optional: Visual Studio marks Git state with glyphs and never tints file names, in Solution
+  // Explorer or on tabs. Without these, VS Code colours every untracked or changed file green,
+  // yellow or red, which in a new repository means every name in the tree.
+  "explorer.decorations.colors": false,
+  "workbench.editor.decorations.colors": false
 }
 ```
 

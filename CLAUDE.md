@@ -110,6 +110,9 @@ marketplace page. Add the `repository` field and drop both flags before publishi
 
 `npm run build` proves structure and contrast, not appearance. To see it, press F5 (Extension
 Development Host) with a C# project open and the C# extension installed — semantic colours only
-appear once its Roslyn server has loaded the project. The reference captures used for the first
+appear once its Roslyn server has loaded the project. For screenshots, open a folder that is not a
+git repository or turn off `git.decorations.enabled`: in a repo with nothing committed, VS Code
+tints every file name with the Git "added" colour, which looks like a green tree and is not the
+theme. The reference captures used for the first
 release were taken from VS 2026 18.x started with `devenv /rootsuffix <name>` (an isolated
 settings hive), so the user's own Visual Studio configuration is never touched.
