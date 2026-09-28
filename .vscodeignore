@@ -1,0 +1,7 @@
+.vscode/**
+.gitignore
+.gitattributes
+src/**
+scripts/**
+CLAUDE.md
+**/*.vsix
