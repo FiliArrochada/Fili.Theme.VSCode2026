@@ -1,0 +1,213 @@
+{
+  "iconDefinitions": {
+    "csharp": {
+      "iconPath": "./dark/csharp.svg"
+    },
+    "file": {
+      "iconPath": "./dark/file.svg"
+    },
+    "folder": {
+      "iconPath": "./dark/folder.svg"
+    },
+    "image": {
+      "iconPath": "./dark/image.svg"
+    },
+    "json": {
+      "iconPath": "./dark/json.svg"
+    },
+    "markdown": {
+      "iconPath": "./dark/markdown.svg"
+    },
+    "project": {
+      "iconPath": "./dark/project.svg"
+    },
+    "script": {
+      "iconPath": "./dark/script.svg"
+    },
+    "settings": {
+      "iconPath": "./dark/settings.svg"
+    },
+    "solution": {
+      "iconPath": "./dark/solution.svg"
+    },
+    "xml": {
+      "iconPath": "./dark/xml.svg"
+    },
+    "csharp_light": {
+      "iconPath": "./light/csharp.svg"
+    },
+    "file_light": {
+      "iconPath": "./light/file.svg"
+    },
+    "folder_light": {
+      "iconPath": "./light/folder.svg"
+    },
+    "image_light": {
+      "iconPath": "./light/image.svg"
+    },
+    "json_light": {
+      "iconPath": "./light/json.svg"
+    },
+    "markdown_light": {
+      "iconPath": "./light/markdown.svg"
+    },
+    "project_light": {
+      "iconPath": "./light/project.svg"
+    },
+    "script_light": {
+      "iconPath": "./light/script.svg"
+    },
+    "settings_light": {
+      "iconPath": "./light/settings.svg"
+    },
+    "solution_light": {
+      "iconPath": "./light/solution.svg"
+    },
+    "xml_light": {
+      "iconPath": "./light/xml.svg"
+    }
+  },
+  "file": "file",
+  "folder": "folder",
+  "folderExpanded": "folder",
+  "rootFolder": "folder",
+  "rootFolderExpanded": "folder",
+  "fileExtensions": {
+    "cs": "csharp",
+    "csx": "csharp",
+    "razor": "csharp",
+    "cshtml": "csharp",
+    "csproj": "project",
+    "vbproj": "project",
+    "fsproj": "project",
+    "sqlproj": "project",
+    "esproj": "project",
+    "sln": "solution",
+    "slnx": "solution",
+    "slnf": "solution",
+    "json": "json",
+    "jsonc": "json",
+    "md": "markdown",
+    "markdown": "markdown",
+    "xml": "xml",
+    "xaml": "xml",
+    "axaml": "xml",
+    "resx": "xml",
+    "props": "xml",
+    "targets": "xml",
+    "nuspec": "xml",
+    "config": "settings",
+    "editorconfig": "settings",
+    "ini": "settings",
+    "yml": "settings",
+    "yaml": "settings",
+    "toml": "settings",
+    "ps1": "script",
+    "psm1": "script",
+    "cmd": "script",
+    "bat": "script",
+    "sh": "script",
+    "png": "image",
+    "jpg": "image",
+    "jpeg": "image",
+    "gif": "image",
+    "ico": "image",
+    "svg": "image",
+    "webp": "image"
+  },
+  "fileNames": {
+    ".editorconfig": "settings",
+    ".gitignore": "settings",
+    ".gitattributes": "settings",
+    "directory.build.props": "xml",
+    "directory.packages.props": "xml",
+    "global.json": "json",
+    "nuget.config": "settings"
+  },
+  "languageIds": {
+    "csharp": "csharp",
+    "razor": "csharp",
+    "json": "json",
+    "jsonc": "json",
+    "markdown": "markdown",
+    "xml": "xml",
+    "powershell": "script",
+    "shellscript": "script",
+    "bat": "script",
+    "yaml": "settings",
+    "ini": "settings"
+  },
+  "hidesExplorerArrows": false,
+  "light": {
+    "file": "file_light",
+    "folder": "folder_light",
+    "folderExpanded": "folder_light",
+    "rootFolder": "folder_light",
+    "rootFolderExpanded": "folder_light",
+    "fileExtensions": {
+      "cs": "csharp_light",
+      "csx": "csharp_light",
+      "razor": "csharp_light",
+      "cshtml": "csharp_light",
+      "csproj": "project_light",
+      "vbproj": "project_light",
+      "fsproj": "project_light",
+      "sqlproj": "project_light",
+      "esproj": "project_light",
+      "sln": "solution_light",
+      "slnx": "solution_light",
+      "slnf": "solution_light",
+      "json": "json_light",
+      "jsonc": "json_light",
+      "md": "markdown_light",
+      "markdown": "markdown_light",
+      "xml": "xml_light",
+      "xaml": "xml_light",
+      "axaml": "xml_light",
+      "resx": "xml_light",
+      "props": "xml_light",
+      "targets": "xml_light",
+      "nuspec": "xml_light",
+      "config": "settings_light",
+      "editorconfig": "settings_light",
+      "ini": "settings_light",
+      "yml": "settings_light",
+      "yaml": "settings_light",
+      "toml": "settings_light",
+      "ps1": "script_light",
+      "psm1": "script_light",
+      "cmd": "script_light",
+      "bat": "script_light",
+      "sh": "script_light",
+      "png": "image_light",
+      "jpg": "image_light",
+      "jpeg": "image_light",
+      "gif": "image_light",
+      "ico": "image_light",
+      "svg": "image_light",
+      "webp": "image_light"
+    },
+    "fileNames": {
+      ".editorconfig": "settings_light",
+      ".gitignore": "settings_light",
+      ".gitattributes": "settings_light",
+      "directory.build.props": "xml_light",
+      "directory.packages.props": "xml_light",
+      "global.json": "json_light",
+      "nuget.config": "settings_light"
+    },
+    "languageIds": {
+      "csharp": "csharp_light",
+      "razor": "csharp_light",
+      "json": "json_light",
+      "jsonc": "json_light",
+      "markdown": "markdown_light",
+      "xml": "xml_light",
+      "powershell": "script_light",
+      "shellscript": "script_light",
+      "bat": "script_light",
+      "yaml": "settings_light",
+      "ini": "settings_light"
+    }
+  }
+}

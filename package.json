@@ -1,0 +1,122 @@
+{
+  "name": "fili-vs2026",
+  "displayName": "Fili.Vs2026",
+  "description": "Visual Studio 2026's themes for VS Code — Dark, Light, the eleven tinted themes and both Extra Contrast editors — rebuilt from Visual Studio's own Fluent theme tokens, with Roslyn-accurate C# and a Solution Explorer icon theme.",
+  "version": "0.1.0",
+  "publisher": "FiliArrochada",
+  "author": "FiliArrochada",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "visual studio",
+    "visual studio 2026",
+    "fluent",
+    "dark",
+    "light",
+    "csharp"
+  ],
+  "galleryBanner": {
+    "color": "#1C1C1C",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Fili.Vs2026 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fili-vs2026-dark-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Light",
+        "uiTheme": "vs",
+        "path": "./themes/fili-vs2026-light-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Bubblegum",
+        "uiTheme": "vs",
+        "path": "./themes/fili-vs2026-bubblegum-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Cool Breeze",
+        "uiTheme": "vs",
+        "path": "./themes/fili-vs2026-cool-breeze-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Cool Slate",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fili-vs2026-cool-slate-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Dark (Extra Contrast)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fili-vs2026-dark-extra-contrast-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Icy Mint",
+        "uiTheme": "vs",
+        "path": "./themes/fili-vs2026-icy-mint-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Juicy Plum",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fili-vs2026-juicy-plum-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Light (Extra Contrast)",
+        "uiTheme": "vs",
+        "path": "./themes/fili-vs2026-light-extra-contrast-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Mango Paradise",
+        "uiTheme": "vs",
+        "path": "./themes/fili-vs2026-mango-paradise-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Moonlight Glow",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fili-vs2026-moonlight-glow-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Mystical Forest",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fili-vs2026-mystical-forest-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Silky Pink",
+        "uiTheme": "vs",
+        "path": "./themes/fili-vs2026-silky-pink-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Spicy Red",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fili-vs2026-spicy-red-color-theme.json"
+      },
+      {
+        "label": "Fili.Vs2026 Sunny Day",
+        "uiTheme": "vs",
+        "path": "./themes/fili-vs2026-sunny-day-color-theme.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "fili-vs2026-icons",
+        "label": "Fili.Vs2026 Icons",
+        "path": "./icons/fili-vs2026-icon-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "coverage": "node scripts/build.mjs --coverage",
+    "registry": "node scripts/registry.mjs",
+    "variants": "node scripts/variants.mjs",
+    "package": "npm run check && npx --yes @vscode/vsce package --no-dependencies --allow-missing-repository --no-rewrite-relative-links"
+  }
+}
