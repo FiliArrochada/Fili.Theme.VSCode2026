@@ -89,7 +89,8 @@ or any of the variants above.
 
 Installing the extension also gives the Explorer Solution Explorer's look, with no setup: it
 makes **Fili.VSCode2026 Icons** the default file icon theme, and sets a 12px tree indent, no
-indent guides and no compacted folders. These are defaults, not changes to your settings: anything
+indent guides and no compacted folders. It also moves the activity bar to the top of the side bar
+as a small row of icons, since Visual Studio has none; moved back to the side, it stays compact. These are defaults, not changes to your settings: anything
 you have set yourself still wins, and uninstalling the extension puts VS Code's own defaults back.
 To use another icon theme, pick it with **Preferences: File Icon Theme** as usual.
 
@@ -177,8 +178,6 @@ to your user `settings.json`:
 {
   // Solution Explorer lives on the right in Visual Studio.
   "workbench.sideBar.location": "right",
-  // Visual Studio has no activity bar; this puts the view switcher in the side bar's header.
-  "workbench.activityBar.location": "top",
   // Custom title bar with the menu and a search box in it, like Visual Studio's.
   "window.titleBarStyle": "custom",
   "window.commandCenter": true,

@@ -65,8 +65,9 @@ Visual Studio's image catalog. VS 2026 keeps the closed-folder glyph when a fold
 there is deliberately no open-folder icon.
 
 **`configurationDefaults` sets the Explorer's look on install.** `package.json` overrides the
-defaults of `workbench.iconTheme`, `workbench.tree.indent`, `workbench.tree.renderIndentGuides` and
-`explorer.compactFolders`. VS Code accepts a default override for any setting that is not
+defaults of `workbench.iconTheme`, `workbench.tree.indent`, `workbench.tree.renderIndentGuides`,
+`explorer.compactFolders`, `workbench.activityBar.location` (`top`) and `workbench.activityBar.compact`
+(which only applies once a user moves the activity bar back to the side). VS Code accepts a default override for any setting that is not
 application- or machine-scoped (verified on 1.139 in a fresh profile); a user's own settings still
 win and nothing is written to their settings file. The colour theme, `files.exclude` and the Git
 decoration colours were left out on purpose — the first would force Dark on everyone who never

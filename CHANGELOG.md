@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+- The activity bar moves to the top of the side bar by default, as a small row of icons: Visual
+  Studio has no activity bar, and this gives the editor the room back. If you move it back to the
+  side, it is compact there, with smaller icons and a narrower strip. Both are defaults only, and
+  a location you have chosen yourself is kept.
+
 ## 0.2.0
 
 - Installing the extension now gives the Explorer Solution Explorer's look without any setup:
