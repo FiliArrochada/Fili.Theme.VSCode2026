@@ -54,13 +54,18 @@ Windows' contrast mode is on.
 
 ## Installation
 
-From a packaged `.vsix`:
+From the Visual Studio Marketplace: open **Extensions** (`Ctrl+Shift+X`), search for
+**Fili.VSCode2026**, and choose **Install**. Or from a terminal:
+
+```text
+code --install-extension FiliArrochada.fili-vscode2026
+```
+
+From a packaged `.vsix`, choose **…** › **Install from VSIX…** in the Extensions view, or:
 
 ```text
 code --install-extension fili-vscode2026-0.1.0.vsix
 ```
-
-Or open **Extensions** (`Ctrl+Shift+X`), choose **…** › **Install from VSIX…**, and pick the file.
 
 Then select a theme:
 

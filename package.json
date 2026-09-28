@@ -6,6 +6,15 @@
   "publisher": "FiliArrochada",
   "author": "FiliArrochada",
   "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FiliArrochada/Fili.VSCode2026.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FiliArrochada/Fili.VSCode2026/issues"
+  },
+  "homepage": "https://github.com/FiliArrochada/Fili.VSCode2026#readme",
   "engines": {
     "vscode": "^1.95.0"
   },
@@ -117,6 +126,7 @@
     "coverage": "node scripts/build.mjs --coverage",
     "registry": "node scripts/registry.mjs",
     "variants": "node scripts/variants.mjs",
-    "package": "npm run check && npx --yes @vscode/vsce package --no-dependencies --allow-missing-repository --no-rewrite-relative-links"
+    "package": "npm run check && npx --yes @vscode/vsce package --no-dependencies",
+    "publish": "npm run check && npx --yes @vscode/vsce publish --no-dependencies"
   }
 }

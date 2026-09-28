@@ -101,10 +101,18 @@ permanent once published to a marketplace — do not rename either field after a
 name and theme labels (`Fili.VSCode2026 Dark` / `Light`) are user-facing and can change, but a
 changed theme label un-selects the theme for everyone using it.
 
-`package.json` has no `repository` field because the GitHub owner is not decided. `npm run package`
-therefore passes `--allow-missing-repository --no-rewrite-relative-links`, which builds a working
-`.vsix` but leaves the README's images relative, so they render in the repo and not on a
-marketplace page. Add the `repository` field and drop both flags before publishing.
+The repository is `https://github.com/FiliArrochada/Fili.VSCode2026`, and `package.json` says so.
+`vsce` uses that field to rewrite the README's relative image links to GitHub URLs, which is why
+`docs/` is left out of the package (`.vscodeignore`): a Marketplace page loads the screenshots from
+GitHub, so an image must be pushed before a release that shows it.
+
+## Publishing
+
+`npm run publish` checks the build and runs `vsce publish`; `npm run package` builds the `.vsix`
+alone. Publishing needs the `FiliArrochada` publisher on the Visual Studio Marketplace and a login
+(`npx @vscode/vsce login FiliArrochada` with an Azure DevOps personal access token scoped to
+*Marketplace › Manage*). The human runs both; never publish from a session. Bump `version` and add
+a CHANGELOG entry first — the Marketplace refuses a version it already has.
 
 ## Verifying a change
 
