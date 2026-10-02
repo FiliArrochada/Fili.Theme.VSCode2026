@@ -7,20 +7,26 @@ directory up still applies — in particular **never commit anything**.
 
 A VS Code colour-theme extension reconstructing Visual Studio 2026's Fluent appearance: the two base
 themes **Fili.VSCode2026 Dark** and **Fili.VSCode2026 Light**, the thirteen variants VS 2026 ships (eleven
-tinted themes and two Extra Contrast editors), plus a file icon theme, **Fili.VSCode2026 Icons**,
-for Solution Explorer's look. There is no runtime code; the deliverables are `themes/` and
-`icons/`, and both are generated.
+tinted themes and two Extra Contrast editors), a file icon theme, **Fili.VSCode2026 Icons**, for
+Solution Explorer's look, and a product icon theme, **Fili.VSCode2026 Fluent Icons**. The only
+runtime code is `extension.js`, for the opt-in Visual Studio 2026 layout commands. `themes/`,
+`icons/` and `product-icons/` are generated. A companion extension pack lives in `pack/`.
 
 ```bash
-npm run build      # src/ -> themes/, with parity + registry validation and a contrast table
-npm run check      # fail if themes/ is stale
+npm run build      # src/ -> themes/ + icons/, with parity + registry validation and a contrast table
+npm run check      # fail if themes/ or icons/ is stale
+npm test           # the layout commands, against a stand-in for the VS Code API
 npm run coverage   # also list VS Code colours no theme sets
 npm run registry -- "<VS Code resources/app dir>"         # refresh scripts/vscode-color-ids.json
+npm run variants -- "<VS install dir>"                    # regenerate src/palettes/variants/
 node scripts/vs-tokens.mjs "<VS install dir>" "<regex>"   # read Visual Studio's own theme tokens
+python scripts/product-icons.py "<Fluent fonts dir>"      # regenerate product-icons/
 ```
 
-The scripts need only Node (no `npm install`, no dependencies). If `node` is not on PATH, Visual
-Studio ships one under its install at `MSBuild/Microsoft/VisualStudio/NodeJs/node.exe`.
+The Node scripts need only Node (no `npm install`, no dependencies). If `node` is not on PATH,
+Visual Studio ships one under its install at `MSBuild/Microsoft/VisualStudio/NodeJs/node.exe`.
+`product-icons.py` is the one exception: it needs Python with `fontTools` and `brotli`, and is only
+run when `src/product-icons.json` changes.
 
 ## Things that will bite you
 
@@ -80,6 +86,24 @@ its `id`, or by its `label` when there is none, so relabelling a theme un-select
 using it. That was acceptable in 0.3.1 because the extension had no users yet. Once it does, rename
 a label only together with an `id` that keeps the old name.
 
+**Product icons are a generated font subset.** `src/product-icons.json` maps codicon ids to Fluent
+System Icons names; `scripts/product-icons.py` (Python + fontTools, not part of the Node build)
+picks the 16px Regular design where one exists, subsets Microsoft's MIT-licensed Fluent font to just
+those glyphs, and writes `product-icons/`. Re-run it after editing the map, and keep
+`THIRD-PARTY-NOTICES.md` (the Fluent MIT notice) in the package. An unmapped codicon keeps VS Code's
+icon, so the map can stay partial.
+
+**`extension.js` is opt-in behaviour only.** The themes need no code; `extension.js` exists for the
+Apply / Remove Visual Studio 2026 Layout commands and a one-time offer of Apply (only while a
+Fili.VSCode2026 colour theme is active). Remove reverts a setting only while it still holds the
+value Apply wrote. `npm test` covers that against a stand-in for the VS Code API; extend
+`test/layout.test.cjs` when the layout changes.
+
+**The pack is a separate extension.** `pack/` is **Fili.VSCode2026 Pack**
+(`FiliArrochada.fili-vscode2026-pack`): this extension, C#, C# Dev Kit and the Visual Studio Keymap.
+It has no code; package and publish it from `pack/` on its own (`npx @vscode/vsce package` there).
+Keep its version in step with this one, and keep it out of this package (`.vscodeignore`).
+
 **`package.json` lists every theme, and the build checks it.** Adding or removing a variant means
 updating `contributes.themes`; the build fails and prints the exact list it expects.
 
@@ -104,7 +128,7 @@ constants, enum members and namespaces uncoloured. In the C# extension `constant
 property colour.
 
 **The registry snapshot gates keys.** A key VS Code does not register fails the build. The
-snapshot is `scripts/vscode-color-ids.json` (VS Code 1.139.1 at creation); refresh it rather than
+snapshot is `scripts/vscode-color-ids.json` (refreshed for VS Code 1.140.0); refresh it rather than
 deleting a key that a newer VS Code added.
 
 ## Identity
@@ -128,7 +152,11 @@ GitHub, so an image must be pushed before a release that shows it.
 alone. Publishing needs the `FiliArrochada` publisher on the Visual Studio Marketplace and a login
 (`npx @vscode/vsce login FiliArrochada` with an Azure DevOps personal access token scoped to
 *Marketplace › Manage*). The human runs both; never publish from a session. Bump `version` and add
-a CHANGELOG entry first — the Marketplace refuses a version it already has.
+a CHANGELOG entry first — the Marketplace refuses a version it already has. Uploading the `.vsix`
+on the Marketplace management page works too and needs no token.
+
+The pack (`pack/`) is published separately, and **after** this extension whenever both change: the
+Marketplace checks that every extension a pack lists already exists.
 
 ## Verifying a change
 
@@ -137,6 +165,20 @@ Development Host) with a C# project open and the C# extension installed — sema
 appear once its Roslyn server has loaded the project. For screenshots, open a folder that is not a
 git repository or turn off `git.decorations.enabled`: in a repo with nothing committed, VS Code
 tints every file name with the Git "added" colour, which looks like a green tree and is not the
-theme. The reference captures used for the first
+theme.
+
+Three things that make a test misleading rather than fail:
+
+- **An Extension Development Host ignores the user's colour theme.** VS Code switches to the
+  extension-under-development's own theme (the first of the right kind), so a test of
+  `workbench.colorTheme` resolution — e.g. that a label still selects a theme — must install the
+  `.vsix` into a scratch `--extensions-dir` and launch *without* `--extensionDevelopmentPath`.
+- **C# Dev Kit fails from a long extensions path.** Its server sits about 190 characters below the
+  extensions folder; past Windows' 260-character limit it cannot start (`spawn … ENOENT`) and its
+  view never fills. Install it into a short `--extensions-dir` for tests.
+- **C# Dev Kit's Solution Explorer is titled "C# Project Details"** (view id `solutionExplorer`, in
+  the Explorer), not "Solution Explorer", in current versions.
+
+The reference captures used for the first
 release were taken from VS 2026 18.x started with `devenv /rootsuffix <name>` (an isolated
 settings hive), so the user's own Visual Studio configuration is never touched.

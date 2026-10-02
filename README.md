@@ -54,18 +54,23 @@ Windows' contrast mode is on.
 
 ## Installation
 
-From the Visual Studio Marketplace: open **Extensions** (`Ctrl+Shift+X`), search for
+For the whole Visual Studio experience in one step, install **Fili.VSCode2026 Pack**. It adds this
+extension together with Microsoft's **C#** and **C# Dev Kit** (which brings a real Solution
+Explorer) and the **Visual Studio Keymap**:
+
+```text
+code --install-extension FiliArrochada.fili-vscode2026-pack
+```
+
+For the themes and icons alone, open **Extensions** (`Ctrl+Shift+X`), search for
 **Fili.VSCode2026**, and choose **Install**. Or from a terminal:
 
 ```text
 code --install-extension FiliArrochada.fili-vscode2026
 ```
 
-From a packaged `.vsix`, choose **…** › **Install from VSIX…** in the Extensions view, or:
-
-```text
-code --install-extension fili-vscode2026-0.1.0.vsix
-```
+From a packaged `.vsix`, choose **…** › **Install from VSIX…** in the Extensions view, or run
+`code --install-extension fili-vscode2026-<version>.vsix`.
 
 Then select a theme:
 
@@ -87,12 +92,19 @@ Fili.VSCode2026 Light
 
 or any of the variants above.
 
-Installing the extension also gives the Explorer Solution Explorer's look, with no setup: it
-makes **Fili.VSCode2026 Icons** the default file icon theme, and sets a 12px tree indent, no
-indent guides and no compacted folders. It also moves the activity bar to the top of the side bar
-as a small row of icons, since Visual Studio has none; moved back to the side, it stays compact. These are defaults, not changes to your settings: anything
-you have set yourself still wins, and uninstalling the extension puts VS Code's own defaults back.
-To use another icon theme, pick it with **Preferences: File Icon Theme** as usual.
+Installing the extension also gives VS Code Visual Studio's look, with no setup:
+
+- **Fili.VSCode2026 Icons** becomes the default file icon theme: Solution Explorer's outline icons.
+- **Fili.VSCode2026 Fluent Icons** becomes the default product icon theme: toolbar, activity bar,
+  debugger and tree icons from Microsoft's Fluent System Icons, the icon family Visual Studio 2026
+  is drawn with, in place of VS Code's codicons.
+- The tree gets a 12px indent, no indent guides and no compacted folders.
+- The activity bar moves to the top of the side bar as a small row of icons, since Visual Studio
+  has none; moved back to the side, it stays compact.
+
+These are defaults, not changes to your settings: anything you have set yourself still wins, and
+uninstalling the extension puts VS Code's own defaults back. To use other icons, pick them with
+**Preferences: File Icon Theme** or **Preferences: Product Icon Theme** as usual.
 
 For C# to be coloured the way Visual Studio colours it, install Microsoft's **C#** extension
 (`ms-dotnettools.csharp`). Its Roslyn language server supplies the semantic information (class
@@ -168,43 +180,38 @@ Visual Studio keeps the same fill whether or not Solution Explorer has focus, an
 theme. The icons are original drawings in Visual Studio's outline style, not copies of Visual
 Studio's own icons.
 
+VS Code's Explorer shows the folders on disk. For the solution itself — its projects and their
+*Dependencies*, as Visual Studio shows them — install Microsoft's **C# Dev Kit** (included in the
+pack). It adds a solution view to the Explorer, titled **C# Project Details** in current versions,
+drawn in the same theme colours:
+
+![C# Dev Kit's solution view in Fili.VSCode2026 Dark](docs/solution-explorer.png)
+
 ## Making the layout look like Visual Studio 2026 too
 
-A colour theme cannot move things around. The Explorer's icons and tree layout are applied
-automatically (see above); these optional settings get the rest of the way. Add the ones you want
-to your user `settings.json`:
+The icons and tree layout are applied automatically (see above). The rest of Visual Studio's
+layout changes behaviour as well as looks, so it is one command away instead of forced: run
+**Fili.VSCode2026: Apply Visual Studio 2026 Layout** from the Command Palette (`Ctrl+Shift+P`).
+The extension also offers it once, in a notification, the first time you use one of its themes:
 
-```jsonc
-{
-  // Solution Explorer lives on the right in Visual Studio.
-  "workbench.sideBar.location": "right",
-  // Custom title bar with the menu and a search box in it, like Visual Studio's.
-  "window.titleBarStyle": "custom",
-  "window.commandCenter": true,
-  // Visual Studio's default editor font, at its default 10pt.
-  "editor.fontFamily": "'Cascadia Mono', Consolas, 'Courier New', monospace",
-  "editor.fontSize": 13,
-  "terminal.integrated.fontFamily": "'Cascadia Mono', Consolas, monospace",
-  // Visual Studio uses a scroll bar map instead of a minimap.
-  "editor.minimap.enabled": false,
-  "editor.renderLineHighlight": "line",
-  // Visual Studio 2026 colourises brace pairs and has sticky scroll.
-  "editor.bracketPairColorization.enabled": true,
-  "editor.stickyScroll.enabled": true,
-  // CodeLens reference counts above members, as Visual Studio shows them.
-  "editor.codeLens": true,
-  // Inline parameter and type hints only while a shortcut is held (Ctrl+Alt here, Alt+F1 in VS).
-  "editor.inlayHints.enabled": "offUnlessPressed",
+![The one-time offer to apply Visual Studio 2026's layout](docs/layout-offer.png)
 
-  // Solution Explorer shows project items, not build output. This also hides them from search.
-  "files.exclude": { "**/bin": true, "**/obj": true, "**/.vs": true },
-  // Optional: Visual Studio marks Git state with glyphs and never tints file names, in Solution
-  // Explorer or on tabs. Without these, VS Code colours every untracked or changed file green,
-  // yellow or red, which in a new repository means every name in the tree.
-  "explorer.decorations.colors": false,
-  "workbench.editor.decorations.colors": false
-}
-```
+It sets, in your user settings:
+
+| Setting | Value | Why |
+|---|---|---|
+| `workbench.sideBar.location` | `right` | Solution Explorer sits on the right in Visual Studio (VS Code then puts its secondary side bar, with Chat, on the left) |
+| `editor.fontFamily`, `editor.fontSize` | Cascadia Mono, 13 | Visual Studio's default editor font, at 10pt |
+| `terminal.integrated.fontFamily` | Cascadia Mono | the same in the terminal |
+| `editor.minimap.enabled` | `false` | Visual Studio shows a scroll bar map instead |
+| `editor.renderLineHighlight` | `line` | Visual Studio highlights the current line only |
+| `editor.inlayHints.enabled` | `offUnlessPressed` | hints while a key is held, like Alt+F1 in Visual Studio |
+| `explorer.decorations.colors`, `workbench.editor.decorations.colors` | `false` | Visual Studio never tints file names by Git status |
+| `files.exclude` | adds `bin`, `obj`, `.vs` | Solution Explorer shows project items, not build output (also hides them from search) |
+| `window.title` | solution first | Visual Studio puts the solution name first in its title |
+
+**Fili.VSCode2026: Remove Visual Studio 2026 Layout** takes back exactly those settings, keeping
+any you have changed since, and your own `files.exclude` entries.
 
 ## Known limits
 
@@ -220,19 +227,20 @@ These are limits of what a VS Code colour theme can express, not choices:
   not.
 - **Rows are 22px, not 24px.** VS Code has no setting for list row height, and its UI font is a
   little larger than Visual Studio's.
-- **Files, not a project model.** Solution Explorer shows the solution, its projects and virtual
-  nodes such as *Dependencies*. VS Code's Explorer shows the folders on disk.
+- **The Explorer shows files, not a project model.** VS Code's own Explorer lists the folders on
+  disk; C# Dev Kit's **C# Project Details** view (see above) is the place for the solution and
+  projects.
 - **No bold active tab.** Visual Studio bolds the active tab's title; themes cannot set font weight
   in the workbench.
 - **The current debug statement is tinted, not painted.** Visual Studio fills the current statement
   solid yellow and repaints its text black. A theme cannot change the text colour there, so the
   yellow is translucent enough to keep the code readable.
-- **`[Obsolete]` types lose their colour.** Visual Studio keeps an obsolete type's colour and
-  strikes it through. The C# extension reports it as a deprecated *namespace* token instead, so the
-  class or interface information is gone before the theme sees it, and the name shows as plain
-  text.
-- **Icons and fonts are not part of a colour theme.** Visual Studio's icon set and UI font are
-  outside what a theme can change.
+- **`[Obsolete]` types are struck through but lose their colour.** Visual Studio keeps an obsolete
+  type's colour and strikes it through. The C# extension reports it as a deprecated *namespace*
+  token, so the class or interface information is gone before the theme sees it: the name is
+  struck through, as in Visual Studio, but in plain text.
+- **The UI font.** Visual Studio draws its interface in Segoe UI at 9pt; VS Code's workbench font
+  cannot be changed by an extension or a setting.
 
 ![Debugging in Fili.VSCode2026 Dark](docs/dark-debug.png)
 
@@ -251,16 +259,27 @@ src/workbench.json          shared: VS Code UI colour -> role (no colours in thi
 src/syntax.json             shared: TextMate scopes and semantic tokens -> role (no colours either)
 src/icon-theme.json         shared: file names and extensions -> icon template
 src/icons/*.svg             icon templates whose colours are {{role}} placeholders
+src/product-icons.json      codicon id -> Fluent System Icons name, for the product icon theme
 scripts/build.mjs           generates themes/ and icons/ and enforces the rules below
 scripts/variants.mjs        regenerates src/palettes/variants/ from a Visual Studio install
+scripts/product-icons.py    regenerates product-icons/ (a subset of the Fluent font) from the map
+extension.js                the Apply / Remove Visual Studio 2026 Layout commands
+test/layout.test.cjs        tests those commands against a stand-in for the VS Code API
+pack/                       Fili.VSCode2026 Pack, a separate extension pack published on its own
 ```
 
 ```text
 npm run build      regenerate themes/ and icons/
 npm run check      fail if either is out of date
+npm test           test the layout commands
 npm run coverage   list the VS Code colours no theme sets
 npm run variants -- "<VS install dir>"   regenerate the variant palettes
+python scripts/product-icons.py "<dir with FluentSystemIcons-Regular.ttf and .json>"
 ```
+
+`product-icons.py` needs `fontTools` and `brotli` (a virtual environment is enough) and the Fluent
+font and its JSON map from the [Fluent System Icons repository](https://github.com/microsoft/fluentui-system-icons/tree/main/fonts).
+Its output, like the variant palettes, is committed, so building and packaging need neither.
 
 A variant file holds only the roles its Visual Studio theme changes, and the build merges it onto
 Dark or Light, so a variant cannot add or drop a role. `variants.mjs` first evaluates every rule
@@ -287,7 +306,8 @@ Press `F5` in this folder to open an Extension Development Host with the themes 
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). The Fluent Icons product icon theme contains glyphs from Microsoft's
+Fluent UI System Icons, also MIT-licensed; see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
 Visual Studio and Visual Studio Code are trademarks of Microsoft Corporation. This project is not
 affiliated with or endorsed by Microsoft.

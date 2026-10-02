@@ -2,7 +2,7 @@
   "name": "fili-vscode2026",
   "displayName": "Fili.VSCode2026",
   "description": "Visual Studio 2026's themes for VS Code — Dark, Light, the eleven tinted themes and both Extra Contrast editors — rebuilt from Visual Studio's own Fluent theme tokens, with Roslyn-accurate C# and a Solution Explorer icon theme.",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "publisher": "FiliArrochada",
   "author": "FiliArrochada",
   "license": "MIT",
@@ -34,7 +34,32 @@
     "color": "#1C1C1C",
     "theme": "dark"
   },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
   "contributes": {
+    "commands": [
+      {
+        "command": "fili-vscode2026.applyLayout",
+        "title": "Apply Visual Studio 2026 Layout",
+        "category": "Fili.VSCode2026"
+      },
+      {
+        "command": "fili-vscode2026.removeLayout",
+        "title": "Remove Visual Studio 2026 Layout",
+        "category": "Fili.VSCode2026"
+      }
+    ],
     "themes": [
       {
         "label": "Fili.VSCode2026 Dark",
@@ -119,18 +144,27 @@
         "path": "./icons/fili-vscode2026-icon-theme.json"
       }
     ],
+    "productIconThemes": [
+      {
+        "id": "fili-vscode2026-product-icons",
+        "label": "Fili.VSCode2026 Fluent Icons",
+        "path": "./product-icons/fili-vscode2026-product-icon-theme.json"
+      }
+    ],
     "configurationDefaults": {
       "workbench.iconTheme": "fili-vscode2026-icons",
       "workbench.tree.indent": 12,
       "workbench.tree.renderIndentGuides": "none",
       "explorer.compactFolders": false,
       "workbench.activityBar.location": "top",
-      "workbench.activityBar.compact": true
+      "workbench.activityBar.compact": true,
+      "workbench.productIconTheme": "fili-vscode2026-product-icons"
     }
   },
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/build.mjs --check",
+    "test": "node test/layout.test.cjs",
     "coverage": "node scripts/build.mjs --coverage",
     "registry": "node scripts/registry.mjs",
     "variants": "node scripts/variants.mjs",

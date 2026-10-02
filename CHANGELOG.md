@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.4.0
+
+- **Fili.VSCode2026 Fluent Icons**, a product icon theme and a new default: toolbar, activity bar,
+  debugger and tree icons from Microsoft's Fluent System Icons (MIT), the family Visual Studio 2026
+  is drawn with, in place of VS Code's codicons. 121 icons, in a 9 KB subset of the Fluent font.
+- **Fili.VSCode2026: Apply Visual Studio 2026 Layout**, a command for the settings that change
+  behaviour: side bar on the right, Cascadia Mono 13, no minimap, no Git-tinted file names, `bin`,
+  `obj` and `.vs` hidden, and the solution first in the title. Offered once in a notification;
+  **Remove Visual Studio 2026 Layout** undoes exactly what it set.
+- Obsolete symbols are struck through, as in Visual Studio.
+- Covers VS Code 1.140: its three new interface colours are themed, so every theme now sets 990 of
+  the 993 colours VS Code registers.
+- New companion extension, **Fili.VSCode2026 Pack**: this extension with C#, C# Dev Kit (and its
+  Solution Explorer) and the Visual Studio Keymap.
+
 ## 0.3.1
 
 - Each variant's name now says whether it is dark or light, so the theme picker reads
