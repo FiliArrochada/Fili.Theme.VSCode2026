@@ -1,5 +1,9 @@
 # Fili.VSCode2026
 
+[![Version](https://vsmarketplacebadges.dev/version-short/FiliArrochada.fili-vscode2026.svg)](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026)
+[![Installs](https://vsmarketplacebadges.dev/installs-short/FiliArrochada.fili-vscode2026.svg)](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026)
+[![Rating](https://vsmarketplacebadges.dev/rating-short/FiliArrochada.fili-vscode2026.svg)](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026&ssr=false#review-details)
+
 Visual Studio 2026's Dark and Light themes, rebuilt for VS Code from Visual Studio's own theme files.
 
 The colours aren't eyeballed from screenshots. They were read out of the theme definitions that
