@@ -1,0 +1,501 @@
+{
+  "fonts": [
+    {
+      "id": "fluent",
+      "src": [
+        {
+          "path": "./fili-vscode2026-fluent.woff2",
+          "format": "woff2"
+        }
+      ],
+      "weight": "normal",
+      "style": "normal"
+    }
+  ],
+  "iconDefinitions": {
+    "account": {
+      "fontCharacter": "\\f0b55",
+      "fontId": "fluent"
+    },
+    "add": {
+      "fontCharacter": "\\f108",
+      "fontId": "fluent"
+    },
+    "arrow-down": {
+      "fontCharacter": "\\f147",
+      "fontId": "fluent"
+    },
+    "arrow-left": {
+      "fontCharacter": "\\f184",
+      "fontId": "fluent"
+    },
+    "arrow-right": {
+      "fontCharacter": "\\e0eb",
+      "fontId": "fluent"
+    },
+    "arrow-up": {
+      "fontCharacter": "\\f1b4",
+      "fontId": "fluent"
+    },
+    "beaker": {
+      "fontCharacter": "\\f1d6",
+      "fontId": "fluent"
+    },
+    "bell": {
+      "fontCharacter": "\\e014",
+      "fontId": "fluent"
+    },
+    "bell-dot": {
+      "fontCharacter": "\\e017",
+      "fontId": "fluent"
+    },
+    "bell-slash": {
+      "fontCharacter": "\\f117",
+      "fontId": "fluent"
+    },
+    "book": {
+      "fontCharacter": "\\f0388",
+      "fontId": "fluent"
+    },
+    "check": {
+      "fontCharacter": "\\e305",
+      "fontId": "fluent"
+    },
+    "chevron-down": {
+      "fontCharacter": "\\f2a2",
+      "fontId": "fluent"
+    },
+    "chevron-left": {
+      "fontCharacter": "\\f2a9",
+      "fontId": "fluent"
+    },
+    "chevron-right": {
+      "fontCharacter": "\\f2af",
+      "fontId": "fluent"
+    },
+    "chevron-up": {
+      "fontCharacter": "\\f2b5",
+      "fontId": "fluent"
+    },
+    "clear-all": {
+      "fontCharacter": "\\e5e4",
+      "fontId": "fluent"
+    },
+    "close": {
+      "fontCharacter": "\\f368",
+      "fontId": "fluent"
+    },
+    "close-all": {
+      "fontCharacter": "\\e4c6",
+      "fontId": "fluent"
+    },
+    "cloud": {
+      "fontCharacter": "\\e382",
+      "fontId": "fluent"
+    },
+    "cloud-download": {
+      "fontCharacter": "\\e38c",
+      "fontId": "fluent"
+    },
+    "cloud-upload": {
+      "fontCharacter": "\\e392",
+      "fontId": "fluent"
+    },
+    "code": {
+      "fontCharacter": "\\f339",
+      "fontId": "fluent"
+    },
+    "collapse-all": {
+      "fontCharacter": "\\e0db",
+      "fontId": "fluent"
+    },
+    "comment": {
+      "fontCharacter": "\\f2fe",
+      "fontId": "fluent"
+    },
+    "comment-discussion": {
+      "fontCharacter": "\\f8a9",
+      "fontId": "fluent"
+    },
+    "copy": {
+      "fontCharacter": "\\f32a",
+      "fontId": "fluent"
+    },
+    "database": {
+      "fontCharacter": "\\f0d7",
+      "fontId": "fluent"
+    },
+    "debug-alt": {
+      "fontCharacter": "\\e205",
+      "fontId": "fluent"
+    },
+    "debug-alt-small": {
+      "fontCharacter": "\\e205",
+      "fontId": "fluent"
+    },
+    "debug-console": {
+      "fontCharacter": "\\f8b7",
+      "fontId": "fluent"
+    },
+    "debug-continue": {
+      "fontCharacter": "\\e990",
+      "fontId": "fluent"
+    },
+    "debug-disconnect": {
+      "fontCharacter": "\\f0394",
+      "fontId": "fluent"
+    },
+    "debug-pause": {
+      "fontCharacter": "\\f5a0",
+      "fontId": "fluent"
+    },
+    "debug-restart": {
+      "fontCharacter": "\\e0ec",
+      "fontId": "fluent"
+    },
+    "debug-start": {
+      "fontCharacter": "\\e990",
+      "fontId": "fluent"
+    },
+    "debug-step-into": {
+      "fontCharacter": "\\e0fb",
+      "fontId": "fluent"
+    },
+    "debug-step-out": {
+      "fontCharacter": "\\e10a",
+      "fontId": "fluent"
+    },
+    "debug-step-over": {
+      "fontCharacter": "\\e10e",
+      "fontId": "fluent"
+    },
+    "debug-stop": {
+      "fontCharacter": "\\f729",
+      "fontId": "fluent"
+    },
+    "discard": {
+      "fontCharacter": "\\e126",
+      "fontId": "fluent"
+    },
+    "edit": {
+      "fontCharacter": "\\f3dc",
+      "fontId": "fluent"
+    },
+    "ellipsis": {
+      "fontCharacter": "\\e823",
+      "fontId": "fluent"
+    },
+    "error": {
+      "fontCharacter": "\\f3f0",
+      "fontId": "fluent"
+    },
+    "expand-all": {
+      "fontCharacter": "\\f162",
+      "fontId": "fluent"
+    },
+    "export": {
+      "fontCharacter": "\\e0c6",
+      "fontId": "fluent"
+    },
+    "extensions": {
+      "fontCharacter": "\\e9e8",
+      "fontId": "fluent"
+    },
+    "eye": {
+      "fontCharacter": "\\e5f1",
+      "fontId": "fluent"
+    },
+    "eye-closed": {
+      "fontCharacter": "\\e5f4",
+      "fontId": "fluent"
+    },
+    "file": {
+      "fontCharacter": "\\e4d7",
+      "fontId": "fluent"
+    },
+    "file-code": {
+      "fontCharacter": "\\eeed",
+      "fontId": "fluent"
+    },
+    "files": {
+      "fontCharacter": "\\f37f",
+      "fontId": "fluent"
+    },
+    "filter": {
+      "fontCharacter": "\\e60a",
+      "fontId": "fluent"
+    },
+    "filter-filled": {
+      "fontCharacter": "\\e60a",
+      "fontId": "fluent"
+    },
+    "folder": {
+      "fontCharacter": "\\e643",
+      "fontId": "fluent"
+    },
+    "folder-opened": {
+      "fontCharacter": "\\f42d",
+      "fontId": "fluent"
+    },
+    "gear": {
+      "fontCharacter": "\\f6a8",
+      "fontId": "fluent"
+    },
+    "git-compare": {
+      "fontCharacter": "\\e1da",
+      "fontId": "fluent"
+    },
+    "git-pull-request": {
+      "fontCharacter": "\\f038a",
+      "fontId": "fluent"
+    },
+    "globe": {
+      "fontCharacter": "\\e6b1",
+      "fontId": "fluent"
+    },
+    "go-to-file": {
+      "fontCharacter": "\\e541",
+      "fontId": "fluent"
+    },
+    "history": {
+      "fontCharacter": "\\e705",
+      "fontId": "fluent"
+    },
+    "home": {
+      "fontCharacter": "\\e70f",
+      "fontId": "fluent"
+    },
+    "info": {
+      "fontCharacter": "\\f4a2",
+      "fontId": "fluent"
+    },
+    "kebab-vertical": {
+      "fontCharacter": "\\e829",
+      "fontId": "fluent"
+    },
+    "layout-panel": {
+      "fontCharacter": "\\e8ac",
+      "fontId": "fluent"
+    },
+    "layout-panel-off": {
+      "fontCharacter": "\\e8ac",
+      "fontId": "fluent"
+    },
+    "layout-sidebar-left": {
+      "fontCharacter": "\\e8af",
+      "fontId": "fluent"
+    },
+    "layout-sidebar-left-off": {
+      "fontCharacter": "\\e8af",
+      "fontId": "fluent"
+    },
+    "layout-sidebar-right": {
+      "fontCharacter": "\\e8bc",
+      "fontId": "fluent"
+    },
+    "layout-sidebar-right-off": {
+      "fontCharacter": "\\e8bc",
+      "fontId": "fluent"
+    },
+    "library": {
+      "fontCharacter": "\\e761",
+      "fontId": "fluent"
+    },
+    "lightbulb": {
+      "fontCharacter": "\\f4d5",
+      "fontId": "fluent"
+    },
+    "lightbulb-autofix": {
+      "fontCharacter": "\\f4d9",
+      "fontId": "fluent"
+    },
+    "link": {
+      "fontCharacter": "\\f4e3",
+      "fontId": "fluent"
+    },
+    "link-external": {
+      "fontCharacter": "\\f581",
+      "fontId": "fluent"
+    },
+    "list-flat": {
+      "fontCharacter": "\\ecd8",
+      "fontId": "fluent"
+    },
+    "list-tree": {
+      "fontCharacter": "\\f7ad",
+      "fontId": "fluent"
+    },
+    "lock": {
+      "fontCharacter": "\\e78e",
+      "fontId": "fluent"
+    },
+    "menu": {
+      "fontCharacter": "\\e85f",
+      "fontId": "fluent"
+    },
+    "new-file": {
+      "fontCharacter": "\\e4da",
+      "fontId": "fluent"
+    },
+    "new-folder": {
+      "fontCharacter": "\\e645",
+      "fontId": "fluent"
+    },
+    "notebook": {
+      "fontCharacter": "\\ef09",
+      "fontId": "fluent"
+    },
+    "open-preview": {
+      "fontCharacter": "\\f581",
+      "fontId": "fluent"
+    },
+    "output": {
+      "fontCharacter": "\\eeed",
+      "fontId": "fluent"
+    },
+    "package": {
+      "fontCharacter": "\\e1ba",
+      "fontId": "fluent"
+    },
+    "pin": {
+      "fontCharacter": "\\f600",
+      "fontId": "fluent"
+    },
+    "pinned": {
+      "fontCharacter": "\\f600",
+      "fontId": "fluent"
+    },
+    "play": {
+      "fontCharacter": "\\e990",
+      "fontId": "fluent"
+    },
+    "plus": {
+      "fontCharacter": "\\f108",
+      "fontId": "fluent"
+    },
+    "preview": {
+      "fontCharacter": "\\e5f1",
+      "fontId": "fluent"
+    },
+    "question": {
+      "fontCharacter": "\\f63c",
+      "fontId": "fluent"
+    },
+    "redo": {
+      "fontCharacter": "\\e0e4",
+      "fontId": "fluent"
+    },
+    "refresh": {
+      "fontCharacter": "\\e0aa",
+      "fontId": "fluent"
+    },
+    "remote-explorer": {
+      "fontCharacter": "\\f358",
+      "fontId": "fluent"
+    },
+    "remove": {
+      "fontCharacter": "\\ebcf",
+      "fontId": "fluent"
+    },
+    "replace": {
+      "fontCharacter": "\\f02a4",
+      "fontId": "fluent"
+    },
+    "run": {
+      "fontCharacter": "\\e990",
+      "fontId": "fluent"
+    },
+    "run-all": {
+      "fontCharacter": "\\f100",
+      "fontId": "fluent"
+    },
+    "save": {
+      "fontCharacter": "\\ea43",
+      "fontId": "fluent"
+    },
+    "save-all": {
+      "fontCharacter": "\\f1d2",
+      "fontId": "fluent"
+    },
+    "screen-full": {
+      "fontCharacter": "\\e683",
+      "fontId": "fluent"
+    },
+    "screen-normal": {
+      "fontCharacter": "\\e686",
+      "fontId": "fluent"
+    },
+    "search": {
+      "fontCharacter": "\\ea7c",
+      "fontId": "fluent"
+    },
+    "server": {
+      "fontCharacter": "\\f1dc",
+      "fontId": "fluent"
+    },
+    "settings-gear": {
+      "fontCharacter": "\\f6a8",
+      "fontId": "fluent"
+    },
+    "source-control": {
+      "fontCharacter": "\\f0a6",
+      "fontId": "fluent"
+    },
+    "split-horizontal": {
+      "fontCharacter": "\\eb5f",
+      "fontId": "fluent"
+    },
+    "split-vertical": {
+      "fontCharacter": "\\eb58",
+      "fontId": "fluent"
+    },
+    "star": {
+      "fontCharacter": "\\f70e",
+      "fontId": "fluent"
+    },
+    "star-empty": {
+      "fontCharacter": "\\f70e",
+      "fontId": "fluent"
+    },
+    "sync": {
+      "fontCharacter": "\\e110",
+      "fontId": "fluent"
+    },
+    "tag": {
+      "fontCharacter": "\\ec70",
+      "fontId": "fluent"
+    },
+    "terminal": {
+      "fontCharacter": "\\ee6f",
+      "fontId": "fluent"
+    },
+    "tools": {
+      "fontCharacter": "\\ee85",
+      "fontId": "fluent"
+    },
+    "trash": {
+      "fontCharacter": "\\e47b",
+      "fontId": "fluent"
+    },
+    "undo": {
+      "fontCharacter": "\\e126",
+      "fontId": "fluent"
+    },
+    "unlock": {
+      "fontCharacter": "\\e794",
+      "fontId": "fluent"
+    },
+    "warning": {
+      "fontCharacter": "\\f868",
+      "fontId": "fluent"
+    },
+    "wrench": {
+      "fontCharacter": "\\ee85",
+      "fontId": "fluent"
+    },
+    "zap": {
+      "fontCharacter": "\\e617",
+      "fontId": "fluent"
+    }
+  }
+}
