@@ -114,8 +114,9 @@ function buildTheme(p) {
     if (typeof value === 'string') {
       semanticTokenColors[selector] = resolve(value, p, where);
     } else {
+      // A rule may set only a style (e.g. strikethrough) and keep whatever colour the token has.
       const { role, ...style } = value;
-      semanticTokenColors[selector] = { foreground: resolve(role, p, where), ...style };
+      semanticTokenColors[selector] = role === undefined ? style : { foreground: resolve(role, p, where), ...style };
     }
   }
 

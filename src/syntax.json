@@ -1,5 +1,5 @@
 {
-  "$comment": "Shared by both themes. TextMate scopes and semantic token selectors mapped to syntax roles — never to a hex value. C# follows Visual Studio's Roslyn classifications: types are coloured, methods are coloured, locals and parameters are coloured, and fields, properties, events, constants, enum members and namespaces stay plain identifiers exactly as they do in Visual Studio. Scope names were taken from the csharp.tmLanguage grammar that ships with VS Code; semantic selectors are the token types the C# extension's Roslyn server emits (Roslyn ClassificationTypeNames in camelCase).",
+  "$comment": "Shared by both themes. TextMate scopes and semantic token selectors mapped to syntax roles — never to a hex value. C# follows Visual Studio's Roslyn classifications: types are coloured, methods are coloured, locals and parameters are coloured, and fields, properties, events, constants, enum members and namespaces stay plain identifiers exactly as they do in Visual Studio. Obsolete symbols are struck through, as Visual Studio does (their type colour cannot be recovered: the C# extension reports them as deprecated namespace tokens). Scope names were taken from the csharp.tmLanguage grammar that ships with VS Code; semantic selectors are the token types the C# extension's Roslyn server emits (Roslyn ClassificationTypeNames in camelCase).",
 
   "tokenColors": [
     { "name": "Plain text", "scope": ["source", "variable.other.readwrite", "variable.other.object", "variable.other.constant", "entity.name.variable.field", "entity.name.variable.property", "entity.name.variable.event", "entity.name.variable.enum-member", "entity.name.variable.tuple-element", "entity.name.type.namespace", "entity.name.label", "variable.language.discard", "meta.interpolation"], "role": "synIdentifier" },
@@ -136,6 +136,8 @@
     "jsonString": "synString",
     "jsonNumber": "synNumber",
     "jsonKeyword": "synKeyword",
-    "jsonComment": "synComment"
+    "jsonComment": "synComment",
+
+    "*.deprecated": { "strikethrough": true }
   }
 }

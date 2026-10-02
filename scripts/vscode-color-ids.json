@@ -1,5 +1,5 @@
 {
- "vscodeVersion": "1.139.1",
+ "vscodeVersion": "1.140.0",
  "colors": {
   "actionBar.toggledBackground": "core",
   "activeSessionView.background": "core",
@@ -37,6 +37,7 @@
   "agentsChatInput.focusBorder": "core",
   "agentsChatInput.foreground": "core",
   "agentsChatInput.placeholderForeground": "core",
+  "agentsDetail.background": "core",
   "agentSessionReadIndicator.foreground": "core",
   "agentSessionSelectedBadge.border": "core",
   "agentSessionSelectedUnfocusedBadge.border": "core",
@@ -98,6 +99,7 @@
   "chat.inputWorkingBorderColor3": "core",
   "chat.linesAddedForeground": "core",
   "chat.linesRemovedForeground": "core",
+  "chat.mcpCompatibilityWarningForeground": "core",
   "chat.requestBackground": "core",
   "chat.requestBorder": "core",
   "chat.requestBubbleBackground": "core",
@@ -287,6 +289,7 @@
   "editorGroup.emptyBackground": "core",
   "editorGroup.focusedEmptyBorder": "core",
   "editorGroupHeader.border": "core",
+  "editorGroupHeader.connectedTabsBackground": "core",
   "editorGroupHeader.noTabsBackground": "core",
   "editorGroupHeader.tabsBackground": "core",
   "editorGroupHeader.tabsBorder": "core",

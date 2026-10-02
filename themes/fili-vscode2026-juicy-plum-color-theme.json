@@ -124,6 +124,7 @@
     "editorGroup.emptyBackground": "#27242B",
     "editorGroup.focusedEmptyBorder": "#D3C1EC",
     "editorGroupHeader.tabsBackground": "#301850",
+    "editorGroupHeader.connectedTabsBackground": "#301850",
     "editorGroupHeader.tabsBorder": "#39363C",
     "editorGroupHeader.noTabsBackground": "#27242B",
     "editorGroupHeader.border": "#39363C",
@@ -942,6 +943,7 @@
     "terminalSymbolIcon.symbolicLinkFolderForeground": "#D0D0D1",
     "terminalSymbolIcon.symbolText": "#FAFAFA",
     "chat.findMatchBackground": "#773800",
+    "chat.mcpCompatibilityWarningForeground": "#FCE100",
     "chat.findMatchHighlightBackground": "#77380099",
     "chat.statusBackground": "#383838",
     "chat.inputWorkingBorderColor1": "#9184EE",
@@ -961,6 +963,7 @@
     "inactiveSessionView.background": "#27242B",
     "inactiveSessionView.foreground": "#D0D0D1",
     "agents.background": "#27242B",
+    "agentsDetail.background": "#27242B",
     "agentsPanel.background": "#27242B",
     "agentsPanel.foreground": "#FAFAFA",
     "agentsPanel.border": "#454545",
@@ -1721,6 +1724,9 @@
     "jsonString": "#D69D85",
     "jsonNumber": "#B5CEA8",
     "jsonKeyword": "#569CD6",
-    "jsonComment": "#57A64A"
+    "jsonComment": "#57A64A",
+    "*.deprecated": {
+      "strikethrough": true
+    }
   }
 }

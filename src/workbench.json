@@ -128,6 +128,7 @@
   "editorGroup.emptyBackground": "card",
   "editorGroup.focusedEmptyBorder": "windowAccent",
   "editorGroupHeader.tabsBackground": "tabWell",
+  "editorGroupHeader.connectedTabsBackground": "tabWell",
   "editorGroupHeader.tabsBorder": "divider",
   "editorGroupHeader.noTabsBackground": "card",
   "editorGroupHeader.border": "divider",
@@ -980,6 +981,7 @@
   "terminalSymbolIcon.symbolText": "fg",
 
   "chat.findMatchBackground": "findMatch",
+  "chat.mcpCompatibilityWarningForeground": "warning",
   "chat.findMatchHighlightBackground": "findMatchOther",
   "chat.statusBackground": "control",
   "chat.inputWorkingBorderColor1": "accent",
@@ -999,6 +1001,7 @@
   "inactiveSessionView.background": "card",
   "inactiveSessionView.foreground": "fgSecondary",
   "agents.background": "card",
+  "agentsDetail.background": "card",
   "agentsPanel.background": "card",
   "agentsPanel.foreground": "fg",
   "agentsPanel.border": "windowBorder",
