@@ -1,0 +1,7 @@
+# Keeps the actions the workflows use current. The extension has no npm dependencies to watch.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
