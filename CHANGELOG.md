@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.4.1
 
 - Fili.VSCode2026 Pack, announced with 0.4.0, is withdrawn before publication: it was never made
   public. The README now recommends C#, C# Dev Kit and the Visual Studio Keymap directly.
