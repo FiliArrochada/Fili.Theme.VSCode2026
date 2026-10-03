@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0
+
+- Razor, SCSS, Less and SQL take Visual Studio's own colours: Razor transitions, directives,
+  directive attributes and components (teal in Dark, purple in Light); SCSS and Less variables and
+  SCSS mixins; SQL system functions and strings, including the Extra Contrast variants' values.
+  HTML inside Razor files now gets the same colours as plain HTML when the Razor language server
+  is running.
+- JSON property names in Dark are gold (`#D7BA7D`), as Visual Studio draws them; they were light
+  blue.
+
 ## 0.5.0
 
 - **Fili.VSCode2026 Icons** grows from 11 icons to 25. New: Razor (`.razor`, `.cshtml`), XAML and
