@@ -10,23 +10,21 @@ themes **Fili.VSCode2026 Dark** and **Fili.VSCode2026 Light**, the thirteen vari
 tinted themes and two Extra Contrast editors), a file icon theme, **Fili.VSCode2026 Icons**, for
 Solution Explorer's look, and a product icon theme, **Fili.VSCode2026 Fluent Icons**. The only
 runtime code is `extension.js`, for the opt-in Visual Studio 2026 layout commands. `themes/`,
-`icons/` and `product-icons/` are generated.
+`icons/` and the product icon theme JSON are generated; the Fluent font beside it is vendored.
 
 ```bash
-npm run build      # src/ -> themes/ + icons/, with parity + registry validation and a contrast table
-npm run check      # fail if themes/ or icons/ is stale
+npm run build      # src/ -> themes/ + icons/ + product icon theme, with parity + registry validation and a contrast table
+npm run check      # fail if any generated file is stale
 npm test           # the layout commands, against a stand-in for the VS Code API
 npm run coverage   # also list VS Code colours no theme sets
 npm run registry -- "<VS Code resources/app dir>"         # refresh scripts/vscode-color-ids.json
 npm run variants -- "<VS install dir>"                    # regenerate src/palettes/variants/
 node scripts/vs-tokens.mjs "<VS install dir>" "<regex>"   # read Visual Studio's own theme tokens
-python scripts/product-icons.py "<Fluent fonts dir>"      # regenerate product-icons/
 ```
 
 The Node scripts need only Node (no `npm install`, no dependencies). If `node` is not on PATH,
 Visual Studio ships one under its install at `MSBuild/Microsoft/VisualStudio/NodeJs/node.exe`.
-`product-icons.py` is the one exception: it needs Python with `fontTools` and `brotli`, and is only
-run when `src/product-icons.json` changes.
+Keep it that way: no Python, no npm dependencies.
 
 ## Things that will bite you
 
@@ -86,12 +84,15 @@ its `id`, or by its `label` when there is none, so relabelling a theme un-select
 using it. That was acceptable in 0.3.1 because the extension had no users yet. Once it does, rename
 a label only together with an `id` that keeps the old name.
 
-**Product icons are a generated font subset.** `src/product-icons.json` maps codicon ids to Fluent
-System Icons names; `scripts/product-icons.py` (Python + fontTools, not part of the Node build)
-picks the 16px Regular design where one exists, subsets Microsoft's MIT-licensed Fluent font to just
-those glyphs, and writes `product-icons/`. Re-run it after editing the map, and keep
-`THIRD-PARTY-NOTICES.md` (the Fluent MIT notice) in the package. An unmapped codicon keeps VS Code's
-icon, so the map can stay partial.
+**Product icons use the whole Fluent font, unmodified.** `src/product-icons.json` maps codicon ids
+to Fluent System Icons names; the build resolves each to the 16px Regular glyph (else 20, else 24)
+through `src/vendor/fluent/FluentSystemIcons-Regular.json` and writes
+`product-icons/fili-vscode2026-product-icon-theme.json`. The font is not subset — about 0.8 MB in the
+package, in exchange for a Node-only toolchain — and must stay under `product-icons/`, because
+`src/**` is not packaged. The `.woff2` and the `.json` map must come from the same upstream commit
+(recorded in `THIRD-PARTY-NOTICES.md`, which must stay in the package): codepoints are not stable
+across Fluent releases. The build deletes any other file in `product-icons/`. An unmapped codicon
+keeps VS Code's icon, so the map can stay partial.
 
 **`extension.js` is opt-in behaviour only.** The themes need no code; `extension.js` exists for the
 Apply / Remove Visual Studio 2026 Layout commands and a one-time offer of Apply (only while a

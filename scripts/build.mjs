@@ -1,8 +1,8 @@
-// Generates themes/*.json and the icons/ file icon theme from the shared design in src/ and the
-// two palettes.
+// Generates themes/*.json, the icons/ file icon theme and the product-icons/ theme JSON from the
+// shared design in src/ and the two palettes.
 //
-//   node scripts/build.mjs              write both themes and both icon sets
-//   node scripts/build.mjs --check      fail if themes/ or icons/ is stale (for CI)
+//   node scripts/build.mjs              write the themes, both icon sets and the product icon theme
+//   node scripts/build.mjs --check      fail if themes/, icons/ or product-icons/ is stale (for CI)
 //   node scripts/build.mjs --coverage   also list registered VS Code colours no theme sets
 //
 // The shared maps (src/workbench.json, src/syntax.json) name palette roles only. Every rule that
@@ -11,6 +11,7 @@
 //   - every role a map names exists, and every role a palette defines is used somewhere
 //   - no raw colour appears in a shared map or an icon template
 //   - every icon the icon map names has a template, and every template is used
+//   - every Fluent name in src/product-icons.json has a 16, 20 or 24px Regular glyph
 //   - every workbench key is registered by VS Code (scripts/vscode-color-ids.json)
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync, rmSync } from 'node:fs';
@@ -172,6 +173,29 @@ const iconTheme = { iconDefinitions, ...remap(first.type), hidesExplorerArrows: 
 for (const p of rest) iconTheme[p.type] = remap(p.type);
 outputs.push({ path: 'icons/fili-vscode2026-icon-theme.json', text: JSON.stringify(iconTheme, null, 2) + '\n' });
 
+// --- product icon theme -------------------------------------------------------------------------
+// src/product-icons.json maps codicon ids to Fluent System Icons base names. Each resolves to the
+// 16px Regular glyph where Fluent has one, else 20px, else 24px, through the codepoint map vendored
+// beside the font (src/vendor/fluent/); the font itself ships whole in product-icons/.
+const FLUENT_FONT = 'FluentSystemIcons-Regular.woff2';
+if (!existsSync(join(root, 'product-icons', FLUENT_FONT))) fail(`product-icons/${FLUENT_FONT} is missing`);
+const fluentGlyphs = {};
+for (const [name, cp] of Object.entries(readJson('src/vendor/fluent/FluentSystemIcons-Regular.json'))) {
+  const m = /^ic_fluent_(.+)_(\d+)_regular$/.exec(name);
+  if (m) (fluentGlyphs[m[1]] ??= {})[m[2]] = cp;
+}
+const productIcons = {};
+for (const [codicon, base] of Object.entries(withoutComment(readJson('src/product-icons.json'))).sort(([a], [b]) => (a < b ? -1 : 1))) {
+  const cp = [16, 20, 24].map((s) => fluentGlyphs[base]?.[s]).find((c) => c !== undefined);
+  if (cp === undefined) { fail(`src/product-icons.json '${codicon}': Fluent has no 16/20/24px Regular '${base}'`); continue; }
+  productIcons[codicon] = { fontCharacter: '\\' + cp.toString(16), fontId: 'fluent' };
+}
+const productIconTheme = {
+  fonts: [{ id: 'fluent', src: [{ path: `./${FLUENT_FONT}`, format: 'woff2' }], weight: 'normal', style: 'normal' }],
+  iconDefinitions: productIcons,
+};
+outputs.push({ path: 'product-icons/fili-vscode2026-product-icon-theme.json', text: JSON.stringify(productIconTheme, null, 2) + '\n' });
+
 for (const r of firstRoles) if (!used.has(r)) fail(`role '${r}' is defined in both palettes but nothing uses it`);
 
 // package.json must contribute exactly the themes generated here, in this order, with the right kind.
@@ -216,9 +240,10 @@ for (const p of bases) {
     else { rmSync(join(dir, f)); console.log(`removed ${rel}`); }
   }
 }
-for (const f of readdirSync(join(root, 'themes'))) {
-  const rel = `themes/${f}`;
-  if (produced.has(rel)) continue;
+const vendored = new Set([`product-icons/${FLUENT_FONT}`]);
+for (const f of [...readdirSync(join(root, 'themes')).map((f) => `themes/${f}`), ...readdirSync(join(root, 'product-icons')).map((f) => `product-icons/${f}`)]) {
+  const rel = f;
+  if (produced.has(rel) || vendored.has(rel)) continue;
   if (args.has('--check')) { stale = true; console.error(`stale: ${rel} is no longer generated (run npm run build)`); }
   else { rmSync(join(root, rel)); console.log(`removed ${rel}`); }
 }

@@ -1,14 +1,3 @@
-# Third-party notices
-
-## Fluent UI System Icons
-
-The Fili.VSCode2026 Fluent Icons product icon theme (`product-icons/`) contains glyphs from
-[Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons), used under the MIT
-licence below. `product-icons/FluentSystemIcons-Regular.woff2` is Microsoft's font, unmodified, and
-`src/vendor/fluent/FluentSystemIcons-Regular.json` its name map, both taken from upstream commit
-`a563cf9166f4f91aa617557ed272612b7f0a2f72` (2026-09-25).
-
-```text
 MIT License
 
 Copyright (c) 2020 Microsoft Corporation
@@ -30,4 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```

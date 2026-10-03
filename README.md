@@ -253,7 +253,7 @@ These are limits of what a VS Code colour theme can express, not choices:
 
 ## Development
 
-Everything in `themes/` and `icons/` is **generated**. Edit the sources in `src/` and rebuild:
+Everything in `themes/` and `icons/`, and the product icon theme JSON, is **generated**. Edit the sources in `src/` and rebuild:
 
 ```text
 src/palettes/dark.json      every colour role, with the Visual Studio token it came from
@@ -265,25 +265,26 @@ src/syntax.json             shared: TextMate scopes and semantic tokens -> role 
 src/icon-theme.json         shared: file names and extensions -> icon template
 src/icons/*.svg             icon templates whose colours are {{role}} placeholders
 src/product-icons.json      codicon id -> Fluent System Icons name, for the product icon theme
-scripts/build.mjs           generates themes/ and icons/ and enforces the rules below
+src/vendor/fluent/          Fluent's name -> codepoint map, vendored with the font
+scripts/build.mjs           generates themes/, icons/ and the product icon theme, and enforces the rules below
 scripts/variants.mjs        regenerates src/palettes/variants/ from a Visual Studio install
-scripts/product-icons.py    regenerates product-icons/ (a subset of the Fluent font) from the map
 extension.js                the Apply / Remove Visual Studio 2026 Layout commands
 test/layout.test.cjs        tests those commands against a stand-in for the VS Code API
 ```
 
 ```text
-npm run build      regenerate themes/ and icons/
-npm run check      fail if either is out of date
+npm run build      regenerate themes/, icons/ and the product icon theme
+npm run check      fail if any of them is out of date
 npm test           test the layout commands
 npm run coverage   list the VS Code colours no theme sets
 npm run variants -- "<VS install dir>"   regenerate the variant palettes
-python scripts/product-icons.py "<dir with FluentSystemIcons-Regular.ttf and .json>"
 ```
 
-`product-icons.py` needs `fontTools` and `brotli` (a virtual environment is enough) and the Fluent
-font and its JSON map from the [Fluent System Icons repository](https://github.com/microsoft/fluentui-system-icons/tree/main/fonts).
-Its output, like the variant palettes, is committed, so building and packaging need neither.
+Everything runs on Node alone, with no `npm install`. The product icons use Microsoft's
+[Fluent System Icons](https://github.com/microsoft/fluentui-system-icons) font as published
+(`product-icons/FluentSystemIcons-Regular.woff2`); the build points each codicon in the map at its
+16px Regular glyph through the font's own name map in `src/vendor/fluent/`. To update Fluent,
+replace both files from the same upstream commit and rebuild.
 
 A variant file holds only the roles its Visual Studio theme changes, and the build merges it onto
 Dark or Light, so a variant cannot add or drop a role. `variants.mjs` first evaluates every rule

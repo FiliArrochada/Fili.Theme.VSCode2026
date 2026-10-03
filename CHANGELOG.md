@@ -4,6 +4,8 @@
 
 - Fili.VSCode2026 Pack, announced with 0.4.0, is withdrawn before publication: it was never made
   public. The README now recommends C#, C# Dev Kit and the Visual Studio Keymap directly.
+- Fluent Icons now ship Microsoft's Fluent System Icons font whole, instead of a subset, so the
+  extension builds with Node alone. The icons are unchanged; the package grows by about 0.8 MB.
 
 ## 0.4.0
 
