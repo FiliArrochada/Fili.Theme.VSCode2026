@@ -176,7 +176,15 @@
     "synCssSelector":        ["#D7BA7D", "VS CSS Selector"],
     "synCssProperty":        ["#9CDCFE", "VS CSS Property Name"],
     "synCssValue":           ["#C8C8C8", "VS CSS Property Value"],
-    "synJsonKey":            ["#9CDCFE", "VS JSON Property Name"],
+    "synJsonKey":            ["#D7BA7D", "WebEditor.JSON Property Name (sampled 2026-10-03: JSON keys are gold)"],
+    "synCssAtRule":          ["#569CD6", "Text Editor MEF Items.CSS Keyword (sampled 2026-10-03 on @mixin / @include)"],
+    "synCssVariable":        ["#C563BD", "WebExtensionColorsCategory.ScssVariable* / LessCssVariable*"],
+    "synCssMixin":           ["#7DBAD7", "WebExtensionColorsCategory.ScssMixin* / LessCssMixin*"],
+    "synRazorDirective":     ["#A699E6", "WebEditor.RazorTransition / RazorDirective"],
+    "synRazorDirectiveAttribute": ["#A699E6", "WebEditor.RazorDirectiveAttribute"],
+    "synRazorComponent":     ["#009696", "WebEditor.RazorComponentElement / RazorComponentAttribute / RazorTagHelper*"],
+    "synSqlFunction":        ["#C975D5", "Text Editor Language Service Items.SQL System Function"],
+    "synSqlString":          ["#CB4141", "Text Editor Language Service Items.SQL String"],
     "synHeading":            ["#569CD6", "inferred: markdown heading in keyword blue"],
     "synInvalid":            ["#FC3E36", "syntax error"]
   }

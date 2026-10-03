@@ -1515,6 +1515,96 @@
       }
     },
     {
+      "name": "SCSS at-rule",
+      "scope": [
+        "meta.at-rule.mixin.scss keyword",
+        "meta.at-rule.include.scss keyword",
+        "keyword.control.at-rule.mixin.scss",
+        "keyword.control.at-rule.include.scss"
+      ],
+      "settings": {
+        "foreground": "#800080"
+      }
+    },
+    {
+      "name": "SCSS / Less variable",
+      "scope": [
+        "variable.scss",
+        "variable.other.readwrite.less",
+        "punctuation.definition.variable.less",
+        "support.other.variable.less",
+        "variable.parameter.less"
+      ],
+      "settings": {
+        "foreground": "#800080"
+      }
+    },
+    {
+      "name": "SCSS mixin",
+      "scope": [
+        "meta.at-rule.mixin.scss entity.name.function",
+        "meta.at-rule.include.scss entity.name.function",
+        "entity.name.function.scss"
+      ],
+      "settings": {
+        "foreground": "#800000"
+      }
+    },
+    {
+      "name": "Razor transition and directive",
+      "scope": [
+        "keyword.control.cshtml.transition",
+        "keyword.control.razor.transition",
+        "keyword.control.razor.directive",
+        "keyword.control.cshtml.directive"
+      ],
+      "settings": {
+        "foreground": "#000000"
+      }
+    },
+    {
+      "name": "Razor directive attribute",
+      "scope": [
+        "keyword.control.razor.directive.attribute",
+        "keyword.control.cshtml.directive.attribute"
+      ],
+      "settings": {
+        "foreground": "#800080"
+      }
+    },
+    {
+      "name": "Razor component and tag helper",
+      "scope": [
+        "entity.name.class.element.component",
+        "entity.name.class.attribute.component",
+        "entity.name.class.element.taghelper",
+        "entity.name.class.attribute.taghelper"
+      ],
+      "settings": {
+        "foreground": "#800080"
+      }
+    },
+    {
+      "name": "SQL system function",
+      "scope": [
+        "source.sql support.function"
+      ],
+      "settings": {
+        "foreground": "#CC007E"
+      }
+    },
+    {
+      "name": "SQL string",
+      "scope": [
+        "string.quoted.single.sql",
+        "punctuation.definition.string.begin.sql",
+        "punctuation.definition.string.end.sql"
+      ],
+      "settings": {
+        "foreground": "#942228"
+      }
+    },
+    {
       "name": "Markdown heading",
       "scope": [
         "markup.heading",
@@ -1698,6 +1788,21 @@
     "regexp": "#942228",
     "comment": "#107C10",
     "macro": "#686868",
+    "razorTransition": "#000000",
+    "razorDirective": "#000000",
+    "razorDirectiveColon": "#000000",
+    "razorDirectiveAttribute": "#800080",
+    "razorComponentElement": "#800080",
+    "razorComponentAttribute": "#800080",
+    "razorTagHelperElement": "#800080",
+    "razorTagHelperAttribute": "#800080",
+    "markupElement": "#A31515",
+    "markupAttribute": "#BC4B09",
+    "markupAttributeValue": "#0000FF",
+    "markupAttributeQuote": "#0000FF",
+    "markupTagDelimiter": "#686868",
+    "markupComment": "#107C10",
+    "markupCommentPunctuation": "#107C10",
     "preprocessorKeyword": "#686868",
     "preprocessorText": "#000000",
     "excludedCode": "#686868",

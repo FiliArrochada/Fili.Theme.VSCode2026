@@ -1511,7 +1511,97 @@
         "string.json support.type.property-name"
       ],
       "settings": {
-        "foreground": "#9CDCFE"
+        "foreground": "#D7BA7D"
+      }
+    },
+    {
+      "name": "SCSS at-rule",
+      "scope": [
+        "meta.at-rule.mixin.scss keyword",
+        "meta.at-rule.include.scss keyword",
+        "keyword.control.at-rule.mixin.scss",
+        "keyword.control.at-rule.include.scss"
+      ],
+      "settings": {
+        "foreground": "#569CD6"
+      }
+    },
+    {
+      "name": "SCSS / Less variable",
+      "scope": [
+        "variable.scss",
+        "variable.other.readwrite.less",
+        "punctuation.definition.variable.less",
+        "support.other.variable.less",
+        "variable.parameter.less"
+      ],
+      "settings": {
+        "foreground": "#C563BD"
+      }
+    },
+    {
+      "name": "SCSS mixin",
+      "scope": [
+        "meta.at-rule.mixin.scss entity.name.function",
+        "meta.at-rule.include.scss entity.name.function",
+        "entity.name.function.scss"
+      ],
+      "settings": {
+        "foreground": "#7DBAD7"
+      }
+    },
+    {
+      "name": "Razor transition and directive",
+      "scope": [
+        "keyword.control.cshtml.transition",
+        "keyword.control.razor.transition",
+        "keyword.control.razor.directive",
+        "keyword.control.cshtml.directive"
+      ],
+      "settings": {
+        "foreground": "#A699E6"
+      }
+    },
+    {
+      "name": "Razor directive attribute",
+      "scope": [
+        "keyword.control.razor.directive.attribute",
+        "keyword.control.cshtml.directive.attribute"
+      ],
+      "settings": {
+        "foreground": "#A699E6"
+      }
+    },
+    {
+      "name": "Razor component and tag helper",
+      "scope": [
+        "entity.name.class.element.component",
+        "entity.name.class.attribute.component",
+        "entity.name.class.element.taghelper",
+        "entity.name.class.attribute.taghelper"
+      ],
+      "settings": {
+        "foreground": "#009696"
+      }
+    },
+    {
+      "name": "SQL system function",
+      "scope": [
+        "source.sql support.function"
+      ],
+      "settings": {
+        "foreground": "#C975D5"
+      }
+    },
+    {
+      "name": "SQL string",
+      "scope": [
+        "string.quoted.single.sql",
+        "punctuation.definition.string.begin.sql",
+        "punctuation.definition.string.end.sql"
+      ],
+      "settings": {
+        "foreground": "#CB4141"
       }
     },
     {
@@ -1698,6 +1788,21 @@
     "regexp": "#D69D85",
     "comment": "#57A64A",
     "macro": "#9B9B9B",
+    "razorTransition": "#A699E6",
+    "razorDirective": "#A699E6",
+    "razorDirectiveColon": "#A699E6",
+    "razorDirectiveAttribute": "#A699E6",
+    "razorComponentElement": "#009696",
+    "razorComponentAttribute": "#009696",
+    "razorTagHelperElement": "#009696",
+    "razorTagHelperAttribute": "#009696",
+    "markupElement": "#569CD6",
+    "markupAttribute": "#92CAF4",
+    "markupAttributeValue": "#C8C8C8",
+    "markupAttributeQuote": "#C8C8C8",
+    "markupTagDelimiter": "#808080",
+    "markupComment": "#57A64A",
+    "markupCommentPunctuation": "#57A64A",
     "preprocessorKeyword": "#9B9B9B",
     "preprocessorText": "#DCDCDC",
     "excludedCode": "#9B9B9B",
@@ -1720,7 +1825,7 @@
     "regexGrouping": "#05C3BA",
     "regexAlternation": "#05C3BA",
     "regexOtherEscape": "#FFD68F",
-    "jsonPropertyName": "#9CDCFE",
+    "jsonPropertyName": "#D7BA7D",
     "jsonString": "#D69D85",
     "jsonNumber": "#B5CEA8",
     "jsonKeyword": "#569CD6",

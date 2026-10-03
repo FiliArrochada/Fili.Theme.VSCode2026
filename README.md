@@ -173,6 +173,24 @@ this theme. Regex strings get Visual Studio's regex colours, and brace pairs cyc
 Studio's three brace-pair colours. Warnings get Visual Studio's **green** squiggle rather than VS
 Code's yellow one.
 
+**The web and data languages use Visual Studio's colours too.** Each was sampled from Visual Studio
+2026 itself, because its Light theme leaves most of them to built-in defaults:
+
+| Language | What is coloured | Dark | Light |
+|---|---|---|---|
+| Razor | `@` transitions and directives (`@page`, `@inject`, `@code`) | `#A699E6` | `#000000` |
+| | directive attributes (`@bind-Value`, `@onclick`) | `#A699E6` | `#800080` |
+| | components and tag helpers, with their attributes | `#009696` | `#800080` |
+| SCSS, Less | variables | `#C563BD` | `#800080` |
+| | mixins (SCSS) | `#7DBAD7` | `#800000` |
+| | `@mixin`, `@include` | `#569CD6` | `#800080` |
+| JSON | property names | `#D7BA7D` | `#2E75B6` |
+| SQL | system functions (`COUNT`, `GETDATE`) | `#C975D5` | `#FF00FF` |
+| | strings | `#CB4141` | `#FF0000` |
+
+Razor's component colours come from the C# extension's Razor language server, so they appear once
+it has loaded the project.
+
 ## Solution Explorer
 
 The Explorer was matched against Visual Studio 2026's Solution Explorer, sampled from a live
@@ -252,6 +270,11 @@ These are limits of what a VS Code colour theme can express, not choices:
   type's colour and strikes it through. The C# extension reports it as a deprecated *namespace*
   token, so the class or interface information is gone before the theme sees it: the name is
   struck through, as in Visual Studio, but in plain text.
+- **Some language colours have no hook in VS Code.** Visual Studio Light draws Razor code on a pale
+  yellow block; a theme cannot give tokens a background. VS Code's grammars give Visual Studio's
+  other colours nothing to target: XAML markup extensions (`{Binding Path=Name}`) are one string to
+  the XML grammar, a Less mixin call looks like a class selector, and SQL system tables
+  (`sys.objects`) and stored procedures look like any other name.
 - **The UI font.** Visual Studio draws its interface in Segoe UI at 9pt; VS Code's workbench font
   cannot be changed by an extension or a setting.
 

@@ -68,6 +68,14 @@
       "#A9D3F2",
       "CSS Property Name (language service, MEF, Roslyn) in VS Dark (Extra Contrast)"
     ],
+    "synSqlFunction": [
+      "#EF85C8",
+      "SQL System Function (language service, MEF, Roslyn) in VS Dark (Extra Contrast)"
+    ],
+    "synSqlString": [
+      "#D69CA5",
+      "SQL String (language service, MEF, Roslyn) in VS Dark (Extra Contrast)"
+    ],
     "synInvalid": [
       "#E37D80",
       "syntax error (language service, MEF, Roslyn) in VS Dark (Extra Contrast)"

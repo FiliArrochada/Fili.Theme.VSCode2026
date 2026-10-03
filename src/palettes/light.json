@@ -176,7 +176,15 @@
     "synCssSelector":        ["#800000", "VS default CSS Selector"],
     "synCssProperty":        ["#FF0000", "VS default CSS Property Name"],
     "synCssValue":           ["#0000FF", "VS default CSS Property Value"],
-    "synJsonKey":            ["#2E75B6", "VS default JSON Property Name"],
+    "synJsonKey":            ["#2E75B6", "VS default JSON Property Name (sampled 2026-10-03)"],
+    "synCssAtRule":          ["#800080", "sampled 2026-10-03: VS default for @mixin / @include"],
+    "synCssVariable":        ["#800080", "sampled 2026-10-03: VS default SCSS / Less variable"],
+    "synCssMixin":           ["#800000", "sampled 2026-10-03: VS default SCSS / Less mixin"],
+    "synRazorDirective":     ["#000000", "sampled 2026-10-03: VS default Razor transition / directive (drawn on a #FFFFC2 server-code block)"],
+    "synRazorDirectiveAttribute": ["#800080", "sampled 2026-10-03: VS default Razor directive attribute"],
+    "synRazorComponent":     ["#800080", "sampled 2026-10-03: VS default Razor component element / attribute"],
+    "synSqlFunction":        ["#FF00FF", "sampled 2026-10-03: VS default SQL System Function"],
+    "synSqlString":          ["#FF0000", "sampled 2026-10-03: VS default SQL String"],
     "synHeading":            ["#0000FF", "inferred: markdown heading in keyword blue"],
     "synInvalid":            ["#E51400", "TreeView.ValidationSquiggles"]
   }

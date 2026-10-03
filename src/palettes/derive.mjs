@@ -74,6 +74,8 @@ const editor = {
   synMarkupAttribute: cls('XML Attribute'),
   synMarkupDelimiter: cls('XML Delimiter'),
   synCssProperty: cls('CSS Property Name'),
+  synSqlFunction: cls('SQL System Function'),
+  synSqlString: cls('SQL String'),
   synInvalid: cls('syntax error'),
   lineNumber: { from: MEF('Line Number'), value: (t) => t.fg(MEF('Line Number')) },
   ghostText: { from: MEF('hinted suggestion'), value: (t) => t.fg('Text Editor Text Marker Items.hinted suggestion') },
