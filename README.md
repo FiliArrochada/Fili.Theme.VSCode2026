@@ -3,6 +3,8 @@
 [![Version](https://vsmarketplacebadges.dev/version-short/FiliArrochada.fili-vscode2026.svg)](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026)
 [![Installs](https://vsmarketplacebadges.dev/installs-short/FiliArrochada.fili-vscode2026.svg)](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026)
 [![Rating](https://vsmarketplacebadges.dev/rating-short/FiliArrochada.fili-vscode2026.svg)](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026&ssr=false#review-details)
+[![Open VSX](https://img.shields.io/open-vsx/v/FiliArrochada/fili-vscode2026?label=Open%20VSX)](https://open-vsx.org/extension/FiliArrochada/fili-vscode2026)
+[![CI](https://github.com/FiliArrochada/Fili.VSCode2026/actions/workflows/ci.yml/badge.svg)](https://github.com/FiliArrochada/Fili.VSCode2026/actions/workflows/ci.yml)
 
 Visual Studio 2026's Dark and Light themes, rebuilt for VS Code from Visual Studio's own theme files.
 
@@ -65,7 +67,12 @@ from a terminal:
 code --install-extension FiliArrochada.fili-vscode2026
 ```
 
-From a packaged `.vsix`, choose **…** › **Install from VSIX…** in the Extensions view, or run
+It is published to both the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026)
+and [Open VSX](https://open-vsx.org/extension/FiliArrochada/fili-vscode2026), so the same search
+finds it in VSCodium, Cursor, Windsurf, Gitpod and other editors that use Open VSX.
+
+Every version's `.vsix` is also attached to its [GitHub release](https://github.com/FiliArrochada/Fili.VSCode2026/releases).
+To install one, choose **…** › **Install from VSIX…** in the Extensions view, or run
 `code --install-extension fili-vscode2026-<version>.vsix`.
 
 Then select a theme:

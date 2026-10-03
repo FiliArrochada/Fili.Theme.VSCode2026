@@ -144,12 +144,33 @@ GitHub, so an image must be pushed before a release that shows it.
 
 ## Publishing
 
-`npm run publish` checks the build and runs `vsce publish`; `npm run package` builds the `.vsix`
-alone. Publishing needs the `FiliArrochada` publisher on the Visual Studio Marketplace and a login
-(`npx @vscode/vsce login FiliArrochada` with an Azure DevOps personal access token scoped to
-*Marketplace › Manage*). The human runs both; never publish from a session. Bump `version` and add
-a CHANGELOG entry first — the Marketplace refuses a version it already has. Uploading the `.vsix`
-on the Marketplace management page works too and needs no token.
+A release goes to three places: the Visual Studio Marketplace, Open VSX and a GitHub release.
+The human releases; never publish, tag or push from a session.
+
+1. Bump `version` in `package.json` and add a matching `## <version>` section to `CHANGELOG.md`.
+   Both registries refuse a version they already have.
+2. Commit and push, then push a `v<version>` tag.
+3. `.github/workflows/release.yml` runs on the tag. It fails unless the tag equals `package.json`'s
+   version, runs the tests, packages the `.vsix`, creates the GitHub release with the `.vsix`
+   attached and that CHANGELOG section as its notes (`scripts/release-notes.mjs`, which fails on a
+   missing section), and publishes to Open VSX with `--skip-duplicate`, so a version already
+   uploaded by hand is not an error.
+4. Upload the release's `.vsix` on the Visual Studio Marketplace management page. That step stays
+   manual: Marketplace personal access tokens stop working after December 1 2026.
+
+`npm run package` builds the `.vsix` alone; `npm run publish` (vsce, needs a Marketplace token) and
+`npm run publish:ovsx` (ovsx, reads `OVSX_PAT`) publish from a local checkout.
+
+**Open VSX authentication.** The extension lives in the `FiliArrochada` namespace. Until it is
+verified, the `open-vsx` job publishes with an `OVSX_PAT` secret in the repository's `open-vsx`
+environment. Once it is verified, register a trusted publisher on open-vsx.org (*Settings › Trusted
+Publishers*): owner `FiliArrochada`, repository `Fili.VSCode2026`, workflow `release.yml`,
+environment `open-vsx`. Then **delete the secret**: a token always takes precedence over trusted
+publishing. The registration matches the workflow by file name, so renaming `release.yml` breaks
+publishing until the registration is updated.
+
+**CI.** `.github/workflows/ci.yml` runs `npm test` and `npm run package` (which runs the build's
+`--check` and lets vsce validate the README) on every push to `master` and every pull request.
 
 ## Verifying a change
 

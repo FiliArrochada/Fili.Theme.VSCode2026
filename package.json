@@ -169,6 +169,7 @@
     "registry": "node scripts/registry.mjs",
     "variants": "node scripts/variants.mjs",
     "package": "npm run check && npx --yes @vscode/vsce package --no-dependencies",
-    "publish": "npm run check && npx --yes @vscode/vsce publish --no-dependencies"
+    "publish": "npm run check && npx --yes @vscode/vsce publish --no-dependencies",
+    "publish:ovsx": "npm run check && npx --yes ovsx publish --no-dependencies"
   }
 }
