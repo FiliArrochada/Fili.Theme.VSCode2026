@@ -7,11 +7,20 @@
   "rootFolder": "folder",
   "rootFolderExpanded": "folder",
 
+  "folderNames": {
+    "properties": "folder-properties",
+    "wwwroot": "folder-web"
+  },
+  "folderNamesExpanded": {
+    "properties": "folder-properties",
+    "wwwroot": "folder-web"
+  },
+
   "fileExtensions": {
     "cs": "csharp",
     "csx": "csharp",
-    "razor": "csharp",
-    "cshtml": "csharp",
+    "razor": "razor",
+    "cshtml": "razor",
     "csproj": "project",
     "vbproj": "project",
     "fsproj": "project",
@@ -25,11 +34,11 @@
     "md": "markdown",
     "markdown": "markdown",
     "xml": "xml",
-    "xaml": "xml",
-    "axaml": "xml",
-    "resx": "xml",
-    "props": "xml",
-    "targets": "xml",
+    "xaml": "xaml",
+    "axaml": "xaml",
+    "resx": "resources",
+    "props": "msbuild",
+    "targets": "msbuild",
     "nuspec": "xml",
     "config": "settings",
     "editorconfig": "settings",
@@ -48,22 +57,45 @@
     "gif": "image",
     "ico": "image",
     "svg": "image",
-    "webp": "image"
+    "webp": "image",
+    "sql": "database",
+    "html": "html",
+    "htm": "html",
+    "css": "css",
+    "scss": "css",
+    "less": "css",
+    "js": "javascript",
+    "mjs": "javascript",
+    "cjs": "javascript",
+    "ts": "typescript",
+    "mts": "typescript",
+    "cts": "typescript",
+    "txt": "text",
+    "log": "text"
   },
 
   "fileNames": {
     ".editorconfig": "settings",
-    ".gitignore": "settings",
-    ".gitattributes": "settings",
-    "directory.build.props": "xml",
-    "directory.packages.props": "xml",
+    ".gitignore": "git",
+    ".gitattributes": "git",
+    "directory.build.props": "msbuild",
+    "directory.packages.props": "msbuild",
     "global.json": "json",
-    "nuget.config": "settings"
+    "nuget.config": "settings",
+    ".gitmodules": "git",
+    "directory.build.targets": "msbuild",
+    "dockerfile": "docker",
+    ".dockerignore": "docker",
+    "docker-compose.yml": "docker",
+    "docker-compose.yaml": "docker",
+    "compose.yml": "docker",
+    "compose.yaml": "docker",
+    "license": "text"
   },
 
   "languageIds": {
     "csharp": "csharp",
-    "razor": "csharp",
+    "razor": "razor",
     "json": "json",
     "jsonc": "json",
     "markdown": "markdown",
@@ -72,6 +104,16 @@
     "shellscript": "script",
     "bat": "script",
     "yaml": "settings",
-    "ini": "settings"
+    "ini": "settings",
+    "aspnetcorerazor": "razor",
+    "html": "html",
+    "css": "css",
+    "scss": "css",
+    "less": "css",
+    "javascript": "javascript",
+    "typescript": "typescript",
+    "sql": "database",
+    "dockerfile": "docker",
+    "ignore": "git"
   }
 }

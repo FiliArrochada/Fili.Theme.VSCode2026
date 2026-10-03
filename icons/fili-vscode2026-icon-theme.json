@@ -3,14 +3,38 @@
     "csharp": {
       "iconPath": "./dark/csharp.svg"
     },
+    "css": {
+      "iconPath": "./dark/css.svg"
+    },
+    "database": {
+      "iconPath": "./dark/database.svg"
+    },
+    "docker": {
+      "iconPath": "./dark/docker.svg"
+    },
     "file": {
       "iconPath": "./dark/file.svg"
+    },
+    "folder-properties": {
+      "iconPath": "./dark/folder-properties.svg"
+    },
+    "folder-web": {
+      "iconPath": "./dark/folder-web.svg"
     },
     "folder": {
       "iconPath": "./dark/folder.svg"
     },
+    "git": {
+      "iconPath": "./dark/git.svg"
+    },
+    "html": {
+      "iconPath": "./dark/html.svg"
+    },
     "image": {
       "iconPath": "./dark/image.svg"
+    },
+    "javascript": {
+      "iconPath": "./dark/javascript.svg"
     },
     "json": {
       "iconPath": "./dark/json.svg"
@@ -18,8 +42,17 @@
     "markdown": {
       "iconPath": "./dark/markdown.svg"
     },
+    "msbuild": {
+      "iconPath": "./dark/msbuild.svg"
+    },
     "project": {
       "iconPath": "./dark/project.svg"
+    },
+    "razor": {
+      "iconPath": "./dark/razor.svg"
+    },
+    "resources": {
+      "iconPath": "./dark/resources.svg"
     },
     "script": {
       "iconPath": "./dark/script.svg"
@@ -30,20 +63,53 @@
     "solution": {
       "iconPath": "./dark/solution.svg"
     },
+    "text": {
+      "iconPath": "./dark/text.svg"
+    },
+    "typescript": {
+      "iconPath": "./dark/typescript.svg"
+    },
+    "xaml": {
+      "iconPath": "./dark/xaml.svg"
+    },
     "xml": {
       "iconPath": "./dark/xml.svg"
     },
     "csharp_light": {
       "iconPath": "./light/csharp.svg"
     },
+    "css_light": {
+      "iconPath": "./light/css.svg"
+    },
+    "database_light": {
+      "iconPath": "./light/database.svg"
+    },
+    "docker_light": {
+      "iconPath": "./light/docker.svg"
+    },
     "file_light": {
       "iconPath": "./light/file.svg"
+    },
+    "folder-properties_light": {
+      "iconPath": "./light/folder-properties.svg"
+    },
+    "folder-web_light": {
+      "iconPath": "./light/folder-web.svg"
     },
     "folder_light": {
       "iconPath": "./light/folder.svg"
     },
+    "git_light": {
+      "iconPath": "./light/git.svg"
+    },
+    "html_light": {
+      "iconPath": "./light/html.svg"
+    },
     "image_light": {
       "iconPath": "./light/image.svg"
+    },
+    "javascript_light": {
+      "iconPath": "./light/javascript.svg"
     },
     "json_light": {
       "iconPath": "./light/json.svg"
@@ -51,8 +117,17 @@
     "markdown_light": {
       "iconPath": "./light/markdown.svg"
     },
+    "msbuild_light": {
+      "iconPath": "./light/msbuild.svg"
+    },
     "project_light": {
       "iconPath": "./light/project.svg"
+    },
+    "razor_light": {
+      "iconPath": "./light/razor.svg"
+    },
+    "resources_light": {
+      "iconPath": "./light/resources.svg"
     },
     "script_light": {
       "iconPath": "./light/script.svg"
@@ -63,6 +138,15 @@
     "solution_light": {
       "iconPath": "./light/solution.svg"
     },
+    "text_light": {
+      "iconPath": "./light/text.svg"
+    },
+    "typescript_light": {
+      "iconPath": "./light/typescript.svg"
+    },
+    "xaml_light": {
+      "iconPath": "./light/xaml.svg"
+    },
     "xml_light": {
       "iconPath": "./light/xml.svg"
     }
@@ -72,11 +156,19 @@
   "folderExpanded": "folder",
   "rootFolder": "folder",
   "rootFolderExpanded": "folder",
+  "folderNames": {
+    "properties": "folder-properties",
+    "wwwroot": "folder-web"
+  },
+  "folderNamesExpanded": {
+    "properties": "folder-properties",
+    "wwwroot": "folder-web"
+  },
   "fileExtensions": {
     "cs": "csharp",
     "csx": "csharp",
-    "razor": "csharp",
-    "cshtml": "csharp",
+    "razor": "razor",
+    "cshtml": "razor",
     "csproj": "project",
     "vbproj": "project",
     "fsproj": "project",
@@ -90,11 +182,11 @@
     "md": "markdown",
     "markdown": "markdown",
     "xml": "xml",
-    "xaml": "xml",
-    "axaml": "xml",
-    "resx": "xml",
-    "props": "xml",
-    "targets": "xml",
+    "xaml": "xaml",
+    "axaml": "xaml",
+    "resx": "resources",
+    "props": "msbuild",
+    "targets": "msbuild",
     "nuspec": "xml",
     "config": "settings",
     "editorconfig": "settings",
@@ -113,20 +205,43 @@
     "gif": "image",
     "ico": "image",
     "svg": "image",
-    "webp": "image"
+    "webp": "image",
+    "sql": "database",
+    "html": "html",
+    "htm": "html",
+    "css": "css",
+    "scss": "css",
+    "less": "css",
+    "js": "javascript",
+    "mjs": "javascript",
+    "cjs": "javascript",
+    "ts": "typescript",
+    "mts": "typescript",
+    "cts": "typescript",
+    "txt": "text",
+    "log": "text"
   },
   "fileNames": {
     ".editorconfig": "settings",
-    ".gitignore": "settings",
-    ".gitattributes": "settings",
-    "directory.build.props": "xml",
-    "directory.packages.props": "xml",
+    ".gitignore": "git",
+    ".gitattributes": "git",
+    "directory.build.props": "msbuild",
+    "directory.packages.props": "msbuild",
     "global.json": "json",
-    "nuget.config": "settings"
+    "nuget.config": "settings",
+    ".gitmodules": "git",
+    "directory.build.targets": "msbuild",
+    "dockerfile": "docker",
+    ".dockerignore": "docker",
+    "docker-compose.yml": "docker",
+    "docker-compose.yaml": "docker",
+    "compose.yml": "docker",
+    "compose.yaml": "docker",
+    "license": "text"
   },
   "languageIds": {
     "csharp": "csharp",
-    "razor": "csharp",
+    "razor": "razor",
     "json": "json",
     "jsonc": "json",
     "markdown": "markdown",
@@ -135,7 +250,17 @@
     "shellscript": "script",
     "bat": "script",
     "yaml": "settings",
-    "ini": "settings"
+    "ini": "settings",
+    "aspnetcorerazor": "razor",
+    "html": "html",
+    "css": "css",
+    "scss": "css",
+    "less": "css",
+    "javascript": "javascript",
+    "typescript": "typescript",
+    "sql": "database",
+    "dockerfile": "docker",
+    "ignore": "git"
   },
   "hidesExplorerArrows": false,
   "light": {
@@ -144,11 +269,19 @@
     "folderExpanded": "folder_light",
     "rootFolder": "folder_light",
     "rootFolderExpanded": "folder_light",
+    "folderNames": {
+      "properties": "folder-properties_light",
+      "wwwroot": "folder-web_light"
+    },
+    "folderNamesExpanded": {
+      "properties": "folder-properties_light",
+      "wwwroot": "folder-web_light"
+    },
     "fileExtensions": {
       "cs": "csharp_light",
       "csx": "csharp_light",
-      "razor": "csharp_light",
-      "cshtml": "csharp_light",
+      "razor": "razor_light",
+      "cshtml": "razor_light",
       "csproj": "project_light",
       "vbproj": "project_light",
       "fsproj": "project_light",
@@ -162,11 +295,11 @@
       "md": "markdown_light",
       "markdown": "markdown_light",
       "xml": "xml_light",
-      "xaml": "xml_light",
-      "axaml": "xml_light",
-      "resx": "xml_light",
-      "props": "xml_light",
-      "targets": "xml_light",
+      "xaml": "xaml_light",
+      "axaml": "xaml_light",
+      "resx": "resources_light",
+      "props": "msbuild_light",
+      "targets": "msbuild_light",
       "nuspec": "xml_light",
       "config": "settings_light",
       "editorconfig": "settings_light",
@@ -185,20 +318,43 @@
       "gif": "image_light",
       "ico": "image_light",
       "svg": "image_light",
-      "webp": "image_light"
+      "webp": "image_light",
+      "sql": "database_light",
+      "html": "html_light",
+      "htm": "html_light",
+      "css": "css_light",
+      "scss": "css_light",
+      "less": "css_light",
+      "js": "javascript_light",
+      "mjs": "javascript_light",
+      "cjs": "javascript_light",
+      "ts": "typescript_light",
+      "mts": "typescript_light",
+      "cts": "typescript_light",
+      "txt": "text_light",
+      "log": "text_light"
     },
     "fileNames": {
       ".editorconfig": "settings_light",
-      ".gitignore": "settings_light",
-      ".gitattributes": "settings_light",
-      "directory.build.props": "xml_light",
-      "directory.packages.props": "xml_light",
+      ".gitignore": "git_light",
+      ".gitattributes": "git_light",
+      "directory.build.props": "msbuild_light",
+      "directory.packages.props": "msbuild_light",
       "global.json": "json_light",
-      "nuget.config": "settings_light"
+      "nuget.config": "settings_light",
+      ".gitmodules": "git_light",
+      "directory.build.targets": "msbuild_light",
+      "dockerfile": "docker_light",
+      ".dockerignore": "docker_light",
+      "docker-compose.yml": "docker_light",
+      "docker-compose.yaml": "docker_light",
+      "compose.yml": "docker_light",
+      "compose.yaml": "docker_light",
+      "license": "text_light"
     },
     "languageIds": {
       "csharp": "csharp_light",
-      "razor": "csharp_light",
+      "razor": "razor_light",
       "json": "json_light",
       "jsonc": "json_light",
       "markdown": "markdown_light",
@@ -207,7 +363,17 @@
       "shellscript": "script_light",
       "bat": "script_light",
       "yaml": "settings_light",
-      "ini": "settings_light"
+      "ini": "settings_light",
+      "aspnetcorerazor": "razor_light",
+      "html": "html_light",
+      "css": "css_light",
+      "scss": "css_light",
+      "less": "css_light",
+      "javascript": "javascript_light",
+      "typescript": "typescript_light",
+      "sql": "database_light",
+      "dockerfile": "docker_light",
+      "ignore": "git_light"
     }
   }
 }

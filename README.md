@@ -185,7 +185,8 @@ window with a two-project solution open:
 | Indent guides | none | none, set on install |
 | Folders | amber outline, the same when expanded | the same, via **Fili.VSCode2026 Icons** (default on install) |
 | C# files | green `C#` glyph | the same |
-| Other files | monochrome outline glyphs | the same |
+| `Properties`, `wwwroot` | folder with a wrench, folder with a globe | the same |
+| Other files | outline glyphs, one per kind of file | 21 kinds: solution, project, C#, Razor, XAML, MSBuild, resources, JSON, XML, settings, scripts, Markdown, text, images, SQL, HTML, CSS, JavaScript, TypeScript, Docker and Git files, with a plain page for the rest; the web languages carry a colour accent so they stand apart |
 | `bin`, `obj`, `.vs` | not shown | hidden with `files.exclude` |
 
 Visual Studio keeps the same fill whether or not Solution Explorer has focus, and so does the
