@@ -179,7 +179,11 @@ publishing. The registration matches the workflow by file name, so renaming `rel
 publishing until the registration is updated.
 
 **CI.** `.github/workflows/ci.yml` runs `npm test` and `npm run package` (which runs the build's
-`--check` and lets vsce validate the README) on every push to `master` and every pull request.
+`--check` and lets vsce validate the README) on every push to `master`. The repository takes no pull
+requests, so nothing runs on them, and there is no Dependabot: it can only propose updates as pull
+requests. Keep the actions' major versions current by hand — check each action's latest release
+before a release, since GitHub retires the Node runtime old majors run on and they then stop
+working.
 
 ## Verifying a change
 
