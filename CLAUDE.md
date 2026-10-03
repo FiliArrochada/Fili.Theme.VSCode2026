@@ -10,7 +10,7 @@ themes **Fili.VSCode2026 Dark** and **Fili.VSCode2026 Light**, the thirteen vari
 tinted themes and two Extra Contrast editors), a file icon theme, **Fili.VSCode2026 Icons**, for
 Solution Explorer's look, and a product icon theme, **Fili.VSCode2026 Fluent Icons**. The only
 runtime code is `extension.js`, for the opt-in Visual Studio 2026 layout commands. `themes/`,
-`icons/` and `product-icons/` are generated. A companion extension pack lives in `pack/`.
+`icons/` and `product-icons/` are generated.
 
 ```bash
 npm run build      # src/ -> themes/ + icons/, with parity + registry validation and a contrast table
@@ -99,11 +99,6 @@ Fili.VSCode2026 colour theme is active). Remove reverts a setting only while it 
 value Apply wrote. `npm test` covers that against a stand-in for the VS Code API; extend
 `test/layout.test.cjs` when the layout changes.
 
-**The pack is a separate extension.** `pack/` is **Fili.VSCode2026 Pack**
-(`FiliArrochada.fili-vscode2026-pack`): this extension, C#, C# Dev Kit and the Visual Studio Keymap.
-It has no code; package and publish it from `pack/` on its own (`npx @vscode/vsce package` there).
-Keep its version in step with this one, and keep it out of this package (`.vscodeignore`).
-
 **`package.json` lists every theme, and the build checks it.** Adding or removing a variant means
 updating `contributes.themes`; the build fails and prints the exact list it expects.
 
@@ -154,9 +149,6 @@ alone. Publishing needs the `FiliArrochada` publisher on the Visual Studio Marke
 *Marketplace › Manage*). The human runs both; never publish from a session. Bump `version` and add
 a CHANGELOG entry first — the Marketplace refuses a version it already has. Uploading the `.vsix`
 on the Marketplace management page works too and needs no token.
-
-The pack (`pack/`) is published separately, and **after** this extension whenever both change: the
-Marketplace checks that every extension a pack lists already exists.
 
 ## Verifying a change
 

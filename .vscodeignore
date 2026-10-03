@@ -7,5 +7,4 @@ CLAUDE.md
 **/*.vsix
 docs/**
 .vs/**
-pack/**
 test/**

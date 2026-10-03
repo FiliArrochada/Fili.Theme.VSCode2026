@@ -58,16 +58,8 @@ Windows' contrast mode is on.
 
 ## Installation
 
-For the whole Visual Studio experience in one step, install **Fili.VSCode2026 Pack**. It adds this
-extension together with Microsoft's **C#** and **C# Dev Kit** (which brings a real Solution
-Explorer) and the **Visual Studio Keymap**:
-
-```text
-code --install-extension FiliArrochada.fili-vscode2026-pack
-```
-
-For the themes and icons alone, open **Extensions** (`Ctrl+Shift+X`), search for
-**Fili.VSCode2026**, and choose **Install**. Or from a terminal:
+Open **Extensions** (`Ctrl+Shift+X`), search for **Fili.VSCode2026**, and choose **Install**. Or
+from a terminal:
 
 ```text
 code --install-extension FiliArrochada.fili-vscode2026
@@ -110,10 +102,19 @@ These are defaults, not changes to your settings: anything you have set yourself
 uninstalling the extension puts VS Code's own defaults back. To use other icons, pick them with
 **Preferences: File Icon Theme** or **Preferences: Product Icon Theme** as usual.
 
-For C# to be coloured the way Visual Studio colours it, install Microsoft's **C#** extension
-(`ms-dotnettools.csharp`). Its Roslyn language server supplies the semantic information (class
-versus interface, local versus field) that the theme's semantic colours key on. Without it, VS Code
-falls back to the TextMate grammar, which cannot tell an interface from a class.
+### Recommended companions
+
+For the rest of the Visual Studio experience, these Microsoft extensions pair well with the theme:
+
+| Extension | What it adds |
+|---|---|
+| [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) | C# support. Its Roslyn language server supplies the semantic information (class versus interface, local versus field) that the theme's C# colours key on; without it, VS Code falls back to a grammar that cannot tell an interface from a class |
+| [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) | A solution view, the **C# Project Details** view in the Explorer, with the solution, its projects and their dependencies, as Solution Explorer shows them. Free for individuals; organisations use it under a Visual Studio subscription |
+| [Visual Studio Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings) | Visual Studio's keyboard shortcuts (F12, Ctrl+K Ctrl+C, F5, F10, F11, ...) |
+
+```text
+code --install-extension ms-dotnettools.csharp --install-extension ms-dotnettools.csdevkit --install-extension ms-vscode.vs-keybindings
+```
 
 ## What makes it Visual Studio 2026 and not Dark+ or Light+
 
@@ -185,8 +186,8 @@ theme. The icons are original drawings in Visual Studio's outline style, not cop
 Studio's own icons.
 
 VS Code's Explorer shows the folders on disk. For the solution itself — its projects and their
-*Dependencies*, as Visual Studio shows them — install Microsoft's **C# Dev Kit** (included in the
-pack). It adds a solution view to the Explorer, titled **C# Project Details** in current versions,
+*Dependencies*, as Visual Studio shows them — install Microsoft's **C# Dev Kit** (see the recommended
+companions above). It adds a solution view to the Explorer, titled **C# Project Details** in current versions,
 drawn in the same theme colours:
 
 ![C# Dev Kit's solution view in Fili.VSCode2026 Dark](docs/solution-explorer.png)
@@ -269,7 +270,6 @@ scripts/variants.mjs        regenerates src/palettes/variants/ from a Visual Stu
 scripts/product-icons.py    regenerates product-icons/ (a subset of the Fluent font) from the map
 extension.js                the Apply / Remove Visual Studio 2026 Layout commands
 test/layout.test.cjs        tests those commands against a stand-in for the VS Code API
-pack/                       Fili.VSCode2026 Pack, a separate extension pack published on its own
 ```
 
 ```text
