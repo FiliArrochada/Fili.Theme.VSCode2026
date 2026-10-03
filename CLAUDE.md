@@ -137,7 +137,14 @@ permanent once published to a marketplace — do not rename either field after a
 name and theme labels (`Fili.VSCode2026 Dark` / `Light`) are user-facing and can change, but a
 changed theme label un-selects the theme for everyone using it.
 
-The repository is `https://github.com/FiliArrochada/Fili.VSCode2026`, and `package.json` says so.
+**The project is Fili.Theme.VSCode2026; the product is Fili.VSCode2026.** The folder and the
+repository were renamed after release, and only they were: the extension id, the display name, the
+theme and icon-theme labels, the command category and every generated file name keep
+`Fili.VSCode2026` / `fili-vscode2026`, because each is either permanent or stored in users'
+settings. Do not "finish" the rename in them.
+
+The repository is `https://github.com/FiliArrochada/Fili.Theme.VSCode2026` (the old
+`Fili.VSCode2026` URL redirects), and `package.json` says so.
 `vsce` uses that field to rewrite the README's relative image links to GitHub URLs, which is why
 `docs/` is left out of the package (`.vscodeignore`): a Marketplace page loads the screenshots from
 GitHub, so an image must be pushed before a release that shows it.
@@ -166,7 +173,7 @@ The human releases; never publish, tag or push from a session.
 **Open VSX authentication.** The extension lives in the `FiliArrochada` namespace. Until it is
 verified, the `open-vsx` job publishes with an `OVSX_PAT` secret in the repository's `open-vsx`
 environment. Once it is verified, register a trusted publisher on open-vsx.org (*Settings › Trusted
-Publishers*): owner `FiliArrochada`, repository `Fili.VSCode2026`, workflow `release.yml`,
+Publishers*): owner `FiliArrochada`, repository `Fili.Theme.VSCode2026`, workflow `release.yml`,
 environment `open-vsx`. Then **delete the secret**: a token always takes precedence over trusted
 publishing. The registration matches the workflow by file name, so renaming `release.yml` breaks
 publishing until the registration is updated.
