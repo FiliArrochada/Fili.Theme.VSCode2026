@@ -149,7 +149,9 @@ The human releases; never publish, tag or push from a session.
 
 1. Bump `version` in `package.json` and add a matching `## <version>` section to `CHANGELOG.md`.
    Both registries refuse a version they already have.
-2. Commit and push, then push a `v<version>` tag.
+2. Commit and push, then push the `v<version>` tag **on its own** (`git push origin v<version>`).
+   GitHub starts no workflow for any tag in a push of more than three tags, so `--tags`, or a
+   push that carries older tags along, releases nothing.
 3. `.github/workflows/release.yml` runs on the tag. It fails unless the tag equals `package.json`'s
    version, runs the tests, packages the `.vsix`, creates the GitHub release with the `.vsix`
    attached and that CHANGELOG section as its notes (`scripts/release-notes.mjs`, which fails on a
