@@ -81,8 +81,8 @@ README.
 **Theme labels are what users' settings store.** A variant is labelled with its base first
 ("Fili.VSCode2026 Dark (Cool Slate)"); `variants.mjs` generates it. VS Code saves a chosen theme by
 its `id`, or by its `label` when there is none, so relabelling a theme un-selects it for everyone
-using it. That was acceptable in 0.3.1 because the extension had no users yet. Once it does, rename
-a label only together with an `id` that keeps the old name.
+using it. The labels are frozen now that the extension has users: rename one only together with
+an `id` that keeps the old label.
 
 **Product icons use the whole Fluent font, unmodified.** `src/product-icons.json` maps codicon ids
 to Fluent System Icons names; the build resolves each to the 16px Regular glyph (else 20, else 24)
