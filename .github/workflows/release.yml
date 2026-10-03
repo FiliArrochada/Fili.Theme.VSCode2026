@@ -1,0 +1,83 @@
+# Runs on a pushed v<version> tag: packages the extension, creates the GitHub release with the .vsix
+# attached, and publishes it to Open VSX. The Visual Studio Marketplace upload stays manual.
+#
+# This file's name is part of the Open VSX trusted-publisher registration; renaming it breaks
+# publishing until the registration is updated.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - id: version
+        name: Check the tag matches package.json
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::tag $GITHUB_REF_NAME does not match package.json version $version"
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - run: npm test
+      - run: npm run package
+      - run: node scripts/release-notes.mjs "${{ steps.version.outputs.version }}" > release-notes.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release
+          path: |
+            fili-vscode2026-${{ steps.version.outputs.version }}.vsix
+            release-notes.md
+          if-no-files-found: error
+
+  github-release:
+    needs: package
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release
+      - run: >
+          gh release create "$GITHUB_REF_NAME" "fili-vscode2026-$VERSION.vsix"
+          --repo "$GITHUB_REPOSITORY" --title "Fili.VSCode2026 $VERSION" --notes-file release-notes.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.package.outputs.version }}
+
+  open-vsx:
+    needs: package
+    runs-on: ubuntu-latest
+    # The trusted-publisher registration pins this environment.
+    environment: open-vsx
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - uses: actions/download-artifact@v4
+        with:
+          name: release
+      # With an OVSX_PAT secret, ovsx publishes with that token; without one, it uses trusted
+      # publishing. --skip-duplicate makes a re-run, or a version uploaded by hand, harmless.
+      - run: |
+          if [ -z "$OVSX_PAT" ]; then unset OVSX_PAT; fi
+          npx --yes ovsx publish "fili-vscode2026-$VERSION.vsix" --skip-duplicate
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+          VERSION: ${{ needs.package.outputs.version }}
