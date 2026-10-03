@@ -184,12 +184,15 @@ Code's yellow one.
 | SCSS, Less | variables | `#C563BD` | `#800080` |
 | | mixins (SCSS) | `#7DBAD7` | `#800000` |
 | | `@mixin`, `@include` | `#569CD6` | `#800080` |
+| HTML | attribute names (apart from XML's) | `#9CDCFE` | `#FF0000` |
 | JSON | property names | `#D7BA7D` | `#2E75B6` |
 | SQL | system functions (`COUNT`, `GETDATE`) | `#C975D5` | `#FF00FF` |
 | | strings | `#CB4141` | `#FF0000` |
 
 Razor's component colours come from the C# extension's Razor language server, so they appear once
 it has loaded the project.
+
+![A Razor component in Fili.VSCode2026 Dark and Light](docs/razor.png)
 
 ## Solution Explorer
 

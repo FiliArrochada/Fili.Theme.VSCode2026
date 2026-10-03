@@ -36,6 +36,7 @@
 
     { "name": "Markup tag", "scope": ["entity.name.tag", "entity.name.tag.xml", "entity.name.tag.localname", "entity.name.tag.namespace", "meta.tag entity.name.tag"], "role": "synMarkupTag" },
     { "name": "Markup attribute", "scope": ["entity.other.attribute-name", "entity.other.attribute-name.localname", "entity.other.attribute-name.namespace", "meta.attribute entity.other.attribute-name"], "role": "synMarkupAttribute" },
+    { "name": "HTML attribute (VS colours it apart from XML)", "scope": ["entity.other.attribute-name.html", "meta.attribute entity.other.attribute-name.html"], "role": "synHtmlAttribute" },
     { "name": "Markup attribute value", "scope": ["meta.tag string", "meta.tag string.quoted", "string.quoted.double.xml", "string.quoted.single.xml", "string.quoted.double.html", "string.quoted.single.html", "meta.attribute string", "meta.tag punctuation.definition.string"], "role": "synMarkupAttributeValue" },
     { "name": "Markup delimiter", "scope": ["punctuation.definition.tag", "punctuation.definition.tag.xml", "punctuation.definition.tag.html", "punctuation.separator.key-value.html", "punctuation.separator.namespace.xml", "meta.tag punctuation.separator.equals"], "role": "synMarkupDelimiter" },
     { "name": "Markup entity", "scope": ["constant.character.entity", "constant.character.entity.xml", "constant.character.entity.html"], "role": "synMarkupEntity" },
@@ -124,7 +125,7 @@
     "razorTagHelperElement": "synRazorComponent",
     "razorTagHelperAttribute": "synRazorComponent",
     "markupElement": "synMarkupTag",
-    "markupAttribute": "synMarkupAttribute",
+    "markupAttribute": "synHtmlAttribute",
     "markupAttributeValue": "synMarkupAttributeValue",
     "markupAttributeQuote": "synMarkupAttributeValue",
     "markupTagDelimiter": "synMarkupDelimiter",

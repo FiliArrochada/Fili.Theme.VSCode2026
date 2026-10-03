@@ -170,6 +170,7 @@
     "synRegexEscape":        ["#FFD68F", "Roslyn.regex - other escape"],
     "synMarkupTag":          ["#569CD6", "XML Name / HTML Element Name"],
     "synMarkupAttribute":    ["#92CAF4", "XML Attribute"],
+    "synHtmlAttribute":      ["#9CDCFE", "Text Editor MEF Items.HTML Attribute Name (sampled 2026-10-03 in a Razor file)"],
     "synMarkupAttributeValue": ["#C8C8C8", "XML Attribute Value"],
     "synMarkupDelimiter":    ["#808080", "XML Delimiter / HTML Tag Delimiter"],
     "synMarkupEntity":       ["#00A0A0", "HTML Entity"],

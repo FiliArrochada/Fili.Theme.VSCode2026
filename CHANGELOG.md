@@ -9,6 +9,7 @@
   is running.
 - JSON property names in Dark are gold (`#D7BA7D`), as Visual Studio draws them; they were light
   blue.
+- HTML attribute names in Dark take Visual Studio's HTML colour (`#9CDCFE`) instead of its XML one.
 
 ## 0.5.0
 

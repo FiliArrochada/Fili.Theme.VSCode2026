@@ -1403,6 +1403,16 @@
       }
     },
     {
+      "name": "HTML attribute (VS colours it apart from XML)",
+      "scope": [
+        "entity.other.attribute-name.html",
+        "meta.attribute entity.other.attribute-name.html"
+      ],
+      "settings": {
+        "foreground": "#FF0000"
+      }
+    },
+    {
       "name": "Markup attribute value",
       "scope": [
         "meta.tag string",

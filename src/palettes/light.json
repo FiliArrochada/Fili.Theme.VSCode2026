@@ -170,6 +170,7 @@
     "synRegexEscape":        ["#9E5B71", "Roslyn.regex - other escape"],
     "synMarkupTag":          ["#A31515", "VS default XML Name"],
     "synMarkupAttribute":    ["#FF0000", "VS default XML Attribute"],
+    "synHtmlAttribute":      ["#FF0000", "sampled 2026-10-03: VS default HTML Attribute Name, the same as XML"],
     "synMarkupAttributeValue": ["#0000FF", "VS default XML Attribute Value"],
     "synMarkupDelimiter":    ["#0000FF", "VS default XML Delimiter"],
     "synMarkupEntity":       ["#FF0000", "VS default HTML Entity"],

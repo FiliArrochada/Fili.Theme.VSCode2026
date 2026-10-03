@@ -1403,6 +1403,16 @@
       }
     },
     {
+      "name": "HTML attribute (VS colours it apart from XML)",
+      "scope": [
+        "entity.other.attribute-name.html",
+        "meta.attribute entity.other.attribute-name.html"
+      ],
+      "settings": {
+        "foreground": "#9CDCFE"
+      }
+    },
+    {
       "name": "Markup attribute value",
       "scope": [
         "meta.tag string",
@@ -1797,7 +1807,7 @@
     "razorTagHelperElement": "#009696",
     "razorTagHelperAttribute": "#009696",
     "markupElement": "#569CD6",
-    "markupAttribute": "#A9D3F2",
+    "markupAttribute": "#9CDCFE",
     "markupAttributeValue": "#C8C8C8",
     "markupAttributeQuote": "#C8C8C8",
     "markupTagDelimiter": "#C7C7C7",
