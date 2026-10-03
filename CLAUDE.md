@@ -194,7 +194,7 @@ git repository or turn off `git.decorations.enabled`: in a repo with nothing com
 tints every file name with the Git "added" colour, which looks like a green tree and is not the
 theme.
 
-Three things that make a test misleading rather than fail:
+Things that make a test misleading rather than fail:
 
 - **An Extension Development Host ignores the user's colour theme.** VS Code switches to the
   extension-under-development's own theme (the first of the right kind), so a test of
@@ -203,6 +203,15 @@ Three things that make a test misleading rather than fail:
 - **C# Dev Kit fails from a long extensions path.** Its server sits about 190 characters below the
   extensions folder; past Windows' 260-character limit it cannot start (`spawn … ENOENT`) and its
   view never fills. Install it into a short `--extensions-dir` for tests.
+- **Uninstalling C# Dev Kit from a test profile removes the C# extension too.** Launch with
+  `--disable-extension ms-dotnettools.csdevkit` instead (it also opens an announcement over the
+  editor on first start). Without the C# extension, `.razor` files fall back to VS Code's built-in
+  Razor grammar, with no language server and so no component colours.
+- **A TextMate rule is ranked by how precisely it matches the token's own scope before its
+  context.** `source.sql string` loses to a generic `string.quoted`, so target the leaf
+  (`string.quoted.single.sql`). Read real scopes with VS Code's TextMate engine
+  (`vscode-textmate` + `vscode-oniguruma`, installed in a scratch folder, never in this repo)
+  rather than guessing them.
 - **C# Dev Kit's Solution Explorer is titled "C# Project Details"** (view id `solutionExplorer`, in
   the Explorer), not "Solution Explorer", in current versions.
 
