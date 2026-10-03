@@ -1,4 +1,4 @@
-# Fili.VSCode2026
+# Fili - VSCode2026 Extension
 
 [![Version](https://vsmarketplacebadges.dev/version-short/FiliArrochada.fili-vscode2026.svg)](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026)
 [![Installs](https://vsmarketplacebadges.dev/installs-short/FiliArrochada.fili-vscode2026.svg)](https://marketplace.visualstudio.com/items?itemName=FiliArrochada.fili-vscode2026)
