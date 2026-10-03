@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0
+
+- **Fili.VSCode2026 Icons** grows from 11 icons to 25. New: Razor (`.razor`, `.cshtml`), XAML and
+  AXAML, MSBuild files (`.props`, `.targets`, `Directory.Build.props` and friends), `.resx`
+  resources, SQL, HTML, CSS (with SCSS and Less), JavaScript, TypeScript, plain text and logs,
+  Docker (`Dockerfile`, compose files, `.dockerignore`) and Git files (`.gitignore`,
+  `.gitattributes`, `.gitmodules`). The `Properties` and `wwwroot` folders get Solution Explorer's
+  wrench and globe badges.
+
 ## 0.4.1
 
 - Fili.VSCode2026 Pack, announced with 0.4.0, is withdrawn before publication: it was never made
