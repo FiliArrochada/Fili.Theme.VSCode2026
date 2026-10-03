@@ -106,7 +106,11 @@ updating `contributes.themes`; the build fails and prints the exact list it expe
 **Every palette value carries its provenance.** Each role is `["#hex", "where it came from"]`:
 a Visual Studio token (`Category.Token`), `sampled` from a live VS 2026 window, `composite` (a
 translucent Fluent token flattened onto the surface under it), or `inferred`. Keep that honest
-when changing a value — it is the only record of why a colour is what it is.
+when changing a value — it is the only record of why a colour is what it is. The build turns it
+into `docs/PARITY.md`, and the note's wording picks the category there: a note starting `sampled`,
+`composite` or `inferred` is that; one naming another role or an opacity (`at 60%`) is derived;
+`VS default`, `Campbell` and image-catalog notes are VS built-ins; anything else counts as a VS
+token, so do not write a guess in token form.
 
 **`Shell` and `ShellInternal` are different Visual Studio categories.** The Fluent layer is in
 `Shell` (`AccentFill*`, `SolidBackgroundFill*`, `TextFill*`, `SystemFill*`); the frame and status bar

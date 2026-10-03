@@ -194,6 +194,11 @@ it has loaded the project.
 
 ![A Razor component in Fili.VSCode2026 Dark and Light](docs/razor.png)
 
+**Every colour says where it came from.** [docs/PARITY.md](docs/PARITY.md) lists all of them, Dark
+and Light, with the Visual Studio token, sample or reasoning behind each and what it colours in VS
+Code, and counts how many are Visual Studio's own values. It is generated from the palettes, so it
+cannot fall out of date.
+
 ## Solution Explorer
 
 The Explorer was matched against Visual Studio 2026's Solution Explorer, sampled from a live
