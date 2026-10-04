@@ -230,11 +230,59 @@ const usedBy = (role) => {
   const shown = all.slice(0, 3).map((u) => `\`${cell(u)}\``).join(', ');
   return all.length > 3 ? `${shown} +${all.length - 3} more` : shown;
 };
+// GitHub strips inline styles from Markdown, so each colour is shown by a small generated SVG in
+// docs/swatches/, named by its hex. A translucent colour is drawn over a checkerboard.
+const swatch = (hex) => {
+  const h = hex.slice(1).toUpperCase();
+  const rgb = `#${h.slice(0, 6)}`;
+  const alpha = h.length === 8 ? parseInt(h.slice(6), 16) / 255 : 1;
+  const path = `docs/swatches/${h}.svg`;
+  if (!outputs.some((o) => o.path === path)) {
+    const checker = alpha < 1 ? '<rect width="16" height="16" fill="#FFFFFF"/><path d="M0 0h8v8H0zM8 8h8v8H8z" fill="#BFBFBF"/>' : '';
+    const fill = `<rect width="16" height="16" fill="${rgb}"${alpha < 1 ? ` fill-opacity="${alpha.toFixed(3)}"` : ''}/>`;
+    outputs.push({ path, text: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">${checker}${fill}<rect x=".5" y=".5" width="15" height="15" fill="none" stroke="#808080" stroke-opacity=".6"/></svg>\n` });
+  }
+  return `![${hex}](swatches/${h}.svg) \`${hex}\``;
+};
+// One source column: a note shared by both themes is shown once, otherwise one line per theme.
+const source = (r) => {
+  const [d, l] = [darkBase.roles[r][1], lightBase.roles[r][1]];
+  return d === l ? cell(d) : `**Dark:** ${cell(d)}<br>**Light:** ${cell(l)}`;
+};
 const table = (roles) => [
-  '| Role | Dark | Light | Dark source | Light source | Used by |',
-  '|---|---|---|---|---|---|',
-  ...roles.map((r) => `| \`${r}\` | \`${darkBase.roles[r][0]}\` | \`${lightBase.roles[r][0]}\` | ${cell(darkBase.roles[r][1])} | ${cell(lightBase.roles[r][1])} | ${usedBy(r)} |`),
+  '| Role | Dark | Light | Source | Used by |',
+  '|---|---|---|---|---|',
+  ...roles.map((r) => `| \`${r}\` | ${swatch(darkBase.roles[r][0])} | ${swatch(lightBase.roles[r][0])} | ${source(r)} | ${usedBy(r)} |`),
 ].join('\n');
+// Sections follow the blank-line blocks of src/palettes/dark.json, titled here by each block's first
+// role. A block without a title fails the build rather than landing under a guessed heading.
+const SECTION_TITLES = {
+  chrome: 'Surfaces', control: 'Controls and buttons', windowBorder: 'Borders and dividers',
+  fg: 'Text and links', accent: 'Accent', selection: 'Selection, find, lists and file icons',
+  error: 'Status colours and editor decorations', statusBar: 'Status bar', scrollThumb: 'Scroll bars',
+  debugCurrent: 'Debugging', diffAddLine: 'Diff', gitAdded: 'Source control', iconPurple: 'Icon colours',
+  ansiBlack: 'Terminal', braceLevel1: 'Brace pairs', synText: 'Syntax',
+};
+const WEB_SYNTAX = /^syn(Markup|Html|Css|Json|Razor|Sql|Heading)/;
+const blocks = [];
+for (const line of readFileSync(join(root, BASES[0].palette), 'utf8').split(/\r?\n/)) {
+  const m = /^\s*"(\w+)":\s*\[/.exec(line);
+  if (m && firstRoles.includes(m[1])) {
+    if (!blocks.length || blocks.at(-1).done) blocks.push({ roles: [] });
+    blocks.at(-1).roles.push(m[1]);
+  } else if (!line.trim() && blocks.length) blocks.at(-1).done = true;
+}
+const sections = [];
+for (const { roles } of blocks) {
+  const title = SECTION_TITLES[roles[0]];
+  if (!title) { fail(`docs/PARITY.md: the palette block starting with '${roles[0]}' has no title in SECTION_TITLES`); continue; }
+  if (roles[0] === 'synText') {
+    sections.push({ title: 'Syntax: code', roles: roles.filter((r) => !WEB_SYNTAX.test(r)) });
+    sections.push({ title: 'Syntax: web and data languages', roles: roles.filter((r) => WEB_SYNTAX.test(r)) });
+  } else sections.push({ title, roles });
+}
+const listed = sections.flatMap((s) => s.roles);
+for (const r of firstRoles) if (!listed.includes(r)) fail(`docs/PARITY.md: role '${r}' falls in no section`);
 const variantRows = VARIANTS.map((t) => {
   const v = readJson(t.palette);
   return `| ${v.name} | ${v.base} | ${Object.keys(v.roles).length} |`;
@@ -252,7 +300,7 @@ data and how much is not. What a VS Code theme cannot reproduce at all is in the
 | Source | Meaning | Dark | Light |
 |---|---|---|---|
 | token | a colour token or classification Visual Studio 2026 ships in its theme files | ${darkCount.token} | ${lightCount.token} |
-| VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, the Campbell terminal scheme, image-catalog and glyph colours | ${darkCount['VS built-in']} | ${lightCount['VS built-in']} |
+| VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, image-catalog and glyph colours | ${darkCount['VS built-in']} | ${lightCount['VS built-in']} |
 | sampled | measured from a running Visual Studio 2026 window | ${darkCount.sampled} | ${lightCount.sampled} |
 | composite | a translucent Visual Studio token flattened onto the surface under it | ${darkCount.composite} | ${lightCount.composite} |
 | derived | another role's value, or a fraction of its opacity | ${darkCount.derived} | ${lightCount.derived} |
@@ -269,14 +317,7 @@ changes; everything else is its base's.
 |---|---|---|
 ${variantRows.join('\n')}
 
-## Workbench
-
-${table(firstRoles.filter((r) => !r.startsWith('syn')))}
-
-## Syntax
-
-${table(firstRoles.filter((r) => r.startsWith('syn')))}
-`;
+${sections.map((s) => `## ${s.title}\n\n${table(s.roles)}\n`).join('\n')}`;
 outputs.push({ path: 'docs/PARITY.md', text: parity });
 
 // package.json must contribute exactly the themes generated here, in this order, with the right kind.
@@ -322,7 +363,9 @@ for (const p of bases) {
   }
 }
 const vendored = new Set([`product-icons/${FLUENT_FONT}`]);
-for (const f of [...readdirSync(join(root, 'themes')).map((f) => `themes/${f}`), ...readdirSync(join(root, 'product-icons')).map((f) => `product-icons/${f}`)]) {
+const swatchDir = join(root, 'docs/swatches');
+for (const f of [...readdirSync(join(root, 'themes')).map((f) => `themes/${f}`), ...readdirSync(join(root, 'product-icons')).map((f) => `product-icons/${f}`),
+  ...(existsSync(swatchDir) ? readdirSync(swatchDir).map((f) => `docs/swatches/${f}`) : [])]) {
   const rel = f;
   if (produced.has(rel) || vendored.has(rel)) continue;
   if (args.has('--check')) { stale = true; console.error(`stale: ${rel} is no longer generated (run npm run build)`); }

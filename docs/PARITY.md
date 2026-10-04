@@ -10,12 +10,12 @@ data and how much is not. What a VS Code theme cannot reproduce at all is in the
 
 | Source | Meaning | Dark | Light |
 |---|---|---|---|
-| token | a colour token or classification Visual Studio 2026 ships in its theme files | 119 | 71 |
-| VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, the Campbell terminal scheme, image-catalog and glyph colours | 19 | 38 |
-| sampled | measured from a running Visual Studio 2026 window | 10 | 20 |
+| token | a colour token or classification Visual Studio 2026 ships in its theme files | 115 | 69 |
+| VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, image-catalog and glyph colours | 7 | 27 |
+| sampled | measured from a running Visual Studio 2026 window | 27 | 49 |
 | composite | a translucent Visual Studio token flattened onto the surface under it | 9 | 14 |
-| derived | another role's value, or a fraction of its opacity | 6 | 7 |
-| inferred | no Visual Studio equivalent; chosen to fit | 7 | 20 |
+| derived | another role's value, or a fraction of its opacity | 6 | 6 |
+| inferred | no Visual Studio equivalent; chosen to fit | 6 | 5 |
 | **total** | | **170** | **170** |
 
 ## Variants
@@ -40,182 +40,257 @@ changes; everything else is its base's.
 | Fili.VSCode2026 Dark (Spicy Red) | dark | 15 |
 | Fili.VSCode2026 Light (Sunny Day) | light | 16 |
 
-## Workbench
+## Surfaces
 
-| Role | Dark | Light | Dark source | Light source | Used by |
-|---|---|---|---|---|---|
-| `chrome` | `#1C1C1C` | `#EEEEEE` | ShellInternal.EnvironmentBackground (frame, title bar, menu bar, toolbar; sampled identical) | ShellInternal.EnvironmentBackground (frame, title bar, menu bar, toolbar; sampled identical) | `titleBar.activeBackground`, `titleBar.inactiveBackground`, `titleBar.border` +7 more |
-| `card` | `#282828` | `#F9F9F9` | ShellInternal.EnvironmentTab (document and tool-window cards; sampled identical) | ShellInternal.EnvironmentTab (document and tool-window cards; sampled identical) | `sideBar.background`, `sideBarTitle.background`, `sideBarTitle.border` +37 more |
-| `tabWell` | `#262626` | `#F7F7F7` | sampled: tab strip behind inactive document tabs | sampled: tab strip behind inactive document tabs | `editorGroupHeader.tabsBackground`, `editorGroupHeader.connectedTabsBackground`, `tab.inactiveBackground` +3 more |
-| `editor` | `#1E1E1E` | `#FFFFFF` | Text Editor Text Manager Items.Plain Text background | VS default Plain Text background (sampled identical) | `editorPane.background`, `editor.background`, `editorStickyScroll.background` +15 more |
-| `editorLine` | `#272727` | `#F7F7F7` | sampled: current-line highlight | sampled: current-line highlight | `editor.lineHighlightBackground`, `editor.lineHighlightBorder`, `editorStickyScrollHover.background` +1 more |
-| `navbar` | `#2B2B2B` | `#FFFFFF` | sampled: editor navigation bar (project / type / member dropdowns) | sampled: editor navigation bar (project / type / member dropdowns) | `breadcrumb.background` |
-| `editorFooter` | `#2E2E2E` | `#F5F5F5` | sampled: editor bottom bar (zoom, issues, Ln/Ch) | sampled: editor bottom bar (zoom, issues, Ln/Ch) | `editorHoverWidget.statusBarBackground` |
-| `flyout` | `#2C2C2C` | `#F9F9F9` | Shell.SurfaceBackgroundFillDefault (menus, IntelliSense, hovers) | Shell.SurfaceBackgroundFillDefault (menus, IntelliSense, hovers) | `menu.background`, `listFilterWidget.background`, `editorGroup.dropIntoPromptBackground` +14 more |
-| `flyoutHover` | `#3D3D3D` | `#EAEAEA` | Environment.CommandBarMenuItemMouseOver | composite: Shell.SubtleFillSecondary #0000000f over flyout | `menu.selectionBackground`, `editorSuggestWidget.selectedBackground`, `editorActionList.focusBackground` +3 more |
-| `flyoutBorder` | `#454545` | `#DADADA` | ShellInternal.EnvironmentBorderInactive | Shell.CardStrokeDefaultSolidAlt | `widget.border`, `menu.border`, `editorGroup.dropIntoPromptBorder` +9 more |
-| `shadow` | `#00000042` | `#00000024` | Shell.ShadowFlyout | Shell.ShadowFlyout | `widget.shadow`, `scrollbar.shadow`, `sideBarStickyScroll.shadow` +5 more |
-| `control` | `#383838` | `#FFFFFF` | Environment.DropDownBackground / ComboBoxBackground (sampled on the chat input) | Shell.ControlFillActiveInput (sampled on the chat input) | `input.background`, `dropdown.background`, `checkbox.background` +19 more |
-| `controlHover` | `#3D3D3D` | `#F3F3F3` | Environment.ComboBoxMouseOverBackground | Shell.ControlFillQuaternary #f3f3f3c2, flattened | `toolbar.hoverBackground`, `menubar.selectionBackground`, `commandCenter.activeBackground` +13 more |
-| `controlBorder` | `#454545` | `#D1D1D1` | ShellInternal.EnvironmentBorderInactive | inferred: between Shell.CardStrokeDefaultSolidAlt and the sampled button outline | `commandCenter.activeBorder`, `input.border`, `dropdown.border` +14 more |
-| `buttonSecondary` | `#3D3D3D` | `#FDFDFD` | CommonControls.Button | composite: Shell.ControlFillDefault #ffffffb2 over card | `checkbox.disabled.background`, `keybindingLabel.background`, `button.secondaryBackground` |
-| `buttonSecondaryHover` | `#4D4D4D` | `#F0F0F0` | CommonControls.ButtonHover | composite: Shell.SubtleFillTertiary over buttonSecondary | `button.secondaryHoverBackground` |
-| `buttonBorder` | `#3D3D3D` | `#ACACAC` | sampled: chat suggestion button outline | sampled: chat suggestion button outline | `button.secondaryBorder` |
-| `windowBorder` | `#454545` | `#ADADAD` | ShellInternal.EnvironmentBorderInactive (card outline; sampled identical) | ShellInternal.EnvironmentBorderInactive (card outline) | `window.inactiveBorder`, `sideBar.border`, `editorGroup.border` +12 more |
-| `divider` | `#3A3A3A` | `#E6E6E6` | composite: Shell.DividerStrokeDefault #ffffff15 over card | composite: Shell.DividerStrokeDefault #00000014 over card | `commandCenter.border`, `commandCenter.inactiveBorder`, `menu.separatorBackground` +36 more |
-| `treeIndent` | `#4D4D4D` | `#C8C8C8` | inferred: between divider and fgDisabled | inferred: between divider and fgDisabled | `tree.indentGuidesStroke`, `tree.inactiveIndentGuidesStroke` |
-| `fg` | `#FAFAFA` | `#1E1E1E` | Environment.ToolWindowText / PanelText | Environment.ToolWindowText / PanelText | `foreground`, `titleBar.activeForeground`, `menubar.selectionForeground` +83 more |
-| `fgSecondary` | `#D1D1D1` | `#5F5F5F` | composite: Shell.TextFillSecondary #ffffffc8 over card | composite: Shell.TextFillSecondary #0000009e over card | `descriptionForeground`, `icon.foreground`, `commandCenter.foreground` +18 more |
-| `fgTertiary` | `#9D9D9D` | `#8A8A8A` | composite: Shell.TextFillTertiary #ffffff8b over card | composite: Shell.TextFillTertiary #00000072 over card | `titleBar.inactiveForeground`, `commandCenter.inactiveForeground`, `activityBar.inactiveForeground` +32 more |
-| `fgDisabled` | `#767676` | `#9F9F9F` | composite: Shell.TextFillDisabled #ffffff5d over card | composite: Shell.TextFillDisabled #0000005c over card | `disabledForeground`, `tab.unfocusedActiveBorderTop`, `tab.unfocusedActiveModifiedBorder` +8 more |
-| `tabTextInactive` | `#B2B2B2` | `#717171` | Environment.FileTabInactiveText | Environment.FileTabInactiveText | `tab.inactiveForeground`, `tab.inactiveModifiedBorder`, `tab.unfocusedInactiveForeground` +2 more |
-| `lineNumber` | `#8A8A8A` | `#7A7A7A` | Text Editor MEF Items.Line Number | Text Editor MEF Items.Line Number | `editorLineNumber.foreground` |
-| `lineNumberActive` | `#E0E0E0` | `#000000` | Text Editor MEF Items.Selected Line Number | Text Editor MEF Items.Selected Line Number | `editorLineNumber.activeForeground`, `editorActiveLineNumber.foreground` |
-| `cursor` | `#DCDCDC` | `#000000` | Plain Text foreground | VS default Plain Text foreground | `editorCursor.foreground`, `editorMultiCursor.primary.foreground` |
-| `link` | `#83BEEB` | `#005FB8` | Environment.PanelHyperlink / InfoBar.Hyperlink | Shell.HyperlinkFillTertiary | `editorLink.activeForeground`, `extensionIcon.verifiedForeground`, `notificationLink.foreground` +2 more |
-| `linkHover` | `#A8D2F2` | `#003E92` | inferred: link lightened toward fg | Shell.HyperlinkFillPrimary | `textLink.activeForeground` |
-| `accent` | `#9184EE` | `#5649B0` | Shell.AccentFillDefault (sampled on the focused window outline) | Shell.AccentFillDefault (sampled on the focused window outline) | `focusBorder`, `sash.hoverBorder`, `progressBar.background` +47 more |
-| `windowAccent` | `#9184EE` | `#5649B0` | ShellInternal.EnvironmentBorder: focused-window outline and Solution Explorer selection pill (equals the accent here; the tinted themes change it) | ShellInternal.EnvironmentBorder: focused-window outline and Solution Explorer selection pill (equals the accent here; the tinted themes change it) | `window.activeBorder`, `activityBar.activeBorder`, `activityBar.activeFocusBorder` +7 more |
-| `accentFg` | `#000000` | `#FFFFFF` | Shell.TextOnAccentFillPrimary | Shell.TextOnAccentFillPrimary | `activityBarBadge.foreground`, `activityErrorBadge.foreground`, `activityWarningBadge.foreground` +9 more |
-| `accentText` | `#A79CF1` | `#5649B0` | Shell.AccentTextFillTertiary | Shell.AccentTextFillTertiary | `list.highlightForeground`, `list.focusHighlightForeground`, `editorSuggestWidget.focusHighlightForeground` +8 more |
-| `accentMuted` | `#353340` | `#E5E4F0` | composite: Shell.AccentFillSenary #9184ee1f over card | composite: Shell.AccentFillSenary #5649b01f over card | `sideBar.dropBackground`, `list.dropBackground`, `editorGroup.dropBackground` +11 more |
-| `accentStrong` | `#403582` | `#5649B0` | CommonControls.ButtonDefault (VS primary button) | Shell.AccentFillDefault (Fluent primary button fill) | `button.background`, `extensionButton.background`, `extensionButton.prominentBackground` +2 more |
-| `accentStrongFg` | `#FAFAFA` | `#FFFFFF` | CommonControls.ButtonDefault foreground | Shell.TextOnAccentFillPrimary | `button.foreground`, `button.separator`, `extensionButton.foreground` +3 more |
-| `accentHover` | `#4B3F96` | `#665BB7` | inferred: ButtonDefault lightened one step | composite: Shell.AccentFillSecondary #5649b0e5 over card | `button.hoverBackground`, `extensionButton.hoverBackground`, `extensionButton.prominentHoverBackground` +1 more |
-| `selection` | `#004377` | `#5CA9E566` | Text Editor MEF Items.Selected Text | Text Editor MEF Items.Selected Text #5CA9E5 at 40%: VS draws its selection translucent | `selection.background`, `editor.selectionBackground`, `minimap.selectionHighlight` +1 more |
-| `selectionInactive` | `#383838` | `#E3E3E3` | Text Editor MEF Items.Inactive Selected Text | composite: Text Editor MEF Items.Inactive Selected Text #D1D1D1 at 60% over editor | `editor.inactiveSelectionBackground`, `editor.foldBackground`, `terminal.inactiveSelectionBackground` |
-| `selectionHighlight` | `#0E4583` | `#D6E6F7` | Text Editor MEF Items.MarkerFormatDefinition/HighlightedReference | inferred: light counterpart of HighlightedReference | `editor.selectionHighlightBackground`, `editor.wordHighlightBackground`, `editor.wordHighlightStrongBackground` +9 more |
-| `findMatch` | `#773800` | `#F6B94D` | Text Editor MEF Items.MarkerFormatDefinition/FindHighlight | inferred: VS light Find Highlight orange | `editor.findMatchBackground`, `editorOverviewRuler.findMatchForeground`, `minimap.findMatchHighlight` +3 more |
-| `findMatchOther` | `#77380099` | `#F6B94D80` | FindHighlight at 60% for the non-current matches | findMatch at 50% for the non-current matches | `list.filterMatchBackground`, `editor.findMatchHighlightBackground`, `editor.symbolHighlightBackground` +5 more |
-| `bracketMatch` | `#0E4583` | `#D6E6F7` | Text Editor MEF Items.brace matching | inferred: shares selectionHighlight, as Dark shares #0E4583 | `editorBracketMatch.background` |
-| `scopeHighlight` | `#0F202D` | `#F2F6FA` | Text Editor MEF Items.MarkerFormatDefinition/ScopeHighlight | inferred: light counterpart of ScopeHighlight | `editor.findRangeHighlightBackground`, `editor.rangeHighlightBackground`, `editorOverviewRuler.rangeHighlightForeground` |
-| `listSelection` | `#353535` | `#EAEAEA` | sampled: Solution Explorer selected row; equals Shell.SubtleFillSecondary #ffffff0f over card | sampled: Solution Explorer selected row; equals Shell.SubtleFillSecondary #0000000f over card | `toolbar.activeBackground`, `list.activeSelectionBackground`, `list.focusBackground` +5 more |
-| `listSelectionInactive` | `#353535` | `#EAEAEA` | sampled: VS keeps the same fill when Solution Explorer loses focus | sampled: VS keeps the same fill when Solution Explorer loses focus | `list.inactiveSelectionBackground`, `list.inactiveFocusBackground`, `notebook.selectedCellBackground` |
-| `listHover` | `#313131` | `#EFEFEF` | composite: Shell.SubtleFillTertiary #ffffff0b over card (Fluent list hover) | composite: Shell.SubtleFillTertiary #0000000a over card (Fluent list hover) | `list.hoverBackground`, `tree.tableOddRowsBackground`, `keybindingTable.rowsBackground` +5 more |
-| `fileFolder` | `#FFDD96` | `#B47B00` | sampled: Solution Explorer folder outline | sampled: Solution Explorer folder outline | `folder-properties icon`, `folder-web icon`, `folder icon` |
-| `fileCsharp` | `#83F380` | `#11920D` | sampled: Solution Explorer C# glyph | sampled: Solution Explorer C# glyph | `csharp icon`, `project icon`, `razor icon` |
-| `fileGlyph` | `#E3E3E3` | `#202020` | sampled: Solution Explorer monochrome file glyphs | sampled: Solution Explorer monochrome file glyphs | `css icon`, `database icon`, `file icon` +17 more |
-| `error` | `#FF99A4` | `#C42B1C` | Shell.SystemFillCritical | Shell.SystemFillCritical | `errorForeground`, `activityErrorBadge.background`, `list.errorForeground` +21 more |
-| `warning` | `#FCE100` | `#9D5D00` | Shell.SystemFillCaution | Shell.SystemFillCaution | `activityWarningBadge.background`, `list.warningForeground`, `editorLightBulb.foreground` +13 more |
-| `info` | `#60CDFF` | `#005FB7` | Shell.SystemFillAttention | Shell.SystemFillAttention | `editorLightBulbAutoFix.foreground`, `problemsInfoIcon.foreground`, `editorGutter.modifiedBackground` +24 more |
-| `success` | `#6CCB5F` | `#0F7B0F` | Shell.SystemFillSuccess | Shell.SystemFillSuccess | `editorOverviewRuler.currentContentForeground`, `merge.currentHeaderBackground`, `mergeEditor.conflict.handledUnfocused.border` +16 more |
-| `errorBg` | `#442726` | `#FDE7E9` | Shell.SystemFillCriticalBackground | Shell.SystemFillCriticalBackground | `editorMarkerNavigationError.headerBackground`, `inputValidation.errorBackground`, `debugExceptionWidget.background` +2 more |
-| `warningBg` | `#433519` | `#FFF4CE` | Shell.SystemFillCautionBackground / InfoBar.InfoBarBackground | Shell.SystemFillCautionBackground | `editorMarkerNavigationWarning.headerBackground`, `inputValidation.warningBackground`, `banner.background` |
-| `infoBg` | `#304048` | `#E0EAF2` | composite: Shell.SystemFillAttention at 15% over card | composite: Shell.SystemFillAttention at 10% over card | `editorMarkerNavigationInfo.headerBackground`, `inputValidation.infoBackground`, `testing.messagePeekHeaderBackground` +1 more |
-| `successBg` | `#393D1B` | `#DFF6DD` | Shell.SystemFillSuccessBackground | Shell.SystemFillSuccessBackground | `merge.currentContentBackground`, `mergeEditor.conflict.input1.background` |
-| `squiggleError` | `#FC3E36` | `#E51400` | Text Editor MEF Items.syntax error | TreeView.ValidationSquiggles | `editorError.foreground`, `editorOverviewRuler.errorForeground`, `minimap.errorHighlight` |
-| `squiggleWarning` | `#95DB7D` | `#008000` | Text Editor MEF Items.compiler warning (VS warnings are green) | VS default compiler warning (VS warnings are green) | `editorWarning.foreground`, `editorOverviewRuler.warningForeground`, `minimap.warningHighlight` |
-| `squiggleInfo` | `#CA79EC` | `#800080` | Text Editor MEF Items.other error | Roslyn Text Editor MEF Items.inline diagnostics - Edit and Continue | `editorInfo.foreground`, `editorOverviewRuler.infoForeground`, `minimap.infoHighlight` |
-| `squiggleHint` | `#A5A5A5` | `#A5A5A5` | Text Editor MEF Items.hinted suggestion | Text Editor MEF Items.hinted suggestion | `editorHint.foreground` |
-| `ghostText` | `#A5A5A5` | `#A5A5A5` | Text Editor MEF Items.hinted suggestion | Text Editor MEF Items.hinted suggestion | `editor.placeholder.foreground`, `editorGhostText.foreground`, `terminal.initialHintForeground` +1 more |
-| `inlayHintBg` | `#3E3E3E` | `#E6E6FA` | Roslyn Text Editor MEF Items.inline hints background | Roslyn Text Editor MEF Items.inline hints background | `editorInlayHint.background`, `editorInlayHint.typeBackground`, `editorInlayHint.parameterBackground` +1 more |
-| `inlayHintFg` | `#A9A8A7` | `#686868` | Roslyn Text Editor MEF Items.inline hints foreground | Roslyn Text Editor MEF Items.inline hints foreground | `editorInlayHint.foreground`, `editorInlayHint.typeForeground`, `editorInlayHint.parameterForeground` |
-| `whitespace` | `#3B5A60` | `#95C8D7` | Text Editor MEF Items.Visible Whitespace #144852, lifted: VS draws it bolder than VS Code does | VS default Visible Whitespace #2B91AF at 50% | `editorWhitespace.foreground` |
-| `indentGuide` | `#404040` | `#DDDDDD` | Text Editor MEF Items.Block Structure Adornments #424242 | inferred: mirrors Dark's step above the editor | `editorIndentGuide.background1`, `editorRuler.foreground`, `editorBracketPairGuide.background1` +11 more |
-| `indentGuideActive` | `#707070` | `#ADADAD` | Environment.ActiveBorder | ShellInternal.EnvironmentBorderInactive | `editorIndentGuide.activeBackground1`, `editorIndentGuide.activeBackground`, `editorIndentGuide.activeBackground2` +4 more |
-| `snippetField` | `#5B5B5B` | `#E0E0E0` | Text Editor Text Marker Items.Code Snippet Field | inferred: light counterpart of Code Snippet Field | `editor.snippetTabstopHighlightBackground` |
-| `unnecessaryOpacity` | `#000000A0` | `#000000A0` | alpha only: VS fades unnecessary code to ~60% | alpha only: VS fades unnecessary code to ~60% | `editorUnnecessaryCode.opacity`, `minimap.foregroundOpacity` |
-| `statusBar` | `#141414` | `#6C6C6C` | composite: ShellInternal.StatusBarBackgroundFillRest #0000004d over chrome (sampled identical) | composite: ShellInternal.StatusBarBackgroundFillRest #0000008b over chrome (sampled identical) | `statusBar.background`, `statusBar.border`, `statusBar.noFolderBackground` +2 more |
-| `statusBarText` | `#FFFFFF` | `#FFFFFF` | ShellInternal.StatusBarTextFillRest | ShellInternal.StatusBarTextFillRest | `statusBar.foreground`, `statusBar.debuggingForeground`, `statusBar.noFolderForeground` +11 more |
-| `statusBarHover` | `#313131` | `#565656` | composite: ShellInternal.StatusBarControlFillSecondary #ffffff20 over statusBar | composite: ShellInternal.StatusBarControlFillSecondary #00000033 over statusBar | `statusBarItem.activeBackground`, `statusBarItem.hoverBackground`, `statusBarItem.compactHoverBackground` |
-| `statusBarDebug` | `#7A2101` | `#BC4B09` | ShellInternal.StatusBarBackgroundFillDebugging | ShellInternal.StatusBarBackgroundFillDebugging | `commandCenter.debuggingBackground`, `statusBar.debuggingBackground`, `statusBar.debuggingBorder` |
-| `statusBarBuilding` | `#3F3682` | `#5649B0` | ShellInternal.StatusBarBackgroundFillBuilding | ShellInternal.StatusBarBackgroundFillBuilding | `statusBarItem.prominentBackground`, `statusBarItem.prominentHoverBackground` |
-| `statusBarLoading` | `#003B6A` | `#005BA1` | ShellInternal.StatusBarBackgroundFillSolutionLoading | ShellInternal.StatusBarBackgroundFillSolutionLoading | `statusBarItem.remoteBackground`, `statusBarItem.remoteHoverBackground` |
-| `statusBarError` | `#C42B1C` | `#C42B1C` | ShellInternal.CaptionControlCloseFillPrimary | ShellInternal.CaptionControlCloseFillPrimary | `statusBarItem.errorBackground`, `statusBarItem.errorHoverBackground`, `debugView.exceptionLabelBackground` |
-| `statusBarWarning` | `#7A5A00` | `#9D5D00` | inferred: SystemFillCaution darkened to carry white text | Shell.SystemFillCaution | `statusBarItem.offlineBackground`, `statusBarItem.offlineHoverBackground`, `statusBarItem.warningBackground` +1 more |
-| `scrollThumb` | `#4D4D4D` | `#C2C3C9` | Environment.ScrollBarThumbBackground | Environment.ScrollBarThumbBackground | `scrollbarSlider.background`, `minimapSlider.background`, `notebookScrollbarSlider.background` |
-| `scrollThumbHover` | `#707070` | `#8D8D8D` | Environment.ScrollBarThumbMouseOverBorder | sampled: VS 2026 overlay scrollbar thumb | `scrollbarSlider.hoverBackground`, `minimapSlider.hoverBackground`, `notebookScrollbarSlider.hoverBackground` |
-| `scrollThumbActive` | `#999999` | `#5B5B5B` | Environment.ScrollBarThumbPressedBackground (sampled identical) | Environment.ScrollBarThumbPressedBackground | `scrollbarSlider.activeBackground`, `minimapSlider.activeBackground`, `notebookScrollbarSlider.activeBackground` |
-| `debugCurrent` | `#EFF28440` | `#FFEE6280` | Text Editor MEF Items.Current Statement #EFF284 at 25%: VS repaints the text black, VS Code cannot | VS default Current Statement #FFEE62 at 50% | `editor.stackFrameHighlightBackground` |
-| `debugCurrentGlyph` | `#FFCC00` | `#D9A400` | inferred: VS instruction-pointer arrow | inferred: VS instruction-pointer arrow, darkened for a white editor | `debugIcon.breakpointCurrentStackframeForeground` |
-| `debugFocused` | `#7CA5A040` | `#B4E4B480` | Text Editor MEF Items.Call Return #7CA5A0 at 25% | inferred: VS default Call Return green at 50% | `editor.focusedStackFrameHighlightBackground` |
-| `breakpoint` | `#E51400` | `#E51400` | VS breakpoint glyph red | VS breakpoint glyph red | `debugIcon.breakpointForeground` |
-| `breakpointDisabled` | `#AEAEAE` | `#A0A0A0` | Text Editor MEF Items.Breakpoint (Disabled) | inferred: light counterpart of Breakpoint (Disabled) | `debugIcon.breakpointDisabledForeground`, `debugIcon.breakpointUnverifiedForeground` |
-| `diffAddLine` | `#15352C` | `#DFF6DD` | Text Editor MEF Items.deltadiff.add.line | Shell.SystemFillSuccessBackground | `diffEditor.insertedLineBackground`, `diffEditorGutter.insertedLineBackground`, `testing.coveredBackground` +2 more |
-| `diffAddWord` | `#265E4D` | `#B4E6B0` | Text Editor MEF Items.deltadiff.add.word | inferred: diffAddLine deepened | `diffEditor.insertedTextBackground`, `inlineChatDiff.inserted`, `inlineEdit.modifiedChangedTextBackground` |
-| `diffRemoveLine` | `#2D0000` | `#FDE7E9` | Text Editor MEF Items.deltadiff.remove.line | Shell.SystemFillCriticalBackground | `diffEditor.removedLineBackground`, `diffEditorGutter.removedLineBackground`, `testing.uncoveredBackground` +2 more |
-| `diffRemoveWord` | `#3C0000` | `#F8BFC6` | Text Editor MEF Items.deltadiff.remove.word | inferred: diffRemoveLine deepened | `diffEditor.removedTextBackground`, `testing.uncoveredBranchBackground`, `inlineChatDiff.removed` +1 more |
-| `gitAdded` | `#6CCB5F` | `#0F7B0F` | Shell.SystemFillSuccess | Shell.SystemFillSuccess | `editorGutter.addedBackground`, `editorGutter.addedSecondaryBackground`, `editorOverviewRuler.addedForeground` +15 more |
-| `gitModified` | `#D0B132` | `#9D5D00` | Track Changes before save | Shell.SystemFillCaution | `gitDecoration.modifiedResourceForeground`, `gitDecoration.stageModifiedResourceForeground`, `chat.editedFileForeground` +1 more |
-| `gitDeleted` | `#FF99A4` | `#C42B1C` | Shell.SystemFillCritical | Shell.SystemFillCritical | `editorGutter.deletedBackground`, `editorGutter.deletedSecondaryBackground`, `editorOverviewRuler.deletedForeground` +15 more |
-| `gitIgnored` | `#767676` | `#9F9F9F` | fgDisabled | fgDisabled | `gitDecoration.ignoredResourceForeground` |
-| `gitConflict` | `#F7A35C` | `#C85A00` | inferred: orange between caution and critical | inferred: orange between caution and critical | `mergeEditor.conflict.unhandledUnfocused.border`, `mergeEditor.conflict.unhandledFocused.border`, `mergeEditor.conflict.unhandled.minimapOverViewRuler` +3 more |
-| `gitSubmodule` | `#83BEEB` | `#005FB8` | link | link | `gitDecoration.submoduleResourceForeground` |
-| `iconPurple` | `#B180D7` | `#652D90` | VS image catalog purple (dark) | VS image catalog purple | `scmGraph.historyItemRemoteRefColor`, `scmGraph.foreground4`, `terminalSymbolIcon.aliasForeground` +8 more |
-| `iconOrange` | `#E8AB53` | `#C27D1A` | VS image catalog orange (dark) | VS image catalog orange | `extensionIcon.starForeground`, `extensionIcon.preReleaseForeground`, `scmGraph.historyItemBaseRefColor` +13 more |
-| `iconBlue` | `#75BEFF` | `#1BA1E2` | VS image catalog blue (dark) | VS image catalog blue | `scmGraph.foreground1`, `terminalSymbolIcon.optionValueForeground`, `terminalSymbolIcon.argumentForeground` +13 more |
-| `iconGreen` | `#89D185` | `#388A34` | VS image catalog green (dark) | VS image catalog green | `scmGraph.foreground2`, `charts.green`, `terminalSymbolIcon.pullRequestForeground` |
-| `iconRed` | `#F48771` | `#A1260D` | VS image catalog red (dark) | VS image catalog red | `extensionIcon.sponsorForeground`, `scmGraph.foreground5`, `charts.red` |
-| `iconGray` | `#C5C5C5` | `#424242` | VS image catalog neutral (dark) | VS image catalog neutral | `symbolIcon.arrayForeground`, `symbolIcon.colorForeground`, `symbolIcon.constantForeground` +18 more |
-| `ansiBlack` | `#1C1C1C` | `#1E1E1E` | Campbell (VS terminal default) #0C0C0C, lifted to chrome to avoid pure black | Campbell #0C0C0C, lifted to fg | `terminal.ansiBlack` |
-| `ansiRed` | `#E74856` | `#C50F1F` | Campbell brightRed as normal red: #C50F1F is illegible on card | Campbell | `terminal.ansiRed` |
-| `ansiGreen` | `#16C60C` | `#0F7B0F` | Campbell brightGreen as normal green: #13A10E is dim on card | Shell.SystemFillSuccess: Campbell #13A10E is faint on card | `terminal.ansiGreen` |
-| `ansiYellow` | `#C19C00` | `#9D5D00` | Campbell | Shell.SystemFillCaution: Campbell #C19C00 is illegible on card | `terminal.ansiYellow` |
-| `ansiBlue` | `#3B78FF` | `#0037DA` | Campbell brightBlue as normal blue: #0037DA is illegible on card | Campbell | `terminal.ansiBlue` |
-| `ansiMagenta` | `#B4009E` | `#881798` | Campbell brightMagenta | Campbell | `terminal.ansiMagenta` |
-| `ansiCyan` | `#3A96DD` | `#0C74B8` | Campbell | inferred: Campbell #3A96DD darkened for card | `terminal.ansiCyan` |
-| `ansiWhite` | `#CCCCCC` | `#6E6E6E` | Campbell | inferred: white must still read on a light terminal | `terminal.ansiWhite` |
-| `ansiBrightBlack` | `#767676` | `#767676` | Campbell | Campbell | `terminal.ansiBrightBlack` |
-| `ansiBrightRed` | `#FF99A4` | `#E74856` | Shell.SystemFillCritical | Campbell | `terminal.ansiBrightRed` |
-| `ansiBrightGreen` | `#6CCB5F` | `#13A10E` | Shell.SystemFillSuccess | Campbell green | `terminal.ansiBrightGreen` |
-| `ansiBrightYellow` | `#F9F1A5` | `#B08800` | Campbell | inferred: Campbell yellow darkened for card | `terminal.ansiBrightYellow` |
-| `ansiBrightBlue` | `#60CDFF` | `#3B78FF` | Shell.SystemFillAttention | Campbell | `terminal.ansiBrightBlue` |
-| `ansiBrightMagenta` | `#D8A0DF` | `#B4009E` | keyword - control | Campbell | `terminal.ansiBrightMagenta` |
-| `ansiBrightCyan` | `#61D6D6` | `#0E8A9A` | Campbell | inferred: Campbell brightCyan darkened for card | `terminal.ansiBrightCyan` |
-| `ansiBrightWhite` | `#F2F2F2` | `#8A8A8A` | Campbell | inferred: white must still read on a light terminal | `terminal.ansiBrightWhite` |
-| `braceLevel1` | `#FFD700` | `#0431FA` | Text Editor MEF Items.brace pair level one | Text Editor MEF Items.brace pair level one | `editorBracketHighlight.foreground1`, `editorBracketHighlight.foreground4`, `editorBracketPairGuide.activeBackground1` +1 more |
-| `braceLevel2` | `#DA70D6` | `#319331` | Text Editor MEF Items.brace pair level two | Text Editor MEF Items.brace pair level two | `editorBracketHighlight.foreground2`, `editorBracketHighlight.foreground5`, `editorBracketPairGuide.activeBackground2` +1 more |
-| `braceLevel3` | `#179FFF` | `#7B3814` | Text Editor MEF Items.brace pair level three | Text Editor MEF Items.brace pair level three | `editorBracketHighlight.foreground3`, `editorBracketHighlight.foreground6`, `editorBracketPairGuide.activeBackground3` +1 more |
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `chrome` | ![#1C1C1C](swatches/1C1C1C.svg) `#1C1C1C` | ![#EEEEEE](swatches/EEEEEE.svg) `#EEEEEE` | ShellInternal.EnvironmentBackground (frame, title bar, menu bar, toolbar; sampled identical) | `titleBar.activeBackground`, `titleBar.inactiveBackground`, `titleBar.border` +7 more |
+| `card` | ![#282828](swatches/282828.svg) `#282828` | ![#F9F9F9](swatches/F9F9F9.svg) `#F9F9F9` | ShellInternal.EnvironmentTab (document and tool-window cards; sampled identical) | `sideBar.background`, `sideBarTitle.background`, `sideBarTitle.border` +37 more |
+| `tabWell` | ![#262626](swatches/262626.svg) `#262626` | ![#F7F7F7](swatches/F7F7F7.svg) `#F7F7F7` | sampled: tab strip behind inactive document tabs | `editorGroupHeader.tabsBackground`, `editorGroupHeader.connectedTabsBackground`, `tab.inactiveBackground` +3 more |
+| `editor` | ![#1E1E1E](swatches/1E1E1E.svg) `#1E1E1E` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | **Dark:** Text Editor Text Manager Items.Plain Text background<br>**Light:** VS default Plain Text background (sampled identical) | `editorPane.background`, `editor.background`, `editorStickyScroll.background` +15 more |
+| `editorLine` | ![#272727](swatches/272727.svg) `#272727` | ![#F7F7F7](swatches/F7F7F7.svg) `#F7F7F7` | sampled: current-line highlight | `editor.lineHighlightBackground`, `editor.lineHighlightBorder`, `editorStickyScrollHover.background` +1 more |
+| `navbar` | ![#2B2B2B](swatches/2B2B2B.svg) `#2B2B2B` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | sampled: editor navigation bar (project / type / member dropdowns) | `breadcrumb.background` |
+| `editorFooter` | ![#2E2E2E](swatches/2E2E2E.svg) `#2E2E2E` | ![#F5F5F5](swatches/F5F5F5.svg) `#F5F5F5` | sampled: editor bottom bar (zoom, issues, Ln/Ch) | `editorHoverWidget.statusBarBackground` |
+| `flyout` | ![#2C2C2C](swatches/2C2C2C.svg) `#2C2C2C` | ![#F9F9F9](swatches/F9F9F9.svg) `#F9F9F9` | Shell.SurfaceBackgroundFillDefault (menus, IntelliSense, hovers) | `menu.background`, `listFilterWidget.background`, `editorGroup.dropIntoPromptBackground` +14 more |
+| `flyoutHover` | ![#3D3D3D](swatches/3D3D3D.svg) `#3D3D3D` | ![#EAEAEA](swatches/EAEAEA.svg) `#EAEAEA` | **Dark:** Environment.CommandBarMenuItemMouseOver<br>**Light:** composite: Shell.SubtleFillSecondary #0000000f over flyout | `menu.selectionBackground`, `editorSuggestWidget.selectedBackground`, `editorActionList.focusBackground` +3 more |
+| `flyoutBorder` | ![#454545](swatches/454545.svg) `#454545` | ![#DADADA](swatches/DADADA.svg) `#DADADA` | **Dark:** ShellInternal.EnvironmentBorderInactive<br>**Light:** Shell.CardStrokeDefaultSolidAlt | `widget.border`, `menu.border`, `editorGroup.dropIntoPromptBorder` +9 more |
+| `shadow` | ![#00000042](swatches/00000042.svg) `#00000042` | ![#00000024](swatches/00000024.svg) `#00000024` | Shell.ShadowFlyout | `widget.shadow`, `scrollbar.shadow`, `sideBarStickyScroll.shadow` +5 more |
 
-## Syntax
+## Controls and buttons
 
-| Role | Dark | Light | Dark source | Light source | Used by |
-|---|---|---|---|---|---|
-| `synText` | `#DCDCDC` | `#000000` | Plain Text | VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +3 more |
-| `synIdentifier` | `#DCDCDC` | `#000000` | Identifier: VS leaves fields, properties, events, constants, enum members and namespaces plain | VS default Identifier: fields, properties, events, constants, enum members and namespaces stay plain | `Plain text`, `Namespace stays plain`, `namespace` +6 more |
-| `synPunctuation` | `#DCDCDC` | `#000000` | Roslyn.punctuation | Roslyn.punctuation | `Punctuation`, `Interpolation punctuation`, `punctuation` |
-| `synKeyword` | `#569CD6` | `#0000FF` | Keyword | VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +5 more |
-| `synControl` | `#D8A0DF` | `#8F08C4` | Roslyn.keyword - control | Roslyn.keyword - control | `Control keyword`, `controlKeyword` |
-| `synOperator` | `#B4B4B4` | `#000000` | Operator | VS default Operator | `Operator`, `operator` |
-| `synString` | `#D69D85` | `#A31515` | String | VS default String | `textPreformat.foreground`, `debugTokenExpression.string`, `String` +7 more |
-| `synStringVerbatim` | `#D69D85` | `#800000` | Roslyn.string - verbatim | Roslyn.string - verbatim | `stringVerbatim` |
-| `synStringEscape` | `#FFD68F` | `#B776FB` | string - escape character | string - escape character | `Escape sequence`, `stringEscapeCharacter` |
-| `synNumber` | `#B5CEA8` | `#000000` | Number | VS default Number | `debugTokenExpression.number`, `Number`, `number` +1 more |
-| `synComment` | `#57A64A` | `#008000` | Comment | VS default Comment | `Comment`, `Markdown quote`, `comment` +4 more |
-| `synDocText` | `#608B4E` | `#008000` | Roslyn.xml doc comment - text | Roslyn.xml doc comment - text | `XML doc comment text`, `xmlDocCommentText`, `xmlDocCommentComment` +1 more |
-| `synDocTag` | `#608B4E` | `#808080` | Roslyn.xml doc comment - delimiter | Roslyn.xml doc comment - delimiter | `XML doc comment delimiters`, `JSDoc / other doc tags`, `xmlDocCommentDelimiter` +2 more |
-| `synDocName` | `#608B4E` | `#808080` | Roslyn.xml doc comment - name | Roslyn.xml doc comment - name | `XML doc comment tag names`, `xmlDocCommentName` |
-| `synDocAttribute` | `#C8C8C8` | `#808080` | Roslyn.xml doc comment - attribute name / value | Roslyn.xml doc comment - attribute name / value | `XML doc comment attributes`, `xmlDocCommentAttributeName`, `xmlDocCommentAttributeQuotes` +1 more |
-| `synPreprocessor` | `#9B9B9B` | `#808080` | Preprocessor Keyword | Preprocessor Keyword | `Preprocessor`, `macro`, `preprocessorKeyword` |
-| `synPreprocessorText` | `#DCDCDC` | `#000000` | Roslyn.preprocessor text | Roslyn.preprocessor text | `Preprocessor symbol`, `preprocessorText` |
-| `synExcluded` | `#9B9B9B` | `#808080` | Excluded Code | VS default Excluded Code | `excludedCode` |
-| `synType` | `#4EC9B0` | `#2B91AF` | Roslyn.class name / delegate name / module name | Roslyn.class name / delegate name / module name | `debugTokenExpression.type`, `Class, delegate, record, attribute`, `class` +5 more |
-| `synStruct` | `#86C691` | `#2B91AF` | Roslyn.struct name | Roslyn.struct name | `Struct`, `struct`, `recordStruct` |
-| `synInterface` | `#B8D7A3` | `#2B91AF` | Roslyn.interface name / enum name | Roslyn.interface name / enum name | `Interface, enum`, `interface`, `enum` |
-| `synTypeParameter` | `#B8D7A3` | `#2B91AF` | Roslyn.type parameter name | Roslyn.type parameter name | `Type parameter`, `typeParameter` |
-| `synMethod` | `#DCDCAA` | `#74531F` | Roslyn.method name / extension method name / operator - overloaded | Roslyn.method name / extension method name / operator - overloaded | `Method, function`, `method`, `function` +2 more |
-| `synVariable` | `#9CDCFE` | `#1F377F` | Roslyn.local name / parameter name | Roslyn.local name / parameter name | `debugTokenExpression.name`, `Local, parameter`, `parameter` +2 more |
-| `synRegexClass` | `#2EABFE` | `#0073FF` | Roslyn.regex - character class | Roslyn.regex - character class | `regexCharacterClass` |
-| `synRegexAnchor` | `#F979AE` | `#FF00C1` | Roslyn.regex - anchor / quantifier | Roslyn.regex - anchor / quantifier | `regexAnchor`, `regexQuantifier` |
-| `synRegexGroup` | `#05C3BA` | `#05C3BA` | Roslyn.regex - grouping / alternation | Roslyn.regex - grouping / alternation | `regexGrouping`, `regexAlternation` |
-| `synRegexEscape` | `#FFD68F` | `#9E5B71` | Roslyn.regex - other escape | Roslyn.regex - other escape | `regexOtherEscape` |
-| `synMarkupTag` | `#569CD6` | `#A31515` | XML Name / HTML Element Name | VS default XML Name | `Markup tag`, `markupElement` |
-| `synMarkupAttribute` | `#92CAF4` | `#FF0000` | XML Attribute | VS default XML Attribute | `Markup attribute` |
-| `synHtmlAttribute` | `#9CDCFE` | `#FF0000` | Text Editor MEF Items.HTML Attribute Name (sampled 2026-10-03 in a Razor file) | sampled 2026-10-03: VS default HTML Attribute Name, the same as XML | `HTML attribute (VS colours it apart from XML)`, `markupAttribute` |
-| `synMarkupAttributeValue` | `#C8C8C8` | `#0000FF` | XML Attribute Value | VS default XML Attribute Value | `Markup attribute value`, `markupAttributeValue`, `markupAttributeQuote` |
-| `synMarkupDelimiter` | `#808080` | `#0000FF` | XML Delimiter / HTML Tag Delimiter | VS default XML Delimiter | `Markup delimiter`, `XML processing instruction / CDATA`, `markupTagDelimiter` |
-| `synMarkupEntity` | `#00A0A0` | `#FF0000` | HTML Entity | VS default HTML Entity | `Markup entity` |
-| `synCssSelector` | `#D7BA7D` | `#800000` | VS CSS Selector | VS default CSS Selector | `CSS selector` |
-| `synCssProperty` | `#9CDCFE` | `#FF0000` | VS CSS Property Name | VS default CSS Property Name | `CSS property` |
-| `synCssValue` | `#C8C8C8` | `#0000FF` | VS CSS Property Value | VS default CSS Property Value | `CSS value` |
-| `synJsonKey` | `#D7BA7D` | `#2E75B6` | WebEditor.JSON Property Name (sampled 2026-10-03: JSON keys are gold) | VS default JSON Property Name (sampled 2026-10-03) | `JSON / YAML key`, `jsonPropertyName` |
-| `synCssAtRule` | `#569CD6` | `#800080` | Text Editor MEF Items.CSS Keyword (sampled 2026-10-03 on @mixin / @include) | sampled 2026-10-03: VS default for @mixin / @include | `SCSS at-rule` |
-| `synCssVariable` | `#C563BD` | `#800080` | WebExtensionColorsCategory.ScssVariable* / LessCssVariable* | sampled 2026-10-03: VS default SCSS / Less variable | `SCSS / Less variable` |
-| `synCssMixin` | `#7DBAD7` | `#800000` | WebExtensionColorsCategory.ScssMixin* / LessCssMixin* | sampled 2026-10-03: VS default SCSS / Less mixin | `SCSS mixin` |
-| `synRazorDirective` | `#A699E6` | `#000000` | WebEditor.RazorTransition / RazorDirective | sampled 2026-10-03: VS default Razor transition / directive (drawn on a #FFFFC2 server-code block) | `Razor transition and directive`, `razorTransition`, `razorDirective` +1 more |
-| `synRazorDirectiveAttribute` | `#A699E6` | `#800080` | WebEditor.RazorDirectiveAttribute | sampled 2026-10-03: VS default Razor directive attribute | `Razor directive attribute`, `razorDirectiveAttribute` |
-| `synRazorComponent` | `#009696` | `#800080` | WebEditor.RazorComponentElement / RazorComponentAttribute / RazorTagHelper* | sampled 2026-10-03: VS default Razor component element / attribute | `Razor component and tag helper`, `razorComponentElement`, `razorComponentAttribute` +2 more |
-| `synSqlFunction` | `#C975D5` | `#FF00FF` | Text Editor Language Service Items.SQL System Function | sampled 2026-10-03: VS default SQL System Function | `SQL system function` |
-| `synSqlString` | `#CB4141` | `#FF0000` | Text Editor Language Service Items.SQL String | sampled 2026-10-03: VS default SQL String | `SQL string` |
-| `synHeading` | `#569CD6` | `#0000FF` | inferred: markdown heading in keyword blue | inferred: markdown heading in keyword blue | `Markdown heading` |
-| `synInvalid` | `#FC3E36` | `#E51400` | syntax error | TreeView.ValidationSquiggles | `editorBracketHighlight.unexpectedBracket.foreground`, `Invalid`, `Deprecated` |
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `control` | ![#383838](swatches/383838.svg) `#383838` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | **Dark:** Environment.DropDownBackground / ComboBoxBackground (sampled on the chat input)<br>**Light:** Shell.ControlFillActiveInput (sampled on the chat input) | `input.background`, `dropdown.background`, `checkbox.background` +19 more |
+| `controlHover` | ![#3D3D3D](swatches/3D3D3D.svg) `#3D3D3D` | ![#F3F3F3](swatches/F3F3F3.svg) `#F3F3F3` | **Dark:** Environment.ComboBoxMouseOverBackground<br>**Light:** Shell.ControlFillQuaternary #f3f3f3c2, flattened | `toolbar.hoverBackground`, `menubar.selectionBackground`, `commandCenter.activeBackground` +13 more |
+| `controlBorder` | ![#454545](swatches/454545.svg) `#454545` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | **Dark:** ShellInternal.EnvironmentBorderInactive<br>**Light:** sampled 2026-10-04: Solution Explorer search box, bottom stroke (sides #EAEAEA), as Dark takes its bottom stroke | `commandCenter.activeBorder`, `input.border`, `dropdown.border` +14 more |
+| `buttonSecondary` | ![#3D3D3D](swatches/3D3D3D.svg) `#3D3D3D` | ![#FDFDFD](swatches/FDFDFD.svg) `#FDFDFD` | **Dark:** CommonControls.Button<br>**Light:** composite: Shell.ControlFillDefault #ffffffb2 over card | `checkbox.disabled.background`, `keybindingLabel.background`, `button.secondaryBackground` |
+| `buttonSecondaryHover` | ![#4D4D4D](swatches/4D4D4D.svg) `#4D4D4D` | ![#F0F0F0](swatches/F0F0F0.svg) `#F0F0F0` | **Dark:** CommonControls.ButtonHover<br>**Light:** composite: Shell.SubtleFillTertiary over buttonSecondary | `button.secondaryHoverBackground` |
+| `buttonBorder` | ![#3D3D3D](swatches/3D3D3D.svg) `#3D3D3D` | ![#ACACAC](swatches/ACACAC.svg) `#ACACAC` | sampled: chat suggestion button outline | `button.secondaryBorder` |
+
+## Borders and dividers
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `windowBorder` | ![#454545](swatches/454545.svg) `#454545` | ![#ADADAD](swatches/ADADAD.svg) `#ADADAD` | **Dark:** ShellInternal.EnvironmentBorderInactive (card outline; sampled identical)<br>**Light:** ShellInternal.EnvironmentBorderInactive (card outline) | `window.inactiveBorder`, `sideBar.border`, `editorGroup.border` +12 more |
+| `divider` | ![#3A3A3A](swatches/3A3A3A.svg) `#3A3A3A` | ![#E6E6E6](swatches/E6E6E6.svg) `#E6E6E6` | **Dark:** composite: Shell.DividerStrokeDefault #ffffff15 over card<br>**Light:** composite: Shell.DividerStrokeDefault #00000014 over card | `commandCenter.border`, `commandCenter.inactiveBorder`, `menu.separatorBackground` +36 more |
+| `treeIndent` | ![#4D4D4D](swatches/4D4D4D.svg) `#4D4D4D` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | inferred: between divider and fgDisabled | `tree.indentGuidesStroke`, `tree.inactiveIndentGuidesStroke` |
+
+## Text and links
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `fg` | ![#FAFAFA](swatches/FAFAFA.svg) `#FAFAFA` | ![#1E1E1E](swatches/1E1E1E.svg) `#1E1E1E` | Environment.ToolWindowText / PanelText | `foreground`, `titleBar.activeForeground`, `menubar.selectionForeground` +83 more |
+| `fgSecondary` | ![#D1D1D1](swatches/D1D1D1.svg) `#D1D1D1` | ![#5F5F5F](swatches/5F5F5F.svg) `#5F5F5F` | **Dark:** composite: Shell.TextFillSecondary #ffffffc8 over card<br>**Light:** composite: Shell.TextFillSecondary #0000009e over card | `descriptionForeground`, `icon.foreground`, `commandCenter.foreground` +18 more |
+| `fgTertiary` | ![#9D9D9D](swatches/9D9D9D.svg) `#9D9D9D` | ![#8A8A8A](swatches/8A8A8A.svg) `#8A8A8A` | **Dark:** composite: Shell.TextFillTertiary #ffffff8b over card<br>**Light:** composite: Shell.TextFillTertiary #00000072 over card | `titleBar.inactiveForeground`, `commandCenter.inactiveForeground`, `activityBar.inactiveForeground` +32 more |
+| `fgDisabled` | ![#767676](swatches/767676.svg) `#767676` | ![#9F9F9F](swatches/9F9F9F.svg) `#9F9F9F` | **Dark:** composite: Shell.TextFillDisabled #ffffff5d over card<br>**Light:** composite: Shell.TextFillDisabled #0000005c over card | `disabledForeground`, `tab.unfocusedActiveBorderTop`, `tab.unfocusedActiveModifiedBorder` +8 more |
+| `tabTextInactive` | ![#B2B2B2](swatches/B2B2B2.svg) `#B2B2B2` | ![#717171](swatches/717171.svg) `#717171` | Environment.FileTabInactiveText | `tab.inactiveForeground`, `tab.inactiveModifiedBorder`, `tab.unfocusedInactiveForeground` +2 more |
+| `lineNumber` | ![#8A8A8A](swatches/8A8A8A.svg) `#8A8A8A` | ![#7A7A7A](swatches/7A7A7A.svg) `#7A7A7A` | Text Editor MEF Items.Line Number | `editorLineNumber.foreground` |
+| `lineNumberActive` | ![#E0E0E0](swatches/E0E0E0.svg) `#E0E0E0` | ![#000000](swatches/000000.svg) `#000000` | Text Editor MEF Items.Selected Line Number | `editorLineNumber.activeForeground`, `editorActiveLineNumber.foreground` |
+| `cursor` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text foreground<br>**Light:** VS default Plain Text foreground | `editorCursor.foreground`, `editorMultiCursor.primary.foreground` |
+| `link` | ![#83BEEB](swatches/83BEEB.svg) `#83BEEB` | ![#005FB8](swatches/005FB8.svg) `#005FB8` | **Dark:** Environment.PanelHyperlink / InfoBar.Hyperlink<br>**Light:** Shell.HyperlinkFillTertiary | `editorLink.activeForeground`, `extensionIcon.verifiedForeground`, `notificationLink.foreground` +2 more |
+| `linkHover` | ![#A8D2F2](swatches/A8D2F2.svg) `#A8D2F2` | ![#003E92](swatches/003E92.svg) `#003E92` | **Dark:** inferred: link lightened toward fg<br>**Light:** Shell.HyperlinkFillPrimary | `textLink.activeForeground` |
+
+## Accent
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `accent` | ![#9184EE](swatches/9184EE.svg) `#9184EE` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | Shell.AccentFillDefault (sampled on the focused window outline) | `focusBorder`, `sash.hoverBorder`, `progressBar.background` +47 more |
+| `windowAccent` | ![#9184EE](swatches/9184EE.svg) `#9184EE` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | ShellInternal.EnvironmentBorder: focused-window outline and Solution Explorer selection pill (equals the accent here; the tinted themes change it) | `window.activeBorder`, `activityBar.activeBorder`, `activityBar.activeFocusBorder` +7 more |
+| `accentFg` | ![#000000](swatches/000000.svg) `#000000` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | Shell.TextOnAccentFillPrimary | `activityBarBadge.foreground`, `activityErrorBadge.foreground`, `activityWarningBadge.foreground` +9 more |
+| `accentText` | ![#A79CF1](swatches/A79CF1.svg) `#A79CF1` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | Shell.AccentTextFillTertiary | `list.highlightForeground`, `list.focusHighlightForeground`, `editorSuggestWidget.focusHighlightForeground` +8 more |
+| `accentMuted` | ![#353340](swatches/353340.svg) `#353340` | ![#E5E4F0](swatches/E5E4F0.svg) `#E5E4F0` | **Dark:** composite: Shell.AccentFillSenary #9184ee1f over card<br>**Light:** composite: Shell.AccentFillSenary #5649b01f over card | `sideBar.dropBackground`, `list.dropBackground`, `editorGroup.dropBackground` +11 more |
+| `accentStrong` | ![#403582](swatches/403582.svg) `#403582` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | **Dark:** CommonControls.ButtonDefault (VS primary button)<br>**Light:** Shell.AccentFillDefault (Fluent primary button fill) | `button.background`, `extensionButton.background`, `extensionButton.prominentBackground` +2 more |
+| `accentStrongFg` | ![#FAFAFA](swatches/FAFAFA.svg) `#FAFAFA` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | **Dark:** CommonControls.ButtonDefault foreground<br>**Light:** Shell.TextOnAccentFillPrimary | `button.foreground`, `button.separator`, `extensionButton.foreground` +3 more |
+| `accentHover` | ![#4B3F96](swatches/4B3F96.svg) `#4B3F96` | ![#665BB7](swatches/665BB7.svg) `#665BB7` | **Dark:** inferred: ButtonDefault lightened one step<br>**Light:** composite: Shell.AccentFillSecondary #5649b0e5 over card | `button.hoverBackground`, `extensionButton.hoverBackground`, `extensionButton.prominentHoverBackground` +1 more |
+
+## Selection, find, lists and file icons
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `selection` | ![#004377](swatches/004377.svg) `#004377` | ![#5CA9E566](swatches/5CA9E566.svg) `#5CA9E566` | **Dark:** Text Editor MEF Items.Selected Text<br>**Light:** Text Editor MEF Items.Selected Text #5CA9E5 at 40%: VS draws its selection translucent | `selection.background`, `editor.selectionBackground`, `minimap.selectionHighlight` +1 more |
+| `selectionInactive` | ![#383838](swatches/383838.svg) `#383838` | ![#E3E3E3](swatches/E3E3E3.svg) `#E3E3E3` | **Dark:** Text Editor MEF Items.Inactive Selected Text<br>**Light:** composite: Text Editor MEF Items.Inactive Selected Text #D1D1D1 at 60% over editor | `editor.inactiveSelectionBackground`, `editor.foldBackground`, `terminal.inactiveSelectionBackground` |
+| `selectionHighlight` | ![#0E4583](swatches/0E4583.svg) `#0E4583` | ![#E2E6D6](swatches/E2E6D6.svg) `#E2E6D6` | **Dark:** Text Editor MEF Items.MarkerFormatDefinition/HighlightedReference<br>**Light:** sampled 2026-10-04: highlighted references, as drawn | `editor.selectionHighlightBackground`, `editor.wordHighlightBackground`, `editor.wordHighlightStrongBackground` +9 more |
+| `findMatch` | ![#773800](swatches/773800.svg) `#773800` | ![#E4D8C2](swatches/E4D8C2.svg) `#E4D8C2` | **Dark:** Text Editor MEF Items.MarkerFormatDefinition/FindHighlight<br>**Light:** sampled 2026-10-04: find matches, as drawn; VS marks the current match by selecting it (Dark draws its #773800 token as #453B32) | `editor.findMatchBackground`, `editorOverviewRuler.findMatchForeground`, `minimap.findMatchHighlight` +3 more |
+| `findMatchOther` | ![#77380099](swatches/77380099.svg) `#77380099` | ![#E4D8C2](swatches/E4D8C2.svg) `#E4D8C2` | **Dark:** FindHighlight at 60% for the non-current matches<br>**Light:** sampled 2026-10-04: the non-current find matches, as drawn | `list.filterMatchBackground`, `editor.findMatchHighlightBackground`, `editor.symbolHighlightBackground` +5 more |
+| `bracketMatch` | ![#0E4583](swatches/0E4583.svg) `#0E4583` | ![#E2E6D6](swatches/E2E6D6.svg) `#E2E6D6` | **Dark:** Text Editor MEF Items.brace matching<br>**Light:** sampled 2026-10-04: matched braces, as drawn; the same fill as references, as in Dark | `editorBracketMatch.background` |
+| `scopeHighlight` | ![#0F202D](swatches/0F202D.svg) `#0F202D` | ![#F2F6FA](swatches/F2F6FA.svg) `#F2F6FA` | **Dark:** Text Editor MEF Items.MarkerFormatDefinition/ScopeHighlight<br>**Light:** inferred: light counterpart of ScopeHighlight | `editor.findRangeHighlightBackground`, `editor.rangeHighlightBackground`, `editorOverviewRuler.rangeHighlightForeground` |
+| `listSelection` | ![#353535](swatches/353535.svg) `#353535` | ![#EAEAEA](swatches/EAEAEA.svg) `#EAEAEA` | **Dark:** sampled: Solution Explorer selected row; equals Shell.SubtleFillSecondary #ffffff0f over card<br>**Light:** sampled: Solution Explorer selected row; equals Shell.SubtleFillSecondary #0000000f over card | `toolbar.activeBackground`, `list.activeSelectionBackground`, `list.focusBackground` +5 more |
+| `listSelectionInactive` | ![#353535](swatches/353535.svg) `#353535` | ![#EAEAEA](swatches/EAEAEA.svg) `#EAEAEA` | sampled: VS keeps the same fill when Solution Explorer loses focus | `list.inactiveSelectionBackground`, `list.inactiveFocusBackground`, `notebook.selectedCellBackground` |
+| `listHover` | ![#313131](swatches/313131.svg) `#313131` | ![#EFEFEF](swatches/EFEFEF.svg) `#EFEFEF` | **Dark:** composite: Shell.SubtleFillTertiary #ffffff0b over card (Fluent list hover)<br>**Light:** composite: Shell.SubtleFillTertiary #0000000a over card (Fluent list hover) | `list.hoverBackground`, `tree.tableOddRowsBackground`, `keybindingTable.rowsBackground` +5 more |
+| `fileFolder` | ![#FFDD96](swatches/FFDD96.svg) `#FFDD96` | ![#B47B00](swatches/B47B00.svg) `#B47B00` | sampled: Solution Explorer folder outline | `folder-properties icon`, `folder-web icon`, `folder icon` |
+| `fileCsharp` | ![#83F380](swatches/83F380.svg) `#83F380` | ![#11920D](swatches/11920D.svg) `#11920D` | sampled: Solution Explorer C# glyph | `csharp icon`, `project icon`, `razor icon` |
+| `fileGlyph` | ![#E3E3E3](swatches/E3E3E3.svg) `#E3E3E3` | ![#202020](swatches/202020.svg) `#202020` | sampled: Solution Explorer monochrome file glyphs | `css icon`, `database icon`, `file icon` +17 more |
+
+## Status colours and editor decorations
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `error` | ![#FF99A4](swatches/FF99A4.svg) `#FF99A4` | ![#C42B1C](swatches/C42B1C.svg) `#C42B1C` | Shell.SystemFillCritical | `errorForeground`, `activityErrorBadge.background`, `list.errorForeground` +21 more |
+| `warning` | ![#FCE100](swatches/FCE100.svg) `#FCE100` | ![#9D5D00](swatches/9D5D00.svg) `#9D5D00` | Shell.SystemFillCaution | `activityWarningBadge.background`, `list.warningForeground`, `editorLightBulb.foreground` +13 more |
+| `info` | ![#60CDFF](swatches/60CDFF.svg) `#60CDFF` | ![#005FB7](swatches/005FB7.svg) `#005FB7` | Shell.SystemFillAttention | `editorLightBulbAutoFix.foreground`, `problemsInfoIcon.foreground`, `editorGutter.modifiedBackground` +24 more |
+| `success` | ![#6CCB5F](swatches/6CCB5F.svg) `#6CCB5F` | ![#0F7B0F](swatches/0F7B0F.svg) `#0F7B0F` | Shell.SystemFillSuccess | `editorOverviewRuler.currentContentForeground`, `merge.currentHeaderBackground`, `mergeEditor.conflict.handledUnfocused.border` +16 more |
+| `errorBg` | ![#442726](swatches/442726.svg) `#442726` | ![#FDE7E9](swatches/FDE7E9.svg) `#FDE7E9` | Shell.SystemFillCriticalBackground | `editorMarkerNavigationError.headerBackground`, `inputValidation.errorBackground`, `debugExceptionWidget.background` +2 more |
+| `warningBg` | ![#433519](swatches/433519.svg) `#433519` | ![#FFF4CE](swatches/FFF4CE.svg) `#FFF4CE` | **Dark:** Shell.SystemFillCautionBackground / InfoBar.InfoBarBackground<br>**Light:** Shell.SystemFillCautionBackground | `editorMarkerNavigationWarning.headerBackground`, `inputValidation.warningBackground`, `banner.background` |
+| `infoBg` | ![#304048](swatches/304048.svg) `#304048` | ![#E0EAF2](swatches/E0EAF2.svg) `#E0EAF2` | **Dark:** composite: Shell.SystemFillAttention at 15% over card<br>**Light:** composite: Shell.SystemFillAttention at 10% over card | `editorMarkerNavigationInfo.headerBackground`, `inputValidation.infoBackground`, `testing.messagePeekHeaderBackground` +1 more |
+| `successBg` | ![#393D1B](swatches/393D1B.svg) `#393D1B` | ![#DFF6DD](swatches/DFF6DD.svg) `#DFF6DD` | Shell.SystemFillSuccessBackground | `merge.currentContentBackground`, `mergeEditor.conflict.input1.background` |
+| `squiggleError` | ![#FC3E36](swatches/FC3E36.svg) `#FC3E36` | ![#E51400](swatches/E51400.svg) `#E51400` | **Dark:** Text Editor MEF Items.syntax error<br>**Light:** TreeView.ValidationSquiggles | `editorError.foreground`, `editorOverviewRuler.errorForeground`, `minimap.errorHighlight` |
+| `squiggleWarning` | ![#95DB7D](swatches/95DB7D.svg) `#95DB7D` | ![#008000](swatches/008000.svg) `#008000` | **Dark:** Text Editor MEF Items.compiler warning (VS warnings are green)<br>**Light:** VS default compiler warning (VS warnings are green) | `editorWarning.foreground`, `editorOverviewRuler.warningForeground`, `minimap.warningHighlight` |
+| `squiggleInfo` | ![#CA79EC](swatches/CA79EC.svg) `#CA79EC` | ![#800080](swatches/800080.svg) `#800080` | **Dark:** Text Editor MEF Items.other error<br>**Light:** Roslyn Text Editor MEF Items.inline diagnostics - Edit and Continue | `editorInfo.foreground`, `editorOverviewRuler.infoForeground`, `minimap.infoHighlight` |
+| `squiggleHint` | ![#A5A5A5](swatches/A5A5A5.svg) `#A5A5A5` | ![#A5A5A5](swatches/A5A5A5.svg) `#A5A5A5` | Text Editor MEF Items.hinted suggestion | `editorHint.foreground` |
+| `ghostText` | ![#A5A5A5](swatches/A5A5A5.svg) `#A5A5A5` | ![#A5A5A5](swatches/A5A5A5.svg) `#A5A5A5` | Text Editor MEF Items.hinted suggestion | `editor.placeholder.foreground`, `editorGhostText.foreground`, `terminal.initialHintForeground` +1 more |
+| `inlayHintBg` | ![#3E3E3E](swatches/3E3E3E.svg) `#3E3E3E` | ![#E6E6FA](swatches/E6E6FA.svg) `#E6E6FA` | Roslyn Text Editor MEF Items.inline hints background | `editorInlayHint.background`, `editorInlayHint.typeBackground`, `editorInlayHint.parameterBackground` +1 more |
+| `inlayHintFg` | ![#A9A8A7](swatches/A9A8A7.svg) `#A9A8A7` | ![#686868](swatches/686868.svg) `#686868` | Roslyn Text Editor MEF Items.inline hints foreground | `editorInlayHint.foreground`, `editorInlayHint.typeForeground`, `editorInlayHint.parameterForeground` |
+| `whitespace` | ![#3B5A60](swatches/3B5A60.svg) `#3B5A60` | ![#95C8D7](swatches/95C8D7.svg) `#95C8D7` | **Dark:** Text Editor MEF Items.Visible Whitespace #144852, lifted: VS draws it bolder than VS Code does<br>**Light:** VS default Visible Whitespace #2B91AF at 50% | `editorWhitespace.foreground` |
+| `indentGuide` | ![#404040](swatches/404040.svg) `#404040` | ![#F0F0F0](swatches/F0F0F0.svg) `#F0F0F0` | **Dark:** Text Editor MEF Items.Block Structure Adornments #424242<br>**Light:** sampled 2026-10-04: block structure guide lines, as drawn (solid in Light; Dark draws its #424242 token dotted) | `editorIndentGuide.background1`, `editorRuler.foreground`, `editorBracketPairGuide.background1` +11 more |
+| `indentGuideActive` | ![#707070](swatches/707070.svg) `#707070` | ![#ADADAD](swatches/ADADAD.svg) `#ADADAD` | **Dark:** Environment.ActiveBorder<br>**Light:** ShellInternal.EnvironmentBorderInactive | `editorIndentGuide.activeBackground1`, `editorIndentGuide.activeBackground`, `editorIndentGuide.activeBackground2` +4 more |
+| `snippetField` | ![#5B5B5B](swatches/5B5B5B.svg) `#5B5B5B` | ![#FFE7A0](swatches/FFE7A0.svg) `#FFE7A0` | **Dark:** Text Editor Text Marker Items.Code Snippet Field<br>**Light:** sampled 2026-10-04: an inactive snippet field, as drawn (Dark draws its #5B5B5B token as #4F4F4F) | `editor.snippetTabstopHighlightBackground` |
+| `unnecessaryOpacity` | ![#000000A0](swatches/000000A0.svg) `#000000A0` | ![#000000A0](swatches/000000A0.svg) `#000000A0` | alpha only: VS fades unnecessary code to ~60% | `editorUnnecessaryCode.opacity`, `minimap.foregroundOpacity` |
+
+## Status bar
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `statusBar` | ![#141414](swatches/141414.svg) `#141414` | ![#6C6C6C](swatches/6C6C6C.svg) `#6C6C6C` | **Dark:** composite: ShellInternal.StatusBarBackgroundFillRest #0000004d over chrome (sampled identical)<br>**Light:** composite: ShellInternal.StatusBarBackgroundFillRest #0000008b over chrome (sampled identical) | `statusBar.background`, `statusBar.border`, `statusBar.noFolderBackground` +2 more |
+| `statusBarText` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | ShellInternal.StatusBarTextFillRest | `statusBar.foreground`, `statusBar.debuggingForeground`, `statusBar.noFolderForeground` +11 more |
+| `statusBarHover` | ![#313131](swatches/313131.svg) `#313131` | ![#565656](swatches/565656.svg) `#565656` | **Dark:** composite: ShellInternal.StatusBarControlFillSecondary #ffffff20 over statusBar<br>**Light:** composite: ShellInternal.StatusBarControlFillSecondary #00000033 over statusBar | `statusBarItem.activeBackground`, `statusBarItem.hoverBackground`, `statusBarItem.compactHoverBackground` |
+| `statusBarDebug` | ![#7A2101](swatches/7A2101.svg) `#7A2101` | ![#BC4B09](swatches/BC4B09.svg) `#BC4B09` | ShellInternal.StatusBarBackgroundFillDebugging | `commandCenter.debuggingBackground`, `statusBar.debuggingBackground`, `statusBar.debuggingBorder` |
+| `statusBarBuilding` | ![#3F3682](swatches/3F3682.svg) `#3F3682` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | ShellInternal.StatusBarBackgroundFillBuilding | `statusBarItem.prominentBackground`, `statusBarItem.prominentHoverBackground` |
+| `statusBarLoading` | ![#003B6A](swatches/003B6A.svg) `#003B6A` | ![#005BA1](swatches/005BA1.svg) `#005BA1` | ShellInternal.StatusBarBackgroundFillSolutionLoading | `statusBarItem.remoteBackground`, `statusBarItem.remoteHoverBackground` |
+| `statusBarError` | ![#C42B1C](swatches/C42B1C.svg) `#C42B1C` | ![#C42B1C](swatches/C42B1C.svg) `#C42B1C` | ShellInternal.CaptionControlCloseFillPrimary | `statusBarItem.errorBackground`, `statusBarItem.errorHoverBackground`, `debugView.exceptionLabelBackground` |
+| `statusBarWarning` | ![#7A5A00](swatches/7A5A00.svg) `#7A5A00` | ![#9D5D00](swatches/9D5D00.svg) `#9D5D00` | **Dark:** inferred: SystemFillCaution darkened to carry white text<br>**Light:** Shell.SystemFillCaution | `statusBarItem.offlineBackground`, `statusBarItem.offlineHoverBackground`, `statusBarItem.warningBackground` +1 more |
+
+## Scroll bars
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `scrollThumb` | ![#4D4D4D](swatches/4D4D4D.svg) `#4D4D4D` | ![#C2C3C9](swatches/C2C3C9.svg) `#C2C3C9` | Environment.ScrollBarThumbBackground | `scrollbarSlider.background`, `minimapSlider.background`, `notebookScrollbarSlider.background` |
+| `scrollThumbHover` | ![#707070](swatches/707070.svg) `#707070` | ![#8D8D8D](swatches/8D8D8D.svg) `#8D8D8D` | **Dark:** Environment.ScrollBarThumbMouseOverBorder<br>**Light:** sampled: VS 2026 overlay scrollbar thumb | `scrollbarSlider.hoverBackground`, `minimapSlider.hoverBackground`, `notebookScrollbarSlider.hoverBackground` |
+| `scrollThumbActive` | ![#999999](swatches/999999.svg) `#999999` | ![#5B5B5B](swatches/5B5B5B.svg) `#5B5B5B` | **Dark:** Environment.ScrollBarThumbPressedBackground (sampled identical)<br>**Light:** Environment.ScrollBarThumbPressedBackground | `scrollbarSlider.activeBackground`, `minimapSlider.activeBackground`, `notebookScrollbarSlider.activeBackground` |
+
+## Debugging
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `debugCurrent` | ![#EFF28440](swatches/EFF28440.svg) `#EFF28440` | ![#FFEE6280](swatches/FFEE6280.svg) `#FFEE6280` | **Dark:** Text Editor MEF Items.Current Statement #EFF284 at 25%: VS repaints the text black, VS Code cannot<br>**Light:** VS default Current Statement #FFEE62 at 50% | `editor.stackFrameHighlightBackground` |
+| `debugCurrentGlyph` | ![#FFCC00](swatches/FFCC00.svg) `#FFCC00` | ![#D9A400](swatches/D9A400.svg) `#D9A400` | **Dark:** inferred: VS 2026 draws a two-tone arrow (dark-amber fill, light outline) over the breakpoint; VS Code's glyph has one colour, so it takes the arrow's yellow<br>**Light:** inferred: VS 2026 draws a two-tone arrow (cream fill, dark outline) over the breakpoint; VS Code's glyph has one colour, so it takes a yellow that reads on a white margin | `debugIcon.breakpointCurrentStackframeForeground` |
+| `debugFocused` | ![#7CA5A040](swatches/7CA5A040.svg) `#7CA5A040` | ![#B9DFB980](swatches/B9DFB980.svg) `#B9DFB980` | **Dark:** Text Editor MEF Items.Call Return #7CA5A0 at 25%<br>**Light:** sampled 2026-10-04: Call Return on the selected caller frame, #B9DFB9 as drawn, at 50% so the text stays readable | `editor.focusedStackFrameHighlightBackground` |
+| `breakpoint` | ![#E51400](swatches/E51400.svg) `#E51400` | ![#E51400](swatches/E51400.svg) `#E51400` | VS breakpoint glyph red | `debugIcon.breakpointForeground` |
+| `breakpointDisabled` | ![#AEAEAE](swatches/AEAEAE.svg) `#AEAEAE` | ![#A0A0A0](swatches/A0A0A0.svg) `#A0A0A0` | **Dark:** Text Editor MEF Items.Breakpoint (Disabled)<br>**Light:** inferred: VS 2026 draws a disabled breakpoint as a red hollow circle; VS Code's disabled glyph is a filled dot, which in red would look enabled, so it stays grey | `debugIcon.breakpointDisabledForeground`, `debugIcon.breakpointUnverifiedForeground` |
+
+## Diff
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `diffAddLine` | ![#15352C](swatches/15352C.svg) `#15352C` | ![#E6EBDA](swatches/E6EBDA.svg) `#E6EBDA` | **Dark:** Text Editor MEF Items.deltadiff.add.line<br>**Light:** sampled 2026-10-04 in the diff view: added line (was Shell.SystemFillSuccessBackground, which the diff view does not use) | `diffEditor.insertedLineBackground`, `diffEditorGutter.insertedLineBackground`, `testing.coveredBackground` +2 more |
+| `diffAddWord` | ![#265E4D](swatches/265E4D.svg) `#265E4D` | ![#D7E3BC](swatches/D7E3BC.svg) `#D7E3BC` | **Dark:** Text Editor MEF Items.deltadiff.add.word<br>**Light:** sampled 2026-10-04 in the diff view: added word | `diffEditor.insertedTextBackground`, `inlineChatDiff.inserted`, `inlineEdit.modifiedChangedTextBackground` |
+| `diffRemoveLine` | ![#2D0000](swatches/2D0000.svg) `#2D0000` | ![#F7CCCC](swatches/F7CCCC.svg) `#F7CCCC` | **Dark:** Text Editor MEF Items.deltadiff.remove.line<br>**Light:** sampled 2026-10-04 in the diff view: removed line (was Shell.SystemFillCriticalBackground, which the diff view does not use) | `diffEditor.removedLineBackground`, `diffEditorGutter.removedLineBackground`, `testing.uncoveredBackground` +2 more |
+| `diffRemoveWord` | ![#3C0000](swatches/3C0000.svg) `#3C0000` | ![#FF9999](swatches/FF9999.svg) `#FF9999` | **Dark:** Text Editor MEF Items.deltadiff.remove.word<br>**Light:** sampled 2026-10-04 in the diff view: removed word | `diffEditor.removedTextBackground`, `testing.uncoveredBranchBackground`, `inlineChatDiff.removed` +1 more |
+
+## Source control
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `gitAdded` | ![#6CCB5F](swatches/6CCB5F.svg) `#6CCB5F` | ![#0F7B0F](swatches/0F7B0F.svg) `#0F7B0F` | Shell.SystemFillSuccess | `editorGutter.addedBackground`, `editorGutter.addedSecondaryBackground`, `editorOverviewRuler.addedForeground` +15 more |
+| `gitModified` | ![#D0B132](swatches/D0B132.svg) `#D0B132` | ![#9D5D00](swatches/9D5D00.svg) `#9D5D00` | **Dark:** Track Changes before save<br>**Light:** Shell.SystemFillCaution | `gitDecoration.modifiedResourceForeground`, `gitDecoration.stageModifiedResourceForeground`, `chat.editedFileForeground` +1 more |
+| `gitDeleted` | ![#FF99A4](swatches/FF99A4.svg) `#FF99A4` | ![#C42B1C](swatches/C42B1C.svg) `#C42B1C` | Shell.SystemFillCritical | `editorGutter.deletedBackground`, `editorGutter.deletedSecondaryBackground`, `editorOverviewRuler.deletedForeground` +15 more |
+| `gitIgnored` | ![#767676](swatches/767676.svg) `#767676` | ![#9F9F9F](swatches/9F9F9F.svg) `#9F9F9F` | fgDisabled | `gitDecoration.ignoredResourceForeground` |
+| `gitConflict` | ![#F7A35C](swatches/F7A35C.svg) `#F7A35C` | ![#C85A00](swatches/C85A00.svg) `#C85A00` | inferred: orange between caution and critical | `mergeEditor.conflict.unhandledUnfocused.border`, `mergeEditor.conflict.unhandledFocused.border`, `mergeEditor.conflict.unhandled.minimapOverViewRuler` +3 more |
+| `gitSubmodule` | ![#83BEEB](swatches/83BEEB.svg) `#83BEEB` | ![#005FB8](swatches/005FB8.svg) `#005FB8` | link | `gitDecoration.submoduleResourceForeground` |
+
+## Icon colours
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `iconPurple` | ![#B180D7](swatches/B180D7.svg) `#B180D7` | ![#652D90](swatches/652D90.svg) `#652D90` | **Dark:** VS image catalog purple (dark)<br>**Light:** VS image catalog purple | `scmGraph.historyItemRemoteRefColor`, `scmGraph.foreground4`, `terminalSymbolIcon.aliasForeground` +8 more |
+| `iconOrange` | ![#E8AB53](swatches/E8AB53.svg) `#E8AB53` | ![#C27D1A](swatches/C27D1A.svg) `#C27D1A` | **Dark:** VS image catalog orange (dark)<br>**Light:** VS image catalog orange | `extensionIcon.starForeground`, `extensionIcon.preReleaseForeground`, `scmGraph.historyItemBaseRefColor` +13 more |
+| `iconBlue` | ![#75BEFF](swatches/75BEFF.svg) `#75BEFF` | ![#1BA1E2](swatches/1BA1E2.svg) `#1BA1E2` | **Dark:** VS image catalog blue (dark)<br>**Light:** VS image catalog blue | `scmGraph.foreground1`, `terminalSymbolIcon.optionValueForeground`, `terminalSymbolIcon.argumentForeground` +13 more |
+| `iconGreen` | ![#89D185](swatches/89D185.svg) `#89D185` | ![#388A34](swatches/388A34.svg) `#388A34` | **Dark:** VS image catalog green (dark)<br>**Light:** VS image catalog green | `scmGraph.foreground2`, `charts.green`, `terminalSymbolIcon.pullRequestForeground` |
+| `iconRed` | ![#F48771](swatches/F48771.svg) `#F48771` | ![#A1260D](swatches/A1260D.svg) `#A1260D` | **Dark:** VS image catalog red (dark)<br>**Light:** VS image catalog red | `extensionIcon.sponsorForeground`, `scmGraph.foreground5`, `charts.red` |
+| `iconGray` | ![#C5C5C5](swatches/C5C5C5.svg) `#C5C5C5` | ![#424242](swatches/424242.svg) `#424242` | **Dark:** VS image catalog neutral (dark)<br>**Light:** VS image catalog neutral | `symbolIcon.arrayForeground`, `symbolIcon.colorForeground`, `symbolIcon.constantForeground` +18 more |
+
+## Terminal
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `ansiBlack` | ![#000000](swatches/000000.svg) `#000000` | ![#000000](swatches/000000.svg) `#000000` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 0 | `terminal.ansiBlack` |
+| `ansiRed` | ![#D03E3E](swatches/D03E3E.svg) `#D03E3E` | ![#CD3131](swatches/CD3131.svg) `#CD3131` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 1 | `terminal.ansiRed` |
+| `ansiGreen` | ![#0DBC79](swatches/0DBC79.svg) `#0DBC79` | ![#008000](swatches/008000.svg) `#008000` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 2 | `terminal.ansiGreen` |
+| `ansiYellow` | ![#E5E510](swatches/E5E510.svg) `#E5E510` | ![#707300](swatches/707300.svg) `#707300` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 3 | `terminal.ansiYellow` |
+| `ansiBlue` | ![#2472C8](swatches/2472C8.svg) `#2472C8` | ![#0451A5](swatches/0451A5.svg) `#0451A5` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 4 | `terminal.ansiBlue` |
+| `ansiMagenta` | ![#BC3FBC](swatches/BC3FBC.svg) `#BC3FBC` | ![#BC05BC](swatches/BC05BC.svg) `#BC05BC` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 5 | `terminal.ansiMagenta` |
+| `ansiCyan` | ![#11A8CD](swatches/11A8CD.svg) `#11A8CD` | ![#007997](swatches/007997.svg) `#007997` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 6 | `terminal.ansiCyan` |
+| `ansiWhite` | ![#E5E5E5](swatches/E5E5E5.svg) `#E5E5E5` | ![#555555](swatches/555555.svg) `#555555` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 7 | `terminal.ansiWhite` |
+| `ansiBrightBlack` | ![#838383](swatches/838383.svg) `#838383` | ![#666666](swatches/666666.svg) `#666666` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 8 | `terminal.ansiBrightBlack` |
+| `ansiBrightRed` | ![#F14C4C](swatches/F14C4C.svg) `#F14C4C` | ![#CD3131](swatches/CD3131.svg) `#CD3131` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 9 | `terminal.ansiBrightRed` |
+| `ansiBrightGreen` | ![#23D18B](swatches/23D18B.svg) `#23D18B` | ![#008000](swatches/008000.svg) `#008000` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 10 | `terminal.ansiBrightGreen` |
+| `ansiBrightYellow` | ![#F5F543](swatches/F5F543.svg) `#F5F543` | ![#707300](swatches/707300.svg) `#707300` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 11 | `terminal.ansiBrightYellow` |
+| `ansiBrightBlue` | ![#3B8EEA](swatches/3B8EEA.svg) `#3B8EEA` | ![#0451A5](swatches/0451A5.svg) `#0451A5` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 12 | `terminal.ansiBrightBlue` |
+| `ansiBrightMagenta` | ![#D670D6](swatches/D670D6.svg) `#D670D6` | ![#BC05BC](swatches/BC05BC.svg) `#BC05BC` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 13 | `terminal.ansiBrightMagenta` |
+| `ansiBrightCyan` | ![#29B8DB](swatches/29B8DB.svg) `#29B8DB` | ![#007997](swatches/007997.svg) `#007997` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 14 | `terminal.ansiBrightCyan` |
+| `ansiBrightWhite` | ![#E5E5E5](swatches/E5E5E5.svg) `#E5E5E5` | ![#555555](swatches/555555.svg) `#555555` | sampled 2026-10-04: VS 2026 terminal, ANSI colour 15 | `terminal.ansiBrightWhite` |
+
+## Brace pairs
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `braceLevel1` | ![#FFD700](swatches/FFD700.svg) `#FFD700` | ![#0431FA](swatches/0431FA.svg) `#0431FA` | Text Editor MEF Items.brace pair level one | `editorBracketHighlight.foreground1`, `editorBracketHighlight.foreground4`, `editorBracketPairGuide.activeBackground1` +1 more |
+| `braceLevel2` | ![#DA70D6](swatches/DA70D6.svg) `#DA70D6` | ![#319331](swatches/319331.svg) `#319331` | Text Editor MEF Items.brace pair level two | `editorBracketHighlight.foreground2`, `editorBracketHighlight.foreground5`, `editorBracketPairGuide.activeBackground2` +1 more |
+| `braceLevel3` | ![#179FFF](swatches/179FFF.svg) `#179FFF` | ![#7B3814](swatches/7B3814.svg) `#7B3814` | Text Editor MEF Items.brace pair level three | `editorBracketHighlight.foreground3`, `editorBracketHighlight.foreground6`, `editorBracketPairGuide.activeBackground3` +1 more |
+
+## Syntax: code
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +3 more |
+| `synIdentifier` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Identifier: VS leaves fields, properties, events, constants, enum members and namespaces plain<br>**Light:** VS default Identifier: fields, properties, events, constants, enum members and namespaces stay plain | `Plain text`, `Namespace stays plain`, `namespace` +6 more |
+| `synPunctuation` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.punctuation | `Punctuation`, `Interpolation punctuation`, `punctuation` |
+| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +6 more |
+| `synControl` | ![#D8A0DF](swatches/D8A0DF.svg) `#D8A0DF` | ![#8F08C4](swatches/8F08C4.svg) `#8F08C4` | Roslyn.keyword - control | `Control keyword`, `controlKeyword` |
+| `synOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Operator<br>**Light:** VS default Operator | `Operator`, `operator` |
+| `synString` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** String<br>**Light:** VS default String | `textPreformat.foreground`, `debugTokenExpression.string`, `String` +7 more |
+| `synStringVerbatim` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#800000](swatches/800000.svg) `#800000` | Roslyn.string - verbatim | `stringVerbatim` |
+| `synStringEscape` | ![#FFD68F](swatches/FFD68F.svg) `#FFD68F` | ![#B776FB](swatches/B776FB.svg) `#B776FB` | string - escape character | `Escape sequence`, `stringEscapeCharacter` |
+| `synNumber` | ![#B5CEA8](swatches/B5CEA8.svg) `#B5CEA8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Number<br>**Light:** VS default Number | `debugTokenExpression.number`, `Number`, `number` +1 more |
+| `synComment` | ![#57A64A](swatches/57A64A.svg) `#57A64A` | ![#008000](swatches/008000.svg) `#008000` | **Dark:** Comment<br>**Light:** VS default Comment | `Comment`, `Markdown quote`, `comment` +4 more |
+| `synDocText` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#008000](swatches/008000.svg) `#008000` | Roslyn.xml doc comment - text | `XML doc comment text`, `xmlDocCommentText`, `xmlDocCommentComment` +1 more |
+| `synDocTag` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#808080](swatches/808080.svg) `#808080` | Roslyn.xml doc comment - delimiter | `XML doc comment delimiters`, `JSDoc / other doc tags`, `xmlDocCommentDelimiter` +2 more |
+| `synDocName` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#808080](swatches/808080.svg) `#808080` | Roslyn.xml doc comment - name | `XML doc comment tag names`, `xmlDocCommentName` |
+| `synDocAttribute` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#808080](swatches/808080.svg) `#808080` | Roslyn.xml doc comment - attribute name / value | `XML doc comment attributes`, `xmlDocCommentAttributeName`, `xmlDocCommentAttributeQuotes` +1 more |
+| `synPreprocessor` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | Preprocessor Keyword | `Preprocessor`, `macro`, `preprocessorKeyword` |
+| `synPreprocessorText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.preprocessor text | `Preprocessor symbol`, `preprocessorText` |
+| `synExcluded` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | **Dark:** Excluded Code<br>**Light:** VS default Excluded Code | `excludedCode` |
+| `synType` | ![#4EC9B0](swatches/4EC9B0.svg) `#4EC9B0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.class name / delegate name / module name | `debugTokenExpression.type`, `Class, delegate, record, attribute`, `class` +5 more |
+| `synStruct` | ![#86C691](swatches/86C691.svg) `#86C691` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.struct name | `Struct`, `struct`, `recordStruct` |
+| `synInterface` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.interface name / enum name | `Interface, enum`, `interface`, `enum` |
+| `synTypeParameter` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.type parameter name | `Type parameter`, `typeParameter` |
+| `synMethod` | ![#DCDCAA](swatches/DCDCAA.svg) `#DCDCAA` | ![#74531F](swatches/74531F.svg) `#74531F` | Roslyn.method name / extension method name / operator - overloaded | `Method, function`, `method`, `function` +2 more |
+| `synVariable` | ![#9CDCFE](swatches/9CDCFE.svg) `#9CDCFE` | ![#1F377F](swatches/1F377F.svg) `#1F377F` | Roslyn.local name / parameter name | `debugTokenExpression.name`, `Local, parameter`, `parameter` +2 more |
+| `synRegexClass` | ![#2EABFE](swatches/2EABFE.svg) `#2EABFE` | ![#0073FF](swatches/0073FF.svg) `#0073FF` | Roslyn.regex - character class | `regexCharacterClass` |
+| `synRegexAnchor` | ![#F979AE](swatches/F979AE.svg) `#F979AE` | ![#FF00C1](swatches/FF00C1.svg) `#FF00C1` | Roslyn.regex - anchor / quantifier | `regexAnchor`, `regexQuantifier` |
+| `synRegexGroup` | ![#05C3BA](swatches/05C3BA.svg) `#05C3BA` | ![#05C3BA](swatches/05C3BA.svg) `#05C3BA` | Roslyn.regex - grouping / alternation | `regexGrouping`, `regexAlternation` |
+| `synRegexEscape` | ![#FFD68F](swatches/FFD68F.svg) `#FFD68F` | ![#9E5B71](swatches/9E5B71.svg) `#9E5B71` | Roslyn.regex - other escape | `regexOtherEscape` |
+| `synInvalid` | ![#FC3E36](swatches/FC3E36.svg) `#FC3E36` | ![#E51400](swatches/E51400.svg) `#E51400` | **Dark:** syntax error<br>**Light:** TreeView.ValidationSquiggles | `editorBracketHighlight.unexpectedBracket.foreground`, `Invalid`, `Deprecated` |
+
+## Syntax: web and data languages
+
+| Role | Dark | Light | Source | Used by |
+|---|---|---|---|---|
+| `synMarkupTag` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** XML Name / HTML Element Name<br>**Light:** VS default XML Name | `Markup tag`, `markupElement` |
+| `synMarkupAttribute` | ![#92CAF4](swatches/92CAF4.svg) `#92CAF4` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** XML Attribute<br>**Light:** VS default XML Attribute | `Markup attribute` |
+| `synHtmlAttribute` | ![#9CDCFE](swatches/9CDCFE.svg) `#9CDCFE` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** Text Editor MEF Items.HTML Attribute Name (sampled 2026-10-03 in a Razor file)<br>**Light:** sampled 2026-10-03: VS default HTML Attribute Name, the same as XML | `HTML attribute (VS colours it apart from XML)`, `markupAttribute` |
+| `synMarkupAttributeValue` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** XML Attribute Value<br>**Light:** VS default XML Attribute Value | `Markup attribute value`, `markupAttributeValue`, `markupAttributeQuote` |
+| `synMarkupDelimiter` | ![#808080](swatches/808080.svg) `#808080` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** XML Delimiter / HTML Tag Delimiter<br>**Light:** VS default XML Delimiter | `Markup delimiter`, `XML processing instruction / CDATA`, `markupTagDelimiter` |
+| `synMarkupEntity` | ![#00A0A0](swatches/00A0A0.svg) `#00A0A0` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** HTML Entity<br>**Light:** VS default HTML Entity | `Markup entity` |
+| `synCssSelector` | ![#D7BA7D](swatches/D7BA7D.svg) `#D7BA7D` | ![#800000](swatches/800000.svg) `#800000` | **Dark:** VS CSS Selector<br>**Light:** VS default CSS Selector | `CSS selector` |
+| `synCssProperty` | ![#9CDCFE](swatches/9CDCFE.svg) `#9CDCFE` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** VS CSS Property Name<br>**Light:** VS default CSS Property Name | `CSS property` |
+| `synCssValue` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** VS CSS Property Value<br>**Light:** VS default CSS Property Value | `CSS value` |
+| `synJsonKey` | ![#D7BA7D](swatches/D7BA7D.svg) `#D7BA7D` | ![#2E75B6](swatches/2E75B6.svg) `#2E75B6` | **Dark:** WebEditor.JSON Property Name (sampled 2026-10-03: JSON keys are gold)<br>**Light:** VS default JSON Property Name (sampled 2026-10-03) | `JSON / YAML key`, `jsonPropertyName` |
+| `synCssAtRule` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#800080](swatches/800080.svg) `#800080` | **Dark:** Text Editor MEF Items.CSS Keyword (sampled 2026-10-03 on @mixin / @include)<br>**Light:** sampled 2026-10-03: VS default for @mixin / @include | `SCSS at-rule` |
+| `synCssVariable` | ![#C563BD](swatches/C563BD.svg) `#C563BD` | ![#800080](swatches/800080.svg) `#800080` | **Dark:** WebExtensionColorsCategory.ScssVariable* / LessCssVariable*<br>**Light:** sampled 2026-10-03: VS default SCSS / Less variable | `SCSS / Less variable` |
+| `synCssMixin` | ![#7DBAD7](swatches/7DBAD7.svg) `#7DBAD7` | ![#800000](swatches/800000.svg) `#800000` | **Dark:** WebExtensionColorsCategory.ScssMixin* / LessCssMixin*<br>**Light:** sampled 2026-10-03: VS default SCSS / Less mixin | `SCSS mixin` |
+| `synRazorDirective` | ![#A699E6](swatches/A699E6.svg) `#A699E6` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** WebEditor.RazorTransition / RazorDirective<br>**Light:** sampled 2026-10-03: VS default Razor transition / directive (drawn on a #FFFFC2 server-code block) | `Razor transition and directive`, `razorTransition`, `razorDirective` +1 more |
+| `synRazorDirectiveAttribute` | ![#A699E6](swatches/A699E6.svg) `#A699E6` | ![#800080](swatches/800080.svg) `#800080` | **Dark:** WebEditor.RazorDirectiveAttribute<br>**Light:** sampled 2026-10-03: VS default Razor directive attribute | `Razor directive attribute`, `razorDirectiveAttribute` |
+| `synRazorComponent` | ![#009696](swatches/009696.svg) `#009696` | ![#800080](swatches/800080.svg) `#800080` | **Dark:** WebEditor.RazorComponentElement / RazorComponentAttribute / RazorTagHelper*<br>**Light:** sampled 2026-10-03: VS default Razor component element / attribute | `Razor component and tag helper`, `razorComponentElement`, `razorComponentAttribute` +2 more |
+| `synSqlFunction` | ![#C975D5](swatches/C975D5.svg) `#C975D5` | ![#FF00FF](swatches/FF00FF.svg) `#FF00FF` | **Dark:** Text Editor Language Service Items.SQL System Function<br>**Light:** sampled 2026-10-03: VS default SQL System Function | `SQL system function` |
+| `synSqlString` | ![#CB4141](swatches/CB4141.svg) `#CB4141` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** Text Editor Language Service Items.SQL String<br>**Light:** sampled 2026-10-03: VS default SQL String | `SQL string` |
+| `synHeading` | ![#4EC9B0](swatches/4EC9B0.svg) `#4EC9B0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | sampled 2026-10-04: Markdown headings take the class-name colour | `Markdown heading` |
