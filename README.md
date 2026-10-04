@@ -186,6 +186,8 @@ Code's yellow one.
 | | `@mixin`, `@include` | `#569CD6` | `#800080` |
 | HTML | attribute names (apart from XML's) | `#9CDCFE` | `#FF0000` |
 | JSON | property names | `#D7BA7D` | `#2E75B6` |
+| Markdown | headings | `#4EC9B0` | `#2B91AF` |
+| | inline code | `#569CD6` | `#0000FF` |
 | SQL | system functions (`COUNT`, `GETDATE`) | `#C975D5` | `#FF00FF` |
 | | strings | `#CB4141` | `#FF0000` |
 

@@ -638,22 +638,22 @@
     "terminalSymbolIcon.inlineSuggestionForeground": "#A5A5A5",
     "terminalSymbolIcon.fileForeground": "#D1D0D0",
     "terminalSymbolIcon.folderForeground": "#D1D0D0",
-    "terminal.ansiBlack": "#1C1C1C",
-    "terminal.ansiRed": "#E74856",
-    "terminal.ansiGreen": "#16C60C",
-    "terminal.ansiYellow": "#C19C00",
-    "terminal.ansiBlue": "#3B78FF",
-    "terminal.ansiMagenta": "#B4009E",
-    "terminal.ansiCyan": "#3A96DD",
-    "terminal.ansiWhite": "#CCCCCC",
-    "terminal.ansiBrightBlack": "#767676",
-    "terminal.ansiBrightRed": "#FF99A4",
-    "terminal.ansiBrightGreen": "#6CCB5F",
-    "terminal.ansiBrightYellow": "#F9F1A5",
-    "terminal.ansiBrightBlue": "#60CDFF",
-    "terminal.ansiBrightMagenta": "#D8A0DF",
-    "terminal.ansiBrightCyan": "#61D6D6",
-    "terminal.ansiBrightWhite": "#F2F2F2",
+    "terminal.ansiBlack": "#000000",
+    "terminal.ansiRed": "#D03E3E",
+    "terminal.ansiGreen": "#0DBC79",
+    "terminal.ansiYellow": "#E5E510",
+    "terminal.ansiBlue": "#2472C8",
+    "terminal.ansiMagenta": "#BC3FBC",
+    "terminal.ansiCyan": "#11A8CD",
+    "terminal.ansiWhite": "#E5E5E5",
+    "terminal.ansiBrightBlack": "#838383",
+    "terminal.ansiBrightRed": "#F14C4C",
+    "terminal.ansiBrightGreen": "#23D18B",
+    "terminal.ansiBrightYellow": "#F5F543",
+    "terminal.ansiBrightBlue": "#3B8EEA",
+    "terminal.ansiBrightMagenta": "#D670D6",
+    "terminal.ansiBrightCyan": "#29B8DB",
+    "terminal.ansiBrightWhite": "#E5E5E5",
     "debugToolBar.background": "#2C2C2C",
     "debugToolBar.border": "#454545",
     "debugIcon.breakpointForeground": "#E51400",
@@ -1623,7 +1623,7 @@
         "entity.name.section"
       ],
       "settings": {
-        "foreground": "#569CD6",
+        "foreground": "#4EC9B0",
         "fontStyle": "bold"
       }
     },
@@ -1658,9 +1658,17 @@
       }
     },
     {
-      "name": "Markdown code",
+      "name": "Markdown inline code (keyword blue in VS, sampled)",
       "scope": [
-        "markup.inline.raw",
+        "markup.inline.raw"
+      ],
+      "settings": {
+        "foreground": "#569CD6"
+      }
+    },
+    {
+      "name": "Markdown code block",
+      "scope": [
         "markup.fenced_code.block",
         "markup.raw"
       ],
