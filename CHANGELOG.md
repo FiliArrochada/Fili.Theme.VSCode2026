@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.7.0
+
+- Most of the colours that were chosen rather than taken from Visual Studio are now measured from a
+  running Visual Studio 2026: in Light, highlighted references and matched braces, find matches,
+  snippet fields, indent guides, the selected caller frame while debugging, the diff view's added
+  and removed lines and words, and input borders. Inferred colours go from 20 to 5 in Light and
+  from 7 to 6 in Dark; [docs/PARITY.md](https://github.com/FiliArrochada/Fili.Theme.VSCode2026/blob/master/docs/PARITY.md)
+  lists the rest and why.
+- The integrated terminal uses Visual Studio 2026's own terminal colours in both themes, measured
+  from its terminal. They replace the Windows Terminal "Campbell" scheme, which Visual Studio 2026
+  does not use.
+- Markdown headings take Visual Studio's class-name colour, and inline code its keyword blue, in
+  both themes; they were keyword blue and string-coloured.
+
 ## 0.6.0
 
 - Razor, SCSS, Less and SQL take Visual Studio's own colours: Razor transitions, directives,
