@@ -5,6 +5,8 @@
 src/**
 scripts/**
 CLAUDE.md
+.claude/**
+BACKLOG.md
 **/*.vsix
 docs/**
 .vs/**
