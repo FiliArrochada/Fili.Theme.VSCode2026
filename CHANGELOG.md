@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.7.1
+
+- PowerShell takes Visual Studio's colours: `foreach`, `if` and `param` are keyword blue rather
+  than control-flow purple, cmdlets and variables stay plain, and type literals such as `[string]`
+  take Visual Studio's green. VB.NET's `As` and primitive types (`Integer`) are keyword blue, as in
+  Visual Studio.
+- Dark takes the colours Visual Studio actually draws where they differ from its tokens: find
+  matches are a soft `#453B32` instead of `#773800`, and highlighted references, matched braces,
+  snippet fields, indent guides and the selected caller frame follow suit.
+- References highlighted by text, not by the C# language server, are as strong as the others, as
+  in Visual Studio; they were at 60%.
+- Light (Extra Contrast) uses its own diff-line colour again; 0.7.0 gave it Light's.
+- Verified in VS Code against Visual Studio: references, diff, terminal, Markdown, JSON,
+  PowerShell and VB render the measured values.
+- The README's screenshots are retaken with the current theme, icons and terminal colours.
+
 ## 0.7.0
 
 - Most of the colours that were chosen rather than taken from Visual Studio are now measured from a
