@@ -2,7 +2,8 @@
 
 How the theme's colours are measured from Visual Studio 2026, checked in VS Code, and how the
 README's screenshots are taken. None of this ships in the extension (`.vscodeignore` excludes
-`tools/`), and none of it is needed to build it. Everything runs on Windows with PowerShell 7.
+`tools/`), and none of it is needed to build it. Everything but `regression/` runs on Windows with
+PowerShell 7.
 
 Every script works on a temporary copy of `samples/`, so Visual Studio and VS Code never write into
 the repository. Visual Studio runs on an isolated settings hive and VS Code on its own profile, so
@@ -61,3 +62,22 @@ pwsh tools/screenshots/run.ps1 -Pass docs          # the layout offer and C# Dev
 `-Publish` writes `docs/dark.png`, `light.png`, `dark-debug.png`, `light-problems.png` and the
 sixteen-theme grid `themes.png` (`crop.ps1`, `grid.ps1`), and paints over the Debug Console text so
 no machine path is published. Look at the images before committing them.
+
+## `regression/` — the syntax-colour check CI runs
+
+`check.mjs` tokenizes the sample files listed in `inputs.json` with VS Code's own TextMate engine and
+grammars, applies every theme in `themes/` the way VS Code does, and compares the colour and font
+style each token gets with `expected.json`. It needs only Node and the network: the engine and the
+grammars, pinned in `inputs.json` to what VS Code 1.140.0 and the C# extension 2.160.4 ship, go into
+a cache folder (`FILI_REGRESSION_CACHE`, default `<temp>/fili-regression`), never into the repository.
+
+```text
+npm run regression                 # compare; lists every token whose look changed, in which themes
+npm run regression -- --update     # rewrite expected.json after an intended change
+```
+
+A failure is not necessarily a bug: a colour change is meant to change the snapshot. Read the list,
+and if every line is intended, update and commit `expected.json` with the change — its diff is the
+record of what readers will see differently. A token listed in a language the change never meant
+to touch is the regression this exists to catch. It covers the TextMate layer only; C#'s semantic
+colours come from the language server and still need `sampling/vscode-verify.ps1`.

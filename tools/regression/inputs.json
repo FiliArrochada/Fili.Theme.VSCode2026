@@ -1,0 +1,40 @@
+{
+  "$comment": "What tools/regression/check.mjs tokenizes, and the exact engine and grammars it does it with. Pinned to what VS Code 1.140.0 and the C# extension 2.160.4 ship, so a snapshot changes only when the theme does. Bump them together, then run `npm run regression -- --update` and review the diff.",
+  "engine": {
+    "vscode-textmate": "9.3.2",
+    "vscode-oniguruma": "1.7.0"
+  },
+  "grammars": {
+    "source.cs": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/csharp/syntaxes/csharp.tmLanguage.json",
+    "source.powershell": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/powershell/syntaxes/powershell.tmLanguage.json",
+    "source.asp.vb.net": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/vb/syntaxes/asp-vb-net.tmLanguage.json",
+    "text.aspnetcorerazor": "https://raw.githubusercontent.com/dotnet/vscode-csharp/v2.160.4/src/razor/syntaxes/aspnetcorerazor.tmLanguage.json",
+    "text.html.markdown": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/markdown-basics/syntaxes/markdown.tmLanguage.json",
+    "source.json": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/json/syntaxes/JSON.tmLanguage.json",
+    "text.html.basic": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/html/syntaxes/html.tmLanguage.json",
+    "text.html.derivative": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/html/syntaxes/html-derivative.tmLanguage.json",
+    "source.css": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/css/syntaxes/css.tmLanguage.json",
+    "source.css.scss": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/scss/syntaxes/scss.tmLanguage.json",
+    "source.sassdoc": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/scss/syntaxes/sassdoc.tmLanguage.json",
+    "source.css.less": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/less/syntaxes/less.tmLanguage.json",
+    "source.sql": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/sql/syntaxes/sql.tmLanguage.json",
+    "source.js": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/javascript/syntaxes/JavaScript.tmLanguage.json",
+    "source.js.regexp": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/javascript/syntaxes/Regular%20Expressions%20(JavaScript).tmLanguage"
+  },
+  "files": {
+    "tools/samples/editor/Sample.cs": "source.cs",
+    "tools/samples/editor/debug.js": "source.js",
+    "tools/samples/languages/Fili.Langs.Cli/Program.cs": "source.cs",
+    "tools/samples/languages/Fili.Langs.Cli/build.ps1": "source.powershell",
+    "tools/samples/languages/Fili.Langs.Cli/NOTES.md": "text.html.markdown",
+    "tools/samples/languages/Fili.Langs.Vb/Program.vb": "source.asp.vb.net",
+    "tools/samples/languages/Fili.Langs.Web/OrderService.cs": "source.cs",
+    "tools/samples/languages/Fili.Langs.Web/Orders.razor": "text.aspnetcorerazor",
+    "tools/samples/languages/Fili.Langs.Web/OrderGrid.razor": "text.aspnetcorerazor",
+    "tools/samples/languages/Fili.Langs.Web/data.json": "source.json",
+    "tools/samples/languages/Fili.Langs.Web/index.html": "text.html.basic",
+    "tools/samples/languages/Fili.Langs.Web/query.sql": "source.sql",
+    "tools/samples/languages/Fili.Langs.Web/site.less": "source.css.less",
+    "tools/samples/languages/Fili.Langs.Web/site.scss": "source.css.scss"
+  }
+}

@@ -45,6 +45,12 @@ one fails to reproduce the base palette (±1 per channel), so fix a wrong varian
 role a variant must change needs a rule there; a base-palette value that no rule reproduces is a hand
 deviation from VS and should be reverted rather than special-cased.
 
+**A colour change also changes the regression snapshot.** After `npm run build`, run `npm run
+regression`: it lists every sample token that now looks different, in which themes. If each is
+intended, `npm run regression -- --update` and keep the new `tools/regression/expected.json` with
+the change — CI fails without it. A token in a language the change was not about is a selector
+winning where it should not.
+
 **Re-run `npm run variants` after changing any base value.** A variant lists only the roles it
 changes *relative to its base*, so a new base value can make a variant need an override it did not
 need before: 0.7.0 moved Light's diff line to the drawn `#E6EBDA` without re-running it, and Light

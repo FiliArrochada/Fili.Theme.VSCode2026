@@ -61,8 +61,10 @@ is written to their settings file. The colour theme, `files.exclude` and the Git
 are left out on purpose — the first would force Dark on everyone who never picked a theme, the
 others change behaviour for users of any theme — so they stay optional in the README.
 
-**CI.** `.github/workflows/ci.yml` runs `npm test` and `npm run package` (which runs the build's
-`--check` and lets vsce validate the README) on every push to `master`. The repository takes no pull
+**CI.** `.github/workflows/ci.yml` runs `npm test`, `npm run regression` (the syntax-colour snapshot,
+`tools/README.md`) and `npm run package` (which runs the build's `--check` and lets vsce validate the
+README) on every push to `master`. A colour change therefore needs `npm run regression -- --update`
+and the new `expected.json` in the same commit, or CI goes red. The repository takes no pull
 requests, so nothing runs on them, and there is no Dependabot: it can only propose updates as pull
 requests. Keep the actions' major versions current by hand — check each action's latest release
 before a release, since GitHub retires the Node runtime old majors run on and they then stop working.

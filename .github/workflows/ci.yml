@@ -17,4 +17,6 @@ jobs:
           node-version: 24
       # package runs the build's --check first, then vsce, which also validates the README badges.
       - run: npm test
+      # Syntax colours against tools/regression/expected.json (downloads the pinned engine and grammars).
+      - run: npm run regression
       - run: npm run package

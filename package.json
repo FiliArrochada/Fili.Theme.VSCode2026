@@ -173,6 +173,7 @@
     "coverage": "node scripts/build.mjs --coverage",
     "registry": "node scripts/registry.mjs",
     "variants": "node scripts/variants.mjs",
+    "regression": "node tools/regression/check.mjs",
     "package": "npm run check && npx --yes @vscode/vsce package --no-dependencies --changelog-path docs/CHANGELOG.md",
     "publish": "npm run check && npx --yes @vscode/vsce publish --no-dependencies --changelog-path docs/CHANGELOG.md",
     "publish:ovsx": "npm run package -- -o fili-vscode2026.vsix && npx --yes ovsx publish fili-vscode2026.vsix"

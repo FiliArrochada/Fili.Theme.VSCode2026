@@ -17,6 +17,7 @@ runtime code is `extension.js`, for the opt-in Visual Studio 2026 layout command
 npm run build      # src/ -> themes/ + icons/ + product icon theme, with parity + registry validation and a contrast table
 npm run check      # fail if any generated file is stale
 npm test           # the layout commands, against a stand-in for the VS Code API
+npm run regression # sample files' syntax colours in every theme vs a snapshot (-- --update to accept)
 npm run coverage   # also list VS Code colours no theme sets
 npm run registry -- "<VS Code resources/app dir>"         # refresh scripts/vscode-color-ids.json
 npm run variants -- "<VS install dir>"                    # regenerate src/palettes/variants/
@@ -25,7 +26,8 @@ node scripts/vs-tokens.mjs "<VS install dir>" "<regex>"   # read Visual Studio's
 
 The Node scripts need only Node — no `npm install`, no dependencies. If `node` is not on PATH, Visual
 Studio ships one under its install at `MSBuild/Microsoft/VisualStudio/NodeJs/node.exe`. Keep it that
-way: no Python, no npm dependencies.
+way: no Python, no npm dependencies. The one exception is `npm run regression`, which installs
+VS Code's TextMate engine into a cache folder outside the repository (`tools/README.md`).
 
 ## Things that will bite you
 
