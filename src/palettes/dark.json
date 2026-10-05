@@ -48,10 +48,10 @@
 
     "selection":             ["#004377", "Text Editor MEF Items.Selected Text"],
     "selectionInactive":     ["#383838", "Text Editor MEF Items.Inactive Selected Text"],
-    "selectionHighlight":    ["#0E4583", "Text Editor MEF Items.MarkerFormatDefinition/HighlightedReference"],
-    "findMatch":             ["#773800", "Text Editor MEF Items.MarkerFormatDefinition/FindHighlight"],
-    "findMatchOther":        ["#77380099", "FindHighlight at 60% for the non-current matches"],
-    "bracketMatch":          ["#0E4583", "Text Editor MEF Items.brace matching"],
+    "selectionHighlight":    ["#113D6F", "sampled 2026-10-04: highlighted references, as drawn (token MarkerFormatDefinition/HighlightedReference #0E4583)"],
+    "findMatch":             ["#453B32", "sampled 2026-10-04: find matches, as drawn (token MarkerFormatDefinition/FindHighlight #773800); VS marks the current match by selecting it"],
+    "findMatchOther":        ["#453B32", "sampled 2026-10-04: the non-current find matches, as drawn"],
+    "bracketMatch":          ["#113D6F", "sampled 2026-10-04: matched braces, as drawn; the same fill as references (token brace matching #0E4583)"],
     "scopeHighlight":        ["#0F202D", "Text Editor MEF Items.MarkerFormatDefinition/ScopeHighlight"],
     "listSelection":         ["#353535", "sampled: Solution Explorer selected row; equals Shell.SubtleFillSecondary #ffffff0f over card"],
     "listSelectionInactive": ["#353535", "sampled: VS keeps the same fill when Solution Explorer loses focus"],
@@ -76,9 +76,9 @@
     "inlayHintBg":           ["#3E3E3E", "Roslyn Text Editor MEF Items.inline hints background"],
     "inlayHintFg":           ["#A9A8A7", "Roslyn Text Editor MEF Items.inline hints foreground"],
     "whitespace":            ["#3B5A60", "Text Editor MEF Items.Visible Whitespace #144852, lifted: VS draws it bolder than VS Code does"],
-    "indentGuide":           ["#404040", "Text Editor MEF Items.Block Structure Adornments #424242"],
+    "indentGuide":           ["#3D3D3D", "sampled 2026-10-04: block structure guide lines, as drawn dotted (token Block Structure Adornments #424242)"],
     "indentGuideActive":     ["#707070", "Environment.ActiveBorder"],
-    "snippetField":          ["#5B5B5B", "Text Editor Text Marker Items.Code Snippet Field"],
+    "snippetField":          ["#4F4F4F", "sampled 2026-10-04: an inactive snippet field, as drawn (token Code Snippet Field #5B5B5B)"],
     "unnecessaryOpacity":    ["#000000A0", "alpha only: VS fades unnecessary code to ~60%"],
 
     "statusBar":             ["#141414", "composite: ShellInternal.StatusBarBackgroundFillRest #0000004d over chrome (sampled identical)"],
@@ -96,13 +96,13 @@
 
     "debugCurrent":          ["#EFF28440", "Text Editor MEF Items.Current Statement #EFF284 at 25%: VS repaints the text black, VS Code cannot"],
     "debugCurrentGlyph":     ["#FFCC00", "inferred: VS 2026 draws a two-tone arrow (dark-amber fill, light outline) over the breakpoint; VS Code's glyph has one colour, so it takes the arrow's yellow"],
-    "debugFocused":          ["#7CA5A040", "Text Editor MEF Items.Call Return #7CA5A0 at 25%"],
+    "debugFocused":          ["#73949040", "sampled 2026-10-04: Call Return on the selected caller frame, #739490 as drawn (token #7CA5A0), at 25% so the text stays readable"],
     "breakpoint":            ["#E51400", "VS breakpoint glyph red"],
     "breakpointDisabled":    ["#AEAEAE", "Text Editor MEF Items.Breakpoint (Disabled)"],
 
-    "diffAddLine":           ["#15352C", "Text Editor MEF Items.deltadiff.add.line"],
+    "diffAddLine":           ["#15352C", "Text Editor MEF Items.deltadiff.add.line (drawn #1F3A32; the token is kept because the variants derive their diff colours from the same tokens)"],
     "diffAddWord":           ["#265E4D", "Text Editor MEF Items.deltadiff.add.word"],
-    "diffRemoveLine":        ["#2D0000", "Text Editor MEF Items.deltadiff.remove.line"],
+    "diffRemoveLine":        ["#2D0000", "Text Editor MEF Items.deltadiff.remove.line (drawn #330D0D; the token is kept because the variants derive their diff colours from the same tokens)"],
     "diffRemoveWord":        ["#3C0000", "Text Editor MEF Items.deltadiff.remove.word"],
 
     "gitAdded":              ["#6CCB5F", "Shell.SystemFillSuccess"],

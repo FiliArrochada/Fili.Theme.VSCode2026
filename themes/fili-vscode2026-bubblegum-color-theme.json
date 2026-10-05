@@ -178,7 +178,7 @@
     "editor.wordHighlightBorder": "#00000000",
     "editor.wordHighlightStrongBackground": "#E2E6D6",
     "editor.wordHighlightStrongBorder": "#00000000",
-    "editor.wordHighlightTextBackground": "#E2E6D699",
+    "editor.wordHighlightTextBackground": "#E2E6D6",
     "editor.wordHighlightTextBorder": "#00000000",
     "editor.findMatchBackground": "#E4D8C2",
     "editor.findMatchForeground": "#000000",
@@ -1612,6 +1612,43 @@
       ],
       "settings": {
         "foreground": "#FF0000"
+      }
+    },
+    {
+      "name": "VB: As and primitive types are keywords in VS (the ASP grammar scopes them as operator and type)",
+      "scope": [
+        "keyword.operator.asp",
+        "support.type.vb.asp"
+      ],
+      "settings": {
+        "foreground": "#0000FF"
+      }
+    },
+    {
+      "name": "PowerShell: VS colours its control words as keywords, not control flow",
+      "scope": [
+        "keyword.control.powershell"
+      ],
+      "settings": {
+        "foreground": "#0000FF"
+      }
+    },
+    {
+      "name": "PowerShell: VS leaves cmdlet names plain",
+      "scope": [
+        "support.function.powershell"
+      ],
+      "settings": {
+        "foreground": "#000000"
+      }
+    },
+    {
+      "name": "PowerShell: VS draws type literals ([string]) in its comment green, in both themes (sampled)",
+      "scope": [
+        "storage.type.powershell"
+      ],
+      "settings": {
+        "foreground": "#008000"
       }
     },
     {

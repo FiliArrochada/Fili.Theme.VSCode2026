@@ -56,7 +56,12 @@
     { "name": "SQL system function", "scope": ["source.sql support.function"], "role": "synSqlFunction" },
     { "name": "SQL string", "scope": ["string.quoted.single.sql", "punctuation.definition.string.begin.sql", "punctuation.definition.string.end.sql"], "role": "synSqlString" },
 
-    { "name": "Markdown heading", "scope": ["markup.heading", "markup.heading entity.name", "punctuation.definition.heading", "entity.name.section"], "role": "synHeading", "fontStyle": "bold" },
+    { "name": "VB: As and primitive types are keywords in VS (the ASP grammar scopes them as operator and type)", "scope": ["keyword.operator.asp", "support.type.vb.asp"], "role": "synKeyword" },
+    { "name": "PowerShell: VS colours its control words as keywords, not control flow", "scope": ["keyword.control.powershell"], "role": "synKeyword" },
+    { "name": "PowerShell: VS leaves cmdlet names plain", "scope": ["support.function.powershell"], "role": "synText" },
+    { "name": "PowerShell: VS draws type literals ([string]) in its comment green, in both themes (sampled)", "scope": ["storage.type.powershell"], "role": "synComment" },
+
+    { "name": "Markdown heading", "scope":["markup.heading", "markup.heading entity.name", "punctuation.definition.heading", "entity.name.section"], "role": "synHeading", "fontStyle": "bold" },
     { "name": "Markdown bold", "scope": ["markup.bold"], "role": "synText", "fontStyle": "bold" },
     { "name": "Markdown italic", "scope": ["markup.italic"], "role": "synText", "fontStyle": "italic" },
     { "name": "Markdown strikethrough", "scope": ["markup.strikethrough"], "role": "synText", "fontStyle": "strikethrough" },

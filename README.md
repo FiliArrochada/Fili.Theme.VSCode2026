@@ -188,6 +188,10 @@ Code's yellow one.
 | JSON | property names | `#D7BA7D` | `#2E75B6` |
 | Markdown | headings | `#4EC9B0` | `#2B91AF` |
 | | inline code | `#569CD6` | `#0000FF` |
+| PowerShell | `foreach`, `if`, `param` (keywords, not control flow) | `#569CD6` | `#0000FF` |
+| | type literals (`[string]`) | `#57A64A` | `#008000` |
+| | cmdlets, variables, parameters | plain text | plain text |
+| VB.NET | the same Roslyn colours as C#; `As` and primitive types are keywords | | |
 | SQL | system functions (`COUNT`, `GETDATE`) | `#C975D5` | `#FF00FF` |
 | | strings | `#CB4141` | `#FF0000` |
 
@@ -283,8 +287,10 @@ These are limits of what a VS Code colour theme can express, not choices:
 - **Some language colours have no hook in VS Code.** Visual Studio Light draws Razor code on a pale
   yellow block; a theme cannot give tokens a background. VS Code's grammars give Visual Studio's
   other colours nothing to target: XAML markup extensions (`{Binding Path=Name}`) are one string to
-  the XML grammar, a Less mixin call looks like a class selector, and SQL system tables
-  (`sys.objects`) and stored procedures look like any other name.
+  the XML grammar, a Less mixin call looks like a class selector, SQL system tables
+  (`sys.objects`) and stored procedures look like any other name, and VS Code's VB grammar cannot
+  tell a type from a method (`List` is coloured as a method) and has no semantic colouring for
+  locals.
 - **The UI font.** Visual Studio draws its interface in Segoe UI at 9pt; VS Code's workbench font
   cannot be changed by an extension or a setting.
 

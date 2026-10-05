@@ -96,6 +96,10 @@
       "#EBE9F6",
       "Text Editor MEF Items.inlay hints / Roslyn Text Editor MEF Items.inline hints in VS Light (Extra Contrast)"
     ],
+    "diffAddLine": [
+      "#DFF6DD",
+      "Text Editor MEF Items.deltadiff.add.line in VS Light (Extra Contrast)"
+    ],
     "diffRemoveLine": [
       "#F8DADB",
       "Text Editor MEF Items.deltadiff.remove.line in VS Light (Extra Contrast)"

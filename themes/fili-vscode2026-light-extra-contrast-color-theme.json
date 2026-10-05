@@ -178,7 +178,7 @@
     "editor.wordHighlightBorder": "#00000000",
     "editor.wordHighlightStrongBackground": "#E2E6D6",
     "editor.wordHighlightStrongBorder": "#00000000",
-    "editor.wordHighlightTextBackground": "#E2E6D699",
+    "editor.wordHighlightTextBackground": "#E2E6D6",
     "editor.wordHighlightTextBorder": "#00000000",
     "editor.findMatchBackground": "#E4D8C2",
     "editor.findMatchForeground": "#000000",
@@ -544,7 +544,7 @@
     "diffEditor.insertedTextBorder": "#00000000",
     "diffEditor.removedTextBackground": "#E8A5A1",
     "diffEditor.removedTextBorder": "#00000000",
-    "diffEditor.insertedLineBackground": "#E6EBDA",
+    "diffEditor.insertedLineBackground": "#DFF6DD",
     "diffEditor.removedLineBackground": "#F8DADB",
     "diffEditor.border": "#ADADAD",
     "diffEditor.diagonalFill": "#E6E6E6",
@@ -554,7 +554,7 @@
     "diffEditor.unchangedCodeBackground": "#00000000",
     "diffEditor.move.border": "#8A8A8A",
     "diffEditor.moveActive.border": "#9D5D00",
-    "diffEditorGutter.insertedLineBackground": "#E6EBDA",
+    "diffEditorGutter.insertedLineBackground": "#DFF6DD",
     "diffEditorGutter.removedLineBackground": "#F8DADB",
     "diffEditorOverview.insertedForeground": "#0F7B0FCC",
     "diffEditorOverview.removedForeground": "#C42B1CCC",
@@ -717,7 +717,7 @@
     "testing.message.error.badgeForeground": "#FFFFFF",
     "testing.message.error.badgeBorder": "#C42B1C",
     "testing.message.info.decorationForeground": "#8A8A8A",
-    "testing.coveredBackground": "#E6EBDA",
+    "testing.coveredBackground": "#DFF6DD",
     "testing.coveredBorder": "#0F7B0F66",
     "testing.coveredGutterBackground": "#0F7B0F99",
     "testing.uncoveredBackground": "#F8DADB",
@@ -805,10 +805,10 @@
     "inlineEdit.gutterIndicator.successfulBorder": "#0F7B0F",
     "inlineEdit.gutterIndicator.background": "#F9F9F9",
     "inlineEdit.originalBackground": "#F8DADB",
-    "inlineEdit.modifiedBackground": "#E6EBDA",
+    "inlineEdit.modifiedBackground": "#DFF6DD",
     "inlineEdit.originalChangedLineBackground": "#F8DADB",
     "inlineEdit.originalChangedTextBackground": "#E8A5A1",
-    "inlineEdit.modifiedChangedLineBackground": "#E6EBDA",
+    "inlineEdit.modifiedChangedLineBackground": "#DFF6DD",
     "inlineEdit.modifiedChangedTextBackground": "#A0D19F",
     "inlineEdit.originalBorder": "#C42B1C99",
     "inlineEdit.modifiedBorder": "#0F7B0F99",
@@ -1612,6 +1612,43 @@
       ],
       "settings": {
         "foreground": "#942228"
+      }
+    },
+    {
+      "name": "VB: As and primitive types are keywords in VS (the ASP grammar scopes them as operator and type)",
+      "scope": [
+        "keyword.operator.asp",
+        "support.type.vb.asp"
+      ],
+      "settings": {
+        "foreground": "#0027B4"
+      }
+    },
+    {
+      "name": "PowerShell: VS colours its control words as keywords, not control flow",
+      "scope": [
+        "keyword.control.powershell"
+      ],
+      "settings": {
+        "foreground": "#0027B4"
+      }
+    },
+    {
+      "name": "PowerShell: VS leaves cmdlet names plain",
+      "scope": [
+        "support.function.powershell"
+      ],
+      "settings": {
+        "foreground": "#000000"
+      }
+    },
+    {
+      "name": "PowerShell: VS draws type literals ([string]) in its comment green, in both themes (sampled)",
+      "scope": [
+        "storage.type.powershell"
+      ],
+      "settings": {
+        "foreground": "#107C10"
       }
     },
     {

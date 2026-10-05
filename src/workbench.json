@@ -185,7 +185,7 @@
   "editor.wordHighlightBorder": "transparent",
   "editor.wordHighlightStrongBackground": "selectionHighlight",
   "editor.wordHighlightStrongBorder": "transparent",
-  "editor.wordHighlightTextBackground": "selectionHighlight/60",
+  "editor.wordHighlightTextBackground": "selectionHighlight",
   "editor.wordHighlightTextBorder": "transparent",
   "editor.findMatchBackground": "findMatch",
   "editor.findMatchForeground": "synText",
