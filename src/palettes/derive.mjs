@@ -98,3 +98,57 @@ function wordFill(t, kind) {
 }
 
 export default { ...shell, ...editor };
+
+// --- high contrast: Dark (High Contrast) only ----------------------------------------------------
+// VS 2026's High Contrast theme names Windows system colours rather than colours, and Visual Studio
+// uses it only under a dark contrast scheme (under a light one it keeps its Light theme). These
+// rules are evaluated only for that theme, with its system colours already resolved (see
+// scripts/variants.mjs), and on top of the rules above. They are not checked against Dark or
+// Light: the tokens they read hold different colours there. Every syntax role takes Plain Text's
+// colour, because VS draws its High Contrast editor in the window text colour alone (sampled).
+const ENV = (name) => `Environment.${name}`;
+const CC = (name) => `CommonControls.${name}`;
+const TM = (name) => `Text Editor Text Manager Items.${name}`;
+const bg = (token) => ({ from: token, value: (t) => t.bg(token) });
+const fg = (token) => ({ from: token, value: (t) => t.fg(token) });
+export const highContrast = {
+  fg: bg(ENV('ToolWindowText')),
+  tabTextInactive: bg(ENV('FileTabInactiveText')),
+  editor: bg(S('SurfaceBackgroundFillDefault')),
+  cursor: fg(TM('Plain Text')),
+  lineNumberActive: fg(MEF('Selected Line Number')),
+  link: bg(ENV('PanelHyperlink')),
+  linkHover: bg(ENV('PanelHyperlinkHover')),
+  accent: bg(S('AccentFillDefault')),
+  accentFg: bg(S('TextOnAccentFillPrimary')),
+  accentText: bg(S('AccentTextFillPrimary')),
+  accentStrong: bg(CC('ButtonDefault')),
+  accentStrongFg: fg(CC('ButtonDefault')),
+  accentHover: bg(CC('ButtonHover')),
+  buttonSecondary: bg(CC('Button')),
+  buttonSecondaryHover: bg(CC('ButtonHover')),
+  buttonBorder: bg(CC('ButtonBorder')),
+  control: bg(ENV('DropDownBackground')),
+  controlHover: bg(ENV('CommandBarMenuItemMouseOver')),
+  controlBorder: bg(CC('TextBoxBorder')),
+  flyout: bg(S('SurfaceBackgroundFillDefault')),
+  flyoutHover: bg(ENV('CommandBarMenuItemMouseOver')),
+  flyoutBorder: bg(CC('TextBoxBorder')),
+  selection: bg(TM('Selected Text')),
+  selectionInactive: bg(TM('Inactive Selected Text')),
+  // Sampled: VS fills highlighted references with the highlight colour at 50% over the editor.
+  selectionHighlight: {
+    from: `${S('AccentFillDefault')} at 50% over ${S('SurfaceBackgroundFillDefault')} (sampled formula)`,
+    value: (t) => t.over(t.alpha(t.bg(S('AccentFillDefault')), 50), t.bg(S('SurfaceBackgroundFillDefault'))),
+  },
+  // VS draws braces in the text colour like everything else in its High Contrast editor (sampled).
+  braceLevel1: fg(TM('Plain Text')),
+  braceLevel2: fg(TM('Plain Text')),
+  braceLevel3: fg(TM('Plain Text')),
+  error: bg(S('SystemFillCritical')),
+  warning: bg(S('SystemFillCaution')),
+  info: bg(S('SystemFillAttention')),
+  success: bg(S('SystemFillSuccess')),
+};
+// Every syntax role without a rule of its own takes this in High Contrast.
+export const highContrastText = fg(TM('Plain Text'));

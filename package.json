@@ -1,8 +1,8 @@
 {
   "name": "fili-vscode2026",
   "displayName": "Fili.VSCode2026",
-  "description": "Visual Studio 2026's themes for VS Code — Dark, Light, the eleven tinted themes and both Extra Contrast editors — rebuilt from Visual Studio's own Fluent theme tokens, with Roslyn-accurate C# and a Solution Explorer icon theme.",
-  "version": "0.7.1",
+  "description": "Visual Studio 2026's themes for VS Code — Dark, Light, the eleven tinted themes, both Extra Contrast editors and High Contrast — rebuilt from Visual Studio's own Fluent theme tokens, with Roslyn-accurate C# and a Solution Explorer icon theme.",
+  "version": "0.8.0",
   "publisher": "FiliArrochada",
   "author": "FiliArrochada",
   "license": "MIT",
@@ -90,6 +90,11 @@
         "label": "Fili.VSCode2026 Dark (Extra Contrast)",
         "uiTheme": "vs-dark",
         "path": "./themes/fili-vscode2026-dark-extra-contrast-color-theme.json"
+      },
+      {
+        "label": "Fili.VSCode2026 Dark (High Contrast)",
+        "uiTheme": "hc-black",
+        "path": "./themes/fili-vscode2026-dark-high-contrast-color-theme.json"
       },
       {
         "label": "Fili.VSCode2026 Light (Icy Mint)",

@@ -7,7 +7,7 @@ param(
 # Retakes the README screenshots from the working tree's theme.
 #   scenes   overview, IntelliSense, hover, Peek, Problems, palette, SCM, diff, notifications,
 #            testing and debugging, in Dark and Light (sample: tools/samples/editor)
-#   gallery  the editor in all fifteen themes (tools/samples/editor)
+#   gallery  the editor in all sixteen themes (tools/samples/editor)
 #   docs     the one-time layout offer and C# Dev Kit's solution view (tools/samples/solution)
 #   -Publish writes docs/dark.png, light.png, dark-debug.png, light-problems.png and themes.png
 #            from the scenes and gallery passes.
@@ -56,6 +56,7 @@ New-Item -ItemType Directory -Force (Join-Path $user 'User') | Out-Null
 $work = Join-Path $OutDir 'samples'
 if (Test-Path $work) { Remove-Item $work -Recurse -Force }
 Copy-Item (Join-Path $repo 'tools\samples') $work -Recurse
+$work = (Get-Item $work).FullName   # long path: the C# server rejects 8.3 short paths
 git -C (Join-Path $work 'editor') init -q
 
 $runs = @{ scenes = @{ mode = ''; folder = 'editor'; t = 450 }; gallery = @{ mode = 'gallery'; folder = 'editor'; t = 320 }; docs = @{ mode = 'docs'; folder = 'solution'; t = 400 } }
@@ -85,9 +86,9 @@ if ($Publish) {
   & (Join-Path $here 'crop.ps1') (Join-Path $gallery 'gallery-light.png') (Join-Path $docs 'light.png') -TopEnd 698 -BarStart 700
   & (Join-Path $here 'crop.ps1') $clean (Join-Path $docs 'dark-debug.png') -TopEnd 698 -BarStart 700
   & (Join-Path $here 'crop.ps1') (Join-Path $scenes 'light-problems.png') (Join-Path $docs 'light-problems.png') -TopEnd 698 -BarStart 700
-  $order = 'dark', 'dark-cool-slate', 'dark-juicy-plum', 'dark-moonlight-glow', 'dark-mystical-forest', 'dark-spicy-red', 'dark-extra-contrast',
+  $order = 'dark', 'dark-cool-slate', 'dark-juicy-plum', 'dark-moonlight-glow', 'dark-mystical-forest', 'dark-spicy-red', 'dark-extra-contrast', 'dark-high-contrast',
     'light', 'light-extra-contrast', 'light-bubblegum', 'light-cool-breeze', 'light-icy-mint', 'light-mango-paradise', 'light-silky-pink', 'light-sunny-day'
   $labels = $order | ForEach-Object { $s = $_ -replace '^(dark|light)-?', ''; $base = (Get-Culture).TextInfo.ToTitleCase(($_ -split '-')[0]); if ($s) { "$base ($((Get-Culture).TextInfo.ToTitleCase($s -replace '-', ' ')))" } else { $base } }
-  & (Join-Path $here 'grid.ps1') -Out (Join-Path $docs 'themes.png') -Images ($order | ForEach-Object { Join-Path $gallery "gallery-$_.png" }) -Labels $labels -Cols 5 -CellW 384 -CropH 728
+  & (Join-Path $here 'grid.ps1') -Out (Join-Path $docs 'themes.png') -Images ($order | ForEach-Object { Join-Path $gallery "gallery-$_.png" }) -Labels $labels -Cols 4 -CellW 480 -CropH 728
   'docs/ images rebuilt; check the debugging screenshot before committing'
 }

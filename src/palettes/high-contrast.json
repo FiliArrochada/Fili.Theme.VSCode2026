@@ -1,0 +1,9 @@
+{
+  "$comment": "Colours Visual Studio 2026 draws in High Contrast that no token gives, sampled from VS under Windows' Aquatic contrast theme. scripts/variants.mjs adds them to the generated Dark (High Contrast) variant; edit them here, then regenerate.",
+  "roles": {
+    "findMatch":         ["#857250", "sampled 2026-10-05 under Windows' Aquatic contrast theme: find matches, as drawn (no High Contrast token)"],
+    "findMatchOther":    ["#857250", "sampled 2026-10-05 under Windows' Aquatic contrast theme: the non-current find matches, as drawn"],
+    "bracketMatch":      ["#7E8076", "sampled 2026-10-05 under Windows' Aquatic contrast theme: matched braces, as drawn"],
+    "editorLine":        ["#393939", "sampled 2026-10-05 under Windows' Aquatic contrast theme: current-line highlight"]
+  }
+}

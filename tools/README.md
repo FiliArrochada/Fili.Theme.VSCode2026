@@ -59,5 +59,5 @@ pwsh tools/screenshots/run.ps1 -Pass docs          # the layout offer and C# Dev
 ```
 
 `-Publish` writes `docs/dark.png`, `light.png`, `dark-debug.png`, `light-problems.png` and the
-fifteen-theme grid `themes.png` (`crop.ps1`, `grid.ps1`), and paints over the Debug Console text so
+sixteen-theme grid `themes.png` (`crop.ps1`, `grid.ps1`), and paints over the Debug Console text so
 no machine path is published. Look at the images before committing them.

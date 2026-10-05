@@ -57,7 +57,7 @@ const variants = VARIANTS.map((t) => {
   const base = bases.find((b) => b.type === v.base);
   if (!base) { fail(`${t.palette}: base '${v.base}' is not a base palette`); return null; }
   for (const r of Object.keys(v.roles)) if (!(r in base.roles)) fail(`${t.palette}: overrides '${r}', which ${base.palette} does not define`);
-  return { ...t, name: v.name, type: base.type, vs: v.vs, roles: { ...base.roles, ...v.roles } };
+  return { ...t, name: v.name, type: base.type, highContrast: v.highContrast === true, vs: v.vs, roles: { ...base.roles, ...v.roles } };
 }).filter(Boolean);
 const palettes = [...bases, ...variants];
 for (const p of palettes) {
@@ -103,9 +103,20 @@ function resolve(ref, palette, where) {
   return hex.slice(0, 7) + alpha.toString(16).padStart(2, '0').toUpperCase();
 }
 
+// A high-contrast theme leaves VS Code its own high-contrast borders: the keys the shared map sets
+// to 'transparent' (borders a normal theme hides) are left out, and src/workbench-hc.json overrides
+// or removes (null) the rest it needs.
+const workbenchHc = withoutComment(readJson('src/workbench-hc.json'));
+function workbenchFor(p) {
+  if (!p.highContrast) return workbench;
+  const map = Object.fromEntries(Object.entries(workbench).filter(([key, ref]) => !(ref === 'transparent' && /border/i.test(key))));
+  for (const [key, ref] of Object.entries(workbenchHc)) { if (ref === null) delete map[key]; else map[key] = ref; }
+  return map;
+}
+
 function buildTheme(p) {
   const colors = {};
-  for (const [key, ref] of Object.entries(workbench)) {
+  for (const [key, ref] of Object.entries(workbenchFor(p))) {
     if (!(key in registry)) fail(`src/workbench.json: '${key}' is not a colour VS Code registers`);
     const v = resolve(ref, p, `src/workbench.json '${key}'`);
     if (v) colors[key] = v;
@@ -135,7 +146,7 @@ function buildTheme(p) {
   return {
     $schema: 'vscode://schemas/color-theme',
     name: p.name,
-    type: p.type,
+    type: p.highContrast ? undefined : p.type,
     semanticHighlighting: true,
     colors,
     tokenColors,
@@ -336,7 +347,7 @@ ${sections.map((s) => `## ${s.title}\n\n${table(s.roles)}\n`).join('\n')}`;
 outputs.push({ path: 'docs/PARITY.md', text: parity });
 
 // package.json must contribute exactly the themes generated here, in this order, with the right kind.
-const expected = palettes.map((p) => ({ label: p.name, uiTheme: p.type === 'dark' ? 'vs-dark' : 'vs', path: `./${p.out}` }));
+const expected = palettes.map((p) => ({ label: p.name, uiTheme: p.highContrast ? (p.type === 'dark' ? 'hc-black' : 'hc-light') : p.type === 'dark' ? 'vs-dark' : 'vs', path: `./${p.out}` }));
 const contributed = readJson('package.json').contributes?.themes ?? [];
 if (JSON.stringify(contributed) !== JSON.stringify(expected)) {
   fail(`package.json contributes.themes does not match the generated themes; it should be:\n${JSON.stringify(expected, null, 2)}`);

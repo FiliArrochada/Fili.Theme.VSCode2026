@@ -1,0 +1,6 @@
+{
+  "$comment": "Applied on top of src/workbench.json for the high-contrast theme only (see scripts/build.mjs). A role overrides the shared map; null removes the key so VS Code's own high-contrast colour applies. The keys the shared map sets to 'transparent' that name a border are removed automatically.",
+  "contrastBorder": null,
+  "contrastActiveBorder": null,
+  "editor.selectionForeground": "accentFg"
+}

@@ -58,6 +58,18 @@ role, separate from the button `accent` that the tints leave alone). Extra Contr
 appearance* (`environment.visualExperience.editorAppearance`) that overrides only editor tokens and
 can be paired with any colour theme; here each is shipped as its base shell plus that editor.
 
+**Dark (High Contrast) is built differently.** VS 2026's High Contrast tokens name Windows system
+colours (`type3`, the first byte a `GetSysColor` index), not colours. `variants.mjs` resolves them
+through Windows' Aquatic contrast theme (`%WINDIR%\Resources\Ease of Access Themes\hcblack.theme`)
+and evaluates the normal rules plus `derive.mjs`'s `highContrast` rules — those are not checked
+against Dark or Light, since the tokens they read hold different colours there — and gives every
+syntax role without a rule Plain Text's colour, because VS's High Contrast editor is monochrome.
+Colours no token gives (find matches, matched brace, current line) are sampled and kept by hand in
+`src/palettes/high-contrast.json`, which `variants.mjs` copies into the variant. The build marks it
+`hc-black`, writes no `type`, drops the border keys the shared map sets to `transparent` and applies
+`src/workbench-hc.json`, so VS Code's own high-contrast borders show. There is deliberately no Light
+(High Contrast): Visual Studio keeps its Light theme under light contrast schemes (`docs/BACKLOG.md`).
+
 ## Visual Studio's categories
 
 **`Shell` and `ShellInternal` are different categories.** The Fluent layer is in `Shell`

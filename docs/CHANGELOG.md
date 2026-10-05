@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.8.0
+
+- **Fili.VSCode2026 Dark (High Contrast)**, Visual Studio 2026's High Contrast theme under Windows'
+  Aquatic contrast theme, as a VS Code high-contrast theme. Visual Studio's High Contrast names
+  Windows system colours rather than colours; they are resolved through Aquatic, and the highlights
+  no token gives were sampled from Visual Studio running in contrast mode. The editor is
+  monochrome, as in Visual Studio, and VS Code's high-contrast borders are left on. There is no
+  Light (High Contrast): Visual Studio keeps its Light theme under light contrast schemes.
+
 ## 0.7.1
 
 - PowerShell takes Visual Studio's colours: `foreach`, `if` and `param` are keyword blue rather

@@ -6,9 +6,10 @@ directory up still applies — in particular **never commit anything**.
 ## What this is
 
 A VS Code colour-theme extension reconstructing Visual Studio 2026's Fluent appearance: the two base
-themes **Fili.VSCode2026 Dark** and **Fili.VSCode2026 Light**, the thirteen variants VS 2026 ships
-(eleven tinted themes and two Extra Contrast editors), a file icon theme, **Fili.VSCode2026 Icons**,
-for Solution Explorer's look, and a product icon theme, **Fili.VSCode2026 Fluent Icons**. The only
+themes **Fili.VSCode2026 Dark** and **Fili.VSCode2026 Light**, the fourteen variants VS 2026 ships
+(eleven tinted themes, two Extra Contrast editors and High Contrast), a file icon theme,
+**Fili.VSCode2026 Icons**, for Solution Explorer's look, and a product icon theme,
+**Fili.VSCode2026 Fluent Icons**. The only
 runtime code is `extension.js`, for the opt-in Visual Studio 2026 layout commands. `themes/`,
 `icons/` and the product icon theme JSON are generated; the Fluent font beside it is vendored.
 

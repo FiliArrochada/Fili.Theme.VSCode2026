@@ -37,9 +37,9 @@ Besides Dark and Light, the extension carries every other theme Visual Studio 20
 | Fili.VSCode2026 Dark (Mystical Forest) | Fili.VSCode2026 Light (Mango Paradise) |
 | Fili.VSCode2026 Dark (Spicy Red) | Fili.VSCode2026 Light (Silky Pink) |
 | Fili.VSCode2026 Dark (Extra Contrast) | Fili.VSCode2026 Light (Sunny Day) |
-| | Fili.VSCode2026 Light (Extra Contrast) |
+| Fili.VSCode2026 Dark (High Contrast) | Fili.VSCode2026 Light (Extra Contrast) |
 
-![All fifteen themes](docs/themes.png)
+![All sixteen themes](docs/themes.png)
 
 In Visual Studio these are small deltas on Dark or Light, and they are here too:
 
@@ -54,9 +54,13 @@ In Visual Studio these are small deltas on Dark or Light, and they are here too:
 
 Each variant's colours were generated from that theme's own Visual Studio tokens, with the same
 rules that reproduce Dark and Light, and checked against a live Visual Studio 2026 window.
-High Contrast is not included, because Visual Studio's version takes its colours from Windows'
-contrast settings at run time, and VS Code already switches to its own high-contrast theme when
-Windows' contrast mode is on.
+**Fili.VSCode2026 Dark (High Contrast)** is Visual Studio 2026's High Contrast theme as it appears
+under Windows' **Aquatic** contrast theme, Windows 11's default dark one. Visual Studio's version
+takes its colours from Windows' contrast settings, so this one resolves them through Aquatic's: a
+monochrome editor (all text in the window text colour, as Visual Studio draws it), cyan selection,
+and the find, reference and brace highlights sampled from Visual Studio running in that mode. It is
+a VS Code high-contrast theme, so VS Code adds its own high-contrast borders. There is no Light
+counterpart because Visual Studio has none: under a light contrast scheme it keeps its Light theme.
 
 ## Installation
 

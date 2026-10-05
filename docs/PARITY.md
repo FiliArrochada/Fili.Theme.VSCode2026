@@ -45,6 +45,7 @@ changes; everything else is its base's.
 | Fili.VSCode2026 Light (Cool Breeze) | light | 17 |
 | Fili.VSCode2026 Dark (Cool Slate) | dark | 15 |
 | Fili.VSCode2026 Dark (Extra Contrast) | dark | 27 |
+| Fili.VSCode2026 Dark (High Contrast) | dark | 100 |
 | Fili.VSCode2026 Light (Icy Mint) | light | 17 |
 | Fili.VSCode2026 Dark (Juicy Plum) | dark | 15 |
 | Fili.VSCode2026 Light (Extra Contrast) | light | 27 |
@@ -111,7 +112,7 @@ changes; everything else is its base's.
 |---|---|---|---|---|
 | `accent` | ![#9184EE](swatches/9184EE.svg) `#9184EE` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | Shell.AccentFillDefault (sampled on the focused window outline) | `focusBorder`, `sash.hoverBorder`, `progressBar.background` +47 more |
 | `windowAccent` | ![#9184EE](swatches/9184EE.svg) `#9184EE` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | ShellInternal.EnvironmentBorder: focused-window outline and Solution Explorer selection pill (equals the accent here; the tinted themes change it) | `window.activeBorder`, `activityBar.activeBorder`, `activityBar.activeFocusBorder` +7 more |
-| `accentFg` | ![#000000](swatches/000000.svg) `#000000` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | Shell.TextOnAccentFillPrimary | `activityBarBadge.foreground`, `activityErrorBadge.foreground`, `activityWarningBadge.foreground` +9 more |
+| `accentFg` | ![#000000](swatches/000000.svg) `#000000` | ![#FFFFFF](swatches/FFFFFF.svg) `#FFFFFF` | Shell.TextOnAccentFillPrimary | `activityBarBadge.foreground`, `activityErrorBadge.foreground`, `activityWarningBadge.foreground` +10 more |
 | `accentText` | ![#A79CF1](swatches/A79CF1.svg) `#A79CF1` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | Shell.AccentTextFillTertiary | `list.highlightForeground`, `list.focusHighlightForeground`, `editorSuggestWidget.focusHighlightForeground` +8 more |
 | `accentMuted` | ![#353340](swatches/353340.svg) `#353340` | ![#E5E4F0](swatches/E5E4F0.svg) `#E5E4F0` | **Dark:** composite: Shell.AccentFillSenary #9184ee1f over card<br>**Light:** composite: Shell.AccentFillSenary #5649b01f over card | `sideBar.dropBackground`, `list.dropBackground`, `editorGroup.dropBackground` +11 more |
 | `accentStrong` | ![#403582](swatches/403582.svg) `#403582` | ![#5649B0](swatches/5649B0.svg) `#5649B0` | **Dark:** CommonControls.ButtonDefault (VS primary button)<br>**Light:** Shell.AccentFillDefault (Fluent primary button fill) | `button.background`, `extensionButton.background`, `extensionButton.prominentBackground` +2 more |
