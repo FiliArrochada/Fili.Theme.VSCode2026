@@ -17,13 +17,13 @@ the source records which Visual Studio token it came from.
 
 Visual Studio 2026-inspired Fluent dark appearance for VS Code.
 
-![Fili.VSCode2026 Dark](docs/dark.png)
+![Fili.VSCode2026 Dark](docs/screenshots/dark.png)
 
 ## Fili.VSCode2026 Light
 
 Visual Studio 2026-inspired Fluent light appearance for VS Code.
 
-![Fili.VSCode2026 Light](docs/light.png)
+![Fili.VSCode2026 Light](docs/screenshots/light.png)
 
 ## Every Visual Studio 2026 theme
 
@@ -39,7 +39,7 @@ Besides Dark and Light, the extension carries every other theme Visual Studio 20
 | Fili.VSCode2026 Dark (Extra Contrast) | Fili.VSCode2026 Light (Sunny Day) |
 | Fili.VSCode2026 Dark (High Contrast) | Fili.VSCode2026 Light (Extra Contrast) |
 
-![All sixteen themes](docs/themes.png)
+![All sixteen themes](docs/screenshots/themes.png)
 
 In Visual Studio these are small deltas on Dark or Light, and they are here too:
 
@@ -202,7 +202,7 @@ Code's yellow one.
 Razor's component colours come from the C# extension's Razor language server, so they appear once
 it has loaded the project.
 
-![A Razor component in Fili.VSCode2026 Dark and Light](docs/razor.png)
+![A Razor component in Fili.VSCode2026 Dark and Light](docs/screenshots/razor.png)
 
 **Every colour says where it came from.** [docs/PARITY.md](docs/PARITY.md) lists all of them, Dark
 and Light, with the Visual Studio token, sample or reasoning behind each and what it colours in VS
@@ -234,7 +234,7 @@ VS Code's Explorer shows the folders on disk. For the solution itself — its pr
 companions above). It adds a solution view to the Explorer, titled **C# Project Details** in current versions,
 drawn in the same theme colours:
 
-![C# Dev Kit's solution view in Fili.VSCode2026 Dark](docs/solution-explorer.png)
+![C# Dev Kit's solution view in Fili.VSCode2026 Dark](docs/screenshots/solution-explorer.png)
 
 ## Making the layout look like Visual Studio 2026 too
 
@@ -243,7 +243,7 @@ layout changes behaviour as well as looks, so it is one command away instead of 
 **Fili.VSCode2026: Apply Visual Studio 2026 Layout** from the Command Palette (`Ctrl+Shift+P`).
 The extension also offers it once, in a notification, the first time you use one of its themes:
 
-![The one-time offer to apply Visual Studio 2026's layout](docs/layout-offer.png)
+![The one-time offer to apply Visual Studio 2026's layout](docs/screenshots/layout-offer.png)
 
 It sets, in your user settings:
 
@@ -298,9 +298,9 @@ These are limits of what a VS Code colour theme can express, not choices:
 - **The UI font.** Visual Studio draws its interface in Segoe UI at 9pt; VS Code's workbench font
   cannot be changed by an extension or a setting.
 
-![Debugging in Fili.VSCode2026 Dark](docs/dark-debug.png)
+![Debugging in Fili.VSCode2026 Dark](docs/screenshots/dark-debug.png)
 
-![Diagnostics in Fili.VSCode2026 Light](docs/light-problems.png)
+![Diagnostics in Fili.VSCode2026 Light](docs/screenshots/light-problems.png)
 
 ## Development
 

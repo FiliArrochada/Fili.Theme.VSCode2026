@@ -9,7 +9,7 @@ param(
 #            testing and debugging, in Dark and Light (sample: tools/samples/editor)
 #   gallery  the editor in all sixteen themes (tools/samples/editor)
 #   docs     the one-time layout offer and C# Dev Kit's solution view (tools/samples/solution)
-#   -Publish writes docs/dark.png, light.png, dark-debug.png, light-problems.png and themes.png
+#   -Publish writes docs/screenshots/dark.png, light.png, dark-debug.png, light-problems.png and themes.png
 #            from the scenes and gallery passes.
 #
 # VS Code runs as an Extension Development Host with this repository and the driver extension in
@@ -74,7 +74,7 @@ foreach ($p in $Pass) {
 }
 
 if ($Publish) {
-  $scenes = Join-Path $OutDir 'scenes'; $gallery = Join-Path $OutDir 'gallery'; $docs = Join-Path $repo 'docs'
+  $scenes = Join-Path $OutDir 'scenes'; $gallery = Join-Path $OutDir 'gallery'; $docs = Join-Path $repo 'docs\screenshots'
   Add-Type -AssemblyName System.Drawing
   # The Debug Console prints the Node path; paint its text area with the panel's own background so
   # no machine path ends up in a published image.

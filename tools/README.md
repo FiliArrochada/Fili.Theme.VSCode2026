@@ -55,11 +55,11 @@ extension in `driver/`, which walks through each scene and hands every capture t
 
 ```text
 pwsh tools/screenshots/run.ps1                     # scenes + gallery, about 15 minutes
-pwsh tools/screenshots/run.ps1 -Publish            # … and rebuild docs/*.png from them
+pwsh tools/screenshots/run.ps1 -Publish            # … and rebuild docs/screenshots/*.png from them
 pwsh tools/screenshots/run.ps1 -Pass docs          # the layout offer and C# Dev Kit's solution view
 ```
 
-`-Publish` writes `docs/dark.png`, `light.png`, `dark-debug.png`, `light-problems.png` and the
+`-Publish` writes `docs/screenshots/dark.png`, `light.png`, `dark-debug.png`, `light-problems.png` and the
 sixteen-theme grid `themes.png` (`crop.ps1`, `grid.ps1`), and paints over the Debug Console text so
 no machine path is published. Look at the images before committing them.
 
