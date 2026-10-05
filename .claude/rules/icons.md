@@ -5,7 +5,7 @@ paths:
   - "src/product-icons.json"
   - "src/vendor/**"
   - "product-icons/**"
-  - "THIRD-PARTY-NOTICES.md"
+  - "docs/THIRD-PARTY-NOTICES.md"
 ---
 
 # File icons and product icons
@@ -24,7 +24,7 @@ through `src/vendor/fluent/FluentSystemIcons-Regular.json` and writes
 - The font is not subset — about 0.8 MB in the package, in exchange for a Node-only toolchain — and
   must stay under `product-icons/`, because `src/**` is not packaged.
 - The `.woff2` and the `.json` map must come from the same upstream commit, recorded in
-  `THIRD-PARTY-NOTICES.md` (which must stay in the package): codepoints are not stable across Fluent
-  releases.
+  `docs/THIRD-PARTY-NOTICES.md` (which must stay in the package; `.vscodeignore` re-includes it):
+  codepoints are not stable across Fluent releases.
 - The build deletes any other file in `product-icons/`.
 - An unmapped codicon keeps VS Code's icon, so the map can stay partial.

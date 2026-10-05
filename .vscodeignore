@@ -6,9 +6,12 @@ src/**
 scripts/**
 CLAUDE.md
 .claude/**
-BACKLOG.md
 **/*.vsix
 docs/**
+# ...except the changelog, which vsce packages for the Marketplace's Changelog tab (--changelog-path),
+# and the third-party notices, which the Fluent font's MIT licence requires to ship with it.
+!docs/CHANGELOG.md
+!docs/THIRD-PARTY-NOTICES.md
 .vs/**
 test/**
 tools/**

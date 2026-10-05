@@ -1,5 +1,5 @@
 {
-  "$comment": "Codicon id -> Fluent System Icons base name (Regular style). scripts/build.mjs picks the 16px design where Fluent has one, else 20px, else 24px, through src/vendor/fluent/, and writes the product icon theme JSON beside the full Fluent font in product-icons/. A codicon not listed here keeps VS Code's own icon. Fluent System Icons are Microsoft's, MIT-licensed; see THIRD-PARTY-NOTICES.md.",
+  "$comment": "Codicon id -> Fluent System Icons base name (Regular style). scripts/build.mjs picks the 16px design where Fluent has one, else 20px, else 24px, through src/vendor/fluent/, and writes the product icon theme JSON beside the full Fluent font in product-icons/. A codicon not listed here keeps VS Code's own icon. Fluent System Icons are Microsoft's, MIT-licensed; see docs/THIRD-PARTY-NOTICES.md.",
 
   "files": "document_copy",
   "search": "search",

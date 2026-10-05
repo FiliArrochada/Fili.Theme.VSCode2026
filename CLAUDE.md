@@ -108,4 +108,4 @@ Path-scoped rules in `.claude/rules/` load when you touch matching files:
 | `measuring.md` | using and changing `tools/`: window visibility, locked sessions, sampling traps |
 
 Elsewhere: `tools/README.md` (how to run each tool), `docs/PARITY.md` (generated provenance of every
-colour), `BACKLOG.md` (unscheduled work), `CHANGELOG.md`.
+colour), `docs/BACKLOG.md` (unscheduled work), `docs/CHANGELOG.md`.

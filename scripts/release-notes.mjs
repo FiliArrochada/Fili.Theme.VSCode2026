@@ -1,4 +1,4 @@
-// Prints one version's section of CHANGELOG.md, without its heading, for a GitHub release.
+// Prints one version's section of docs/CHANGELOG.md, without its heading, for a GitHub release.
 //
 //   node scripts/release-notes.mjs 0.4.1
 //
@@ -16,17 +16,17 @@ if (!version) {
 }
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const lines = readFileSync(join(root, 'CHANGELOG.md'), 'utf8').split(/\r?\n/);
+const lines = readFileSync(join(root, 'docs', 'CHANGELOG.md'), 'utf8').split(/\r?\n/);
 const start = lines.findIndex((l) => l.trim() === `## ${version}`);
 if (start < 0) {
-  console.error(`CHANGELOG.md has no '## ${version}' section`);
+  console.error(`docs/CHANGELOG.md has no '## ${version}' section`);
   process.exit(1);
 }
 const rest = lines.slice(start + 1);
 const end = rest.findIndex((l) => l.startsWith('## '));
 const notes = (end < 0 ? rest : rest.slice(0, end)).join('\n').trim();
 if (!notes) {
-  console.error(`CHANGELOG.md's '## ${version}' section is empty`);
+  console.error(`docs/CHANGELOG.md's '## ${version}' section is empty`);
   process.exit(1);
 }
 console.log(notes);

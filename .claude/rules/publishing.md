@@ -2,7 +2,7 @@
 paths:
   - ".github/workflows/**"
   - "package.json"
-  - "CHANGELOG.md"
+  - "docs/CHANGELOG.md"
   - "scripts/release-notes.mjs"
   - ".vscodeignore"
   - "README.md"
@@ -13,7 +13,7 @@ paths:
 A release goes to three places: the Visual Studio Marketplace, Open VSX and a GitHub release. **The
 human runs every step below; never publish, tag or push from a session.**
 
-1. Bump `version` in `package.json` and add a matching `## <version>` section to `CHANGELOG.md`.
+1. Bump `version` in `package.json` and add a matching `## <version>` section to `docs/CHANGELOG.md`.
    Both registries refuse a version they already have.
 2. Commit and push, then push the `v<version>` tag **on its own** (`git push origin v<version>`).
    GitHub starts no workflow for any tag in a push of more than three tags, so `--tags`, or a push
@@ -25,8 +25,13 @@ human runs every step below; never publish, tag or push from a session.**
    uploaded by hand is not an error.
 4. Upload the release's `.vsix` on the Visual Studio Marketplace management page. That stays manual
    by choice: Marketplace personal access tokens stop working after 1 December 2026, and the Entra
-   ID alternative was judged not worth its Azure setup for an occasional release (`BACKLOG.md` has
+   ID alternative was judged not worth its Azure setup for an occasional release (`docs/BACKLOG.md` has
    what it would take).
+
+**The changelog lives in `docs/` and is still packaged.** `docs/**` is excluded from the package, so
+`.vscodeignore` re-includes `!docs/CHANGELOG.md`, and every vsce call passes `--changelog-path
+docs/CHANGELOG.md` — without both, vsce finds no changelog and the registries' Changelog tab goes
+empty. ovsx has no such option, so `publish:ovsx` publishes a package vsce built.
 
 `npm run package` builds the `.vsix` alone; `npm run publish` (vsce, needs a Marketplace token) and
 `npm run publish:ovsx` (ovsx, reads `OVSX_PAT`) publish from a local checkout.

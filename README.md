@@ -360,7 +360,7 @@ Press `F5` in this folder to open an Extension Development Host with the themes 
 ## License
 
 MIT. See [LICENSE](LICENSE). The Fluent Icons product icon theme contains glyphs from Microsoft's
-Fluent UI System Icons, also MIT-licensed; see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+Fluent UI System Icons, also MIT-licensed; see [THIRD-PARTY-NOTICES.md](docs/THIRD-PARTY-NOTICES.md).
 
 Visual Studio and Visual Studio Code are trademarks of Microsoft Corporation. This project is not
 affiliated with or endorsed by Microsoft.

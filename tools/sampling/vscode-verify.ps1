@@ -19,7 +19,7 @@ $user = Join-Path $ProfileDir 'user'; $ext = Join-Path $ProfileDir 'extensions'
 if (-not $Vsix) {
   $Vsix = Join-Path $env:TEMP 'fili-vscode-verify.vsix'
   Push-Location $repo
-  try { npx --yes @vscode/vsce package --no-dependencies -o $Vsix | Select-Object -Last 1 } finally { Pop-Location }
+  try { npx --yes @vscode/vsce package --no-dependencies --changelog-path docs/CHANGELOG.md -o $Vsix | Select-Object -Last 1 } finally { Pop-Location }
 }
 $installed = & $code --user-data-dir $user --extensions-dir $ext --list-extensions 2>$null
 if ($installed -notcontains 'ms-dotnettools.csharp') { & $code --user-data-dir $user --extensions-dir $ext --install-extension ms-dotnettools.csharp 2>$null | Select-Object -Last 1 }
