@@ -297,6 +297,21 @@ This page lists them all, so it shows at a glance how much of the theme is Visua
 data and how much is not. What a VS Code theme cannot reproduce at all is in the README's
 [known limits](../README.md#known-limits).
 
+**What the sources mean.** Visual Studio's themes are files of named colours, *tokens*, grouped by
+category: \`Shell.AccentFillDefault\` is the purple accent, \`Text Editor Language Service
+Items.Keyword\` the keyword blue. Visual Studio looks each colour up by its name when it draws, and
+\`scripts/vs-tokens.mjs\` reads the same files from a Visual Studio install. In short:
+
+- **token** means Visual Studio's own declared colour, read from its theme files;
+- **sampled** means what Visual Studio actually showed on screen, measured from a running window;
+- **inferred** means Visual Studio has no equivalent, so a value was chosen to fit.
+
+Declared and shown are not always the same colour. Visual Studio draws some tokens translucent or
+dotted (its find highlight token is \`#773800\`, but on screen it is \`#453B32\`), and its Light theme
+leaves many editor colours out of its files altogether, falling back on defaults built into Visual
+Studio. Where the two differ, the theme generally takes what is shown and the note keeps the token
+beside it; where it keeps the token instead, the note says why.
+
 | Source | Meaning | Dark | Light |
 |---|---|---|---|
 | token | a colour token or classification Visual Studio 2026 ships in its theme files | ${darkCount.token} | ${lightCount.token} |

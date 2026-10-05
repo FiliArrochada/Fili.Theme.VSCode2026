@@ -8,13 +8,28 @@ This page lists them all, so it shows at a glance how much of the theme is Visua
 data and how much is not. What a VS Code theme cannot reproduce at all is in the README's
 [known limits](../README.md#known-limits).
 
+**What the sources mean.** Visual Studio's themes are files of named colours, *tokens*, grouped by
+category: `Shell.AccentFillDefault` is the purple accent, `Text Editor Language Service
+Items.Keyword` the keyword blue. Visual Studio looks each colour up by its name when it draws, and
+`scripts/vs-tokens.mjs` reads the same files from a Visual Studio install. In short:
+
+- **token** means Visual Studio's own declared colour, read from its theme files;
+- **sampled** means what Visual Studio actually showed on screen, measured from a running window;
+- **inferred** means Visual Studio has no equivalent, so a value was chosen to fit.
+
+Declared and shown are not always the same colour. Visual Studio draws some tokens translucent or
+dotted (its find highlight token is `#773800`, but on screen it is `#453B32`), and its Light theme
+leaves many editor colours out of its files altogether, falling back on defaults built into Visual
+Studio. Where the two differ, the theme generally takes what is shown and the note keeps the token
+beside it; where it keeps the token instead, the note says why.
+
 | Source | Meaning | Dark | Light |
 |---|---|---|---|
-| token | a colour token or classification Visual Studio 2026 ships in its theme files | 115 | 69 |
+| token | a colour token or classification Visual Studio 2026 ships in its theme files | 110 | 69 |
 | VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, image-catalog and glyph colours | 7 | 27 |
-| sampled | measured from a running Visual Studio 2026 window | 27 | 49 |
+| sampled | measured from a running Visual Studio 2026 window | 34 | 49 |
 | composite | a translucent Visual Studio token flattened onto the surface under it | 9 | 14 |
-| derived | another role's value, or a fraction of its opacity | 6 | 6 |
+| derived | another role's value, or a fraction of its opacity | 4 | 6 |
 | inferred | no Visual Studio equivalent; chosen to fit | 6 | 5 |
 | **total** | | **170** | **170** |
 
@@ -32,7 +47,7 @@ changes; everything else is its base's.
 | Fili.VSCode2026 Dark (Extra Contrast) | dark | 27 |
 | Fili.VSCode2026 Light (Icy Mint) | light | 17 |
 | Fili.VSCode2026 Dark (Juicy Plum) | dark | 15 |
-| Fili.VSCode2026 Light (Extra Contrast) | light | 26 |
+| Fili.VSCode2026 Light (Extra Contrast) | light | 27 |
 | Fili.VSCode2026 Light (Mango Paradise) | light | 16 |
 | Fili.VSCode2026 Dark (Moonlight Glow) | dark | 15 |
 | Fili.VSCode2026 Dark (Mystical Forest) | dark | 15 |
@@ -109,10 +124,10 @@ changes; everything else is its base's.
 |---|---|---|---|---|
 | `selection` | ![#004377](swatches/004377.svg) `#004377` | ![#5CA9E566](swatches/5CA9E566.svg) `#5CA9E566` | **Dark:** Text Editor MEF Items.Selected Text<br>**Light:** Text Editor MEF Items.Selected Text #5CA9E5 at 40%: VS draws its selection translucent | `selection.background`, `editor.selectionBackground`, `minimap.selectionHighlight` +1 more |
 | `selectionInactive` | ![#383838](swatches/383838.svg) `#383838` | ![#E3E3E3](swatches/E3E3E3.svg) `#E3E3E3` | **Dark:** Text Editor MEF Items.Inactive Selected Text<br>**Light:** composite: Text Editor MEF Items.Inactive Selected Text #D1D1D1 at 60% over editor | `editor.inactiveSelectionBackground`, `editor.foldBackground`, `terminal.inactiveSelectionBackground` |
-| `selectionHighlight` | ![#0E4583](swatches/0E4583.svg) `#0E4583` | ![#E2E6D6](swatches/E2E6D6.svg) `#E2E6D6` | **Dark:** Text Editor MEF Items.MarkerFormatDefinition/HighlightedReference<br>**Light:** sampled 2026-10-04: highlighted references, as drawn | `editor.selectionHighlightBackground`, `editor.wordHighlightBackground`, `editor.wordHighlightStrongBackground` +9 more |
-| `findMatch` | ![#773800](swatches/773800.svg) `#773800` | ![#E4D8C2](swatches/E4D8C2.svg) `#E4D8C2` | **Dark:** Text Editor MEF Items.MarkerFormatDefinition/FindHighlight<br>**Light:** sampled 2026-10-04: find matches, as drawn; VS marks the current match by selecting it (Dark draws its #773800 token as #453B32) | `editor.findMatchBackground`, `editorOverviewRuler.findMatchForeground`, `minimap.findMatchHighlight` +3 more |
-| `findMatchOther` | ![#77380099](swatches/77380099.svg) `#77380099` | ![#E4D8C2](swatches/E4D8C2.svg) `#E4D8C2` | **Dark:** FindHighlight at 60% for the non-current matches<br>**Light:** sampled 2026-10-04: the non-current find matches, as drawn | `list.filterMatchBackground`, `editor.findMatchHighlightBackground`, `editor.symbolHighlightBackground` +5 more |
-| `bracketMatch` | ![#0E4583](swatches/0E4583.svg) `#0E4583` | ![#E2E6D6](swatches/E2E6D6.svg) `#E2E6D6` | **Dark:** Text Editor MEF Items.brace matching<br>**Light:** sampled 2026-10-04: matched braces, as drawn; the same fill as references, as in Dark | `editorBracketMatch.background` |
+| `selectionHighlight` | ![#113D6F](swatches/113D6F.svg) `#113D6F` | ![#E2E6D6](swatches/E2E6D6.svg) `#E2E6D6` | **Dark:** sampled 2026-10-04: highlighted references, as drawn (token MarkerFormatDefinition/HighlightedReference #0E4583)<br>**Light:** sampled 2026-10-04: highlighted references, as drawn | `editor.selectionHighlightBackground`, `editor.wordHighlightBackground`, `editor.wordHighlightStrongBackground` +9 more |
+| `findMatch` | ![#453B32](swatches/453B32.svg) `#453B32` | ![#E4D8C2](swatches/E4D8C2.svg) `#E4D8C2` | **Dark:** sampled 2026-10-04: find matches, as drawn (token MarkerFormatDefinition/FindHighlight #773800); VS marks the current match by selecting it<br>**Light:** sampled 2026-10-04: find matches, as drawn; VS marks the current match by selecting it (Dark draws its #773800 token as #453B32) | `editor.findMatchBackground`, `editorOverviewRuler.findMatchForeground`, `minimap.findMatchHighlight` +3 more |
+| `findMatchOther` | ![#453B32](swatches/453B32.svg) `#453B32` | ![#E4D8C2](swatches/E4D8C2.svg) `#E4D8C2` | sampled 2026-10-04: the non-current find matches, as drawn | `list.filterMatchBackground`, `editor.findMatchHighlightBackground`, `editor.symbolHighlightBackground` +5 more |
+| `bracketMatch` | ![#113D6F](swatches/113D6F.svg) `#113D6F` | ![#E2E6D6](swatches/E2E6D6.svg) `#E2E6D6` | **Dark:** sampled 2026-10-04: matched braces, as drawn; the same fill as references (token brace matching #0E4583)<br>**Light:** sampled 2026-10-04: matched braces, as drawn; the same fill as references, as in Dark | `editorBracketMatch.background` |
 | `scopeHighlight` | ![#0F202D](swatches/0F202D.svg) `#0F202D` | ![#F2F6FA](swatches/F2F6FA.svg) `#F2F6FA` | **Dark:** Text Editor MEF Items.MarkerFormatDefinition/ScopeHighlight<br>**Light:** inferred: light counterpart of ScopeHighlight | `editor.findRangeHighlightBackground`, `editor.rangeHighlightBackground`, `editorOverviewRuler.rangeHighlightForeground` |
 | `listSelection` | ![#353535](swatches/353535.svg) `#353535` | ![#EAEAEA](swatches/EAEAEA.svg) `#EAEAEA` | **Dark:** sampled: Solution Explorer selected row; equals Shell.SubtleFillSecondary #ffffff0f over card<br>**Light:** sampled: Solution Explorer selected row; equals Shell.SubtleFillSecondary #0000000f over card | `toolbar.activeBackground`, `list.activeSelectionBackground`, `list.focusBackground` +5 more |
 | `listSelectionInactive` | ![#353535](swatches/353535.svg) `#353535` | ![#EAEAEA](swatches/EAEAEA.svg) `#EAEAEA` | sampled: VS keeps the same fill when Solution Explorer loses focus | `list.inactiveSelectionBackground`, `list.inactiveFocusBackground`, `notebook.selectedCellBackground` |
@@ -141,9 +156,9 @@ changes; everything else is its base's.
 | `inlayHintBg` | ![#3E3E3E](swatches/3E3E3E.svg) `#3E3E3E` | ![#E6E6FA](swatches/E6E6FA.svg) `#E6E6FA` | Roslyn Text Editor MEF Items.inline hints background | `editorInlayHint.background`, `editorInlayHint.typeBackground`, `editorInlayHint.parameterBackground` +1 more |
 | `inlayHintFg` | ![#A9A8A7](swatches/A9A8A7.svg) `#A9A8A7` | ![#686868](swatches/686868.svg) `#686868` | Roslyn Text Editor MEF Items.inline hints foreground | `editorInlayHint.foreground`, `editorInlayHint.typeForeground`, `editorInlayHint.parameterForeground` |
 | `whitespace` | ![#3B5A60](swatches/3B5A60.svg) `#3B5A60` | ![#95C8D7](swatches/95C8D7.svg) `#95C8D7` | **Dark:** Text Editor MEF Items.Visible Whitespace #144852, lifted: VS draws it bolder than VS Code does<br>**Light:** VS default Visible Whitespace #2B91AF at 50% | `editorWhitespace.foreground` |
-| `indentGuide` | ![#404040](swatches/404040.svg) `#404040` | ![#F0F0F0](swatches/F0F0F0.svg) `#F0F0F0` | **Dark:** Text Editor MEF Items.Block Structure Adornments #424242<br>**Light:** sampled 2026-10-04: block structure guide lines, as drawn (solid in Light; Dark draws its #424242 token dotted) | `editorIndentGuide.background1`, `editorRuler.foreground`, `editorBracketPairGuide.background1` +11 more |
+| `indentGuide` | ![#3D3D3D](swatches/3D3D3D.svg) `#3D3D3D` | ![#F0F0F0](swatches/F0F0F0.svg) `#F0F0F0` | **Dark:** sampled 2026-10-04: block structure guide lines, as drawn dotted (token Block Structure Adornments #424242)<br>**Light:** sampled 2026-10-04: block structure guide lines, as drawn (solid in Light; Dark draws its #424242 token dotted) | `editorIndentGuide.background1`, `editorRuler.foreground`, `editorBracketPairGuide.background1` +11 more |
 | `indentGuideActive` | ![#707070](swatches/707070.svg) `#707070` | ![#ADADAD](swatches/ADADAD.svg) `#ADADAD` | **Dark:** Environment.ActiveBorder<br>**Light:** ShellInternal.EnvironmentBorderInactive | `editorIndentGuide.activeBackground1`, `editorIndentGuide.activeBackground`, `editorIndentGuide.activeBackground2` +4 more |
-| `snippetField` | ![#5B5B5B](swatches/5B5B5B.svg) `#5B5B5B` | ![#FFE7A0](swatches/FFE7A0.svg) `#FFE7A0` | **Dark:** Text Editor Text Marker Items.Code Snippet Field<br>**Light:** sampled 2026-10-04: an inactive snippet field, as drawn (Dark draws its #5B5B5B token as #4F4F4F) | `editor.snippetTabstopHighlightBackground` |
+| `snippetField` | ![#4F4F4F](swatches/4F4F4F.svg) `#4F4F4F` | ![#FFE7A0](swatches/FFE7A0.svg) `#FFE7A0` | **Dark:** sampled 2026-10-04: an inactive snippet field, as drawn (token Code Snippet Field #5B5B5B)<br>**Light:** sampled 2026-10-04: an inactive snippet field, as drawn (Dark draws its #5B5B5B token as #4F4F4F) | `editor.snippetTabstopHighlightBackground` |
 | `unnecessaryOpacity` | ![#000000A0](swatches/000000A0.svg) `#000000A0` | ![#000000A0](swatches/000000A0.svg) `#000000A0` | alpha only: VS fades unnecessary code to ~60% | `editorUnnecessaryCode.opacity`, `minimap.foregroundOpacity` |
 
 ## Status bar
@@ -173,7 +188,7 @@ changes; everything else is its base's.
 |---|---|---|---|---|
 | `debugCurrent` | ![#EFF28440](swatches/EFF28440.svg) `#EFF28440` | ![#FFEE6280](swatches/FFEE6280.svg) `#FFEE6280` | **Dark:** Text Editor MEF Items.Current Statement #EFF284 at 25%: VS repaints the text black, VS Code cannot<br>**Light:** VS default Current Statement #FFEE62 at 50% | `editor.stackFrameHighlightBackground` |
 | `debugCurrentGlyph` | ![#FFCC00](swatches/FFCC00.svg) `#FFCC00` | ![#D9A400](swatches/D9A400.svg) `#D9A400` | **Dark:** inferred: VS 2026 draws a two-tone arrow (dark-amber fill, light outline) over the breakpoint; VS Code's glyph has one colour, so it takes the arrow's yellow<br>**Light:** inferred: VS 2026 draws a two-tone arrow (cream fill, dark outline) over the breakpoint; VS Code's glyph has one colour, so it takes a yellow that reads on a white margin | `debugIcon.breakpointCurrentStackframeForeground` |
-| `debugFocused` | ![#7CA5A040](swatches/7CA5A040.svg) `#7CA5A040` | ![#B9DFB980](swatches/B9DFB980.svg) `#B9DFB980` | **Dark:** Text Editor MEF Items.Call Return #7CA5A0 at 25%<br>**Light:** sampled 2026-10-04: Call Return on the selected caller frame, #B9DFB9 as drawn, at 50% so the text stays readable | `editor.focusedStackFrameHighlightBackground` |
+| `debugFocused` | ![#73949040](swatches/73949040.svg) `#73949040` | ![#B9DFB980](swatches/B9DFB980.svg) `#B9DFB980` | **Dark:** sampled 2026-10-04: Call Return on the selected caller frame, #739490 as drawn (token #7CA5A0), at 25% so the text stays readable<br>**Light:** sampled 2026-10-04: Call Return on the selected caller frame, #B9DFB9 as drawn, at 50% so the text stays readable | `editor.focusedStackFrameHighlightBackground` |
 | `breakpoint` | ![#E51400](swatches/E51400.svg) `#E51400` | ![#E51400](swatches/E51400.svg) `#E51400` | VS breakpoint glyph red | `debugIcon.breakpointForeground` |
 | `breakpointDisabled` | ![#AEAEAE](swatches/AEAEAE.svg) `#AEAEAE` | ![#A0A0A0](swatches/A0A0A0.svg) `#A0A0A0` | **Dark:** Text Editor MEF Items.Breakpoint (Disabled)<br>**Light:** inferred: VS 2026 draws a disabled breakpoint as a red hollow circle; VS Code's disabled glyph is a filled dot, which in red would look enabled, so it stays grey | `debugIcon.breakpointDisabledForeground`, `debugIcon.breakpointUnverifiedForeground` |
 
@@ -181,9 +196,9 @@ changes; everything else is its base's.
 
 | Role | Dark | Light | Source | Used by |
 |---|---|---|---|---|
-| `diffAddLine` | ![#15352C](swatches/15352C.svg) `#15352C` | ![#E6EBDA](swatches/E6EBDA.svg) `#E6EBDA` | **Dark:** Text Editor MEF Items.deltadiff.add.line<br>**Light:** sampled 2026-10-04 in the diff view: added line (was Shell.SystemFillSuccessBackground, which the diff view does not use) | `diffEditor.insertedLineBackground`, `diffEditorGutter.insertedLineBackground`, `testing.coveredBackground` +2 more |
+| `diffAddLine` | ![#15352C](swatches/15352C.svg) `#15352C` | ![#E6EBDA](swatches/E6EBDA.svg) `#E6EBDA` | **Dark:** Text Editor MEF Items.deltadiff.add.line (drawn #1F3A32; the token is kept because the variants derive their diff colours from the same tokens)<br>**Light:** sampled 2026-10-04 in the diff view: added line (was Shell.SystemFillSuccessBackground, which the diff view does not use) | `diffEditor.insertedLineBackground`, `diffEditorGutter.insertedLineBackground`, `testing.coveredBackground` +2 more |
 | `diffAddWord` | ![#265E4D](swatches/265E4D.svg) `#265E4D` | ![#D7E3BC](swatches/D7E3BC.svg) `#D7E3BC` | **Dark:** Text Editor MEF Items.deltadiff.add.word<br>**Light:** sampled 2026-10-04 in the diff view: added word | `diffEditor.insertedTextBackground`, `inlineChatDiff.inserted`, `inlineEdit.modifiedChangedTextBackground` |
-| `diffRemoveLine` | ![#2D0000](swatches/2D0000.svg) `#2D0000` | ![#F7CCCC](swatches/F7CCCC.svg) `#F7CCCC` | **Dark:** Text Editor MEF Items.deltadiff.remove.line<br>**Light:** sampled 2026-10-04 in the diff view: removed line (was Shell.SystemFillCriticalBackground, which the diff view does not use) | `diffEditor.removedLineBackground`, `diffEditorGutter.removedLineBackground`, `testing.uncoveredBackground` +2 more |
+| `diffRemoveLine` | ![#2D0000](swatches/2D0000.svg) `#2D0000` | ![#F7CCCC](swatches/F7CCCC.svg) `#F7CCCC` | **Dark:** Text Editor MEF Items.deltadiff.remove.line (drawn #330D0D; the token is kept because the variants derive their diff colours from the same tokens)<br>**Light:** sampled 2026-10-04 in the diff view: removed line (was Shell.SystemFillCriticalBackground, which the diff view does not use) | `diffEditor.removedLineBackground`, `diffEditorGutter.removedLineBackground`, `testing.uncoveredBackground` +2 more |
 | `diffRemoveWord` | ![#3C0000](swatches/3C0000.svg) `#3C0000` | ![#FF9999](swatches/FF9999.svg) `#FF9999` | **Dark:** Text Editor MEF Items.deltadiff.remove.word<br>**Light:** sampled 2026-10-04 in the diff view: removed word | `diffEditor.removedTextBackground`, `testing.uncoveredBranchBackground`, `inlineChatDiff.removed` +1 more |
 
 ## Source control
@@ -241,17 +256,17 @@ changes; everything else is its base's.
 
 | Role | Dark | Light | Source | Used by |
 |---|---|---|---|---|
-| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +3 more |
+| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +4 more |
 | `synIdentifier` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Identifier: VS leaves fields, properties, events, constants, enum members and namespaces plain<br>**Light:** VS default Identifier: fields, properties, events, constants, enum members and namespaces stay plain | `Plain text`, `Namespace stays plain`, `namespace` +6 more |
 | `synPunctuation` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.punctuation | `Punctuation`, `Interpolation punctuation`, `punctuation` |
-| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +6 more |
+| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +8 more |
 | `synControl` | ![#D8A0DF](swatches/D8A0DF.svg) `#D8A0DF` | ![#8F08C4](swatches/8F08C4.svg) `#8F08C4` | Roslyn.keyword - control | `Control keyword`, `controlKeyword` |
 | `synOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Operator<br>**Light:** VS default Operator | `Operator`, `operator` |
 | `synString` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** String<br>**Light:** VS default String | `textPreformat.foreground`, `debugTokenExpression.string`, `String` +7 more |
 | `synStringVerbatim` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#800000](swatches/800000.svg) `#800000` | Roslyn.string - verbatim | `stringVerbatim` |
 | `synStringEscape` | ![#FFD68F](swatches/FFD68F.svg) `#FFD68F` | ![#B776FB](swatches/B776FB.svg) `#B776FB` | string - escape character | `Escape sequence`, `stringEscapeCharacter` |
 | `synNumber` | ![#B5CEA8](swatches/B5CEA8.svg) `#B5CEA8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Number<br>**Light:** VS default Number | `debugTokenExpression.number`, `Number`, `number` +1 more |
-| `synComment` | ![#57A64A](swatches/57A64A.svg) `#57A64A` | ![#008000](swatches/008000.svg) `#008000` | **Dark:** Comment<br>**Light:** VS default Comment | `Comment`, `Markdown quote`, `comment` +4 more |
+| `synComment` | ![#57A64A](swatches/57A64A.svg) `#57A64A` | ![#008000](swatches/008000.svg) `#008000` | **Dark:** Comment<br>**Light:** VS default Comment | `Comment`, `PowerShell: VS draws type literals ([string]) in its comment green, in both themes (sampled)`, `Markdown quote` +5 more |
 | `synDocText` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#008000](swatches/008000.svg) `#008000` | Roslyn.xml doc comment - text | `XML doc comment text`, `xmlDocCommentText`, `xmlDocCommentComment` +1 more |
 | `synDocTag` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#808080](swatches/808080.svg) `#808080` | Roslyn.xml doc comment - delimiter | `XML doc comment delimiters`, `JSDoc / other doc tags`, `xmlDocCommentDelimiter` +2 more |
 | `synDocName` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#808080](swatches/808080.svg) `#808080` | Roslyn.xml doc comment - name | `XML doc comment tag names`, `xmlDocCommentName` |
