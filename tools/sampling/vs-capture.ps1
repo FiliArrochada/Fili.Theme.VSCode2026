@@ -70,6 +70,9 @@ if (-not $hive) { throw "no isolated hive '$RootSuffix' yet: start it once with 
 $work = Join-Path $env:TEMP 'fili-vs-capture\samples'
 if (Test-Path $work) { Remove-Item $work -Recurse -Force }
 Copy-Item (Join-Path $PSScriptRoot '..\samples') $work -Recurse
+# %TEMP% is often an 8.3 short path (C:\Users\ABCDEF~1\...); Visual Studio records documents by
+# their long path, so a short one never matches a document it opened.
+$work = (Get-Item $work).FullName
 $langs = Join-Path $work 'languages'
 $cs = Join-Path $langs 'Fili.Langs.Cli\Program.cs'
 New-Item -ItemType Directory -Force $OutDir | Out-Null
@@ -105,8 +108,16 @@ function SendSafe([string]$keys) {
 }
 function Esc([string]$t) { ($t.ToCharArray() | ForEach-Object { if ('{}()+^%~[]'.Contains($_)) { '{' + $_ + '}' } else { "$_" } }) -join '' }
 function OpenActive([string]$path) {
-  $win = Retry { $dte.ItemOperations.OpenFile($path) }
-  foreach ($w in @($win)) { Retry { $w.Activate() } }
+  # OpenFile does not always return the window it opened, so find the document by its path and
+  # activate that instead.
+  Retry { $dte.ItemOperations.OpenFile($path) } | Out-Null
+  $doc = $null
+  for ($i = 0; $i -lt 20 -and -not $doc; $i++) {
+    $doc = Retry { $dte.Documents } | Where-Object { $_.FullName -eq $path } | Select-Object -First 1
+    if (-not $doc) { Start-Sleep -Milliseconds 500 }
+  }
+  if (-not $doc) { throw "Visual Studio did not open $path" }
+  Retry { $doc.Activate() }
   Start-Sleep -Seconds 1
   $active = Retry { $dte.ActiveDocument.Name }
   if ($active -ne (Split-Path $path -Leaf)) { throw "expected $(Split-Path $path -Leaf) in front, Visual Studio shows $active" }

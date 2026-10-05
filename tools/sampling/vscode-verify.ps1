@@ -28,6 +28,7 @@ if ($installed -notcontains 'ms-dotnettools.csharp') { & $code --user-data-dir $
 $work = Join-Path $env:TEMP 'fili-vscode-verify-samples'
 if (Test-Path $work) { Remove-Item $work -Recurse -Force }
 Copy-Item (Join-Path $PSScriptRoot '..\samples') $work -Recurse
+$work = (Get-Item $work).FullName   # long path: the C# server rejects 8.3 short paths
 $L = Join-Path $work 'languages'
 $jobs = @(
   @{ slug = 'cs-refs';  folder = $L; args = @('-g', "$L\Fili.Langs.Cli\Program.cs:7:14"); wait = 75 },
