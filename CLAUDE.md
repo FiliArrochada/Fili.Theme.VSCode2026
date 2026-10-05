@@ -45,6 +45,18 @@ one fails to reproduce the base palette (±1 per channel), so fix a wrong varian
 role a variant must change needs a rule there; a base-palette value that no rule reproduces is a
 hand deviation from VS and should be reverted rather than special-cased.
 
+**Re-run `npm run variants` after changing any base value.** A variant only lists the roles it
+changes *relative to its base*, so a new base value can make a variant need an override it did not
+need before: 0.7.0 moved Light's diff line to the drawn `#E6EBDA` without re-running it, and Light
+(Extra Contrast) shipped that instead of its own `deltadiff` token until 0.7.1.
+
+**Prefer what Visual Studio draws over what its token says.** VS draws some tokens translucent or
+dotted (FindHighlight `#773800` shows as `#453B32`), and Light leaves many editor colours to
+built-in defaults with no token at all. Where a capture shows a different colour, take the drawn
+value and keep the token in the note (`sampled …: …, as drawn (token X #…)`). The exception is a
+role `derive.mjs` derives from that token — Dark's diff colours — where changing the base breaks
+the variants' self-check; keep the token there and say why in the note.
+
 **Tinted themes and Extra Contrast are different mechanisms in VS 2026.** The tinted themes are
 colour themes (`environment.visualExperience.colorTheme`) that override ten shell tokens — frame
 (`EnvironmentBackground`), cards (`EnvironmentTab`), and the focused-window colour
