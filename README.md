@@ -317,6 +317,7 @@ scripts/build.mjs           generates themes/, icons/ and the product icon theme
 scripts/variants.mjs        regenerates src/palettes/variants/ from a Visual Studio install
 extension.js                the Apply / Remove Visual Studio 2026 Layout commands
 test/layout.test.cjs        tests those commands against a stand-in for the VS Code API
+tools/                      measures Visual Studio, verifies VS Code and retakes the screenshots (tools/README.md)
 ```
 
 ```text

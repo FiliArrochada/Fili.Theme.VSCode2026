@@ -1,0 +1,8 @@
+{
+  "name": "fili-shots",
+  "publisher": "scratch",
+  "version": "0.0.1",
+  "engines": { "vscode": "^1.95.0" },
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js"
+}

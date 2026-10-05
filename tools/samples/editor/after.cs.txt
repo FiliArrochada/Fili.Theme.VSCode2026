@@ -1,0 +1,8 @@
+namespace Fili.Samples;
+
+public static class Pricing
+{
+    private const decimal Vat = 1.23m;
+
+    public static decimal Net(decimal gross) => Math.Round(gross / Vat, 2);
+}

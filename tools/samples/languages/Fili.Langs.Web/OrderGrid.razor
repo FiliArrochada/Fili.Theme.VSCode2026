@@ -1,0 +1,12 @@
+<ul>
+    @foreach (var item in Items)
+    {
+        <li @onclick="() => SelectedChanged.InvokeAsync(item)">@item.Name</li>
+    }
+</ul>
+
+@code {
+    [Parameter] public List<Order> Items { get; set; } = new();
+    [Parameter] public Order? Selected { get; set; }
+    [Parameter] public EventCallback<Order> SelectedChanged { get; set; }
+}

@@ -1,0 +1,24 @@
+@page "/orders"
+@using System.Globalization
+@inject OrderService Service
+
+<h3 class="title">Orders</h3>
+
+@if (orders is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <OrderGrid Items="orders" @bind-Selected="selected" />
+}
+
+@code {
+    private List<Order>? orders;
+    private Order? selected;
+
+    protected override async Task OnInitializedAsync()
+    {
+        orders = await Service.GetAsync();
+    }
+}

@@ -1,0 +1,6 @@
+namespace Fili.Samples;
+
+public static class Pricing
+{
+    public static decimal Net(decimal gross) => gross / 1.23m;
+}

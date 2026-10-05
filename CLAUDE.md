@@ -233,6 +233,29 @@ Things that make a test misleading rather than fail:
 - **C# Dev Kit's Solution Explorer is titled "C# Project Details"** (view id `solutionExplorer`, in
   the Explorer), not "Solution Explorer", in current versions.
 
-The reference captures used for the first
-release were taken from VS 2026 18.x started with `devenv /rootsuffix <name>` (an isolated
-settings hive), so the user's own Visual Studio configuration is never touched.
+## Measuring colours and retaking screenshots
+
+`tools/` holds what measures Visual Studio, verifies the theme in VS Code and retakes the README
+images; `tools/README.md` says how to run each. It is not packaged (`.vscodeignore`). What matters
+when using or changing it:
+
+- **Never touch the user's own Visual Studio or VS Code.** Visual Studio runs on the isolated hive
+  `devenv /rootsuffix FiliVs2026Ref` and is driven through DTE found by the started process id,
+  never by name; VS Code runs on its own profile. Scripts only close or capture processes they
+  started.
+- **Applications only paint while their window is visible.** Bring the window to the front before
+  every capture. A covered window captures blank, and a **locked session captures blank** — check
+  for `LogonUI` *in this session* (`SessionId` equal to the script's own): one in another session
+  belongs to someone else and means nothing.
+- **Keys and the mouse belong to the user.** Send keystrokes only after confirming the target
+  window is the foreground window, and refuse otherwise; restore the pointer after a hover. Ask
+  before a round that needs either.
+- **Validate the method on Dark first.** Most Dark colours have tokens: a capture that does not
+  reproduce them (e.g. FindHighlight, HighlightedReference) is measuring the wrong thing — a blend
+  with another highlight, a covered window, or the wrong pixels.
+- **Thin glyphs lie.** ClearType fringes shift the hue of thin strokes (`@`, `;`); enlarge the
+  pixels or sample a thicker word before trusting a value.
+- **Some states have no automation route:** the Git merge editor (no DTE command) and link-hover
+  colours (CodeLens does not change on hover). They stay inferred in `docs/PARITY.md`.
+
+The reference captures for the first release were taken the same way, from VS 2026 18.x.

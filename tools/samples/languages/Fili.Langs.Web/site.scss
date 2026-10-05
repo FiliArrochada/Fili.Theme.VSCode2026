@@ -1,0 +1,10 @@
+$accent: #9184ee;
+
+@mixin card($radius) {
+    border-radius: $radius;
+}
+
+.order-grid {
+    color: $accent;
+    @include card(4px);
+}

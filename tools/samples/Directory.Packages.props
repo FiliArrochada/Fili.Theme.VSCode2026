@@ -1,0 +1,10 @@
+<Project>
+  <!-- The sample projects are fixtures for tools/sampling and tools/screenshots, never shipped.
+       Package versions live here, as in every repo in the workspace (central package management). -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="10.0.12" />
+  </ItemGroup>
+</Project>
