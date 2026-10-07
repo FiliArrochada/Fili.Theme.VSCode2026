@@ -1,7 +1,14 @@
 param(
   [Parameter(Mandatory)][ValidateSet('dark', 'light')][string]$Theme,
   [Parameter(Mandatory)][ValidateSet('editor', 'languages', 'snippet', 'terminal', 'diff', 'codelens')][string]$Scenario,
-  [string]$OutDir = (Join-Path $env:TEMP "fili-vs-capture\$Scenario-$Theme"),
+  # The editor appearance, independent of the theme: 'matchTheme', or an Extra Contrast editor.
+  [ValidateSet('matchTheme', 'dark-extra-contrast', 'light-extra-contrast')][string]$Editor = 'matchTheme',
+  # Editor font size in points for the 'languages' scenario (0 keeps the hive's): thin glyphs are
+  # too ClearType-fringed to measure at the default size. Restored when the script ends.
+  [int]$FontSize = 0,
+  # Only these sample files in the 'languages' scenario, by capture name (e.g. ts, js).
+  [string[]]$Only,
+  [string]$OutDir = (Join-Path $env:TEMP "fili-vs-capture\$Scenario-$Theme$(if ($Editor -ne 'matchTheme') { "-$Editor" })$(if ($FontSize -gt 0) { "-$($FontSize)pt" })"),
   [string]$RootSuffix = 'FiliVs2026Ref',
   [int]$Wait = 75
 )
@@ -20,7 +27,8 @@ param(
 # Scenarios (captures written to $OutDir):
 #   editor     open, refs (caret on a name), brace, bp-disabled, break, caller (caller frame
 #              selected), markdown, find (Find on ';', so no reference highlight mixes in)
-#   languages  one capture per sample file: vb, ps1, razor, json, scss, less, sql, html
+#   languages  one capture per sample file: vb, ps1, razor, json, scss, less, sql, html, ts, js
+#              (with -FontSize, also <name>-end, scrolled to the end of the file)
 #   snippet    an expanded 'prop' snippet with its fields
 #   terminal   the integrated terminal printing the 16 ANSI colours as backgrounds
 #   diff       the diff view of left.txt and right.txt
@@ -128,7 +136,7 @@ CloseRef
 $settings = Join-Path $hive.FullName 'settings.json'
 $json = if (Test-Path $settings) { Get-Content $settings -Raw | ConvertFrom-Json -AsHashtable } else { @{} }
 $json['environment.visualExperience.colorTheme'] = $Theme
-$json['environment.visualExperience.editorAppearance'] = 'matchTheme'
+$json['environment.visualExperience.editorAppearance'] = $Editor
 $json | ConvertTo-Json -Depth 10 | Set-Content $settings
 
 $proc = Start-Process $devenv -ArgumentList '/rootsuffix', $RootSuffix, "`"$langs\Fili.Langs.sln`"" -PassThru
@@ -141,7 +149,12 @@ for ($i = 0; $i -lt 30 -and -not $dte; $i++) { $dte = [FiliVs]::Rot("!VisualStud
 if (-not $dte) { CloseRef; throw "no DTE in the Running Object Table for process $($proc.Id)" }
 
 $saved = New-Object FiliVs+POINT; [FiliVs]::GetCursorPos([ref]$saved) | Out-Null
+$sizeProp = $null
 try {
+  if ($FontSize -gt 0) {
+    $sizeProp = Retry { $dte.Properties('FontsAndColors', 'TextEditor').Item('FontSize') }
+    $restoreSize = $sizeProp.Value; $sizeProp.Value = $FontSize
+  }
   switch ($Scenario) {
     'editor' {
       Retry { $dte.Debugger.Breakpoints } | ForEach-Object { Retry { $_.Delete() } }
@@ -172,8 +185,13 @@ try {
     }
     'languages' {
       $files = [ordered]@{ vb = 'Fili.Langs.Vb\Program.vb'; ps1 = 'Fili.Langs.Cli\build.ps1'; razor = 'Fili.Langs.Web\Orders.razor'; json = 'Fili.Langs.Web\data.json'
-        scss = 'Fili.Langs.Web\site.scss'; less = 'Fili.Langs.Web\site.less'; sql = 'Fili.Langs.Web\query.sql'; html = 'Fili.Langs.Web\index.html' }
-      foreach ($k in $files.Keys) { OpenActive (Join-Path $langs $files[$k]); Start-Sleep -Seconds 8; Shot $k }
+        scss = 'Fili.Langs.Web\site.scss'; less = 'Fili.Langs.Web\site.less'; sql = 'Fili.Langs.Web\query.sql'; html = 'Fili.Langs.Web\index.html'
+        ts = 'Fili.Langs.Web\orders.ts'; js = 'Fili.Langs.Web\site.js' }
+      foreach ($k in @($files.Keys | Where-Object { -not $Only -or $Only -contains $_ })) {
+        OpenActive (Join-Path $langs $files[$k]); Start-Sleep -Seconds 8; Shot $k
+        # A large font pushes the end of the file out of view: also capture it scrolled to the end.
+        if ($FontSize -gt 0) { $sel = Retry { $dte.ActiveDocument.Selection }; Retry { $sel.EndOfDocument() }; Start-Sleep -Seconds 2; Shot "$k-end" }
+      }
     }
     'snippet' {
       OpenActive $cs
@@ -211,6 +229,7 @@ try {
     }
   }
 } finally {
+  if ($sizeProp) { try { $sizeProp.Value = $restoreSize } catch { } }
   [FiliVs]::SetCursorPos($saved.X, $saved.Y) | Out-Null
   CloseRef
 }

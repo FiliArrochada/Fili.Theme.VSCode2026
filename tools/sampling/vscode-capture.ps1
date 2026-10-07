@@ -39,7 +39,7 @@ StopMine
 New-Item -ItemType Directory -Force (Join-Path $user 'User') | Out-Null
 @{
   'workbench.colorTheme' = $Theme; 'window.restoreWindows' = 'none'; 'workbench.startupEditor' = 'none'
-  'security.workspace.trust.enabled' = $false; 'telemetry.telemetryLevel' = 'off'; 'update.mode' = 'none'
+  'security.workspace.trust.enabled' = $false; 'telemetry.telemetryLevel' = 'off'; 'update.mode' = 'none'; 'update.showReleaseNotes' = $false
   'extensions.autoUpdate' = $false; 'extensions.autoCheckUpdates' = $false; 'git.enabled' = $false
   'workbench.tips.enabled' = $false; 'chat.disableAIFeatures' = $true; 'editor.fontSize' = 14
   'editor.minimap.enabled' = $false; 'window.zoomLevel' = 0; 'task.allowAutomaticTasks' = 'on'

@@ -17,6 +17,13 @@ if (-not (Test-Path $code)) { $code = (Get-Command code -ErrorAction Stop).Sourc
 $user = Join-Path $ProfileDir 'user'; $ext = Join-Path $ProfileDir 'extensions'
 
 if (-not $Vsix) {
+  # vsce needs a working Node; a version manager's shim can sit on PATH with no version selected,
+  # so fall back to the Node that Visual Studio ships.
+  & node --version *> $null
+  if ($LASTEXITCODE -ne 0) {
+    $vs = & (Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\Installer\vswhere.exe') -latest -prerelease -property installationPath
+    $env:PATH = (Join-Path $vs 'MSBuild\Microsoft\VisualStudio\NodeJs') + [IO.Path]::PathSeparator + $env:PATH
+  }
   $Vsix = Join-Path $env:TEMP 'fili-vscode-verify.vsix'
   Push-Location $repo
   try { npx --yes @vscode/vsce package --no-dependencies --changelog-path docs/CHANGELOG.md -o $Vsix | Select-Object -Last 1 } finally { Pop-Location }
@@ -39,6 +46,8 @@ $jobs = @(
   @{ slug = 'json';     folder = $L; args = @("$L\Fili.Langs.Web\data.json"); wait = 30 },
   @{ slug = 'scss';     folder = $L; args = @("$L\Fili.Langs.Web\site.scss"); wait = 30 },
   @{ slug = 'sql';      folder = $L; args = @("$L\Fili.Langs.Web\query.sql"); wait = 30 },
+  @{ slug = 'ts';       folder = "$L\Fili.Langs.Web"; args = @("$L\Fili.Langs.Web\orders.ts"); wait = 35 },
+  @{ slug = 'js';       folder = "$L\Fili.Langs.Web"; args = @("$L\Fili.Langs.Web\site.js"); wait = 35 },
   @{ slug = 'diff';     folder = $L; args = @('--diff', "$L\left.txt", "$L\right.txt"); wait = 30 },
   @{ slug = 'terminal'; folder = "$L\terminal"; args = @(); wait = 40 }
 )

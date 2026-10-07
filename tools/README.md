@@ -15,7 +15,7 @@ and keep it unlocked** (a locked session paints nothing, and every capture comes
 
 | Folder | What it is for |
 |---|---|
-| `languages/` | `Fili.Langs.sln`: C#, VB.NET, Razor, SCSS, Less, SQL, JSON, HTML, PowerShell and Markdown, a pair of files to diff, and `terminal/`, a folder whose task prints the 16 ANSI colours |
+| `languages/` | `Fili.Langs.sln`: C#, VB.NET, Razor, TypeScript, JavaScript, SCSS, Less, SQL, JSON, HTML, PowerShell and Markdown, a pair of files to diff, and `terminal/`, a folder whose task prints the 16 ANSI colours |
 | `editor/` | the screenshot scenes: C# with a selection, a deliberate compile error (`Broken.cs`, for the Problems panel), `debug.js` for the debugger, a diff pair and `colors.ps1` |
 | `solution/` | `Fili.Samples.sln`, two projects for C# Dev Kit's solution view |
 
@@ -26,7 +26,7 @@ workspace.
 
 | Script | Does |
 |---|---|
-| `vs-capture.ps1 -Theme dark\|light -Scenario <name>` | starts the isolated Visual Studio (`devenv /rootsuffix FiliVs2026Ref`) on the language samples and captures a scenario: `editor` (references, brace match, disabled breakpoint, break, caller frame, Markdown, Find), `languages` (one capture per sample file), `snippet`, `terminal`, `diff`, `codelens` |
+| `vs-capture.ps1 -Theme dark\|light -Scenario <name>` | starts the isolated Visual Studio (`devenv /rootsuffix FiliVs2026Ref`) on the language samples and captures a scenario: `editor` (references, brace match, disabled breakpoint, break, caller frame, Markdown, Find), `languages` (one capture per sample file), `snippet`, `terminal`, `diff`, `codelens`. `-Editor dark-extra-contrast\|light-extra-contrast` pairs the theme with an Extra Contrast editor; `-Only ts, js` limits `languages` to those samples; `-FontSize 20` draws the editor at that size (and adds a capture scrolled to the end of each file), for glyphs too thin to measure at the default size |
 | `vscode-verify.ps1 [-Only json, diff]` | packages the working tree's theme, installs it with the C# extension into an isolated VS Code profile, and captures the same samples in Dark and Light |
 | `vscode-capture.ps1` | one capture of that isolated VS Code; `vscode-verify.ps1` calls it |
 | `sample-colors.ps1 -Image <png> -Boxes name:x0:x1:y,…` | reports the colour of the text in each box (the glyph core, not its anti-aliased edge) and the box's background |
