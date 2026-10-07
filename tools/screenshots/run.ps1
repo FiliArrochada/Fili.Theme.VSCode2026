@@ -46,7 +46,7 @@ New-Item -ItemType Directory -Force (Join-Path $user 'User') | Out-Null
   'editor.fontFamily' = "'Cascadia Mono', Consolas, 'Courier New', monospace"; 'editor.fontSize' = 13; 'editor.minimap.enabled' = $false
   'editor.renderLineHighlight' = 'line'; 'editor.bracketPairColorization.enabled' = $true; 'editor.stickyScroll.enabled' = $true
   'terminal.integrated.fontFamily' = "'Cascadia Mono', Consolas, monospace"; 'security.workspace.trust.enabled' = $false
-  'telemetry.telemetryLevel' = 'off'; 'update.mode' = 'none'; 'extensions.autoUpdate' = 'off'; 'extensions.autoCheckUpdates' = $false
+  'telemetry.telemetryLevel' = 'off'; 'update.mode' = 'none'; 'update.showReleaseNotes' = $false; 'extensions.autoUpdate' = 'off'; 'extensions.autoCheckUpdates' = $false
   'chat.disableAIFeatures' = $true; 'git.openRepositoryInParentFolders' = 'never'; 'git.decorations.enabled' = $false
   'files.exclude' = @{ '**/bin' = $true; '**/obj' = $true; '**/.vs' = $true }
 } | ConvertTo-Json -Depth 5 | Set-Content (Join-Path $user 'User\settings.json')
@@ -88,7 +88,7 @@ if ($Publish) {
   & (Join-Path $here 'crop.ps1') (Join-Path $scenes 'light-problems.png') (Join-Path $docs 'light-problems.png') -TopEnd 698 -BarStart 700
   $order = 'dark', 'dark-cool-slate', 'dark-juicy-plum', 'dark-moonlight-glow', 'dark-mystical-forest', 'dark-spicy-red', 'dark-extra-contrast', 'dark-high-contrast',
     'light', 'light-extra-contrast', 'light-bubblegum', 'light-cool-breeze', 'light-icy-mint', 'light-mango-paradise', 'light-silky-pink', 'light-sunny-day'
-  $labels = $order | ForEach-Object { $s = $_ -replace '^(dark|light)-?', ''; $base = (Get-Culture).TextInfo.ToTitleCase(($_ -split '-')[0]); if ($s) { "$base ($((Get-Culture).TextInfo.ToTitleCase($s -replace '-', ' ')))" } else { $base } }
+  $labels = $order | ForEach-Object { $s = $_ -replace '^(dark|light)-?', ''; $base = (Get-Culture).TextInfo.ToTitleCase(($_ -split '-')[0]); if ($s) { "$base ($((Get-Culture).TextInfo.ToTitleCase(($s -replace '-', ' '))))" } else { $base } }
   & (Join-Path $here 'grid.ps1') -Out (Join-Path $docs 'themes.png') -Images ($order | ForEach-Object { Join-Path $gallery "gallery-$_.png" }) -Labels $labels -Cols 4 -CellW 480 -CropH 728
   'docs/ images rebuilt; check the debugging screenshot before committing'
 }
