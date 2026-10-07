@@ -19,7 +19,15 @@
     "source.css.less": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/less/syntaxes/less.tmLanguage.json",
     "source.sql": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/sql/syntaxes/sql.tmLanguage.json",
     "source.js": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/javascript/syntaxes/JavaScript.tmLanguage.json",
-    "source.js.regexp": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/javascript/syntaxes/Regular%20Expressions%20(JavaScript).tmLanguage"
+    "source.js.regexp": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/javascript/syntaxes/Regular%20Expressions%20(JavaScript).tmLanguage",
+    "source.ts": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/typescript-basics/syntaxes/TypeScript.tmLanguage.json",
+    "documentation.injection.ts": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/typescript-basics/syntaxes/jsdoc.ts.injection.tmLanguage.json",
+    "documentation.injection.js.jsx": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/typescript-basics/syntaxes/jsdoc.js.injection.tmLanguage.json"
+  },
+  "$injections": "Grammars VS Code injects into others (an extension's injectTo), by the scope they are injected into.",
+  "injections": {
+    "source.ts": ["documentation.injection.ts"],
+    "source.js": ["documentation.injection.js.jsx"]
   },
   "files": {
     "tools/samples/editor/Sample.cs": "source.cs",
@@ -35,6 +43,8 @@
     "tools/samples/languages/Fili.Langs.Web/index.html": "text.html.basic",
     "tools/samples/languages/Fili.Langs.Web/query.sql": "source.sql",
     "tools/samples/languages/Fili.Langs.Web/site.less": "source.css.less",
-    "tools/samples/languages/Fili.Langs.Web/site.scss": "source.css.scss"
+    "tools/samples/languages/Fili.Langs.Web/site.scss": "source.css.scss",
+    "tools/samples/languages/Fili.Langs.Web/orders.ts": "source.ts",
+    "tools/samples/languages/Fili.Langs.Web/site.js": "source.js"
   }
 }

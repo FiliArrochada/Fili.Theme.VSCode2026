@@ -1213,9 +1213,17 @@
       }
     },
     {
+      "name": "JS/TS template ${ } (keyword blue in VS)",
+      "scope": [
+        "punctuation.definition.template-expression"
+      ],
+      "settings": {
+        "foreground": "#0000FF"
+      }
+    },
+    {
       "name": "Interpolation punctuation",
       "scope": [
-        "punctuation.definition.template-expression",
         "punctuation.section.embedded",
         "punctuation.definition.interpolation.begin",
         "punctuation.definition.interpolation.end"
@@ -1652,6 +1660,140 @@
       }
     },
     {
+      "name": "JS/TS: VS colours every identifier that is not a type or function as a variable — properties, enum members and constants too, unlike C#",
+      "scope": [
+        "variable.other.readwrite.ts",
+        "variable.other.readwrite.tsx",
+        "variable.other.readwrite.js",
+        "variable.other.object.ts",
+        "variable.other.object.tsx",
+        "variable.other.object.js",
+        "variable.other.constant.ts",
+        "variable.other.constant.tsx",
+        "variable.other.constant.js",
+        "variable.other.property.ts",
+        "variable.other.property.tsx",
+        "variable.other.property.js",
+        "variable.object.property.ts",
+        "variable.object.property.tsx",
+        "variable.object.property.js",
+        "variable.other.enummember.ts",
+        "variable.other.enummember.tsx",
+        "variable.other.enummember.js",
+        "support.variable.property.ts",
+        "support.variable.property.tsx",
+        "support.variable.property.js",
+        "variable.other.object.property.ts",
+        "variable.other.object.property.tsx",
+        "variable.other.object.property.js",
+        "variable.other.readwrite.alias.ts",
+        "variable.other.readwrite.alias.tsx",
+        "variable.other.readwrite.alias.js",
+        "variable.other.constant.object.ts",
+        "variable.other.constant.object.tsx",
+        "variable.other.constant.object.js",
+        "variable.other.constant.property.ts",
+        "variable.other.constant.property.tsx",
+        "variable.other.constant.property.js"
+      ],
+      "settings": {
+        "foreground": "#1F377F"
+      }
+    },
+    {
+      "name": "JS/TS: the class after new is a type in VS (the grammar scopes it as a function call)",
+      "scope": [
+        "new.expr entity.name.function.ts",
+        "new.expr entity.name.function.tsx",
+        "new.expr entity.name.function.js"
+      ],
+      "settings": {
+        "foreground": "#2B91AF"
+      }
+    },
+    {
+      "name": "JS/TS: VS draws interfaces, enums, primitive types and this-as-a-type in the type colour",
+      "scope": [
+        "entity.name.type.interface.ts",
+        "entity.name.type.interface.tsx",
+        "entity.name.type.enum.ts",
+        "entity.name.type.enum.tsx",
+        "support.type.primitive.ts",
+        "support.type.primitive.tsx",
+        "support.type.builtin.ts",
+        "support.type.builtin.tsx"
+      ],
+      "settings": {
+        "foreground": "#2B91AF"
+      }
+    },
+    {
+      "name": "JS/TS: a regular expression is one string colour in VS, quantifiers and classes included",
+      "scope": [
+        "string.regexp keyword.control.anchor.regexp",
+        "string.regexp keyword.operator.quantifier.regexp",
+        "string.regexp keyword.operator.or.regexp",
+        "string.regexp keyword.operator.negation.regexp",
+        "string.regexp keyword.other.back-reference.regexp",
+        "string.regexp constant.other.character-class.regexp",
+        "string.regexp constant.other.character-class.set.regexp",
+        "string.regexp constant.other.character-class.range.regexp",
+        "string.regexp constant.character.escape.backslash.regexp",
+        "string.regexp punctuation.definition.character-class.regexp",
+        "string.regexp punctuation.definition.group.regexp",
+        "string.regexp punctuation.definition.group.assertion.regexp",
+        "string.regexp meta.assertion.look-ahead.regexp",
+        "string.regexp meta.assertion.look-behind.regexp"
+      ],
+      "settings": {
+        "foreground": "#A31515"
+      }
+    },
+    {
+      "name": "JS/TS: JSDoc text is plain comment green, tags keywords, parameter names variables, types plain",
+      "scope": [
+        "comment.block.documentation.ts",
+        "comment.block.documentation.tsx",
+        "comment.block.documentation.js",
+        "comment.block.documentation punctuation.definition.comment.ts",
+        "comment.block.documentation punctuation.definition.comment.tsx",
+        "comment.block.documentation punctuation.definition.comment.js"
+      ],
+      "settings": {
+        "foreground": "#008000"
+      }
+    },
+    {
+      "name": "JSDoc tag",
+      "scope": [
+        "storage.type.class.jsdoc",
+        "punctuation.definition.block.tag.jsdoc"
+      ],
+      "settings": {
+        "foreground": "#0000FF"
+      }
+    },
+    {
+      "name": "JSDoc parameter name",
+      "scope": [
+        "variable.other.jsdoc"
+      ],
+      "settings": {
+        "foreground": "#1F377F"
+      }
+    },
+    {
+      "name": "JSDoc type",
+      "scope": [
+        "entity.name.type.instance.jsdoc",
+        "punctuation.definition.bracket.curly.begin.jsdoc",
+        "punctuation.definition.bracket.curly.end.jsdoc"
+      ],
+      "settings": {
+        "foreground": "#000000"
+      }
+    },
+    {
       "name": "Markdown heading",
       "scope": [
         "markup.heading",
@@ -1880,6 +2022,26 @@
     "regexGrouping": "#05C3BA",
     "regexAlternation": "#05C3BA",
     "regexOtherEscape": "#9E5B71",
+    "property:typescript": "#1F377F",
+    "property:typescriptreact": "#1F377F",
+    "property:javascript": "#1F377F",
+    "property:javascriptreact": "#1F377F",
+    "enumMember:typescript": "#1F377F",
+    "enumMember:typescriptreact": "#1F377F",
+    "enumMember:javascript": "#1F377F",
+    "enumMember:javascriptreact": "#1F377F",
+    "interface:typescript": "#2B91AF",
+    "interface:typescriptreact": "#2B91AF",
+    "interface:javascript": "#2B91AF",
+    "interface:javascriptreact": "#2B91AF",
+    "enum:typescript": "#2B91AF",
+    "enum:typescriptreact": "#2B91AF",
+    "enum:javascript": "#2B91AF",
+    "enum:javascriptreact": "#2B91AF",
+    "typeParameter:typescript": "#2B91AF",
+    "typeParameter:typescriptreact": "#2B91AF",
+    "typeParameter:javascript": "#2B91AF",
+    "typeParameter:javascriptreact": "#2B91AF",
     "jsonPropertyName": "#2E75B6",
     "jsonString": "#A31515",
     "jsonNumber": "#000000",

@@ -1,5 +1,5 @@
 {
-  "$comment": "Shared by both themes. TextMate scopes and semantic token selectors mapped to syntax roles — never to a hex value. C# follows Visual Studio's Roslyn classifications: types are coloured, methods are coloured, locals and parameters are coloured, and fields, properties, events, constants, enum members and namespaces stay plain identifiers exactly as they do in Visual Studio. Obsolete symbols are struck through, as Visual Studio does (their type colour cannot be recovered: the C# extension reports them as deprecated namespace tokens). Scope names were taken from the csharp.tmLanguage grammar that ships with VS Code; semantic selectors are the token types the C# extension's Roslyn server emits (Roslyn ClassificationTypeNames in camelCase).",
+  "$comment": "Shared by both themes. TextMate scopes and semantic token selectors mapped to syntax roles — never to a hex value. C# follows Visual Studio's Roslyn classifications: types are coloured, methods are coloured, locals and parameters are coloured, and fields, properties, events, constants, enum members and namespaces stay plain identifiers exactly as they do in Visual Studio. JavaScript and TypeScript are different in Visual Studio: there every identifier that is not a type or a function takes the variable colour, and interfaces, enums, type parameters and primitive types take the type colour, so their rules are scoped to those languages (sampled at 20 pt in 0.9.0). Obsolete symbols are struck through, as Visual Studio does (their type colour cannot be recovered: the C# extension reports them as deprecated namespace tokens). Scope names were taken from the csharp.tmLanguage grammar that ships with VS Code; semantic selectors are the token types the C# extension's Roslyn server emits (Roslyn ClassificationTypeNames in camelCase).",
 
   "tokenColors": [
     { "name": "Plain text", "scope": ["source", "variable.other.readwrite", "variable.other.object", "variable.other.constant", "entity.name.variable.field", "entity.name.variable.property", "entity.name.variable.event", "entity.name.variable.enum-member", "entity.name.variable.tuple-element", "entity.name.type.namespace", "entity.name.label", "variable.language.discard", "meta.interpolation"], "role": "synIdentifier" },
@@ -19,7 +19,8 @@
 
     { "name": "String", "scope": ["string", "string.quoted", "string.template", "string.unquoted.cdata", "punctuation.definition.string", "string.regexp", "string.unquoted.preprocessor.message"], "role": "synString" },
     { "name": "Escape sequence", "scope": ["constant.character.escape", "constant.character.escape.cs", "string constant.other.placeholder", "constant.other.placeholder"], "role": "synStringEscape" },
-    { "name": "Interpolation punctuation", "scope": ["punctuation.definition.template-expression", "punctuation.section.embedded", "punctuation.definition.interpolation.begin", "punctuation.definition.interpolation.end"], "role": "synPunctuation" },
+    { "name": "JS/TS template ${ } (keyword blue in VS)", "scope": ["punctuation.definition.template-expression"], "role": "synKeyword" },
+    { "name": "Interpolation punctuation", "scope": ["punctuation.section.embedded", "punctuation.definition.interpolation.begin", "punctuation.definition.interpolation.end"], "role": "synPunctuation" },
     { "name": "Number", "scope": ["constant.numeric", "constant.numeric.decimal", "constant.numeric.hex", "constant.numeric.binary", "constant.numeric.other", "keyword.other.unit"], "role": "synNumber" },
     { "name": "Character constant", "scope": ["constant.character", "constant.other.character-class"], "role": "synString" },
 
@@ -60,6 +61,15 @@
     { "name": "PowerShell: VS colours its control words as keywords, not control flow", "scope": ["keyword.control.powershell"], "role": "synKeyword" },
     { "name": "PowerShell: VS leaves cmdlet names plain", "scope": ["support.function.powershell"], "role": "synText" },
     { "name": "PowerShell: VS draws type literals ([string]) in its comment green, in both themes (sampled)", "scope": ["storage.type.powershell"], "role": "synComment" },
+
+    { "name": "JS/TS: VS colours every identifier that is not a type or function as a variable — properties, enum members and constants too, unlike C#", "scope": ["variable.other.readwrite.ts", "variable.other.readwrite.tsx", "variable.other.readwrite.js", "variable.other.object.ts", "variable.other.object.tsx", "variable.other.object.js", "variable.other.constant.ts", "variable.other.constant.tsx", "variable.other.constant.js", "variable.other.property.ts", "variable.other.property.tsx", "variable.other.property.js", "variable.object.property.ts", "variable.object.property.tsx", "variable.object.property.js", "variable.other.enummember.ts", "variable.other.enummember.tsx", "variable.other.enummember.js", "support.variable.property.ts", "support.variable.property.tsx", "support.variable.property.js", "variable.other.object.property.ts", "variable.other.object.property.tsx", "variable.other.object.property.js", "variable.other.readwrite.alias.ts", "variable.other.readwrite.alias.tsx", "variable.other.readwrite.alias.js", "variable.other.constant.object.ts", "variable.other.constant.object.tsx", "variable.other.constant.object.js", "variable.other.constant.property.ts", "variable.other.constant.property.tsx", "variable.other.constant.property.js"], "role": "synVariable" },
+    { "name": "JS/TS: the class after new is a type in VS (the grammar scopes it as a function call)", "scope": ["new.expr entity.name.function.ts", "new.expr entity.name.function.tsx", "new.expr entity.name.function.js"], "role": "synType" },
+    { "name": "JS/TS: VS draws interfaces, enums, primitive types and this-as-a-type in the type colour", "scope": ["entity.name.type.interface.ts", "entity.name.type.interface.tsx", "entity.name.type.enum.ts", "entity.name.type.enum.tsx", "support.type.primitive.ts", "support.type.primitive.tsx", "support.type.builtin.ts", "support.type.builtin.tsx"], "role": "synType" },
+    { "name": "JS/TS: a regular expression is one string colour in VS, quantifiers and classes included", "scope": ["string.regexp keyword.control.anchor.regexp", "string.regexp keyword.operator.quantifier.regexp", "string.regexp keyword.operator.or.regexp", "string.regexp keyword.operator.negation.regexp", "string.regexp keyword.other.back-reference.regexp", "string.regexp constant.other.character-class.regexp", "string.regexp constant.other.character-class.set.regexp", "string.regexp constant.other.character-class.range.regexp", "string.regexp constant.character.escape.backslash.regexp", "string.regexp punctuation.definition.character-class.regexp", "string.regexp punctuation.definition.group.regexp", "string.regexp punctuation.definition.group.assertion.regexp", "string.regexp meta.assertion.look-ahead.regexp", "string.regexp meta.assertion.look-behind.regexp"], "role": "synString" },
+    { "name": "JS/TS: JSDoc text is plain comment green, tags keywords, parameter names variables, types plain", "scope": ["comment.block.documentation.ts", "comment.block.documentation.tsx", "comment.block.documentation.js", "comment.block.documentation punctuation.definition.comment.ts", "comment.block.documentation punctuation.definition.comment.tsx", "comment.block.documentation punctuation.definition.comment.js"], "role": "synComment" },
+    { "name": "JSDoc tag", "scope": ["storage.type.class.jsdoc", "punctuation.definition.block.tag.jsdoc"], "role": "synKeyword" },
+    { "name": "JSDoc parameter name", "scope": ["variable.other.jsdoc"], "role": "synVariable" },
+    { "name": "JSDoc type", "scope": ["entity.name.type.instance.jsdoc", "punctuation.definition.bracket.curly.begin.jsdoc", "punctuation.definition.bracket.curly.end.jsdoc"], "role": "synText" },
 
     { "name": "Markdown heading", "scope":["markup.heading", "markup.heading entity.name", "punctuation.definition.heading", "entity.name.section"], "role": "synHeading", "fontStyle": "bold" },
     { "name": "Markdown bold", "scope": ["markup.bold"], "role": "synText", "fontStyle": "bold" },
@@ -161,6 +171,27 @@
     "regexGrouping": "synRegexGroup",
     "regexAlternation": "synRegexGroup",
     "regexOtherEscape": "synRegexEscape",
+
+    "property:typescript": "synVariable",
+    "property:typescriptreact": "synVariable",
+    "property:javascript": "synVariable",
+    "property:javascriptreact": "synVariable",
+    "enumMember:typescript": "synVariable",
+    "enumMember:typescriptreact": "synVariable",
+    "enumMember:javascript": "synVariable",
+    "enumMember:javascriptreact": "synVariable",
+    "interface:typescript": "synType",
+    "interface:typescriptreact": "synType",
+    "interface:javascript": "synType",
+    "interface:javascriptreact": "synType",
+    "enum:typescript": "synType",
+    "enum:typescriptreact": "synType",
+    "enum:javascript": "synType",
+    "enum:javascriptreact": "synType",
+    "typeParameter:typescript": "synType",
+    "typeParameter:typescriptreact": "synType",
+    "typeParameter:javascript": "synType",
+    "typeParameter:javascriptreact": "synType",
 
     "jsonPropertyName": "synJsonKey",
     "jsonString": "synString",

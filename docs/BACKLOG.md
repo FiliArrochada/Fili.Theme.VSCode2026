@@ -7,10 +7,15 @@ here why it was dropped.
 ## Theme accuracy
 
 - **More languages.** Visual Studio has its own colours for languages the theme still colours
-  generically: JavaScript and TypeScript (through the same classification system as C#, so likely
-  the biggest difference), F#, YAML, and XML configuration files. Each is a sampling round with
+  generically: F#, YAML, and XML configuration files. Each is a sampling round with
   `tools/sampling` (add the file to `tools/samples/languages`, capture it with `vs-capture.ps1
-  -Scenario languages`, map the scopes with `scopes.mjs`, verify with `vscode-verify.ps1`).
+  -Scenario languages -FontSize 20`, map the scopes with `scopes.mjs`, add it to
+  `tools/regression/inputs.json`, verify with `vscode-verify.ps1`).
+- **JS/TS tokens VS Code cannot tell apart.** TypeScript reports a getter's declaration as a
+  `property`, which Visual Studio draws in the method colour. It reports `Math`, `console` and
+  `window` all as `variable.defaultLibrary`, which Visual Studio draws plain, type-coloured and
+  variable-coloured respectively. All of them stay variable-coloured. Revisit only if the
+  TypeScript server adds a modifier that separates them.
 - **The remaining inferred colours** (`docs/PARITY.md`) are at their floor: Visual Studio has no
   equivalent (`treeIndent`, `statusBarWarning`), VS Code cannot draw what VS draws
   (`debugCurrentGlyph`, `breakpointDisabled`), or there is no automation route to the state

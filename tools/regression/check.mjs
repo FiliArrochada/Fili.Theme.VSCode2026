@@ -67,6 +67,7 @@ await oniguruma.loadWASM(readFileSync(join(engineDir, 'node_modules', 'vscode-on
 const registry = new vsctm.Registry({
   onigLib: Promise.resolve({ createOnigScanner: (p) => new oniguruma.OnigScanner(p), createOnigString: (s) => new oniguruma.OnigString(s) }),
   // An embedded language with no pinned grammar stays plain, as it would without its extension.
+  getInjections: (scope) => inputs.injections?.[scope] ?? [],
   loadGrammar: async (scope) => (grammarFiles[scope] ? vsctm.parseRawGrammar(readFileSync(grammarFiles[scope], 'utf8'), grammarFiles[scope]) : null),
 });
 

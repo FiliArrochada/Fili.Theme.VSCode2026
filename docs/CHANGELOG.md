@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.9.0
+
+- JavaScript and TypeScript take Visual Studio's colours, measured from Visual Studio 2026 at a
+  large font size. Unlike C#, Visual Studio colours every identifier that is not a type or a
+  function as a variable, so properties, enum members and constants are now variable-coloured.
+  Interfaces, enums, type parameters, primitive types such as `string`, and `this` used as a type
+  take the type colour. A regular expression is one string colour, quantifiers and classes
+  included. Template `${ }` and JSDoc tags such as `@param` are keyword blue. JSDoc text is plain
+  comment green, and `new Error()` colours `Error` as a type. These rules apply only to JavaScript
+  and TypeScript; C# keeps its plain members.
+- Light's diff lines are `#EBF1DD` / `#FFCCCC`, the colours Visual Studio draws. The values in
+  0.7.0 were sampled on the line holding the caret, under the current-line highlight. Dark's diff
+  lines were already right: they are drawn exactly as their tokens.
+- The README's theme grid shows all sixteen themes.
+
 ## 0.8.0
 
 - **Fili.VSCode2026 Dark (High Contrast)**, Visual Studio 2026's High Contrast theme under Windows'
