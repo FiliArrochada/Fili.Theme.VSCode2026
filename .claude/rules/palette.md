@@ -32,8 +32,10 @@ token, so do not write a guess in token form.
 dotted (FindHighlight `#773800` shows as `#453B32`), and Light leaves many editor colours to built-in
 defaults with no token at all. Where a capture shows a different colour, take the drawn value and
 keep the token in the note (`sampled …: …, as drawn (token X #…)`). The exception is a role
-`derive.mjs` derives from that token — Dark's diff colours — where changing the base breaks the
-variants' self-check; keep the token there and say why in the note.
+`derive.mjs` derives from that token, where changing the base breaks the variants' self-check; keep
+the token there and say why in the note. Before believing a drawn value differs, rule out an overlay
+(`measuring.md`): Dark's diff lines looked lighter than their tokens until 0.9.0 showed that only
+the caret line did.
 
 ## Variants
 
@@ -53,7 +55,7 @@ winning where it should not.
 
 **Re-run `npm run variants` after changing any base value.** A variant lists only the roles it
 changes *relative to its base*, so a new base value can make a variant need an override it did not
-need before: 0.7.0 moved Light's diff line to the drawn `#E6EBDA` without re-running it, and Light
+need before: 0.7.0 moved Light's diff line to a sampled value without re-running it, and Light
 (Extra Contrast) shipped that instead of its own `deltadiff` token until 0.7.1.
 
 **Tinted themes and Extra Contrast are different mechanisms in VS 2026.** The tinted themes are

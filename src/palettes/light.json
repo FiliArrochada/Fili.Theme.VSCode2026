@@ -100,9 +100,9 @@
     "breakpoint":            ["#E51400", "VS breakpoint glyph red"],
     "breakpointDisabled":    ["#A0A0A0", "inferred: VS 2026 draws a disabled breakpoint as a red hollow circle; VS Code's disabled glyph is a filled dot, which in red would look enabled, so it stays grey"],
 
-    "diffAddLine":           ["#E6EBDA", "sampled 2026-10-04 in the diff view: added line (was Shell.SystemFillSuccessBackground, which the diff view does not use)"],
+    "diffAddLine":           ["#EBF1DD", "sampled 2026-10-07 in the diff view: added line, away from the caret (the 2026-10-04 value #E6EBDA was the caret line, under the current-line highlight)"],
     "diffAddWord":           ["#D7E3BC", "sampled 2026-10-04 in the diff view: added word"],
-    "diffRemoveLine":        ["#F7CCCC", "sampled 2026-10-04 in the diff view: removed line (was Shell.SystemFillCriticalBackground, which the diff view does not use)"],
+    "diffRemoveLine":        ["#FFCCCC", "sampled 2026-10-07 in the diff view: removed line, away from the caret (the 2026-10-04 value #F7CCCC was the caret line, under the current-line highlight)"],
     "diffRemoveWord":        ["#FF9999", "sampled 2026-10-04 in the diff view: removed word"],
 
     "gitAdded":              ["#0F7B0F", "Shell.SystemFillSuccess"],

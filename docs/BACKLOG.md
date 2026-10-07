@@ -11,11 +11,6 @@ here why it was dropped.
   the biggest difference), F#, YAML, and XML configuration files. Each is a sampling round with
   `tools/sampling` (add the file to `tools/samples/languages`, capture it with `vs-capture.ps1
   -Scenario languages`, map the scopes with `scopes.mjs`, verify with `vscode-verify.ps1`).
-- **Dark diff colours are tokens, not what Visual Studio draws.** VS draws `deltadiff.add.line`
-  `#15352C` as `#1F3A32` and `deltadiff.remove.line` `#2D0000` as `#330D0D`, lighter than both the
-  token and the editor, so no blend reproduces it. Taking the drawn value means giving
-  `derive.mjs` a rule that maps a variant's token to its drawn value, or sampling each variant's diff
-  view; until then the variants' self-check needs the token.
 - **The remaining inferred colours** (`docs/PARITY.md`) are at their floor: Visual Studio has no
   equivalent (`treeIndent`, `statusBarWarning`), VS Code cannot draw what VS draws
   (`debugCurrentGlyph`, `breakpointDisabled`), or there is no automation route to the state

@@ -100,9 +100,9 @@
     "breakpoint":            ["#E51400", "VS breakpoint glyph red"],
     "breakpointDisabled":    ["#AEAEAE", "Text Editor MEF Items.Breakpoint (Disabled)"],
 
-    "diffAddLine":           ["#15352C", "Text Editor MEF Items.deltadiff.add.line (drawn #1F3A32; the token is kept because the variants derive their diff colours from the same tokens)"],
+    "diffAddLine":           ["#15352C", "Text Editor MEF Items.deltadiff.add.line (drawn as the token; confirmed 2026-10-07 on a line without the caret)"],
     "diffAddWord":           ["#265E4D", "Text Editor MEF Items.deltadiff.add.word"],
-    "diffRemoveLine":        ["#2D0000", "Text Editor MEF Items.deltadiff.remove.line (drawn #330D0D; the token is kept because the variants derive their diff colours from the same tokens)"],
+    "diffRemoveLine":        ["#2D0000", "Text Editor MEF Items.deltadiff.remove.line (drawn as the token; confirmed 2026-10-07 on a line without the caret)"],
     "diffRemoveWord":        ["#3C0000", "Text Editor MEF Items.deltadiff.remove.word"],
 
     "gitAdded":              ["#6CCB5F", "Shell.SystemFillSuccess"],
