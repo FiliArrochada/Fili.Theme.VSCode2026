@@ -154,6 +154,18 @@
       "#FFFFFF",
       "XML Delimiter (language service, MEF, Roslyn) in VS High Contrast, under Windows' Aquatic contrast theme"
     ],
+    "synXmlText": [
+      "#FFFFFF",
+      "XML Text (language service, MEF, Roslyn) in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synXmlQuote": [
+      "#FFFFFF",
+      "XML Attribute Quotes (language service, MEF, Roslyn) in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synXmlCData": [
+      "#FFFFFF",
+      "XML CData Section (language service, MEF, Roslyn) in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
     "synCssProperty": [
       "#FFFFFF",
       "CSS Property Name (language service, MEF, Roslyn) in VS High Contrast, under Windows' Aquatic contrast theme"

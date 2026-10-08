@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.10.0
+
+- XML takes Visual Studio's colours, and so do MSBuild files (`.csproj`, `.props`) and XAML, which
+  Visual Studio draws as XML. Attribute quotes and `=` are delimiter-coloured, and comment and
+  CDATA delimiters too. CDATA content has its own colour (`#E9D585` in Dark). Text between tags is
+  Visual Studio's `#C8C8C8` in Dark. Entity references such as `&amp;` take the attribute colour,
+  and DOCTYPE declarations follow suit.
+- YAML takes Visual Studio's colours: keys, numbers and anchor names are keyword blue, while
+  aliases and the `|` / `>` block markers stay plain.
+- Dockerfiles were measured too and already matched.
+
 ## 0.9.0
 
 - JavaScript and TypeScript take Visual Studio's colours, measured from Visual Studio 2026 at a

@@ -1454,7 +1454,6 @@
       "name": "Markup entity",
       "scope": [
         "constant.character.entity",
-        "constant.character.entity.xml",
         "constant.character.entity.html"
       ],
       "settings": {
@@ -1462,13 +1461,90 @@
       }
     },
     {
-      "name": "XML processing instruction / CDATA",
+      "name": "XML processing instruction",
       "scope": [
-        "meta.tag.preprocessor.xml",
-        "string.unquoted.cdata.xml"
+        "meta.tag.preprocessor.xml"
       ],
       "settings": {
         "foreground": "#C7C7C7"
+      }
+    },
+    {
+      "name": "XML text between tags (also XAML and MSBuild files, which VS draws as XML)",
+      "scope": [
+        "text.xml"
+      ],
+      "settings": {
+        "foreground": "#C8C8C8"
+      }
+    },
+    {
+      "name": "XML: = inside a tag is a delimiter in VS (the grammar gives it no scope of its own)",
+      "scope": [
+        "meta.tag.xml"
+      ],
+      "settings": {
+        "foreground": "#C7C7C7"
+      }
+    },
+    {
+      "name": "XML attribute quotes (VS colours them apart from the value)",
+      "scope": [
+        "punctuation.definition.string.begin.xml",
+        "punctuation.definition.string.end.xml"
+      ],
+      "settings": {
+        "foreground": "#808080"
+      }
+    },
+    {
+      "name": "XML comment and CDATA delimiters",
+      "scope": [
+        "punctuation.definition.comment.xml",
+        "string.unquoted.cdata.xml punctuation.definition.string.begin.xml",
+        "string.unquoted.cdata.xml punctuation.definition.string.end.xml"
+      ],
+      "settings": {
+        "foreground": "#C7C7C7"
+      }
+    },
+    {
+      "name": "XML CDATA content",
+      "scope": [
+        "string.unquoted.cdata.xml"
+      ],
+      "settings": {
+        "foreground": "#E9D585"
+      }
+    },
+    {
+      "name": "XML entity reference (attribute colour in VS, whole &name;)",
+      "scope": [
+        "constant.character.entity.xml",
+        "constant.character.entity.xml punctuation.definition.constant"
+      ],
+      "settings": {
+        "foreground": "#A9D3F2"
+      }
+    },
+    {
+      "name": "XML DOCTYPE keywords take the element colour, the names in them the attribute colour",
+      "scope": [
+        "keyword.other.doctype.xml",
+        "keyword.other.entity.xml"
+      ],
+      "settings": {
+        "foreground": "#569CD6"
+      }
+    },
+    {
+      "name": "XML DOCTYPE names",
+      "scope": [
+        "variable.language.documentroot.xml",
+        "variable.language.entity.xml"
+      ],
+      "settings": {
+        "foreground": "#A9D3F2"
       }
     },
     {
@@ -1523,7 +1599,6 @@
         "support.type.property-name.json",
         "support.type.property-name.jsonc",
         "support.type.property-name",
-        "entity.name.tag.yaml",
         "meta.object-literal.key",
         "meta.object-literal.key string",
         "string.json support.type.property-name"
@@ -1600,6 +1675,36 @@
       ],
       "settings": {
         "foreground": "#009696"
+      }
+    },
+    {
+      "name": "YAML key (keyword blue in VS, like its numbers)",
+      "scope": [
+        "entity.name.tag.yaml",
+        "source.yaml constant.numeric"
+      ],
+      "settings": {
+        "foreground": "#83BDEB"
+      }
+    },
+    {
+      "name": "YAML anchor name (keyword blue in VS; the & stays plain)",
+      "scope": [
+        "variable.other.anchor.yaml"
+      ],
+      "settings": {
+        "foreground": "#83BDEB"
+      }
+    },
+    {
+      "name": "YAML alias and block-scalar indicators stay plain in VS",
+      "scope": [
+        "variable.other.alias.yaml",
+        "keyword.control.flow.block-scalar.literal.yaml",
+        "keyword.control.flow.block-scalar.folded.yaml"
+      ],
+      "settings": {
+        "foreground": "#DCDCDC"
       }
     },
     {

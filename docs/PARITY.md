@@ -25,13 +25,13 @@ beside it; where it keeps the token instead, the note says why.
 
 | Source | Meaning | Dark | Light |
 |---|---|---|---|
-| token | a colour token or classification Visual Studio 2026 ships in its theme files | 110 | 69 |
+| token | a colour token or classification Visual Studio 2026 ships in its theme files | 113 | 69 |
 | VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, image-catalog and glyph colours | 7 | 27 |
-| sampled | measured from a running Visual Studio 2026 window | 34 | 49 |
+| sampled | measured from a running Visual Studio 2026 window | 34 | 52 |
 | composite | a translucent Visual Studio token flattened onto the surface under it | 9 | 14 |
 | derived | another role's value, or a fraction of its opacity | 4 | 6 |
 | inferred | no Visual Studio equivalent; chosen to fit | 6 | 5 |
-| **total** | | **170** | **170** |
+| **total** | | **173** | **173** |
 
 ## Variants
 
@@ -45,7 +45,7 @@ changes; everything else is its base's.
 | Fili.VSCode2026 Light (Cool Breeze) | light | 17 |
 | Fili.VSCode2026 Dark (Cool Slate) | dark | 15 |
 | Fili.VSCode2026 Dark (Extra Contrast) | dark | 27 |
-| Fili.VSCode2026 Dark (High Contrast) | dark | 100 |
+| Fili.VSCode2026 Dark (High Contrast) | dark | 103 |
 | Fili.VSCode2026 Light (Icy Mint) | light | 17 |
 | Fili.VSCode2026 Dark (Juicy Plum) | dark | 15 |
 | Fili.VSCode2026 Light (Extra Contrast) | light | 27 |
@@ -257,10 +257,10 @@ changes; everything else is its base's.
 
 | Role | Dark | Light | Source | Used by |
 |---|---|---|---|---|
-| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +5 more |
+| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +6 more |
 | `synIdentifier` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Identifier: VS leaves fields, properties, events, constants, enum members and namespaces plain<br>**Light:** VS default Identifier: fields, properties, events, constants, enum members and namespaces stay plain | `Plain text`, `Namespace stays plain`, `namespace` +6 more |
 | `synPunctuation` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.punctuation | `Punctuation`, `Interpolation punctuation`, `punctuation` |
-| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +10 more |
+| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +12 more |
 | `synControl` | ![#D8A0DF](swatches/D8A0DF.svg) `#D8A0DF` | ![#8F08C4](swatches/8F08C4.svg) `#8F08C4` | Roslyn.keyword - control | `Control keyword`, `controlKeyword` |
 | `synOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Operator<br>**Light:** VS default Operator | `Operator`, `operator` |
 | `synString` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** String<br>**Light:** VS default String | `textPreformat.foreground`, `debugTokenExpression.string`, `String` +8 more |
@@ -285,17 +285,20 @@ changes; everything else is its base's.
 | `synRegexAnchor` | ![#F979AE](swatches/F979AE.svg) `#F979AE` | ![#FF00C1](swatches/FF00C1.svg) `#FF00C1` | Roslyn.regex - anchor / quantifier | `regexAnchor`, `regexQuantifier` |
 | `synRegexGroup` | ![#05C3BA](swatches/05C3BA.svg) `#05C3BA` | ![#05C3BA](swatches/05C3BA.svg) `#05C3BA` | Roslyn.regex - grouping / alternation | `regexGrouping`, `regexAlternation` |
 | `synRegexEscape` | ![#FFD68F](swatches/FFD68F.svg) `#FFD68F` | ![#9E5B71](swatches/9E5B71.svg) `#9E5B71` | Roslyn.regex - other escape | `regexOtherEscape` |
+| `synXmlText` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** XML Text<br>**Light:** sampled 2026-10-08: VS default XML Text | `XML text between tags (also XAML and MSBuild files, which VS draws as XML)` |
+| `synXmlQuote` | ![#808080](swatches/808080.svg) `#808080` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** XML Attribute Quotes<br>**Light:** sampled 2026-10-08: VS default XML Attribute Quotes, black while the value is blue | `XML attribute quotes (VS colours them apart from the value)` |
+| `synXmlCData` | ![#E9D585](swatches/E9D585.svg) `#E9D585` | ![#808080](swatches/808080.svg) `#808080` | **Dark:** XML CData Section<br>**Light:** sampled 2026-10-08: VS default XML CData Section | `XML CDATA content` |
 | `synInvalid` | ![#FC3E36](swatches/FC3E36.svg) `#FC3E36` | ![#E51400](swatches/E51400.svg) `#E51400` | **Dark:** syntax error<br>**Light:** TreeView.ValidationSquiggles | `editorBracketHighlight.unexpectedBracket.foreground`, `Invalid`, `Deprecated` |
 
 ## Syntax: web and data languages
 
 | Role | Dark | Light | Source | Used by |
 |---|---|---|---|---|
-| `synMarkupTag` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** XML Name / HTML Element Name<br>**Light:** VS default XML Name | `Markup tag`, `markupElement` |
-| `synMarkupAttribute` | ![#92CAF4](swatches/92CAF4.svg) `#92CAF4` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** XML Attribute<br>**Light:** VS default XML Attribute | `Markup attribute` |
+| `synMarkupTag` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** XML Name / HTML Element Name<br>**Light:** VS default XML Name | `Markup tag`, `XML DOCTYPE keywords take the element colour, the names in them the attribute colour`, `markupElement` |
+| `synMarkupAttribute` | ![#92CAF4](swatches/92CAF4.svg) `#92CAF4` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** XML Attribute<br>**Light:** VS default XML Attribute | `Markup attribute`, `XML entity reference (attribute colour in VS, whole &name;)`, `XML DOCTYPE names` |
 | `synHtmlAttribute` | ![#9CDCFE](swatches/9CDCFE.svg) `#9CDCFE` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** Text Editor MEF Items.HTML Attribute Name (sampled 2026-10-03 in a Razor file)<br>**Light:** sampled 2026-10-03: VS default HTML Attribute Name, the same as XML | `HTML attribute (VS colours it apart from XML)`, `markupAttribute` |
 | `synMarkupAttributeValue` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** XML Attribute Value<br>**Light:** VS default XML Attribute Value | `Markup attribute value`, `markupAttributeValue`, `markupAttributeQuote` |
-| `synMarkupDelimiter` | ![#808080](swatches/808080.svg) `#808080` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** XML Delimiter / HTML Tag Delimiter<br>**Light:** VS default XML Delimiter | `Markup delimiter`, `XML processing instruction / CDATA`, `markupTagDelimiter` |
+| `synMarkupDelimiter` | ![#808080](swatches/808080.svg) `#808080` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** XML Delimiter / HTML Tag Delimiter<br>**Light:** VS default XML Delimiter | `Markup delimiter`, `XML processing instruction`, `XML: = inside a tag is a delimiter in VS (the grammar gives it no scope of its own)` +2 more |
 | `synMarkupEntity` | ![#00A0A0](swatches/00A0A0.svg) `#00A0A0` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** HTML Entity<br>**Light:** VS default HTML Entity | `Markup entity` |
 | `synCssSelector` | ![#D7BA7D](swatches/D7BA7D.svg) `#D7BA7D` | ![#800000](swatches/800000.svg) `#800000` | **Dark:** VS CSS Selector<br>**Light:** VS default CSS Selector | `CSS selector` |
 | `synCssProperty` | ![#9CDCFE](swatches/9CDCFE.svg) `#9CDCFE` | ![#FF0000](swatches/FF0000.svg) `#FF0000` | **Dark:** VS CSS Property Name<br>**Light:** VS default CSS Property Name | `CSS property` |
