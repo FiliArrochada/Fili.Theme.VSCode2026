@@ -117,8 +117,9 @@ function SendSafe([string]$keys) {
 function Esc([string]$t) { ($t.ToCharArray() | ForEach-Object { if ('{}()+^%~[]'.Contains($_)) { '{' + $_ + '}' } else { "$_" } }) -join '' }
 function OpenActive([string]$path) {
   # OpenFile does not always return the window it opened, so find the document by its path and
-  # activate that instead.
-  Retry { $dte.ItemOperations.OpenFile($path) } | Out-Null
+  # activate that instead. XAML opens in its code view: the default is a designer split.
+  $view = if ($path -match '\.a?xaml$') { '{7651A701-06E5-11D1-8EBD-00A0C90F26EA}' } else { '{00000000-0000-0000-0000-000000000000}' }
+  Retry { $dte.ItemOperations.OpenFile($path, $view) } | Out-Null
   $doc = $null
   for ($i = 0; $i -lt 20 -and -not $doc; $i++) {
     $doc = Retry { $dte.Documents } | Where-Object { $_.FullName -eq $path } | Select-Object -First 1
@@ -186,7 +187,8 @@ try {
     'languages' {
       $files = [ordered]@{ vb = 'Fili.Langs.Vb\Program.vb'; ps1 = 'Fili.Langs.Cli\build.ps1'; razor = 'Fili.Langs.Web\Orders.razor'; json = 'Fili.Langs.Web\data.json'
         scss = 'Fili.Langs.Web\site.scss'; less = 'Fili.Langs.Web\site.less'; sql = 'Fili.Langs.Web\query.sql'; html = 'Fili.Langs.Web\index.html'
-        ts = 'Fili.Langs.Web\orders.ts'; js = 'Fili.Langs.Web\site.js' }
+        ts = 'Fili.Langs.Web\orders.ts'; js = 'Fili.Langs.Web\site.js'; xml = 'config\catalog.xml'; msbuild = 'Fili.Langs.Web\Fili.Langs.Web.csproj'
+        xaml = 'config\MainWindow.xaml'; axaml = 'config\OrdersView.axaml'; yaml = 'config\ci.yml'; docker = 'config\Dockerfile' }
       foreach ($k in @($files.Keys | Where-Object { -not $Only -or $Only -contains $_ })) {
         OpenActive (Join-Path $langs $files[$k]); Start-Sleep -Seconds 8; Shot $k
         # A large font pushes the end of the file out of view: also capture it scrolled to the end.

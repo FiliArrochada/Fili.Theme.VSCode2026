@@ -48,7 +48,13 @@ $jobs = @(
   @{ slug = 'sql';      folder = $L; args = @("$L\Fili.Langs.Web\query.sql"); wait = 30 },
   @{ slug = 'ts';       folder = "$L\Fili.Langs.Web"; args = @("$L\Fili.Langs.Web\orders.ts"); wait = 35 },
   @{ slug = 'js';       folder = "$L\Fili.Langs.Web"; args = @("$L\Fili.Langs.Web\site.js"); wait = 35 },
-  @{ slug = 'diff';     folder = $L; args = @('--diff', "$L\left.txt", "$L\right.txt"); wait = 30 },
+  @{ slug = 'xml';      folder = "$L\config"; args = @("$L\config\catalog.xml"); wait = 30 },
+  @{ slug = 'msbuild';  folder = "$L\config"; args = @("$L\Fili.Langs.Web\Fili.Langs.Web.csproj"); wait = 30 },
+  @{ slug = 'xaml';     folder = "$L\config"; args = @("$L\config\MainWindow.xaml"); wait = 30 },
+  @{ slug = 'axaml';    folder = "$L\config"; args = @("$L\config\OrdersView.axaml"); wait = 30 },
+  @{ slug = 'yaml';     folder = "$L\config"; args = @("$L\config\ci.yml"); wait = 30 },
+  @{ slug = 'docker';   folder = "$L\config"; args = @("$L\config\Dockerfile"); wait = 30 },
+  @{ slug = 'diff';    folder = $L; args = @('--diff', "$L\left.txt", "$L\right.txt"); wait = 30 },
   @{ slug = 'terminal'; folder = "$L\terminal"; args = @(); wait = 40 }
 )
 foreach ($t in @(@('Fili.VSCode2026 Dark', 'dark'), @('Fili.VSCode2026 Light', 'light'))) {

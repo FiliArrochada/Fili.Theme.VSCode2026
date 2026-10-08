@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Order catalogue, read at startup. -->
+<!DOCTYPE catalog [ <!ENTITY vat "23%"> ]>
+<catalog xmlns="urn:fili:catalog" xmlns:x="urn:fili:extra" version="2">
+  <item sku="ABC-1234" x:featured="true">
+    <name>Desk &amp; chair</name>
+    <price currency="EUR">249.90</price>
+    <tax>&vat;</tax>
+    <notes><![CDATA[Ships <flat-packed> in 2 boxes.]]></notes>
+  </item>
+  <x:empty />
+</catalog>

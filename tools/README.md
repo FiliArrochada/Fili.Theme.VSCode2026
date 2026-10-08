@@ -15,7 +15,7 @@ and keep it unlocked** (a locked session paints nothing, and every capture comes
 
 | Folder | What it is for |
 |---|---|
-| `languages/` | `Fili.Langs.sln`: C#, VB.NET, Razor, TypeScript, JavaScript, SCSS, Less, SQL, JSON, HTML, PowerShell and Markdown, a pair of files to diff, and `terminal/`, a folder whose task prints the 16 ANSI colours |
+| `languages/` | `Fili.Langs.sln`: C#, VB.NET, Razor, TypeScript, JavaScript, SCSS, Less, SQL, JSON, HTML, PowerShell and Markdown; `config/` with XML, WPF XAML, Avalonia AXAML, YAML and a Dockerfile; a pair of files to diff, and `terminal/`, a folder whose task prints the 16 ANSI colours |
 | `editor/` | the screenshot scenes: C# with a selection, a deliberate compile error (`Broken.cs`, for the Problems panel), `debug.js` for the debugger, a diff pair and `colors.ps1` |
 | `solution/` | `Fili.Samples.sln`, two projects for C# Dev Kit's solution view |
 

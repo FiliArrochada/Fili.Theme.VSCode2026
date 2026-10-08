@@ -1,0 +1,28 @@
+# Builds and tests on every push.
+name: CI
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+env:
+  DOTNET_NOLOGO: true
+  RETRIES: 3
+  RATIO: 1.5
+  MIRROR: ~
+
+jobs:
+  build: &defaults
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: 'Test'
+        run: dotnet test --configuration Release
+      - name: Summary
+        if: ${{ always() }}
+        run: |
+          echo "done: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
+  pack:
+    <<: *defaults
+    needs: build

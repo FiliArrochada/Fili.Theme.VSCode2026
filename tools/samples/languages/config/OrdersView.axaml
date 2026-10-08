@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Fili.Langs.ViewModels"
+             x:Class="Fili.Langs.Views.OrdersView"
+             x:DataType="vm:OrdersViewModel">
+  <!-- Avalonia: compiled bindings. -->
+  <StackPanel Spacing="8">
+    <TextBlock Classes="title" Text="{Binding Title}" />
+    <ListBox ItemsSource="{Binding Lines}" SelectedItem="{Binding Selected}" />
+    <Button Content="Refresh" Command="{Binding RefreshCommand}" />
+  </StackPanel>
+</UserControl>
