@@ -27,7 +27,8 @@ param(
 # Scenarios (captures written to $OutDir):
 #   editor     open, refs (caret on a name), brace, bp-disabled, break, caller (caller frame
 #              selected), markdown, find (Find on ';', so no reference highlight mixes in)
-#   languages  one capture per sample file: vb, ps1, razor, json, scss, less, sql, html, ts, js
+#   languages  one capture per sample file: vb, ps1, razor, json, scss, less, sql, html, ts, js,
+#              xml, msbuild, xaml, axaml, yaml, docker, cpp, fsharp, python
 #              (with -FontSize, also <name>-end, scrolled to the end of the file)
 #   snippet    an expanded 'prop' snippet with its fields
 #   terminal   the integrated terminal printing the 16 ANSI colours as backgrounds
@@ -126,10 +127,18 @@ function OpenActive([string]$path) {
     if (-not $doc) { Start-Sleep -Milliseconds 500 }
   }
   if (-not $doc) { throw "Visual Studio did not open $path" }
-  Retry { $doc.Activate() }
-  Start-Sleep -Seconds 1
-  $active = Retry { $dte.ActiveDocument.Name }
-  if ($active -ne (Split-Path $path -Leaf)) { throw "expected $(Split-Path $path -Leaf) in front, Visual Studio shows $active" }
+  # A language service that is still starting (C++ IntelliSense) can leave no active document for a
+  # few seconds after opening one.
+  $active = $null
+  for ($i = 0; $i -lt 15 -and $active -ne (Split-Path $path -Leaf); $i++) {
+    Retry { $doc.Activate() }
+    Start-Sleep -Seconds 1
+    $active = Retry { $dte.ActiveDocument.Name }
+  }
+  if ($active -ne (Split-Path $path -Leaf)) {
+    Shot "failed-$(Split-Path $path -Leaf)" | Out-Null
+    throw "expected $(Split-Path $path -Leaf) in front, Visual Studio shows $active (see failed-$(Split-Path $path -Leaf).png)"
+  }
 }
 
 # --- start the isolated instance in the requested theme --------------------------------------------
@@ -188,7 +197,8 @@ try {
       $files = [ordered]@{ vb = 'Fili.Langs.Vb\Program.vb'; ps1 = 'Fili.Langs.Cli\build.ps1'; razor = 'Fili.Langs.Web\Orders.razor'; json = 'Fili.Langs.Web\data.json'
         scss = 'Fili.Langs.Web\site.scss'; less = 'Fili.Langs.Web\site.less'; sql = 'Fili.Langs.Web\query.sql'; html = 'Fili.Langs.Web\index.html'
         ts = 'Fili.Langs.Web\orders.ts'; js = 'Fili.Langs.Web\site.js'; xml = 'config\catalog.xml'; msbuild = 'Fili.Langs.Web\Fili.Langs.Web.csproj'
-        xaml = 'config\MainWindow.xaml'; axaml = 'config\OrdersView.axaml'; yaml = 'config\ci.yml'; docker = 'config\Dockerfile' }
+        xaml = 'config\MainWindow.xaml'; axaml = 'config\OrdersView.axaml'; yaml = 'config\ci.yml'; docker = 'config\Dockerfile'
+        cpp = 'native\orders.cpp'; fsharp = 'fsharp\orders.fsx'; python = 'python\orders.py' }
       foreach ($k in @($files.Keys | Where-Object { -not $Only -or $Only -contains $_ })) {
         OpenActive (Join-Path $langs $files[$k]); Start-Sleep -Seconds 8; Shot $k
         # A large font pushes the end of the file out of view: also capture it scrolled to the end.

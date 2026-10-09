@@ -8,7 +8,7 @@ param(
 # so the colours can be compared with Visual Studio's (sample-colors.ps1 on both captures).
 #   -Vsix   a package to test; by default one is built from the working tree with vsce.
 #   -Only   capture only these views, e.g. -Only json, diff (default: all of them).
-# The first run installs the C# extension into the isolated profile (it needs the network); the
+# The first run installs the language extensions into the isolated profile (it needs the network); the
 # theme is reinstalled on every run. Takes about 12 minutes; do not use the machine meanwhile.
 $ErrorActionPreference = 'Stop'
 $repo = Resolve-Path (Join-Path $PSScriptRoot '..\..')
@@ -28,8 +28,12 @@ if (-not $Vsix) {
   Push-Location $repo
   try { npx --yes @vscode/vsce package --no-dependencies --changelog-path docs/CHANGELOG.md -o $Vsix | Select-Object -Last 1 } finally { Pop-Location }
 }
+# The language servers whose semantic tokens the theme maps: C#, C/C++, F# (Ionide) and Python
+# (Pylance comes with it).
 $installed = & $code --user-data-dir $user --extensions-dir $ext --list-extensions 2>$null
-if ($installed -notcontains 'ms-dotnettools.csharp') { & $code --user-data-dir $user --extensions-dir $ext --install-extension ms-dotnettools.csharp 2>$null | Select-Object -Last 1 }
+foreach ($id in 'ms-dotnettools.csharp', 'ms-vscode.cpptools', 'ionide.ionide-fsharp', 'ms-python.python') {
+  if ($installed -notcontains $id) { & $code --user-data-dir $user --extensions-dir $ext --install-extension $id 2>$null | Select-Object -Last 1 }
+}
 & $code --user-data-dir $user --extensions-dir $ext --install-extension $Vsix --force 2>$null | Select-Object -Last 1
 
 $work = Join-Path $env:TEMP 'fili-vscode-verify-samples'
@@ -54,7 +58,10 @@ $jobs = @(
   @{ slug = 'axaml';    folder = "$L\config"; args = @("$L\config\OrdersView.axaml"); wait = 30 },
   @{ slug = 'yaml';     folder = "$L\config"; args = @("$L\config\ci.yml"); wait = 30 },
   @{ slug = 'docker';   folder = "$L\config"; args = @("$L\config\Dockerfile"); wait = 30 },
-  @{ slug = 'diff';    folder = $L; args = @('--diff', "$L\left.txt", "$L\right.txt"); wait = 30 },
+  @{ slug = 'cpp';      folder = "$L\native"; args = @("$L\native\orders.cpp"); wait = 45 },
+  @{ slug = 'fsharp';   folder = "$L\fsharp"; args = @("$L\fsharp\orders.fsx"); wait = 60 },
+  @{ slug = 'python';   folder = "$L\python"; args = @("$L\python\orders.py"); wait = 45 },
+  @{ slug = 'diff';     folder = $L; args = @('--diff', "$L\left.txt", "$L\right.txt"); wait = 30 },
   @{ slug = 'terminal'; folder = "$L\terminal"; args = @(); wait = 40 }
 )
 foreach ($t in @(@('Fili.VSCode2026 Dark', 'dark'), @('Fili.VSCode2026 Light', 'light'))) {
