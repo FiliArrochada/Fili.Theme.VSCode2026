@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.11.0
+
+- C and C++ take Visual Studio's C++ colours, from its own classifier: macros purple (`#BEB7FF` in
+  Dark), parameters grey, member fields `#DADADA`, namespaces, globals and static members
+  `#C8C8C8`, enumerators `#B8D7A3`, enums, structs and template parameters in the type colour, and
+  all punctuation in the operator grey. String quotes and `<…>` around an include have their own
+  delimiter colour, and an overloaded operator such as `<<` is coloured in Light. With the C/C++
+  extension installed its semantic tokens complete the picture: macro uses, globals against
+  locals, and overloaded operators.
+- F#: `match`, `with` and `->` are keyword blue rather than control-flow purple, as in Visual
+  Studio; `=`, `|>` and brackets are not coloured; modules are type-coloured and `open System` is
+  no longer bold. With Ionide installed, union cases take the enum-member colour, `int`, `decimal`
+  and `DateTime` the struct colour, a `let mutable` value is gold (`#FFD21C`) and printf format
+  specifiers such as `%s` teal (`#4EDCB0`), all as Visual Studio draws them.
+- Python follows Visual Studio's colours: every keyword is blue, with no purple control flow;
+  `and`, `or`, `not`, `is` and `@` are operators; class and function names where they are defined
+  are type-coloured; parameters, modules and f-string braces are plain, and escapes take the
+  string colour. With Pylance, references to classes and functions stay plain, decorators and
+  builtin types are type-coloured, and `__init__`, `None` and `sum` are keyword blue.
+- Extra Contrast and High Contrast pick up Visual Studio's own C++ and F# overrides.
+
 ## 0.10.0
 
 - XML takes Visual Studio's colours, and so do MSBuild files (`.csproj`, `.props`) and XAML, which

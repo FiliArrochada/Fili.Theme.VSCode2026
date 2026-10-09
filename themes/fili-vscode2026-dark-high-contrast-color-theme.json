@@ -1074,7 +1074,6 @@
         "keyword.operator.typeof",
         "keyword.operator.instanceof",
         "keyword.operator.delete",
-        "keyword.operator.logical.python",
         "keyword.other.using",
         "keyword.other.directive",
         "keyword.control.context",
@@ -1859,6 +1858,226 @@
       }
     },
     {
+      "name": "C/C++: VS draws punctuation, * and & in the operator colour",
+      "scope": [
+        "source.cpp punctuation",
+        "source.cpp punctuation.section",
+        "source.cpp punctuation.separator",
+        "source.cpp punctuation.terminator",
+        "source.cpp punctuation.definition",
+        "source.c punctuation",
+        "source.c punctuation.section",
+        "source.c punctuation.separator",
+        "source.c punctuation.terminator",
+        "source.c punctuation.definition",
+        "meta.preprocessor.macro punctuation.definition.parameters",
+        "storage.modifier.pointer.cpp",
+        "storage.modifier.reference.cpp",
+        "storage.modifier.pointer.c"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C/C++ string delimiters (quotes, and the <> of an include)",
+      "scope": [
+        "source.cpp punctuation.definition.string",
+        "source.c punctuation.definition.string"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C/C++ macro (a call in capitals is one)",
+      "scope": [
+        "entity.name.function.preprocessor.cpp",
+        "entity.name.function.preprocessor.c",
+        "entity.name.function.call.upper-case.cpp entity.name.function.call"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C/C++ macro parameter stays plain",
+      "scope": [
+        "variable.parameter.preprocessor.cpp",
+        "variable.parameter.preprocessor.c"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C/C++: enums, structs, unions and the types of parameters take the type colour in VS",
+      "scope": [
+        "entity.name.type.enum.cpp",
+        "entity.name.type.struct.cpp",
+        "entity.name.type.union.cpp",
+        "entity.name.type.parameter.cpp",
+        "entity.name.type.enum.c",
+        "entity.name.type.struct.c",
+        "entity.name.type.union.c",
+        "entity.name.type.parameter.c"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C/C++ enumerator",
+      "scope": [
+        "variable.other.enummember.cpp",
+        "variable.other.enummember.c"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C++ namespace (also the name before ::, which TextMate cannot tell from a class)",
+      "scope": [
+        "entity.name.namespace.cpp",
+        "source.cpp entity.name.scope-resolution"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C/C++ parameter",
+      "scope": [
+        "variable.parameter.cpp",
+        "variable.parameter.c"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C/C++ member after . or ->, and in a constructor's initializer list",
+      "scope": [
+        "variable.other.property.cpp",
+        "variable.other.property.c",
+        "entity.name.function.call.initializer.cpp"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "F#: VS has no control-flow colour; match, with and the rest are keywords",
+      "scope": [
+        "source.fsharp keyword.control",
+        "keyword.control.fsharp",
+        "keyword.symbol.arrow.fsharp"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "F# symbols: brackets, bars and = stay plain in VS",
+      "scope": [
+        "keyword.symbol.fsharp"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "F# module (the Markdown heading rule would make it bold)",
+      "scope": [
+        "entity.name.section.fsharp"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "F# namespace after open stays plain",
+      "scope": [
+        "namespace.open.fsharp entity.name.section.fsharp"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "F# attribute",
+      "scope": [
+        "support.function.attribute.fsharp"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "F# printf format specifier",
+      "scope": [
+        "keyword.format.specifier.fsharp"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Python: VS (TextMate only, without the Python workload) draws every keyword blue, no control-flow colour",
+      "scope": [
+        "keyword.control.flow.python",
+        "keyword.control.import.python",
+        "support.function.magic.python",
+        "support.function.builtin.python"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Python: and, or, not and is are operators",
+      "scope": [
+        "keyword.operator.logical.python",
+        "punctuation.definition.decorator.python"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Python: a def's name takes the type colour in VS",
+      "scope": [
+        "entity.name.function.python"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Python: parameters, f-string braces and escapes are not coloured in VS",
+      "scope": [
+        "variable.parameter.function.language.python",
+        "variable.parameter.function.language.special.self.python",
+        "variable.parameter.function.language.special.cls.python",
+        "constant.character.format.placeholder.other.python"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Python escape sequence",
+      "scope": [
+        "constant.character.escape.python"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
       "name": "Markdown heading",
       "scope": [
         "markup.heading",
@@ -2107,6 +2326,61 @@
     "typeParameter:typescriptreact": "#FFFFFF",
     "typeParameter:javascript": "#FFFFFF",
     "typeParameter:javascriptreact": "#FFFFFF",
+    "macro:cpp": "#FFFFFF",
+    "enumMember:cpp": "#FFFFFF",
+    "enum:cpp": "#FFFFFF",
+    "struct:cpp": "#FFFFFF",
+    "typeParameter:cpp": "#FFFFFF",
+    "templateType:cpp": "#FFFFFF",
+    "templateFunction:cpp": "#FFFFFF",
+    "property:cpp": "#FFFFFF",
+    "property.static:cpp": "#FFFFFF",
+    "variable:cpp": "#FFFFFF",
+    "variable.local:cpp": "#FFFFFF",
+    "parameter:cpp": "#FFFFFF",
+    "namespace:cpp": "#FFFFFF",
+    "label:cpp": "#FFFFFF",
+    "event:cpp": "#FFFFFF",
+    "operatorOverload:cpp": "#FFFFFF",
+    "memberOperatorOverload:cpp": "#FFFFFF",
+    "newOperator:cpp": "#FFFFFF",
+    "macro:c": "#FFFFFF",
+    "enumMember:c": "#FFFFFF",
+    "enum:c": "#FFFFFF",
+    "struct:c": "#FFFFFF",
+    "property:c": "#FFFFFF",
+    "variable:c": "#FFFFFF",
+    "variable.local:c": "#FFFFFF",
+    "parameter:c": "#FFFFFF",
+    "label:c": "#FFFFFF",
+    "enumMember:fsharp": "#FFFFFF",
+    "parameter:fsharp": "#FFFFFF",
+    "variable.readonly:fsharp": "#FFFFFF",
+    "*.mutable:fsharp": "#FFFFFF",
+    "regexp:fsharp": "#FFFFFF",
+    "module:python": "#FFFFFF",
+    "class:python": "#FFFFFF",
+    "class.declaration:python": "#FFFFFF",
+    "class.builtin:python": "#FFFFFF",
+    "class.decorator:python": "#FFFFFF",
+    "enum:python": "#FFFFFF",
+    "enum.declaration:python": "#FFFFFF",
+    "function:python": "#FFFFFF",
+    "function.declaration:python": "#FFFFFF",
+    "function.decorator:python": "#FFFFFF",
+    "function.builtin:python": "#FFFFFF",
+    "magicFunction:python": "#FFFFFF",
+    "builtinConstant:python": "#FFFFFF",
+    "method:python": "#FFFFFF",
+    "method.declaration:python": "#FFFFFF",
+    "parameter:python": "#FFFFFF",
+    "selfParameter:python": "#FFFFFF",
+    "selfParameter.declaration:python": "#FFFFFF",
+    "clsParameter:python": "#FFFFFF",
+    "clsParameter.declaration:python": "#FFFFFF",
+    "variable:python": "#FFFFFF",
+    "property:python": "#FFFFFF",
+    "property.declaration:python": "#FFFFFF",
     "jsonPropertyName": "#FFFFFF",
     "jsonString": "#FFFFFF",
     "jsonNumber": "#FFFFFF",

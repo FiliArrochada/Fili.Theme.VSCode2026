@@ -51,6 +51,10 @@ const cls = (...names) => ({
   from: names.map((n) => `${n} (language service, MEF, Roslyn)`).join(' / '),
   value: (t) => t.first(...names.flatMap((n) => [t.fg(LS(n)), t.fg(MEF(n)), t.fg(ROSLYN(n))])),
 });
+// The C++ classifications live in a category of their own; the Extra Contrast editors override them
+// as MEF items, which VS reads first.
+const CPP = (name) => `Cpp Text Editor MEF Items.${name}`;
+const cpp = (name) => ({ from: `${MEF(name)} / ${CPP(name)}`, value: (t) => t.first(t.fg(MEF(name)), t.fg(CPP(name))) });
 const editor = {
   synKeyword: cls('Keyword'),
   synControl: cls('keyword - control'),
@@ -76,6 +80,15 @@ const editor = {
   synXmlText: cls('XML Text'),
   synXmlQuote: cls('XML Attribute Quotes'),
   synXmlCData: cls('XML CData Section'),
+  synCppMacro: cpp('CppMacroSemanticTokenFormat'),
+  synCppEnumMember: cpp('CppEnumSemanticTokenFormat'),
+  synCppField: cpp('CppMemberFieldSemanticTokenFormat'),
+  synCppParameter: cpp('CppParameterSemanticTokenFormat'),
+  synCppPlain: cpp('CppGlobalVariableSemanticTokenFormat'),
+  synCppOperator: cpp('CppOperatorSemanticTokenFormat'),
+  synCppStringDelimiter: cpp('CppStringDelimiterCharacterSyntacticTokenFormat'),
+  synFsMutable: { from: MEF('FSharp.MutableVar'), value: (t) => t.fg(MEF('FSharp.MutableVar')) },
+  synFsFormat: { from: MEF('FSharp.Printf'), value: (t) => t.fg(MEF('FSharp.Printf')) },
   synCssProperty: cls('CSS Property Name'),
   synSqlFunction: cls('SQL System Function'),
   synSqlString: cls('SQL String'),

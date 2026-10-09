@@ -64,6 +64,22 @@
       "#C7C7C7",
       "XML Delimiter (language service, MEF, Roslyn) in VS Dark (Extra Contrast)"
     ],
+    "synCppParameter": [
+      "#C7C7C7",
+      "Text Editor MEF Items.CppParameterSemanticTokenFormat / Cpp Text Editor MEF Items.CppParameterSemanticTokenFormat in VS Dark (Extra Contrast)"
+    ],
+    "synCppOperator": [
+      "#58D3DB",
+      "Text Editor MEF Items.CppOperatorSemanticTokenFormat / Cpp Text Editor MEF Items.CppOperatorSemanticTokenFormat in VS Dark (Extra Contrast)"
+    ],
+    "synFsMutable": [
+      "#F2C661",
+      "Text Editor MEF Items.FSharp.MutableVar in VS Dark (Extra Contrast)"
+    ],
+    "synFsFormat": [
+      "#58D3DB",
+      "Text Editor MEF Items.FSharp.Printf in VS Dark (Extra Contrast)"
+    ],
     "synCssProperty": [
       "#A9D3F2",
       "CSS Property Name (language service, MEF, Roslyn) in VS Dark (Extra Contrast)"

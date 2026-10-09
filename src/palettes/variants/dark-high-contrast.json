@@ -166,6 +166,42 @@
       "#FFFFFF",
       "XML CData Section (language service, MEF, Roslyn) in VS High Contrast, under Windows' Aquatic contrast theme"
     ],
+    "synCppMacro": [
+      "#FFFFFF",
+      "Text Editor MEF Items.CppMacroSemanticTokenFormat / Cpp Text Editor MEF Items.CppMacroSemanticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synCppEnumMember": [
+      "#FFFFFF",
+      "Text Editor MEF Items.CppEnumSemanticTokenFormat / Cpp Text Editor MEF Items.CppEnumSemanticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synCppField": [
+      "#FFFFFF",
+      "Text Editor MEF Items.CppMemberFieldSemanticTokenFormat / Cpp Text Editor MEF Items.CppMemberFieldSemanticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synCppParameter": [
+      "#FFFFFF",
+      "Text Editor MEF Items.CppParameterSemanticTokenFormat / Cpp Text Editor MEF Items.CppParameterSemanticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synCppPlain": [
+      "#FFFFFF",
+      "Text Editor MEF Items.CppGlobalVariableSemanticTokenFormat / Cpp Text Editor MEF Items.CppGlobalVariableSemanticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synCppOperator": [
+      "#FFFFFF",
+      "Text Editor MEF Items.CppOperatorSemanticTokenFormat / Cpp Text Editor MEF Items.CppOperatorSemanticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synCppStringDelimiter": [
+      "#FFFFFF",
+      "Text Editor MEF Items.CppStringDelimiterCharacterSyntacticTokenFormat / Cpp Text Editor MEF Items.CppStringDelimiterCharacterSyntacticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synFsMutable": [
+      "#FFFFFF",
+      "Text Editor MEF Items.FSharp.MutableVar in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synFsFormat": [
+      "#FFFFFF",
+      "Text Editor MEF Items.FSharp.Printf in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
     "synCssProperty": [
       "#FFFFFF",
       "CSS Property Name (language service, MEF, Roslyn) in VS High Contrast, under Windows' Aquatic contrast theme"

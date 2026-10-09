@@ -25,13 +25,13 @@ beside it; where it keeps the token instead, the note says why.
 
 | Source | Meaning | Dark | Light |
 |---|---|---|---|
-| token | a colour token or classification Visual Studio 2026 ships in its theme files | 113 | 69 |
+| token | a colour token or classification Visual Studio 2026 ships in its theme files | 120 | 69 |
 | VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, image-catalog and glyph colours | 7 | 27 |
-| sampled | measured from a running Visual Studio 2026 window | 34 | 52 |
+| sampled | measured from a running Visual Studio 2026 window | 36 | 61 |
 | composite | a translucent Visual Studio token flattened onto the surface under it | 9 | 14 |
 | derived | another role's value, or a fraction of its opacity | 4 | 6 |
 | inferred | no Visual Studio equivalent; chosen to fit | 6 | 5 |
-| **total** | | **173** | **173** |
+| **total** | | **182** | **182** |
 
 ## Variants
 
@@ -44,11 +44,11 @@ changes; everything else is its base's.
 | Fili.VSCode2026 Light (Bubblegum) | light | 16 |
 | Fili.VSCode2026 Light (Cool Breeze) | light | 17 |
 | Fili.VSCode2026 Dark (Cool Slate) | dark | 15 |
-| Fili.VSCode2026 Dark (Extra Contrast) | dark | 27 |
-| Fili.VSCode2026 Dark (High Contrast) | dark | 103 |
+| Fili.VSCode2026 Dark (Extra Contrast) | dark | 31 |
+| Fili.VSCode2026 Dark (High Contrast) | dark | 112 |
 | Fili.VSCode2026 Light (Icy Mint) | light | 17 |
 | Fili.VSCode2026 Dark (Juicy Plum) | dark | 15 |
-| Fili.VSCode2026 Light (Extra Contrast) | light | 27 |
+| Fili.VSCode2026 Light (Extra Contrast) | light | 31 |
 | Fili.VSCode2026 Light (Mango Paradise) | light | 16 |
 | Fili.VSCode2026 Dark (Moonlight Glow) | dark | 15 |
 | Fili.VSCode2026 Dark (Mystical Forest) | dark | 15 |
@@ -257,13 +257,13 @@ changes; everything else is its base's.
 
 | Role | Dark | Light | Source | Used by |
 |---|---|---|---|---|
-| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +6 more |
+| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +22 more |
 | `synIdentifier` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Identifier: VS leaves fields, properties, events, constants, enum members and namespaces plain<br>**Light:** VS default Identifier: fields, properties, events, constants, enum members and namespaces stay plain | `Plain text`, `Namespace stays plain`, `namespace` +6 more |
 | `synPunctuation` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.punctuation | `Punctuation`, `Interpolation punctuation`, `punctuation` |
-| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +12 more |
+| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +20 more |
 | `synControl` | ![#D8A0DF](swatches/D8A0DF.svg) `#D8A0DF` | ![#8F08C4](swatches/8F08C4.svg) `#8F08C4` | Roslyn.keyword - control | `Control keyword`, `controlKeyword` |
-| `synOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Operator<br>**Light:** VS default Operator | `Operator`, `operator` |
-| `synString` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** String<br>**Light:** VS default String | `textPreformat.foreground`, `debugTokenExpression.string`, `String` +8 more |
+| `synOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Operator<br>**Light:** VS default Operator | `Operator`, `C/C++: VS draws punctuation, * and & in the operator colour`, `Python: and, or, not and is are operators` +1 more |
+| `synString` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** String<br>**Light:** VS default String | `textPreformat.foreground`, `debugTokenExpression.string`, `String` +9 more |
 | `synStringVerbatim` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#800000](swatches/800000.svg) `#800000` | Roslyn.string - verbatim | `stringVerbatim` |
 | `synStringEscape` | ![#FFD68F](swatches/FFD68F.svg) `#FFD68F` | ![#B776FB](swatches/B776FB.svg) `#B776FB` | string - escape character | `Escape sequence`, `stringEscapeCharacter` |
 | `synNumber` | ![#B5CEA8](swatches/B5CEA8.svg) `#B5CEA8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Number<br>**Light:** VS default Number | `debugTokenExpression.number`, `Number`, `number` +1 more |
@@ -275,12 +275,12 @@ changes; everything else is its base's.
 | `synPreprocessor` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | Preprocessor Keyword | `Preprocessor`, `macro`, `preprocessorKeyword` |
 | `synPreprocessorText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.preprocessor text | `Preprocessor symbol`, `preprocessorText` |
 | `synExcluded` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | **Dark:** Excluded Code<br>**Light:** VS default Excluded Code | `excludedCode` |
-| `synType` | ![#4EC9B0](swatches/4EC9B0.svg) `#4EC9B0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.class name / delegate name / module name | `debugTokenExpression.type`, `Class, delegate, record, attribute`, `JS/TS: the class after new is a type in VS (the grammar scopes it as a function call)` +19 more |
+| `synType` | ![#4EC9B0](swatches/4EC9B0.svg) `#4EC9B0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.class name / delegate name / module name | `debugTokenExpression.type`, `Class, delegate, record, attribute`, `JS/TS: the class after new is a type in VS (the grammar scopes it as a function call)` +37 more |
 | `synStruct` | ![#86C691](swatches/86C691.svg) `#86C691` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.struct name | `Struct`, `struct`, `recordStruct` |
-| `synInterface` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.interface name / enum name | `Interface, enum`, `interface`, `enum` |
+| `synInterface` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.interface name / enum name | `Interface, enum`, `interface`, `enum` +1 more |
 | `synTypeParameter` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.type parameter name | `Type parameter`, `typeParameter` |
-| `synMethod` | ![#DCDCAA](swatches/DCDCAA.svg) `#DCDCAA` | ![#74531F](swatches/74531F.svg) `#74531F` | Roslyn.method name / extension method name / operator - overloaded | `Method, function`, `method`, `function` +2 more |
-| `synVariable` | ![#9CDCFE](swatches/9CDCFE.svg) `#9CDCFE` | ![#1F377F](swatches/1F377F.svg) `#1F377F` | Roslyn.local name / parameter name | `debugTokenExpression.name`, `Local, parameter`, `JS/TS: VS colours every identifier that is not a type or function as a variable — properties, enum members and constants too, unlike C#` +12 more |
+| `synMethod` | ![#DCDCAA](swatches/DCDCAA.svg) `#DCDCAA` | ![#74531F](swatches/74531F.svg) `#74531F` | Roslyn.method name / extension method name / operator - overloaded | `Method, function`, `method`, `function` +3 more |
+| `synVariable` | ![#9CDCFE](swatches/9CDCFE.svg) `#9CDCFE` | ![#1F377F](swatches/1F377F.svg) `#1F377F` | Roslyn.local name / parameter name | `debugTokenExpression.name`, `Local, parameter`, `JS/TS: VS colours every identifier that is not a type or function as a variable — properties, enum members and constants too, unlike C#` +14 more |
 | `synRegexClass` | ![#2EABFE](swatches/2EABFE.svg) `#2EABFE` | ![#0073FF](swatches/0073FF.svg) `#0073FF` | Roslyn.regex - character class | `regexCharacterClass` |
 | `synRegexAnchor` | ![#F979AE](swatches/F979AE.svg) `#F979AE` | ![#FF00C1](swatches/FF00C1.svg) `#FF00C1` | Roslyn.regex - anchor / quantifier | `regexAnchor`, `regexQuantifier` |
 | `synRegexGroup` | ![#05C3BA](swatches/05C3BA.svg) `#05C3BA` | ![#05C3BA](swatches/05C3BA.svg) `#05C3BA` | Roslyn.regex - grouping / alternation | `regexGrouping`, `regexAlternation` |
@@ -288,6 +288,15 @@ changes; everything else is its base's.
 | `synXmlText` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** XML Text<br>**Light:** sampled 2026-10-08: VS default XML Text | `XML text between tags (also XAML and MSBuild files, which VS draws as XML)` |
 | `synXmlQuote` | ![#808080](swatches/808080.svg) `#808080` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** XML Attribute Quotes<br>**Light:** sampled 2026-10-08: VS default XML Attribute Quotes, black while the value is blue | `XML attribute quotes (VS colours them apart from the value)` |
 | `synXmlCData` | ![#E9D585](swatches/E9D585.svg) `#E9D585` | ![#808080](swatches/808080.svg) `#808080` | **Dark:** XML CData Section<br>**Light:** sampled 2026-10-08: VS default XML CData Section | `XML CDATA content` |
+| `synCppMacro` | ![#BEB7FF](swatches/BEB7FF.svg) `#BEB7FF` | ![#8A1BFF](swatches/8A1BFF.svg) `#8A1BFF` | **Dark:** Cpp Text Editor MEF Items.CppMacroSemanticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ macro | `C/C++ macro (a call in capitals is one)`, `macro:cpp`, `macro:c` |
+| `synCppEnumMember` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2F4F4F](swatches/2F4F4F.svg) `#2F4F4F` | **Dark:** Cpp Text Editor MEF Items.CppEnumSemanticTokenFormat (enumerators; the enum itself takes CppType)<br>**Light:** sampled 2026-10-08: VS default C++ enumerator | `C/C++ enumerator`, `enumMember:cpp`, `enumMember:c` |
+| `synCppField` | ![#DADADA](swatches/DADADA.svg) `#DADADA` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Cpp Text Editor MEF Items.CppMemberFieldSemanticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ member field | `C/C++ member after . or ->, and in a constructor's initializer list`, `property:cpp`, `property:c` |
+| `synCppParameter` | ![#9A9A9A](swatches/9A9A9A.svg) `#9A9A9A` | ![#808080](swatches/808080.svg) `#808080` | **Dark:** Cpp Text Editor MEF Items.CppParameterSemanticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ parameter | `C/C++ parameter`, `parameter:cpp`, `parameter:c` |
+| `synCppPlain` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Cpp Text Editor MEF Items.CppGlobalVariableSemanticTokenFormat / CppNamespaceSemanticTokenFormat / CppStaticMemberFieldSemanticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ global variable, namespace, static member field | `C++ namespace (also the name before ::, which TextMate cannot tell from a class)`, `property.static:cpp`, `variable:cpp` +5 more |
+| `synCppOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#008080](swatches/008080.svg) `#008080` | **Dark:** Cpp Text Editor MEF Items.CppOperatorSemanticTokenFormat (overloaded operator calls)<br>**Light:** sampled 2026-10-08: VS default C++ overloaded operator | `operatorOverload:cpp`, `memberOperatorOverload:cpp` |
+| `synCppStringDelimiter` | ![#E8C9BB](swatches/E8C9BB.svg) `#E8C9BB` | ![#E21F1F](swatches/E21F1F.svg) `#E21F1F` | **Dark:** Cpp Text Editor MEF Items.CppStringDelimiterCharacterSyntacticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ string delimiter | `C/C++ string delimiters (quotes, and the <> of an include)` |
+| `synFsMutable` | ![#FFD21C](swatches/FFD21C.svg) `#FFD21C` | ![#A08000](swatches/A08000.svg) `#A08000` | **Dark:** sampled 2026-10-08: VS default FSharp.MutableVar (no Dark token)<br>**Light:** sampled 2026-10-08: VS default FSharp.MutableVar | `*.mutable:fsharp` |
+| `synFsFormat` | ![#4EDCB0](swatches/4EDCB0.svg) `#4EDCB0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | **Dark:** sampled 2026-10-08: VS default FSharp.Printf (no Dark token)<br>**Light:** sampled 2026-10-08: VS default FSharp.Printf | `F# printf format specifier`, `regexp:fsharp` |
 | `synInvalid` | ![#FC3E36](swatches/FC3E36.svg) `#FC3E36` | ![#E51400](swatches/E51400.svg) `#E51400` | **Dark:** syntax error<br>**Light:** TreeView.ValidationSquiggles | `editorBracketHighlight.unexpectedBracket.foreground`, `Invalid`, `Deprecated` |
 
 ## Syntax: web and data languages

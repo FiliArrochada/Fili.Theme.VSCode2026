@@ -8,18 +8,26 @@ here why it was dropped.
 
 - **More languages.** Measured so far: C#, VB.NET, Razor, HTML, CSS, SCSS, Less, SQL, JSON,
   PowerShell, Markdown, diff, TypeScript, JavaScript, XML (and MSBuild files and XAML, which VS
-  draws as XML), YAML and Dockerfile. What is left, ranked by whether Visual Studio colours the
-  language with its own classifier (rather than generic TextMate colours the theme already
-  matches) and by how much .NET work touches it:
-  - *Worth a round for someone who writes them:* C++ (VS's richest classifier: macros, members,
-    locals vs globals), F#, Python.
-  - *Not worth a round:* PHP and classic ASP (VS has no real support to copy); batch, INI, TOML,
-    `.editorconfig` and `.gitignore` (VS leaves them plain or generic); Go, Rust and other languages
-    VS colours only through TextMate scopes, which already match.
-
-  Each is a sampling round with `tools/sampling` (add the file to `tools/samples/languages`,
-  capture it with `vs-capture.ps1 -Scenario languages -FontSize 20`, map the scopes with
-  `scopes.mjs`, add it to `tools/regression/inputs.json`, verify with `vscode-verify.ps1`).
+  draws as XML), YAML, Dockerfile, C/C++, F# and Python. What is left is not worth a round: PHP and
+  classic ASP (VS has no real support to copy); batch, INI, TOML, `.editorconfig` and `.gitignore`
+  (VS leaves them plain or generic); Go, Rust and other languages VS colours only through TextMate
+  scopes, which already match. If one is ever wanted, it is a sampling round with `tools/sampling`
+  (add the file to `tools/samples/languages`, capture it with `vs-capture.ps1 -Scenario languages
+  -FontSize 20`, map the scopes with `scopes.mjs`, add it to `tools/regression/inputs.json`,
+  verify with `vscode-verify.ps1`).
+- **C++, F# and Python tokens VS Code cannot tell apart** (verified against the tokens the
+  C/C++ extension, Ionide and Pylance emit, 0.11.0):
+  - F#: Ionide reports top-level `let` values and locals alike as `variable`; Visual Studio draws
+    the first plain and the second in the variable colour. Both are variable-coloured.
+  - C++: a member call the C/C++ extension cannot resolve (`lines_.push_back` inside a template)
+    gets no semantic token, so the grammar's method colour shows where Visual Studio draws it
+    plain. Without the C/C++ extension, macro uses such as `MAX_ORDERS`, globals and locals have
+    no colour of their own at all.
+  - Python: Pylance gives `list` in a type hint the same token as `int` and `str`
+    (`class.typeHint.builtin`), which Visual Studio's grammar leaves plain; and a base class such
+    as `Enum` in `class Status(Enum)` the same token as any other reference, where Visual Studio
+    draws it teal. Visual Studio colours Python only through TextMate scopes (without its Python
+    workload), so its `self` and builtins differ from Pylance's view in other small ways too.
 - **Avalonia's own AXAML colours.** With the Avalonia extension installed, Visual Studio colours
   `.axaml` with that extension's classifier rather than as XML: elements in the type colour,
   attributes keyword blue, values plain, `Binding` in the method colour. VS Code colours `.axaml`

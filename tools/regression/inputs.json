@@ -30,7 +30,13 @@
     "source.yaml.1.1": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/yaml/syntaxes/yaml-1.1.tmLanguage.json",
     "source.yaml.1.0": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/yaml/syntaxes/yaml-1.0.tmLanguage.json",
     "source.yaml.embedded": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/yaml/syntaxes/yaml-embedded.tmLanguage.json",
-    "source.dockerfile": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/docker/syntaxes/docker.tmLanguage.json"
+    "source.dockerfile": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/docker/syntaxes/docker.tmLanguage.json",
+    "source.cpp": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/cpp/syntaxes/cpp.tmLanguage.json",
+    "source.cpp.embedded.macro": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/cpp/syntaxes/cpp.embedded.macro.tmLanguage.json",
+    "source.c": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/cpp/syntaxes/c.tmLanguage.json",
+    "source.fsharp": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/fsharp/syntaxes/fsharp.tmLanguage.json",
+    "source.python": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/python/syntaxes/MagicPython.tmLanguage.json",
+    "source.regexp.python": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/python/syntaxes/MagicRegExp.tmLanguage.json"
   },
   "$injections": "Grammars VS Code injects into others (an extension's injectTo), by the scope they are injected into.",
   "injections": {
@@ -59,6 +65,9 @@
     "tools/samples/languages/config/MainWindow.xaml": "text.xml",
     "tools/samples/languages/config/OrdersView.axaml": "text.xml",
     "tools/samples/languages/config/ci.yml": "source.yaml",
-    "tools/samples/languages/config/Dockerfile": "source.dockerfile"
+    "tools/samples/languages/config/Dockerfile": "source.dockerfile",
+    "tools/samples/languages/native/orders.cpp": "source.cpp",
+    "tools/samples/languages/fsharp/orders.fsx": "source.fsharp",
+    "tools/samples/languages/python/orders.py": "source.python"
   }
 }
