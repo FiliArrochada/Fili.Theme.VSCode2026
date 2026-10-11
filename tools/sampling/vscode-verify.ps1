@@ -2,12 +2,19 @@ param(
   [string]$OutDir = (Join-Path $env:TEMP 'fili-vscode-verify'),
   [string]$ProfileDir = (Join-Path $env:TEMP 'fili-vscode-capture'),
   [string]$Vsix,
-  [string[]]$Only
+  [string[]]$Only,
+  [ValidateSet('dark', 'light', 'dark-extra-contrast', 'light-extra-contrast', 'dark-high-contrast')]
+  [string[]]$Themes = @('dark', 'light'),
+  [switch]$Tokens
 )
 # Renders the language samples in VS Code with the theme from this working tree, in Dark and Light,
 # so the colours can be compared with Visual Studio's (sample-colors.ps1 on both captures).
 #   -Vsix   a package to test; by default one is built from the working tree with vsce.
 #   -Only   capture only these views, e.g. -Only json, diff (default: all of them).
+#   -Themes capture in these themes instead, e.g. -Themes dark-extra-contrast, dark-high-contrast.
+#   -Tokens also write the semantic tokens each language server sends to <OutDir>\tokens\<file>.txt
+#           (semantic-tokens\, loaded as a development extension): the types and modifiers a
+#           `type.modifier:language` selector in src/syntax.json must match.
 # The first run installs the language extensions into the isolated profile (it needs the network); the
 # theme is reinstalled on every run. Takes about 12 minutes; do not use the machine meanwhile.
 $ErrorActionPreference = 'Stop'
@@ -64,10 +71,22 @@ $jobs = @(
   @{ slug = 'diff';     folder = $L; args = @('--diff', "$L\left.txt", "$L\right.txt"); wait = 30 },
   @{ slug = 'terminal'; folder = "$L\terminal"; args = @(); wait = 40 }
 )
-foreach ($t in @(@('Fili.VSCode2026 Dark', 'dark'), @('Fili.VSCode2026 Light', 'light'))) {
+$labels = @{
+  'dark' = 'Fili.VSCode2026 Dark'; 'light' = 'Fili.VSCode2026 Light'
+  'dark-extra-contrast' = 'Fili.VSCode2026 Dark (Extra Contrast)'; 'light-extra-contrast' = 'Fili.VSCode2026 Light (Extra Contrast)'
+  'dark-high-contrast' = 'Fili.VSCode2026 Dark (High Contrast)'
+}
+$probe = @()
+if ($Tokens) {
+  # The tokens do not depend on the theme, so the dump is the same in every theme's run.
+  $env:FILI_SEMANTIC_TOKENS_OUT = Join-Path $OutDir 'tokens'
+  $probe = @("--extensionDevelopmentPath=`"$(Join-Path $PSScriptRoot 'semantic-tokens')`"")
+}
+foreach ($t in $Themes) {
   foreach ($j in ($jobs | Where-Object { -not $Only -or $Only -contains $_.slug })) {
-    try { & (Join-Path $PSScriptRoot 'vscode-capture.ps1') -Theme $t[0] -Folder $j.folder -CodeArgs $j.args -Out (Join-Path $OutDir "$($t[1])-$($j.slug).png") -Wait $j.wait -ProfileDir $ProfileDir }
-    catch { "$($t[1])-$($j.slug) failed: $_" }
+    try { & (Join-Path $PSScriptRoot 'vscode-capture.ps1') -Theme $labels[$t] -Folder $j.folder -CodeArgs ($probe + $j.args) -Out (Join-Path $OutDir "$t-$($j.slug).png") -Wait $j.wait -ProfileDir $ProfileDir }
+    catch { "$t-$($j.slug) failed: $_" }
   }
 }
+if ($Tokens) { "semantic tokens in $env:FILI_SEMANTIC_TOKENS_OUT" }
 "captures in $OutDir"

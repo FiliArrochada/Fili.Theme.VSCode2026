@@ -42,7 +42,7 @@ New-Item -ItemType Directory -Force (Join-Path $user 'User') | Out-Null
   'security.workspace.trust.enabled' = $false; 'telemetry.telemetryLevel' = 'off'; 'update.mode' = 'none'; 'update.showReleaseNotes' = $false
   'extensions.autoUpdate' = $false; 'extensions.autoCheckUpdates' = $false; 'git.enabled' = $false
   'workbench.tips.enabled' = $false; 'chat.disableAIFeatures' = $true; 'editor.fontSize' = 14
-  'editor.minimap.enabled' = $false; 'window.zoomLevel' = 0; 'task.allowAutomaticTasks' = 'on'
+  'editor.minimap.enabled' = $false; 'editor.bracketPairColorization.enabled' = $false; 'editor.inlayHints.enabled' = 'offUnlessPressed'; 'window.zoomLevel' = 0; 'task.allowAutomaticTasks' = 'on'
 } | ConvertTo-Json | Set-Content (Join-Path $user 'User\settings.json')
 
 # C# Dev Kit is disabled: it opens an announcement over the editor, and uninstalling it from a

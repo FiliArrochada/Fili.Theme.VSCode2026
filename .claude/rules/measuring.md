@@ -25,5 +25,10 @@ practice it means Visual Studio is driven through DTE found by the started proce
   rather than trusting a value read at the default size.
 - **Some states have no automation route:** the Git merge editor (no DTE command) and link-hover
   colours (CodeLens does not change on hover). They stay inferred in `docs/PARITY.md`.
+- **Read a language server's semantic tokens, never guess them.** `vscode-verify.ps1 -Tokens`
+  dumps every token the server sends with its type and modifiers. In 0.11.0 several guessed
+  selectors missed: Ionide sends printf specifiers as `regexp` and literals as
+  `variable.readonly`, Pylance sends `module`, `magicFunction` and `builtinConstant`, and neither
+  sends `member`. A capture alone cannot tell a missing selector from a wrong one.
 
 The reference captures for the first release were taken the same way, from VS 2026 18.x.

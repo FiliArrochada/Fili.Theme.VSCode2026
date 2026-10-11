@@ -1,0 +1,11 @@
+{
+  "name": "fili-semantic-tokens",
+  "displayName": "Fili semantic-token dump",
+  "description": "Measuring aid, never published: writes the semantic tokens of each open editor to a file. vscode-verify.ps1 -Tokens loads it.",
+  "publisher": "local",
+  "version": "0.0.1",
+  "private": true,
+  "engines": { "vscode": "^1.90.0" },
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js"
+}
