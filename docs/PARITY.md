@@ -25,13 +25,13 @@ beside it; where it keeps the token instead, the note says why.
 
 | Source | Meaning | Dark | Light |
 |---|---|---|---|
-| token | a colour token or classification Visual Studio 2026 ships in its theme files | 120 | 69 |
-| VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, image-catalog and glyph colours | 7 | 27 |
+| token | a colour token or classification Visual Studio 2026 ships in its theme files | 122 | 70 |
+| VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, image-catalog and glyph colours | 7 | 28 |
 | sampled | measured from a running Visual Studio 2026 window | 36 | 61 |
 | composite | a translucent Visual Studio token flattened onto the surface under it | 9 | 14 |
 | derived | another role's value, or a fraction of its opacity | 4 | 6 |
 | inferred | no Visual Studio equivalent; chosen to fit | 6 | 5 |
-| **total** | | **182** | **182** |
+| **total** | | **184** | **184** |
 
 ## Variants
 
@@ -44,11 +44,11 @@ changes; everything else is its base's.
 | Fili.VSCode2026 Light (Bubblegum) | light | 16 |
 | Fili.VSCode2026 Light (Cool Breeze) | light | 17 |
 | Fili.VSCode2026 Dark (Cool Slate) | dark | 15 |
-| Fili.VSCode2026 Dark (Extra Contrast) | dark | 31 |
-| Fili.VSCode2026 Dark (High Contrast) | dark | 112 |
+| Fili.VSCode2026 Dark (Extra Contrast) | dark | 30 |
+| Fili.VSCode2026 Dark (High Contrast) | dark | 114 |
 | Fili.VSCode2026 Light (Icy Mint) | light | 17 |
 | Fili.VSCode2026 Dark (Juicy Plum) | dark | 15 |
-| Fili.VSCode2026 Light (Extra Contrast) | light | 31 |
+| Fili.VSCode2026 Light (Extra Contrast) | light | 30 |
 | Fili.VSCode2026 Light (Mango Paradise) | light | 16 |
 | Fili.VSCode2026 Dark (Moonlight Glow) | dark | 15 |
 | Fili.VSCode2026 Dark (Mystical Forest) | dark | 15 |
@@ -260,7 +260,7 @@ changes; everything else is its base's.
 | `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +22 more |
 | `synIdentifier` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Identifier: VS leaves fields, properties, events, constants, enum members and namespaces plain<br>**Light:** VS default Identifier: fields, properties, events, constants, enum members and namespaces stay plain | `Plain text`, `Namespace stays plain`, `namespace` +6 more |
 | `synPunctuation` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.punctuation | `Punctuation`, `Interpolation punctuation`, `punctuation` |
-| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +20 more |
+| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +19 more |
 | `synControl` | ![#D8A0DF](swatches/D8A0DF.svg) `#D8A0DF` | ![#8F08C4](swatches/8F08C4.svg) `#8F08C4` | Roslyn.keyword - control | `Control keyword`, `controlKeyword` |
 | `synOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Operator<br>**Light:** VS default Operator | `Operator`, `C/C++: VS draws punctuation, * and & in the operator colour`, `Python: and, or, not and is are operators` +1 more |
 | `synString` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** String<br>**Light:** VS default String | `textPreformat.foreground`, `debugTokenExpression.string`, `String` +9 more |
@@ -295,8 +295,10 @@ changes; everything else is its base's.
 | `synCppPlain` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Cpp Text Editor MEF Items.CppGlobalVariableSemanticTokenFormat / CppNamespaceSemanticTokenFormat / CppStaticMemberFieldSemanticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ global variable, namespace, static member field | `C++ namespace (also the name before ::, which TextMate cannot tell from a class)`, `property.static:cpp`, `variable:cpp` +5 more |
 | `synCppOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#008080](swatches/008080.svg) `#008080` | **Dark:** Cpp Text Editor MEF Items.CppOperatorSemanticTokenFormat (overloaded operator calls)<br>**Light:** sampled 2026-10-08: VS default C++ overloaded operator | `operatorOverload:cpp`, `memberOperatorOverload:cpp` |
 | `synCppStringDelimiter` | ![#E8C9BB](swatches/E8C9BB.svg) `#E8C9BB` | ![#E21F1F](swatches/E21F1F.svg) `#E21F1F` | **Dark:** Cpp Text Editor MEF Items.CppStringDelimiterCharacterSyntacticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ string delimiter | `C/C++ string delimiters (quotes, and the <> of an include)` |
-| `synFsMutable` | ![#FFD21C](swatches/FFD21C.svg) `#FFD21C` | ![#A08000](swatches/A08000.svg) `#A08000` | **Dark:** sampled 2026-10-08: VS default FSharp.MutableVar (no Dark token)<br>**Light:** sampled 2026-10-08: VS default FSharp.MutableVar | `*.mutable:fsharp` |
-| `synFsFormat` | ![#4EDCB0](swatches/4EDCB0.svg) `#4EDCB0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | **Dark:** sampled 2026-10-08: VS default FSharp.Printf (no Dark token)<br>**Light:** sampled 2026-10-08: VS default FSharp.Printf | `F# printf format specifier`, `regexp:fsharp` |
+| `synCppPreprocessor` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | Text Editor MEF Items.Preprocessor Keyword (C++ reads the MEF item, which Extra Contrast overrides; C# reads the language-service one) | `C/C++ preprocessor directive (VS's C++ reads a different item than C#'s)` |
+| `synCppNewDelete` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Cpp Text Editor MEF Items.CppNewDeleteSemanticTokenFormat (Extra Contrast leaves it, so new and delete keep the base keyword colour)<br>**Light:** VS default C++ new/delete, the keyword colour (no token; sampled 2026-10-11 under Light (Extra Contrast), which keeps it) | `C++ new and delete`, `newOperator:cpp` |
+| `synFsMutable` | ![#FFD21C](swatches/FFD21C.svg) `#FFD21C` | ![#A08000](swatches/A08000.svg) `#A08000` | **Dark:** sampled 2026-10-08: VS default FSharp.MutableVar (no Dark token; kept under Extra Contrast, inferred from FSharp.Printf)<br>**Light:** sampled 2026-10-08: VS default FSharp.MutableVar (kept under Extra Contrast, inferred from FSharp.Printf) | `*.mutable:fsharp` |
+| `synFsFormat` | ![#4EDCB0](swatches/4EDCB0.svg) `#4EDCB0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | **Dark:** sampled 2026-10-08: VS default FSharp.Printf (no Dark token; VS keeps it under Extra Contrast, which overrides the token but does not draw it)<br>**Light:** sampled 2026-10-08: VS default FSharp.Printf (VS keeps it under Extra Contrast, which overrides the token but does not draw it) | `F# printf format specifier`, `regexp:fsharp` |
 | `synInvalid` | ![#FC3E36](swatches/FC3E36.svg) `#FC3E36` | ![#E51400](swatches/E51400.svg) `#E51400` | **Dark:** syntax error<br>**Light:** TreeView.ValidationSquiggles | `editorBracketHighlight.unexpectedBracket.foreground`, `Invalid`, `Deprecated` |
 
 ## Syntax: web and data languages

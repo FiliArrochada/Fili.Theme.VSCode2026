@@ -1901,6 +1901,30 @@
       }
     },
     {
+      "name": "C/C++ preprocessor directive (VS's C++ reads a different item than C#'s)",
+      "scope": [
+        "source.cpp keyword.control.directive",
+        "source.cpp punctuation.definition.directive",
+        "source.c keyword.control.directive",
+        "source.c punctuation.definition.directive"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
+      "name": "C++ new and delete",
+      "scope": [
+        "keyword.operator.new.cpp",
+        "keyword.operator.delete.cpp",
+        "keyword.operator.delete.array.cpp",
+        "keyword.operator.delete.array.bracket.cpp"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF"
+      }
+    },
+    {
       "name": "C/C++ macro parameter stays plain",
       "scope": [
         "variable.parameter.preprocessor.cpp",

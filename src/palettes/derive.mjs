@@ -87,8 +87,10 @@ const editor = {
   synCppPlain: cpp('CppGlobalVariableSemanticTokenFormat'),
   synCppOperator: cpp('CppOperatorSemanticTokenFormat'),
   synCppStringDelimiter: cpp('CppStringDelimiterCharacterSyntacticTokenFormat'),
-  synFsMutable: { from: MEF('FSharp.MutableVar'), value: (t) => t.fg(MEF('FSharp.MutableVar')) },
-  synFsFormat: { from: MEF('FSharp.Printf'), value: (t) => t.fg(MEF('FSharp.Printf')) },
+  synCppNewDelete: cpp('CppNewDeleteSemanticTokenFormat'),
+  synCppPreprocessor: { from: MEF('Preprocessor Keyword'), value: (t) => t.fg(MEF('Preprocessor Keyword')) },
+  // No rule for synFsMutable and synFsFormat: Extra Contrast overrides FSharp.Printf and
+  // FSharp.MutableVar, but Visual Studio keeps drawing F#'s own defaults (sampled for Printf).
   synCssProperty: cls('CSS Property Name'),
   synSqlFunction: cls('SQL System Function'),
   synSqlString: cls('SQL String'),

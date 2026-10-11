@@ -72,13 +72,9 @@
       "#58D3DB",
       "Text Editor MEF Items.CppOperatorSemanticTokenFormat / Cpp Text Editor MEF Items.CppOperatorSemanticTokenFormat in VS Dark (Extra Contrast)"
     ],
-    "synFsMutable": [
-      "#F2C661",
-      "Text Editor MEF Items.FSharp.MutableVar in VS Dark (Extra Contrast)"
-    ],
-    "synFsFormat": [
-      "#58D3DB",
-      "Text Editor MEF Items.FSharp.Printf in VS Dark (Extra Contrast)"
+    "synCppPreprocessor": [
+      "#C7C7C7",
+      "Text Editor MEF Items.Preprocessor Keyword in VS Dark (Extra Contrast)"
     ],
     "synCssProperty": [
       "#A9D3F2",

@@ -19,7 +19,15 @@
   are type-coloured; parameters, modules and f-string braces are plain, and escapes take the
   string colour. With Pylance, references to classes and functions stay plain, decorators and
   builtin types are type-coloured, and `__init__`, `None` and `sum` are keyword blue.
-- Extra Contrast and High Contrast pick up Visual Studio's own C++ and F# overrides.
+- Extra Contrast follows Visual Studio's C++ overrides: types, parameters, overloaded operators,
+  escapes and preprocessor directives (which C++ reads from a different item than C#, so `#include`
+  is brighter there while C#'s `#region` is not). As in Visual Studio, `new` and `delete`, F#'s
+  format specifiers and `let mutable` values keep their base colours under Extra Contrast. High
+  Contrast stays monochrome.
+- Brackets: **Apply Visual Studio 2026 Layout** now also turns off VS Code's bracket-pair
+  colouring. Visual Studio 2026 ships its own switched off, so brackets take the colour of the
+  code around them; the theme keeps Visual Studio's three brace-pair colours for anyone who turns
+  it back on. **Remove Visual Studio 2026 Layout** restores it.
 
 ## 0.10.0
 

@@ -76,13 +76,9 @@
       "#037679",
       "Text Editor MEF Items.CppOperatorSemanticTokenFormat / Cpp Text Editor MEF Items.CppOperatorSemanticTokenFormat in VS Light (Extra Contrast)"
     ],
-    "synFsMutable": [
-      "#835B00",
-      "Text Editor MEF Items.FSharp.MutableVar in VS Light (Extra Contrast)"
-    ],
-    "synFsFormat": [
-      "#037679",
-      "Text Editor MEF Items.FSharp.Printf in VS Light (Extra Contrast)"
+    "synCppPreprocessor": [
+      "#686868",
+      "Text Editor MEF Items.Preprocessor Keyword in VS Light (Extra Contrast)"
     ],
     "synCssProperty": [
       "#BC4B09",

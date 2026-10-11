@@ -194,13 +194,13 @@
       "#FFFFFF",
       "Text Editor MEF Items.CppStringDelimiterCharacterSyntacticTokenFormat / Cpp Text Editor MEF Items.CppStringDelimiterCharacterSyntacticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
     ],
-    "synFsMutable": [
+    "synCppNewDelete": [
       "#FFFFFF",
-      "Text Editor MEF Items.FSharp.MutableVar in VS High Contrast, under Windows' Aquatic contrast theme"
+      "Text Editor MEF Items.CppNewDeleteSemanticTokenFormat / Cpp Text Editor MEF Items.CppNewDeleteSemanticTokenFormat in VS High Contrast, under Windows' Aquatic contrast theme"
     ],
-    "synFsFormat": [
+    "synCppPreprocessor": [
       "#FFFFFF",
-      "Text Editor MEF Items.FSharp.Printf in VS High Contrast, under Windows' Aquatic contrast theme"
+      "Text Editor MEF Items.Preprocessor Keyword in VS High Contrast, under Windows' Aquatic contrast theme"
     ],
     "synCssProperty": [
       "#FFFFFF",
@@ -383,6 +383,14 @@
       "Text Editor Text Manager Items.Plain Text in VS High Contrast, under Windows' Aquatic contrast theme"
     ],
     "synMarkupTag": [
+      "#FFFFFF",
+      "Text Editor Text Manager Items.Plain Text in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synFsMutable": [
+      "#FFFFFF",
+      "Text Editor Text Manager Items.Plain Text in VS High Contrast, under Windows' Aquatic contrast theme"
+    ],
+    "synFsFormat": [
       "#FFFFFF",
       "Text Editor Text Manager Items.Plain Text in VS High Contrast, under Windows' Aquatic contrast theme"
     ],

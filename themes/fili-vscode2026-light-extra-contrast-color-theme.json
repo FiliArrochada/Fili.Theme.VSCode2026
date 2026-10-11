@@ -1941,6 +1941,30 @@
       }
     },
     {
+      "name": "C/C++ preprocessor directive (VS's C++ reads a different item than C#'s)",
+      "scope": [
+        "source.cpp keyword.control.directive",
+        "source.cpp punctuation.definition.directive",
+        "source.c keyword.control.directive",
+        "source.c punctuation.definition.directive"
+      ],
+      "settings": {
+        "foreground": "#686868"
+      }
+    },
+    {
+      "name": "C++ new and delete",
+      "scope": [
+        "keyword.operator.new.cpp",
+        "keyword.operator.delete.cpp",
+        "keyword.operator.delete.array.cpp",
+        "keyword.operator.delete.array.bracket.cpp"
+      ],
+      "settings": {
+        "foreground": "#0000FF"
+      }
+    },
+    {
       "name": "C/C++ macro parameter stays plain",
       "scope": [
         "variable.parameter.preprocessor.cpp",
@@ -2062,7 +2086,7 @@
         "keyword.format.specifier.fsharp"
       ],
       "settings": {
-        "foreground": "#037679"
+        "foreground": "#2B91AF"
       }
     },
     {
@@ -2383,7 +2407,7 @@
     "event:cpp": "#000000",
     "operatorOverload:cpp": "#037679",
     "memberOperatorOverload:cpp": "#037679",
-    "newOperator:cpp": "#0027B4",
+    "newOperator:cpp": "#0000FF",
     "macro:c": "#8A1BFF",
     "enumMember:c": "#2F4F4F",
     "enum:c": "#037679",
@@ -2396,8 +2420,8 @@
     "enumMember:fsharp": "#037679",
     "parameter:fsharp": "#000000",
     "variable.readonly:fsharp": "#000000",
-    "*.mutable:fsharp": "#835B00",
-    "regexp:fsharp": "#037679",
+    "*.mutable:fsharp": "#A08000",
+    "regexp:fsharp": "#2B91AF",
     "module:python": "#000000",
     "class:python": "#000000",
     "class.declaration:python": "#037679",
