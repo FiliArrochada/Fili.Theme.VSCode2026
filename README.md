@@ -255,6 +255,7 @@ It sets, in your user settings:
 | `editor.minimap.enabled` | `false` | Visual Studio shows a scroll bar map instead |
 | `editor.renderLineHighlight` | `line` | Visual Studio highlights the current line only |
 | `editor.inlayHints.enabled` | `offUnlessPressed` | hints while a key is held, like Alt+F1 in Visual Studio |
+| `editor.bracketPairColorization.enabled` | `false` | Visual Studio 2026 draws brackets in the code's own colours; its brace-pair colouring is off by default (the theme still carries its colours, for anyone who turns VS Code's back on) |
 | `explorer.decorations.colors`, `workbench.editor.decorations.colors` | `false` | Visual Studio never tints file names by Git status |
 | `files.exclude` | adds `bin`, `obj`, `.vs` | Solution Explorer shows project items, not build output (also hides them from search) |
 | `window.title` | solution first | Visual Studio puts the solution name first in its title |

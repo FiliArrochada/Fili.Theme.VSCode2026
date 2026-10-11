@@ -50,6 +50,7 @@ const tick = () => new Promise((r) => setTimeout(r, 10));
   await commands['fili-vscode2026.applyLayout']();
   assert.strictEqual(settings['workbench.sideBar.location'], 'right');
   assert.strictEqual(settings['editor.minimap.enabled'], false);
+  assert.strictEqual(settings['editor.bracketPairColorization.enabled'], false);
   assert.deepStrictEqual(settings['files.exclude'], { '**/node_modules': true, '**/bin': true, '**/obj': true, '**/.vs': true });
 
   // 4. A setting the user changes afterwards survives Remove; everything else is reverted.
@@ -58,6 +59,7 @@ const tick = () => new Promise((r) => setTimeout(r, 10));
   assert.strictEqual(settings['editor.fontSize'], 15, 'user change kept');
   assert.strictEqual(settings['workbench.sideBar.location'], undefined, 'reverted');
   assert.strictEqual(settings['editor.minimap.enabled'], undefined, 'reverted');
+  assert.strictEqual(settings['editor.bracketPairColorization.enabled'], undefined, 'reverted');
   assert.deepStrictEqual(settings['files.exclude'], { '**/node_modules': true }, 'own exclude kept, ours removed');
   assert.strictEqual(settings['workbench.colorTheme'], 'Fili.VSCode2026 Dark', 'theme untouched');
 

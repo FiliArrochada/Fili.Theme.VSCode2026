@@ -18,6 +18,7 @@ const LAYOUT = {
   'editor.minimap.enabled': false, // VS shows a scroll bar map instead.
   'editor.renderLineHighlight': 'line',
   'editor.inlayHints.enabled': 'offUnlessPressed', // Hints while a key is held, like Alt+F1 in VS.
+  'editor.bracketPairColorization.enabled': false, // VS 2026 colours brackets as code, not by depth.
   'explorer.decorations.colors': false, // VS never tints file names by Git status...
   'workbench.editor.decorations.colors': false, // ...in Solution Explorer or on tabs.
   'window.title': '${dirty}${rootName}${separator}${activeEditorShort}', // Solution first, as VS does.
@@ -60,7 +61,7 @@ async function offerOnce(context) {
   if (!String(theme).startsWith('Fili.VSCode2026')) return;
   await context.globalState.update(PROMPTED, true);
   const choice = await vscode.window.showInformationMessage(
-    'Fili.VSCode2026: also apply Visual Studio 2026\'s layout? Side bar on the right, Cascadia Mono, no minimap, no Git-tinted file names, and bin/obj hidden. You can undo it with one command.',
+    'Fili.VSCode2026: also apply Visual Studio 2026\'s layout? Side bar on the right, Cascadia Mono, no minimap, plain brackets, no Git-tinted file names, and bin/obj hidden. You can undo it with one command.',
     'Apply', 'Not now');
   if (choice === 'Apply') await apply();
 }
