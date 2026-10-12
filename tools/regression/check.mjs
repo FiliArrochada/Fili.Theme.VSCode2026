@@ -50,7 +50,11 @@ const oniguruma = require('vscode-oniguruma');
 const grammarDir = join(cache, 'grammars');
 mkdirSync(grammarDir, { recursive: true });
 const grammarFiles = {};
-for (const [scope, url] of Object.entries(inputs.grammars)) {
+for (const [scope, source] of Object.entries(inputs.grammars).filter(([k]) => !k.startsWith('$'))) {
+  // A grammar is a URL, { url, scopeName } for one a newer release ships under another name, or a
+  // repository path for the extension's own grammars.
+  const { url, scopeName } = typeof source === 'string' ? { url: source } : source;
+  if (!url.includes('://')) { grammarFiles[scope] = join(repo, url); continue; }
   // The URL is part of the name, so pinning a new tag downloads afresh. The extension is kept:
   // vscode-textmate reads a .json path as JSON and anything else as a plist.
   const ext = extname(decodeURIComponent(new URL(url).pathname));
@@ -58,7 +62,8 @@ for (const [scope, url] of Object.entries(inputs.grammars)) {
   if (!existsSync(file)) {
     const res = await fetch(url);
     if (!res.ok) { console.error(`${url}: HTTP ${res.status}`); process.exit(2); }
-    writeFileSync(file, await res.text());
+    const text = await res.text();
+    writeFileSync(file, scopeName ? JSON.stringify({ ...JSON.parse(text), scopeName }) : text);
   }
   grammarFiles[scope] = file;
 }

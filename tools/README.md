@@ -29,7 +29,7 @@ workspace.
 | `vs-capture.ps1 -Theme dark\|light -Scenario <name>` | starts the isolated Visual Studio (`devenv /rootsuffix FiliVs2026Ref`) on the language samples and captures a scenario: `editor` (references, brace match, disabled breakpoint, break, caller frame, Markdown, Find), `languages` (one capture per sample file), `snippet`, `terminal`, `diff`, `codelens`. `-Editor dark-extra-contrast\|light-extra-contrast` pairs the theme with an Extra Contrast editor; `-Only ts, js` limits `languages` to those samples; `-FontSize 20` draws the editor at that size (and adds a capture scrolled to the end of each file), for glyphs too thin to measure at the default size |
 | `vscode-verify.ps1 [-Only json, diff] [-Themes …] [-Tokens]` | packages the working tree's theme, installs it with the C#, C/C++, Ionide-F# and Python extensions into an isolated VS Code profile, and captures the same samples in Dark and Light (`-Themes dark-extra-contrast, light-extra-contrast, dark-high-contrast` for the others). `-Tokens` also writes the semantic tokens each language server sends, `line:col "text" type.modifier`, to `tokens\<file>.txt` beside the captures: read them before writing a `type.modifier:language` selector |
 | `semantic-tokens/` | the development extension `-Tokens` loads to dump those tokens; never packaged |
-| `vscode-capture.ps1` | one capture of that isolated VS Code; `vscode-verify.ps1` calls it |
+| `vscode-capture.ps1` | one capture of that isolated VS Code; `vscode-verify.ps1` calls it. C# Dev Kit is disabled unless `-DevKit`, which the AXAML capture needs: Avalonia for VSCode depends on it |
 | `sample-colors.ps1 -Image <png> -Boxes name:x0:x1:y,…` | reports the colour of the text in each box (the glyph core, not its anti-aliased edge) and the box's background |
 | `scopes.mjs <root scope> <file> [filter]` | prints the TextMate scopes VS Code gives each token, so a rule targets the real scope |
 
@@ -71,6 +71,9 @@ grammars, applies every theme in `themes/` the way VS Code does, and compares th
 style each token gets with `expected.json`. It needs only Node and the network: the engine and the
 grammars, pinned in `inputs.json` to what VS Code 1.140.0 and the C# extension 2.160.4 ship, go into
 a cache folder (`FILI_REGRESSION_CACHE`, default `<temp>/fili-regression`), never into the repository.
+A grammar is a URL; `{ "url", "scopeName" }` for one a newer release ships under another scope name
+(Avalonia for VSCode's AXAML grammar, whose last open-source release is `source.AXAML`); or a
+repository path, for the grammars in `syntaxes/`, which `injections` injects as VS Code would.
 
 ```text
 npm run regression                 # compare; lists every token whose look changed, in which themes

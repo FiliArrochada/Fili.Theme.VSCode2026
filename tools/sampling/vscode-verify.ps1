@@ -36,9 +36,9 @@ if (-not $Vsix) {
   try { npx --yes @vscode/vsce package --no-dependencies --changelog-path docs/CHANGELOG.md -o $Vsix | Select-Object -Last 1 } finally { Pop-Location }
 }
 # The language servers whose semantic tokens the theme maps: C#, C/C++, F# (Ionide) and Python
-# (Pylance comes with it).
+# (Pylance comes with it); and Avalonia for VSCode, whose AXAML grammar syntaxes/ injects into.
 $installed = & $code --user-data-dir $user --extensions-dir $ext --list-extensions 2>$null
-foreach ($id in 'ms-dotnettools.csharp', 'ms-vscode.cpptools', 'ionide.ionide-fsharp', 'ms-python.python') {
+foreach ($id in 'ms-dotnettools.csharp', 'ms-vscode.cpptools', 'ionide.ionide-fsharp', 'ms-python.python', 'avaloniateam.vscode-avalonia') {
   if ($installed -notcontains $id) { & $code --user-data-dir $user --extensions-dir $ext --install-extension $id 2>$null | Select-Object -Last 1 }
 }
 & $code --user-data-dir $user --extensions-dir $ext --install-extension $Vsix --force 2>$null | Select-Object -Last 1
@@ -62,7 +62,7 @@ $jobs = @(
   @{ slug = 'xml';      folder = "$L\config"; args = @("$L\config\catalog.xml"); wait = 30 },
   @{ slug = 'msbuild';  folder = "$L\config"; args = @("$L\Fili.Langs.Web\Fili.Langs.Web.csproj"); wait = 30 },
   @{ slug = 'xaml';     folder = "$L\config"; args = @("$L\config\MainWindow.xaml"); wait = 30 },
-  @{ slug = 'axaml';    folder = "$L\config"; args = @("$L\config\OrdersView.axaml"); wait = 30 },
+  @{ slug = 'axaml';    folder = "$L\config"; args = @("$L\config\OrdersView.axaml"); wait = 45; devkit = $true },
   @{ slug = 'yaml';     folder = "$L\config"; args = @("$L\config\ci.yml"); wait = 30 },
   @{ slug = 'docker';   folder = "$L\config"; args = @("$L\config\Dockerfile"); wait = 30 },
   @{ slug = 'cpp';      folder = "$L\native"; args = @("$L\native\orders.cpp"); wait = 45 },
@@ -84,7 +84,7 @@ if ($Tokens) {
 }
 foreach ($t in $Themes) {
   foreach ($j in ($jobs | Where-Object { -not $Only -or $Only -contains $_.slug })) {
-    try { & (Join-Path $PSScriptRoot 'vscode-capture.ps1') -Theme $labels[$t] -Folder $j.folder -CodeArgs ($probe + $j.args) -Out (Join-Path $OutDir "$t-$($j.slug).png") -Wait $j.wait -ProfileDir $ProfileDir }
+    try { & (Join-Path $PSScriptRoot 'vscode-capture.ps1') -Theme $labels[$t] -Folder $j.folder -CodeArgs ($probe + $j.args) -Out (Join-Path $OutDir "$t-$($j.slug).png") -Wait $j.wait -ProfileDir $ProfileDir -DevKit:([bool]$j.devkit) }
     catch { "$t-$($j.slug) failed: $_" }
   }
 }

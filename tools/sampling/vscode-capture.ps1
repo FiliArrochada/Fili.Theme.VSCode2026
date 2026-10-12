@@ -4,11 +4,13 @@ param(
   [string[]]$CodeArgs = @(),
   [Parameter(Mandatory)][string]$Out,
   [int]$Wait = 45,
-  [string]$ProfileDir = (Join-Path $env:TEMP 'fili-vscode-capture')
+  [string]$ProfileDir = (Join-Path $env:TEMP 'fili-vscode-capture'),
+  [switch]$DevKit
 )
 # Captures one isolated VS Code window in one colour theme, for comparing with Visual Studio.
 #   -Theme     a theme label, e.g. 'Fili.VSCode2026 Dark'
 #   -Folder    the folder to open; -CodeArgs adds a file, '-g', 'file:line:col' or '--diff', 'a', 'b'
+#   -DevKit    leaves C# Dev Kit enabled, for an extension that depends on it (Avalonia for VSCode)
 #   -ProfileDir holds the isolated user data and extensions (see vscode-verify.ps1, which installs
 #              the theme and the C# extension there)
 # Only processes started with this profile are ever stopped. The window is brought to the front
@@ -45,9 +47,10 @@ New-Item -ItemType Directory -Force (Join-Path $user 'User') | Out-Null
   'editor.minimap.enabled' = $false; 'editor.bracketPairColorization.enabled' = $false; 'editor.inlayHints.enabled' = 'offUnlessPressed'; 'window.zoomLevel' = 0; 'task.allowAutomaticTasks' = 'on'
 } | ConvertTo-Json | Set-Content (Join-Path $user 'User\settings.json')
 
-# C# Dev Kit is disabled: it opens an announcement over the editor, and uninstalling it from a
-# profile removes the C# extension with it.
-$argList = @('--user-data-dir', "`"$user`"", '--extensions-dir', "`"$ext`"", '--new-window', '--disable-extension', 'ms-dotnettools.csdevkit', "`"$Folder`"") +
+# C# Dev Kit is disabled unless -DevKit: it opens an announcement over the editor, and uninstalling it
+# from a profile removes the C# extension with it.
+$argList = @('--user-data-dir', "`"$user`"", '--extensions-dir', "`"$ext`"", '--new-window') +
+  @(if (-not $DevKit) { '--disable-extension', 'ms-dotnettools.csdevkit' }) + @("`"$Folder`"") +
   @($CodeArgs | ForEach-Object { if ($_ -like '-*') { $_ } else { "`"$_`"" } })
 Start-Process $code -ArgumentList $argList | Out-Null
 Start-Sleep -Seconds $Wait
