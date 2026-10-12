@@ -1,0 +1,29 @@
+{
+  "$comment": "Injected into Avalonia for VSCode's AXAML grammar (XML's grammar as source.axaml), which gives every attribute name the same scope. Visual Studio's Avalonia classifier draws namespace declarations and prefixed directives such as x:Class in its preprocessor colour, and the owner type of an attached property (Grid in Grid.Row) in the type colour, so they get scopes of their own. The scopes extend the grammar's own, so other colour themes draw them as before.",
+  "scopeName": "attributes.injection.axaml.fili-vscode2026",
+  "injectionSelector": "L:source.axaml meta.tag -string -comment",
+  "patterns": [
+    {
+      "match": "(?:^|\\s+)(xmlns)\\s*=",
+      "captures": {
+        "1": { "name": "entity.other.attribute-name.localname.directive.axaml" }
+      }
+    },
+    {
+      "match": "(?:^|\\s+)([-\\w.]+)(:)([-\\w.:]+)\\s*=",
+      "captures": {
+        "1": { "name": "entity.other.attribute-name.namespace.directive.axaml" },
+        "2": { "name": "punctuation.separator.namespace.directive.axaml" },
+        "3": { "name": "entity.other.attribute-name.localname.directive.axaml" }
+      }
+    },
+    {
+      "match": "(?:^|\\s+)([A-Za-z_]\\w*)(\\.)([A-Za-z_]\\w*)\\s*=",
+      "captures": {
+        "1": { "name": "entity.other.attribute-name.localname.owner-type.axaml" },
+        "2": { "name": "entity.other.attribute-name.localname.accessor.axaml" },
+        "3": { "name": "entity.other.attribute-name.localname.xml" }
+      }
+    }
+  ]
+}

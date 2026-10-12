@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0
+
+- Avalonia AXAML takes Visual Studio's colours, measured from Visual Studio 2026 with the Avalonia
+  extension: elements and the owner of an attached property (`Grid` in `Grid.Row`) in the type
+  colour, attributes keyword blue, `xmlns`, `x:` directives, namespace prefixes and `using:`
+  namespaces in the preprocessor grey, markup extensions such as `{Binding}` and `{x:Null}` in the
+  method colour, and values, delimiters and entities plain. Both Extra Contrast editors follow
+  Visual Studio's, and High Contrast stays monochrome. It needs
+  [Avalonia for VSCode](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.vscode-avalonia):
+  this extension now injects a small grammar into its AXAML grammar to tell those parts apart, with
+  scopes other colour themes do not colour differently. Without it, `.axaml` stays XML.
+
 ## 0.11.0
 
 - C and C++ take Visual Studio's C++ colours, from its own classifier: macros purple (`#BEB7FF` in

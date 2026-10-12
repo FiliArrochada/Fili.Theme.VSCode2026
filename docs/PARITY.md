@@ -27,11 +27,11 @@ beside it; where it keeps the token instead, the note says why.
 |---|---|---|---|
 | token | a colour token or classification Visual Studio 2026 ships in its theme files | 122 | 70 |
 | VS built-in | a Visual Studio colour that is not a theme token: a classification default the Light theme leaves out, image-catalog and glyph colours | 7 | 28 |
-| sampled | measured from a running Visual Studio 2026 window | 36 | 61 |
+| sampled | measured from a running Visual Studio 2026 window | 37 | 62 |
 | composite | a translucent Visual Studio token flattened onto the surface under it | 9 | 14 |
 | derived | another role's value, or a fraction of its opacity | 4 | 6 |
 | inferred | no Visual Studio equivalent; chosen to fit | 6 | 5 |
-| **total** | | **184** | **184** |
+| **total** | | **185** | **185** |
 
 ## Variants
 
@@ -45,7 +45,7 @@ changes; everything else is its base's.
 | Fili.VSCode2026 Light (Cool Breeze) | light | 17 |
 | Fili.VSCode2026 Dark (Cool Slate) | dark | 15 |
 | Fili.VSCode2026 Dark (Extra Contrast) | dark | 30 |
-| Fili.VSCode2026 Dark (High Contrast) | dark | 114 |
+| Fili.VSCode2026 Dark (High Contrast) | dark | 115 |
 | Fili.VSCode2026 Light (Icy Mint) | light | 17 |
 | Fili.VSCode2026 Dark (Juicy Plum) | dark | 15 |
 | Fili.VSCode2026 Light (Extra Contrast) | light | 30 |
@@ -257,17 +257,17 @@ changes; everything else is its base's.
 
 | Role | Dark | Light | Source | Used by |
 |---|---|---|---|---|
-| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +22 more |
+| `synText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Plain Text<br>**Light:** VS default Plain Text | `editor.foreground`, `editor.selectionForeground`, `editor.findMatchForeground` +23 more |
 | `synIdentifier` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Identifier: VS leaves fields, properties, events, constants, enum members and namespaces plain<br>**Light:** VS default Identifier: fields, properties, events, constants, enum members and namespaces stay plain | `Plain text`, `Namespace stays plain`, `namespace` +6 more |
 | `synPunctuation` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.punctuation | `Punctuation`, `Interpolation punctuation`, `punctuation` |
-| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +19 more |
+| `synKeyword` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Keyword<br>**Light:** VS default Keyword | `debugTokenExpression.boolean`, `Keyword`, `Keyword that TextMate files under control but VS does not` +20 more |
 | `synControl` | ![#D8A0DF](swatches/D8A0DF.svg) `#D8A0DF` | ![#8F08C4](swatches/8F08C4.svg) `#8F08C4` | Roslyn.keyword - control | `Control keyword`, `controlKeyword` |
 | `synOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Operator<br>**Light:** VS default Operator | `Operator`, `C/C++: VS draws punctuation, * and & in the operator colour`, `Python: and, or, not and is are operators` +1 more |
 | `synString` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#A31515](swatches/A31515.svg) `#A31515` | **Dark:** String<br>**Light:** VS default String | `textPreformat.foreground`, `debugTokenExpression.string`, `String` +9 more |
 | `synStringVerbatim` | ![#D69D85](swatches/D69D85.svg) `#D69D85` | ![#800000](swatches/800000.svg) `#800000` | Roslyn.string - verbatim | `stringVerbatim` |
 | `synStringEscape` | ![#FFD68F](swatches/FFD68F.svg) `#FFD68F` | ![#B776FB](swatches/B776FB.svg) `#B776FB` | string - escape character | `Escape sequence`, `stringEscapeCharacter` |
 | `synNumber` | ![#B5CEA8](swatches/B5CEA8.svg) `#B5CEA8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Number<br>**Light:** VS default Number | `debugTokenExpression.number`, `Number`, `number` +1 more |
-| `synComment` | ![#57A64A](swatches/57A64A.svg) `#57A64A` | ![#008000](swatches/008000.svg) `#008000` | **Dark:** Comment<br>**Light:** VS default Comment | `Comment`, `PowerShell: VS draws type literals ([string]) in its comment green, in both themes (sampled)`, `JS/TS: JSDoc text is plain comment green, tags keywords, parameter names variables, types plain` +6 more |
+| `synComment` | ![#57A64A](swatches/57A64A.svg) `#57A64A` | ![#008000](swatches/008000.svg) `#008000` | **Dark:** Comment<br>**Light:** VS default Comment | `Comment`, `AXAML comment delimiters are comment-coloured`, `PowerShell: VS draws type literals ([string]) in its comment green, in both themes (sampled)` +7 more |
 | `synDocText` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#008000](swatches/008000.svg) `#008000` | Roslyn.xml doc comment - text | `XML doc comment text`, `xmlDocCommentText`, `xmlDocCommentComment` +1 more |
 | `synDocTag` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#808080](swatches/808080.svg) `#808080` | Roslyn.xml doc comment - delimiter | `XML doc comment delimiters`, `JSDoc / other doc tags`, `xmlDocCommentDelimiter` +2 more |
 | `synDocName` | ![#608B4E](swatches/608B4E.svg) `#608B4E` | ![#808080](swatches/808080.svg) `#808080` | Roslyn.xml doc comment - name | `XML doc comment tag names`, `xmlDocCommentName` |
@@ -275,11 +275,11 @@ changes; everything else is its base's.
 | `synPreprocessor` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | Preprocessor Keyword | `Preprocessor`, `macro`, `preprocessorKeyword` |
 | `synPreprocessorText` | ![#DCDCDC](swatches/DCDCDC.svg) `#DCDCDC` | ![#000000](swatches/000000.svg) `#000000` | Roslyn.preprocessor text | `Preprocessor symbol`, `preprocessorText` |
 | `synExcluded` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | **Dark:** Excluded Code<br>**Light:** VS default Excluded Code | `excludedCode` |
-| `synType` | ![#4EC9B0](swatches/4EC9B0.svg) `#4EC9B0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.class name / delegate name / module name | `debugTokenExpression.type`, `Class, delegate, record, attribute`, `JS/TS: the class after new is a type in VS (the grammar scopes it as a function call)` +37 more |
+| `synType` | ![#4EC9B0](swatches/4EC9B0.svg) `#4EC9B0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.class name / delegate name / module name | `debugTokenExpression.type`, `Class, delegate, record, attribute`, `AXAML element and attached-property owner (Grid in Grid.Row)` +38 more |
 | `synStruct` | ![#86C691](swatches/86C691.svg) `#86C691` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.struct name | `Struct`, `struct`, `recordStruct` |
 | `synInterface` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.interface name / enum name | `Interface, enum`, `interface`, `enum` +1 more |
 | `synTypeParameter` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | Roslyn.type parameter name | `Type parameter`, `typeParameter` |
-| `synMethod` | ![#DCDCAA](swatches/DCDCAA.svg) `#DCDCAA` | ![#74531F](swatches/74531F.svg) `#74531F` | Roslyn.method name / extension method name / operator - overloaded | `Method, function`, `method`, `function` +3 more |
+| `synMethod` | ![#DCDCAA](swatches/DCDCAA.svg) `#DCDCAA` | ![#74531F](swatches/74531F.svg) `#74531F` | Roslyn.method name / extension method name / operator - overloaded | `Method, function`, `AXAML markup extension ({Binding}, {x:Null})`, `method` +4 more |
 | `synVariable` | ![#9CDCFE](swatches/9CDCFE.svg) `#9CDCFE` | ![#1F377F](swatches/1F377F.svg) `#1F377F` | Roslyn.local name / parameter name | `debugTokenExpression.name`, `Local, parameter`, `JS/TS: VS colours every identifier that is not a type or function as a variable — properties, enum members and constants too, unlike C#` +14 more |
 | `synRegexClass` | ![#2EABFE](swatches/2EABFE.svg) `#2EABFE` | ![#0073FF](swatches/0073FF.svg) `#0073FF` | Roslyn.regex - character class | `regexCharacterClass` |
 | `synRegexAnchor` | ![#F979AE](swatches/F979AE.svg) `#F979AE` | ![#FF00C1](swatches/FF00C1.svg) `#FF00C1` | Roslyn.regex - anchor / quantifier | `regexAnchor`, `regexQuantifier` |
@@ -288,6 +288,7 @@ changes; everything else is its base's.
 | `synXmlText` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** XML Text<br>**Light:** sampled 2026-10-08: VS default XML Text | `XML text between tags (also XAML and MSBuild files, which VS draws as XML)` |
 | `synXmlQuote` | ![#808080](swatches/808080.svg) `#808080` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** XML Attribute Quotes<br>**Light:** sampled 2026-10-08: VS default XML Attribute Quotes, black while the value is blue | `XML attribute quotes (VS colours them apart from the value)` |
 | `synXmlCData` | ![#E9D585](swatches/E9D585.svg) `#E9D585` | ![#808080](swatches/808080.svg) `#808080` | **Dark:** XML CData Section<br>**Light:** sampled 2026-10-08: VS default XML CData Section | `XML CDATA content` |
+| `synAxamlUri` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | sampled 2026-10-12: Avalonia AXAML literal-uri (an xmlns URI), as drawn; Visual Studio keeps it under Extra Contrast | `AXAML xmlns URI` |
 | `synCppMacro` | ![#BEB7FF](swatches/BEB7FF.svg) `#BEB7FF` | ![#8A1BFF](swatches/8A1BFF.svg) `#8A1BFF` | **Dark:** Cpp Text Editor MEF Items.CppMacroSemanticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ macro | `C/C++ macro (a call in capitals is one)`, `macro:cpp`, `macro:c` |
 | `synCppEnumMember` | ![#B8D7A3](swatches/B8D7A3.svg) `#B8D7A3` | ![#2F4F4F](swatches/2F4F4F.svg) `#2F4F4F` | **Dark:** Cpp Text Editor MEF Items.CppEnumSemanticTokenFormat (enumerators; the enum itself takes CppType)<br>**Light:** sampled 2026-10-08: VS default C++ enumerator | `C/C++ enumerator`, `enumMember:cpp`, `enumMember:c` |
 | `synCppField` | ![#DADADA](swatches/DADADA.svg) `#DADADA` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Cpp Text Editor MEF Items.CppMemberFieldSemanticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ member field | `C/C++ member after . or ->, and in a constructor's initializer list`, `property:cpp`, `property:c` |
@@ -295,7 +296,7 @@ changes; everything else is its base's.
 | `synCppPlain` | ![#C8C8C8](swatches/C8C8C8.svg) `#C8C8C8` | ![#000000](swatches/000000.svg) `#000000` | **Dark:** Cpp Text Editor MEF Items.CppGlobalVariableSemanticTokenFormat / CppNamespaceSemanticTokenFormat / CppStaticMemberFieldSemanticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ global variable, namespace, static member field | `C++ namespace (also the name before ::, which TextMate cannot tell from a class)`, `property.static:cpp`, `variable:cpp` +5 more |
 | `synCppOperator` | ![#B4B4B4](swatches/B4B4B4.svg) `#B4B4B4` | ![#008080](swatches/008080.svg) `#008080` | **Dark:** Cpp Text Editor MEF Items.CppOperatorSemanticTokenFormat (overloaded operator calls)<br>**Light:** sampled 2026-10-08: VS default C++ overloaded operator | `operatorOverload:cpp`, `memberOperatorOverload:cpp` |
 | `synCppStringDelimiter` | ![#E8C9BB](swatches/E8C9BB.svg) `#E8C9BB` | ![#E21F1F](swatches/E21F1F.svg) `#E21F1F` | **Dark:** Cpp Text Editor MEF Items.CppStringDelimiterCharacterSyntacticTokenFormat<br>**Light:** sampled 2026-10-08: VS default C++ string delimiter | `C/C++ string delimiters (quotes, and the <> of an include)` |
-| `synCppPreprocessor` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | Text Editor MEF Items.Preprocessor Keyword (C++ reads the MEF item, which Extra Contrast overrides; C# reads the language-service one) | `C/C++ preprocessor directive (VS's C++ reads a different item than C#'s)` |
+| `synCppPreprocessor` | ![#9B9B9B](swatches/9B9B9B.svg) `#9B9B9B` | ![#808080](swatches/808080.svg) `#808080` | Text Editor MEF Items.Preprocessor Keyword (C++ and Avalonia's AXAML classifier read the MEF item, which Extra Contrast overrides; C# reads the language-service one) | `AXAML namespace prefixes, xmlns and x: directives, using: namespaces`, `C/C++ preprocessor directive (VS's C++ reads a different item than C#'s)` |
 | `synCppNewDelete` | ![#569CD6](swatches/569CD6.svg) `#569CD6` | ![#0000FF](swatches/0000FF.svg) `#0000FF` | **Dark:** Cpp Text Editor MEF Items.CppNewDeleteSemanticTokenFormat (Extra Contrast leaves it, so new and delete keep the base keyword colour)<br>**Light:** VS default C++ new/delete, the keyword colour (no token; sampled 2026-10-11 under Light (Extra Contrast), which keeps it) | `C++ new and delete`, `newOperator:cpp` |
 | `synFsMutable` | ![#FFD21C](swatches/FFD21C.svg) `#FFD21C` | ![#A08000](swatches/A08000.svg) `#A08000` | **Dark:** sampled 2026-10-08: VS default FSharp.MutableVar (no Dark token; VS keeps it under Extra Contrast, sampled 2026-10-12)<br>**Light:** sampled 2026-10-08: VS default FSharp.MutableVar (VS keeps it under Extra Contrast, sampled 2026-10-12) | `*.mutable:fsharp` |
 | `synFsFormat` | ![#4EDCB0](swatches/4EDCB0.svg) `#4EDCB0` | ![#2B91AF](swatches/2B91AF.svg) `#2B91AF` | **Dark:** sampled 2026-10-08: VS default FSharp.Printf (no Dark token; VS keeps it under Extra Contrast, which overrides the token but does not draw it)<br>**Light:** sampled 2026-10-08: VS default FSharp.Printf (VS keeps it under Extra Contrast, which overrides the token but does not draw it) | `F# printf format specifier`, `regexp:fsharp` |

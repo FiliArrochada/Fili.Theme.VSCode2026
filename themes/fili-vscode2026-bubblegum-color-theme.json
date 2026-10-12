@@ -1547,6 +1547,85 @@
       }
     },
     {
+      "name": "AXAML (Avalonia for VSCode, with syntaxes/ injected): delimiters, values and entities plain, as Visual Studio's Avalonia classifier draws them",
+      "scope": [
+        "source.axaml meta.tag.xml",
+        "source.axaml meta.tag.no-content.xml",
+        "source.axaml punctuation.definition.tag.xml",
+        "source.axaml string.quoted.double.xml",
+        "source.axaml string.quoted.single.xml",
+        "source.axaml punctuation.definition.string.begin.xml",
+        "source.axaml punctuation.definition.string.end.xml",
+        "source.axaml constant.character.entity.xml",
+        "source.axaml punctuation.definition.constant.xml",
+        "entity.other.attribute-name.localname.accessor.axaml"
+      ],
+      "settings": {
+        "foreground": "#000000"
+      }
+    },
+    {
+      "name": "AXAML element and attached-property owner (Grid in Grid.Row)",
+      "scope": [
+        "source.axaml entity.name.tag.localname.xml",
+        "entity.other.attribute-name.localname.owner-type.axaml"
+      ],
+      "settings": {
+        "foreground": "#2B91AF"
+      }
+    },
+    {
+      "name": "AXAML attribute",
+      "scope": [
+        "source.axaml entity.other.attribute-name.localname.xml"
+      ],
+      "settings": {
+        "foreground": "#0000FF"
+      }
+    },
+    {
+      "name": "AXAML namespace prefixes, xmlns and x: directives, using: namespaces",
+      "scope": [
+        "source.axaml entity.name.tag.namespace.xml",
+        "source.axaml entity.name.tag.xml punctuation.separator.namespace.xml",
+        "entity.other.attribute-name.namespace.directive.axaml",
+        "punctuation.separator.namespace.directive.axaml",
+        "entity.other.attribute-name.localname.directive.axaml",
+        "meta.markup-extension.namespace.axaml",
+        "meta.namespace-name.axaml"
+      ],
+      "settings": {
+        "foreground": "#808080"
+      }
+    },
+    {
+      "name": "AXAML markup extension ({Binding}, {x:Null})",
+      "scope": [
+        "meta.markup-extension.name.axaml"
+      ],
+      "settings": {
+        "foreground": "#74531F"
+      }
+    },
+    {
+      "name": "AXAML xmlns URI",
+      "scope": [
+        "meta.literal-uri.axaml"
+      ],
+      "settings": {
+        "foreground": "#0000FF"
+      }
+    },
+    {
+      "name": "AXAML comment delimiters are comment-coloured",
+      "scope": [
+        "source.axaml punctuation.definition.comment.xml"
+      ],
+      "settings": {
+        "foreground": "#008000"
+      }
+    },
+    {
       "name": "CSS selector",
       "scope": [
         "entity.name.tag.css",

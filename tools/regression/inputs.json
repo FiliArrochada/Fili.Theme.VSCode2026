@@ -36,11 +36,16 @@
     "source.c": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/cpp/syntaxes/c.tmLanguage.json",
     "source.fsharp": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/fsharp/syntaxes/fsharp.tmLanguage.json",
     "source.python": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/python/syntaxes/MagicPython.tmLanguage.json",
-    "source.regexp.python": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/python/syntaxes/MagicRegExp.tmLanguage.json"
+    "source.regexp.python": "https://raw.githubusercontent.com/microsoft/vscode/1.140.0/extensions/python/syntaxes/MagicRegExp.tmLanguage.json",
+    "$source.axaml": "Avalonia for VSCode's AXAML grammar: its last open-source release, which 12.4.3 ships unchanged but for the scope name.",
+    "source.axaml": { "url": "https://raw.githubusercontent.com/AvaloniaUI/AvaloniaVSCode/v0.0.31/src/vscode-avalonia/AXAML.tmLanguage.json", "scopeName": "source.axaml" },
+    "attributes.injection.axaml.fili-vscode2026": "syntaxes/axaml-attributes.injection.tmLanguage.json",
+    "values.injection.axaml.fili-vscode2026": "syntaxes/axaml-values.injection.tmLanguage.json"
   },
   "$injections": "Grammars VS Code injects into others (an extension's injectTo), by the scope they are injected into.",
   "injections": {
     "source.ts": ["documentation.injection.ts"],
+    "source.axaml": ["attributes.injection.axaml.fili-vscode2026", "values.injection.axaml.fili-vscode2026"],
     "source.js": ["documentation.injection.js.jsx"]
   },
   "files": {
@@ -63,7 +68,7 @@
     "tools/samples/languages/Fili.Langs.Web/Fili.Langs.Web.csproj": "text.xml",
     "tools/samples/languages/config/catalog.xml": "text.xml",
     "tools/samples/languages/config/MainWindow.xaml": "text.xml",
-    "tools/samples/languages/config/OrdersView.axaml": "text.xml",
+    "tools/samples/languages/config/OrdersView.axaml": "source.axaml",
     "tools/samples/languages/config/ci.yml": "source.yaml",
     "tools/samples/languages/config/Dockerfile": "source.dockerfile",
     "tools/samples/languages/native/orders.cpp": "source.cpp",

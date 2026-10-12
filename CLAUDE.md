@@ -10,8 +10,10 @@ themes **Fili.VSCode2026 Dark** and **Fili.VSCode2026 Light**, the fourteen vari
 (eleven tinted themes, two Extra Contrast editors and High Contrast), a file icon theme,
 **Fili.VSCode2026 Icons**, for Solution Explorer's look, and a product icon theme,
 **Fili.VSCode2026 Fluent Icons**. The only
-runtime code is `extension.js`, for the opt-in Visual Studio 2026 layout commands. `themes/`,
-`icons/` and the product icon theme JSON are generated; the Fluent font beside it is vendored.
+runtime code is `extension.js`, for the opt-in Visual Studio 2026 layout commands, and the only
+grammars are the two in `syntaxes/`, injected into Avalonia for VSCode's AXAML grammar (they add
+scopes; they colour nothing). `themes/`, `icons/` and the product icon theme JSON are generated; the
+Fluent font beside it is vendored.
 
 ```bash
 npm run build      # src/ -> themes/ + icons/ + product icon theme, with parity + registry validation and a contrast table

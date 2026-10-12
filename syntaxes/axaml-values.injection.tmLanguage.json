@@ -1,0 +1,23 @@
+{
+  "$comment": "Injected into the attribute values of Avalonia for VSCode's AXAML grammar, which scopes a value as one string. Visual Studio's Avalonia classifier draws a markup extension's name ({Binding ...}, {x:Null}) in the method colour and its prefix, like a using: or clr-namespace: namespace, in its preprocessor colour, and a URI in the keyword blue. The scopes are meta.*, which colour themes leave alone, so other themes keep drawing the whole value as a string.",
+  "scopeName": "values.injection.axaml.fili-vscode2026",
+  "injectionSelector": "L:source.axaml meta.tag string -comment",
+  "patterns": [
+    {
+      "match": "(?<=\\{)\\s*(?:([A-Za-z_][\\w.]*)(:))?([A-Za-z_][\\w.]*)",
+      "captures": {
+        "1": { "name": "meta.markup-extension.namespace.axaml" },
+        "2": { "name": "meta.markup-extension.namespace.axaml" },
+        "3": { "name": "meta.markup-extension.name.axaml" }
+      }
+    },
+    {
+      "match": "(?<=[\"'])(?:using|clr-namespace):[^\"';]*",
+      "name": "meta.namespace-name.axaml"
+    },
+    {
+      "match": "(?<=[\"'])[A-Za-z][A-Za-z0-9+.-]*://[^\"'\\s]*",
+      "name": "meta.literal-uri.axaml"
+    }
+  ]
+}

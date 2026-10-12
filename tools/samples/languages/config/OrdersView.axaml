@@ -8,5 +8,8 @@
     <TextBlock Classes="title" Text="{Binding Title}" />
     <ListBox ItemsSource="{Binding Lines}" SelectedItem="{Binding Selected}" />
     <Button Content="Refresh" Command="{Binding RefreshCommand}" />
+    <vm:LineView x:Name="Total" Grid.Row="1" />
+    <TextBlock Text="A &amp; B" Tag="{x:Null}" />
+    <Border Background="{DynamicResource Accent}" />
   </StackPanel>
 </UserControl>

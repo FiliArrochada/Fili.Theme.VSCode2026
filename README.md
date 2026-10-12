@@ -198,9 +198,19 @@ Code's yellow one.
 | VB.NET | the same Roslyn colours as C#; `As` and primitive types are keywords | | |
 | SQL | system functions (`COUNT`, `GETDATE`) | `#C975D5` | `#FF00FF` |
 | | strings | `#CB4141` | `#FF0000` |
+| Avalonia AXAML | elements, and `Grid` in `Grid.Row` | `#4EC9B0` | `#2B91AF` |
+| | attributes | `#569CD6` | `#0000FF` |
+| | `xmlns`, `x:Class`, `vm:` prefixes, `using:` namespaces | `#9B9B9B` | `#808080` |
+| | markup extensions (`{Binding}`, `{x:Null}`) | `#DCDCAA` | `#74531F` |
+| | values, `<`, `=`, quotes and braces | plain text | plain text |
 
 Razor's component colours come from the C# extension's Razor language server, so they appear once
-it has loaded the project.
+it has loaded the project. AXAML takes these colours with
+[Avalonia for VSCode](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.vscode-avalonia)
+installed: its grammar scopes every attribute alike, so this extension injects a small grammar into
+it that picks out directives, attached properties and markup extensions, as Visual Studio's
+Avalonia extension does. Other colour themes see no difference. Without it, VS Code opens `.axaml`
+as XML and it gets the XML colours.
 
 ![A Razor component in Fili.VSCode2026 Dark and Light](docs/screenshots/razor.png)
 
@@ -291,8 +301,8 @@ These are limits of what a VS Code colour theme can express, not choices:
   struck through, as in Visual Studio, but in plain text.
 - **Some language colours have no hook in VS Code.** Visual Studio Light draws Razor code on a pale
   yellow block; a theme cannot give tokens a background. VS Code's grammars give Visual Studio's
-  other colours nothing to target: XAML markup extensions (`{Binding Path=Name}`) are one string to
-  the XML grammar, a Less mixin call looks like a class selector, SQL system tables
+  other colours nothing to target: WPF XAML markup extensions (`{Binding Path=Name}`) are one string
+  to the XML grammar (AXAML's are coloured, above), a Less mixin call looks like a class selector, SQL system tables
   (`sys.objects`) and stored procedures look like any other name, and VS Code's VB grammar cannot
   tell a type from a method (`List` is coloured as a method) and has no semantic colouring for
   locals.
