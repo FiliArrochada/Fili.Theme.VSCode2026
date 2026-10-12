@@ -181,7 +181,7 @@
     "synCppStringDelimiter": ["#E21F1F", "sampled 2026-10-08: VS default C++ string delimiter"],
     "synCppPreprocessor":    ["#808080", "Text Editor MEF Items.Preprocessor Keyword (C++ reads the MEF item, which Extra Contrast overrides; C# reads the language-service one)"],
     "synCppNewDelete":       ["#0000FF", "VS default C++ new/delete, the keyword colour (no token; sampled 2026-10-11 under Light (Extra Contrast), which keeps it)"],
-    "synFsMutable":          ["#A08000", "sampled 2026-10-08: VS default FSharp.MutableVar (kept under Extra Contrast, inferred from FSharp.Printf)"],
+    "synFsMutable":          ["#A08000", "sampled 2026-10-08: VS default FSharp.MutableVar (VS keeps it under Extra Contrast, sampled 2026-10-12)"],
     "synFsFormat":           ["#2B91AF", "sampled 2026-10-08: VS default FSharp.Printf (VS keeps it under Extra Contrast, which overrides the token but does not draw it)"],
     "synMarkupAttribute":    ["#FF0000", "VS default XML Attribute"],
     "synHtmlAttribute":      ["#FF0000", "sampled 2026-10-03: VS default HTML Attribute Name, the same as XML"],

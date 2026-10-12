@@ -90,7 +90,7 @@ const editor = {
   synCppNewDelete: cpp('CppNewDeleteSemanticTokenFormat'),
   synCppPreprocessor: { from: MEF('Preprocessor Keyword'), value: (t) => t.fg(MEF('Preprocessor Keyword')) },
   // No rule for synFsMutable and synFsFormat: Extra Contrast overrides FSharp.Printf and
-  // FSharp.MutableVar, but Visual Studio keeps drawing F#'s own defaults (sampled for Printf).
+  // FSharp.MutableVar, but Visual Studio keeps drawing F#'s own defaults (both sampled).
   synCssProperty: cls('CSS Property Name'),
   synSqlFunction: cls('SQL System Function'),
   synSqlString: cls('SQL String'),

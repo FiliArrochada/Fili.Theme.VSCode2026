@@ -28,12 +28,6 @@ here why it was dropped.
     as `Enum` in `class Status(Enum)` the same token as any other reference, where Visual Studio
     draws it teal. Visual Studio colours Python only through TextMate scopes (without its Python
     workload), so its `self` and builtins differ from Pylance's view in other small ways too.
-  - F# under Extra Contrast: Visual Studio was seen to ignore the theme's `FSharp.Printf` override
-    and keep F#'s default; `FSharp.MutableVar` is assumed to behave the same (its line was off
-    screen in the 20 pt capture, and the default-size capture came back blank with the display
-    asleep). Confirm with `vs-capture.ps1 -Editor dark-extra-contrast -Only fsharp` on the next
-    screen round; if Visual Studio does draw `#F2C661`, restore the `synFsMutable` rule in
-    `derive.mjs`.
 - **Avalonia's own AXAML colours.** With the Avalonia extension installed, Visual Studio colours
   `.axaml` with that extension's classifier rather than as XML: elements in the type colour,
   attributes keyword blue, values plain, `Binding` in the method colour. VS Code colours `.axaml`
