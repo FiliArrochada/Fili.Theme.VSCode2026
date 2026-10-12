@@ -2,6 +2,9 @@
 
 ## 1.0.0
 
+The first stable release: every theme Visual Studio 2026 ships, measured from Visual Studio itself
+and verified against it in VS Code.
+
 - Avalonia AXAML takes Visual Studio's colours, measured from Visual Studio 2026 with the Avalonia
   extension: elements and the owner of an attached property (`Grid` in `Grid.Row`) in the type
   colour, attributes keyword blue, `xmlns`, `x:` directives, namespace prefixes and `using:`
